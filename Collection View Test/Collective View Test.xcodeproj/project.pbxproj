@@ -13,6 +13,7 @@
 		3D4351C51D1908DF00027BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4351C41D1908DF00027BC9 /* Assets.xcassets */; };
 		3D4351C81D1908DF00027BC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4351C61D1908DF00027BC9 /* LaunchScreen.storyboard */; };
 		3D4351D01D190D1A00027BC9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4351CF1D190D1A00027BC9 /* CollectionViewCell.swift */; };
+		3DB7A4561D1AD2B2003799BC /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7A4551D1AD2B2003799BC /* NextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3D4351C71D1908DF00027BC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D4351C91D1908DF00027BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4351CF1D190D1A00027BC9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3DB7A4551D1AD2B2003799BC /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3D4351C61D1908DF00027BC9 /* LaunchScreen.storyboard */,
 				3D4351C91D1908DF00027BC9 /* Info.plist */,
 				3D4351CF1D190D1A00027BC9 /* CollectionViewCell.swift */,
+				3DB7A4551D1AD2B2003799BC /* NextViewController.swift */,
 			);
 			path = "Collective View Test";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4351C01D1908DF00027BC9 /* ViewController.swift in Sources */,
+				3DB7A4561D1AD2B2003799BC /* NextViewController.swift in Sources */,
 				3D4351BE1D1908DF00027BC9 /* AppDelegate.swift in Sources */,
 				3D4351D01D190D1A00027BC9 /* CollectionViewCell.swift in Sources */,
 			);
@@ -290,6 +294,7 @@
 				3D4351CE1D1908DF00027BC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
