@@ -11,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategorySelectionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="4cS-jX-Li9" id="TLQ-eL-R1m"/>
+                <outlet property="helpButton" destination="3lD-XK-jao" id="alc-OQ-5ot"/>
+                <outlet property="shareButton" destination="yaZ-Th-gzQ" id="NjL-UO-o1F"/>
+                <outlet property="teamPlayButton" destination="JDi-6Q-w7K" id="40b-SP-Yma"/>
                 <outlet property="view" destination="LPB-qR-VS1" id="Cjt-BP-lbB"/>
             </connections>
         </placeholder>
@@ -57,19 +60,20 @@
             <constraints>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="bottom" secondItem="JDi-6Q-w7K" secondAttribute="bottom" id="0Cl-f9-a6o"/>
                 <constraint firstItem="JDi-6Q-w7K" firstAttribute="width" secondItem="3lD-XK-jao" secondAttribute="height" multiplier="1:1" id="7Xn-D6-59V"/>
+                <constraint firstItem="JDi-6Q-w7K" firstAttribute="centerX" secondItem="4cS-jX-Li9" secondAttribute="centerX" id="Grs-Oo-4JY"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="top" secondItem="JDi-6Q-w7K" secondAttribute="top" id="KBA-W5-EgD"/>
                 <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3lD-XK-jao" secondAttribute="top" id="ME3-cE-Ulf"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="width" secondItem="JDi-6Q-w7K" secondAttribute="height" multiplier="1:1" id="Vlh-ks-EvH"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="leading" secondItem="LPB-qR-VS1" secondAttribute="leadingMargin" id="aA7-Qx-Ksy"/>
                 <constraint firstAttribute="bottom" secondItem="yaZ-Th-gzQ" secondAttribute="bottom" constant="12" id="dEs-ic-ViG"/>
                 <constraint firstAttribute="trailing" secondItem="4cS-jX-Li9" secondAttribute="trailing" id="jga-Un-VdY"/>
-                <constraint firstItem="4cS-jX-Li9" firstAttribute="top" secondItem="LPB-qR-VS1" secondAttribute="top" id="kDy-35-OiI"/>
+                <constraint firstItem="4cS-jX-Li9" firstAttribute="top" secondItem="LPB-qR-VS1" secondAttribute="top" constant="20" id="kDy-35-OiI"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="top" secondItem="4cS-jX-Li9" secondAttribute="bottom" constant="12" id="pSx-Pq-mgK"/>
                 <constraint firstItem="JDi-6Q-w7K" firstAttribute="bottom" secondItem="3lD-XK-jao" secondAttribute="bottom" id="u4Z-kw-dSI"/>
                 <constraint firstItem="4cS-jX-Li9" firstAttribute="leading" secondItem="LPB-qR-VS1" secondAttribute="leading" id="xGo-wt-FbL"/>
-                <constraint firstItem="4cS-jX-Li9" firstAttribute="centerX" secondItem="JDi-6Q-w7K" secondAttribute="centerX" id="xjz-d8-fBD"/>
                 <constraint firstItem="3lD-XK-jao" firstAttribute="trailing" secondItem="LPB-qR-VS1" secondAttribute="trailingMargin" id="zzh-aw-PhP"/>
             </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
     <resources>

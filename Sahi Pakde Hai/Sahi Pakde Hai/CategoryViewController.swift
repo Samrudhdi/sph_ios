@@ -39,7 +39,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell: CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         // Assigning image
-        cell.categoryImage.image = UIImage(named: categoryImageArray[(indexPath as NSIndexPath).row])
+//        cell.categoryImage.image = UIImage(named: categoryImageArray[(indexPath as NSIndexPath).row])
         return cell
     }
     

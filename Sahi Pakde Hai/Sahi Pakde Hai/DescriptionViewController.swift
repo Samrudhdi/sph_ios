@@ -20,7 +20,10 @@ class DescriptionViewController: UIViewController {
 
     // Back button
     @IBAction func moveBAck(_ sender: AnyObject) {
-        CommonUtil().moveToNextScreen("CATEGORY_SCREEN", senderViewController: self)
+       self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func playGame(_ sender: AnyObject) {
+        performSegue(withIdentifier: "PlayGameViewController", sender: self)
+    }
 }
