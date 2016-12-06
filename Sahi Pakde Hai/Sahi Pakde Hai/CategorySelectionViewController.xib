@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategorySelectionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="4cS-jX-Li9" id="TLQ-eL-R1m"/>
+                <outlet property="view" destination="LPB-qR-VS1" id="Cjt-BP-lbB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LPB-qR-VS1">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-jX-Li9">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="0.0" id="QpE-X2-dTn">
+                        <size key="itemSize" width="150" height="150"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="7aL-Y7-6nS"/>
+                        <outlet property="delegate" destination="-1" id="sjV-4n-2jL"/>
+                    </connections>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-XK-jao">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="x6h-C0-aUU"/>
+                    </constraints>
+                    <state key="normal" image="Image"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-6Q-w7K">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="F8w-sf-Qkb"/>
+                    </constraints>
+                    <state key="normal" image="Image"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-Th-gzQ">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="HiT-J4-b1I"/>
+                        <constraint firstAttribute="height" constant="50" id="jnq-nq-qhL"/>
+                    </constraints>
+                    <state key="normal" image="Image"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="bottom" secondItem="JDi-6Q-w7K" secondAttribute="bottom" id="0Cl-f9-a6o"/>
+                <constraint firstItem="JDi-6Q-w7K" firstAttribute="width" secondItem="3lD-XK-jao" secondAttribute="height" multiplier="1:1" id="7Xn-D6-59V"/>
+                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="top" secondItem="JDi-6Q-w7K" secondAttribute="top" id="KBA-W5-EgD"/>
+                <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3lD-XK-jao" secondAttribute="top" id="ME3-cE-Ulf"/>
+                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="width" secondItem="JDi-6Q-w7K" secondAttribute="height" multiplier="1:1" id="Vlh-ks-EvH"/>
+                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="leading" secondItem="LPB-qR-VS1" secondAttribute="leadingMargin" id="aA7-Qx-Ksy"/>
+                <constraint firstAttribute="bottom" secondItem="yaZ-Th-gzQ" secondAttribute="bottom" constant="12" id="dEs-ic-ViG"/>
+                <constraint firstAttribute="trailing" secondItem="4cS-jX-Li9" secondAttribute="trailing" id="jga-Un-VdY"/>
+                <constraint firstItem="4cS-jX-Li9" firstAttribute="top" secondItem="LPB-qR-VS1" secondAttribute="top" id="kDy-35-OiI"/>
+                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="top" secondItem="4cS-jX-Li9" secondAttribute="bottom" constant="12" id="pSx-Pq-mgK"/>
+                <constraint firstItem="JDi-6Q-w7K" firstAttribute="bottom" secondItem="3lD-XK-jao" secondAttribute="bottom" id="u4Z-kw-dSI"/>
+                <constraint firstItem="4cS-jX-Li9" firstAttribute="leading" secondItem="LPB-qR-VS1" secondAttribute="leading" id="xGo-wt-FbL"/>
+                <constraint firstItem="4cS-jX-Li9" firstAttribute="centerX" secondItem="JDi-6Q-w7K" secondAttribute="centerX" id="xjz-d8-fBD"/>
+                <constraint firstItem="3lD-XK-jao" firstAttribute="trailing" secondItem="LPB-qR-VS1" secondAttribute="trailingMargin" id="zzh-aw-PhP"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Image" width="72" height="72"/>
+    </resources>
+</document>

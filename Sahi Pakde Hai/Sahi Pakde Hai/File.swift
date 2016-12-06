@@ -10,9 +10,9 @@ import UIKit
 
 class CommonUtil{
     
-    func moveToNextScreen(storyBoardIdentifire: String,senderViewController: UIViewController){
+    func moveToNextScreen(_ storyBoardIdentifire: String,senderViewController: UIViewController){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationViewController = storyBoard.instantiateViewControllerWithIdentifier(storyBoardIdentifire)
-        senderViewController.presentViewController(destinationViewController, animated:true, completion:nil)
+        let destinationViewController = storyBoard.instantiateViewController(withIdentifier: storyBoardIdentifire)
+        senderViewController.present(destinationViewController, animated:true, completion:nil)
     }
 }

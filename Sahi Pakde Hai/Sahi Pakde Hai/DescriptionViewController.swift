@@ -19,7 +19,7 @@ class DescriptionViewController: UIViewController {
     }
 
     // Back button
-    @IBAction func moveBAck(sender: AnyObject) {
+    @IBAction func moveBAck(_ sender: AnyObject) {
         CommonUtil().moveToNextScreen("CATEGORY_SCREEN", senderViewController: self)
     }
 
