@@ -15,9 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9e-5g-yBK">
-                        <color key="backgroundColor" red="1" green="0.93491927939999997" blue="0.1933540953" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9e-5g-yBK"/>
                 </subviews>
             </view>
             <constraints>
@@ -27,6 +25,9 @@
                 <constraint firstAttribute="trailing" secondItem="p9e-5g-yBK" secondAttribute="trailing" id="yh5-VN-Ikq"/>
             </constraints>
             <size key="customSize" width="125" height="130"/>
+            <connections>
+                <outlet property="categoryImageView" destination="p9e-5g-yBK" id="43z-WT-r4m"/>
+            </connections>
             <point key="canvasLocation" x="-241.5" y="-49"/>
         </collectionViewCell>
     </objects>

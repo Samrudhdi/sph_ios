@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-jX-Li9">
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="0.0" id="QpE-X2-dTn">
                         <size key="itemSize" width="150" height="150"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,33 +36,24 @@
                     </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-XK-jao">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="x6h-C0-aUU"/>
-                    </constraints>
-                    <state key="normal" image="Image"/>
+                    <state key="normal" image="que"/>
+                    <connections>
+                        <action selector="goToHelp:" destination="-1" eventType="touchUpInside" id="3Ts-fX-gmw"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-6Q-w7K">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="F8w-sf-Qkb"/>
-                    </constraints>
-                    <state key="normal" image="Image"/>
+                    <state key="normal" image="team"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-Th-gzQ">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="HiT-J4-b1I"/>
-                        <constraint firstAttribute="height" constant="50" id="jnq-nq-qhL"/>
-                    </constraints>
-                    <state key="normal" image="Image"/>
+                    <state key="normal" image="share"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="bottom" secondItem="JDi-6Q-w7K" secondAttribute="bottom" id="0Cl-f9-a6o"/>
-                <constraint firstItem="JDi-6Q-w7K" firstAttribute="width" secondItem="3lD-XK-jao" secondAttribute="height" multiplier="1:1" id="7Xn-D6-59V"/>
                 <constraint firstItem="JDi-6Q-w7K" firstAttribute="centerX" secondItem="4cS-jX-Li9" secondAttribute="centerX" id="Grs-Oo-4JY"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="top" secondItem="JDi-6Q-w7K" secondAttribute="top" id="KBA-W5-EgD"/>
                 <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3lD-XK-jao" secondAttribute="top" id="ME3-cE-Ulf"/>
-                <constraint firstItem="yaZ-Th-gzQ" firstAttribute="width" secondItem="JDi-6Q-w7K" secondAttribute="height" multiplier="1:1" id="Vlh-ks-EvH"/>
                 <constraint firstItem="yaZ-Th-gzQ" firstAttribute="leading" secondItem="LPB-qR-VS1" secondAttribute="leadingMargin" id="aA7-Qx-Ksy"/>
                 <constraint firstAttribute="bottom" secondItem="yaZ-Th-gzQ" secondAttribute="bottom" constant="12" id="dEs-ic-ViG"/>
                 <constraint firstAttribute="trailing" secondItem="4cS-jX-Li9" secondAttribute="trailing" id="jga-Un-VdY"/>
@@ -77,6 +67,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Image" width="72" height="72"/>
+        <image name="que" width="60" height="60"/>
+        <image name="share" width="60" height="60"/>
+        <image name="team" width="60" height="60"/>
     </resources>
 </document>

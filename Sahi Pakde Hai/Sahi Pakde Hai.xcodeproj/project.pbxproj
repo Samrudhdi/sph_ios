@@ -17,14 +17,24 @@
 		3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */; };
 		3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */; };
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
+		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
+		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
+		3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DB1E030D99006E560B /* select_category.mp3 */; };
+		3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DD1E0310A3006E560B /* correct.mp3 */; };
+		3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DE1E0310A3006E560B /* get_ready.mp3 */; };
+		3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */; };
+		3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */; };
+		3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E11E0310A3006E560B /* three_two_one.mp3 */; };
+		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
+		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
+		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
 		3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */; };
 		3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C061D1D0BB40071C1C7 /* Main.storyboard */; };
 		3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */; };
 		3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */; };
 		3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */; };
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
-		3DE98C321D1D43FA0071C1C7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* File.swift */; };
-		3DE98C371D1D565A0071C1C7 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C361D1D565A0071C1C7 /* CategoryViewController.swift */; };
+		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
 		3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +49,17 @@
 		3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
+		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3D6F76DB1E030D99006E560B /* select_category.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select_category.mp3; sourceTree = "<group>"; };
+		3D6F76DD1E0310A3006E560B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		3D6F76DE1E0310A3006E560B /* get_ready.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get_ready.mp3; sourceTree = "<group>"; };
+		3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = round_end_buzzer.mp3; sourceTree = "<group>"; };
+		3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = three_two_one_2.mp3; sourceTree = "<group>"; };
+		3D6F76E11E0310A3006E560B /* three_two_one.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = three_two_one.mp3; sourceTree = "<group>"; };
+		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
+		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
+		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
 		3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahi Pakde Hai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DE98C071D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,8 +68,7 @@
 		3DE98C0E1D1D0BB40071C1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
-		3DE98C311D1D43FA0071C1C7 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		3DE98C361D1D565A0071C1C7 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlay.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +86,6 @@
 		3D20ABC81DF720A0009DFB7E /* CategoryView */ = {
 			isa = PBXGroup;
 			children = (
-				3DE98C361D1D565A0071C1C7 /* CategoryViewController.swift */,
 				3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */,
 				3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */,
 				3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */,
@@ -102,6 +121,30 @@
 			name = HowToPlay;
 			sourceTree = "<group>";
 		};
+		3D3659B11E01B25B0018F13E /* pojo */ = {
+			isa = PBXGroup;
+			children = (
+				3D3659B21E01B2900018F13E /* Category.swift */,
+			);
+			name = pojo;
+			sourceTree = "<group>";
+		};
+		3D6F76C81E030620006E560B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F76DD1E0310A3006E560B /* correct.mp3 */,
+				3D6F76DE1E0310A3006E560B /* get_ready.mp3 */,
+				3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */,
+				3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */,
+				3D6F76E11E0310A3006E560B /* three_two_one.mp3 */,
+				3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */,
+				3D6F76E31E0310A3006E560B /* final_score.mp3 */,
+				3D6F76E41E0310A3006E560B /* pass.mp3 */,
+				3D6F76DB1E030D99006E560B /* select_category.mp3 */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		3DE98BF61D1D0BB40071C1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +164,8 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3D6F76C81E030620006E560B /* sounds */,
+				3D3659B11E01B25B0018F13E /* pojo */,
 				3D20ABDB1DF73E30009DFB7E /* HowToPlay */,
 				3D20ABDA1DF73E13009DFB7E /* DescriptionView */,
 				3D20ABD51DF73A6C009DFB7E /* PlayGame */,
@@ -141,7 +186,8 @@
 		3DE98C301D1D43E50071C1C7 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				3DE98C311D1D43FA0071C1C7 /* File.swift */,
+				3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */,
+				3D3659B41E01B7A50018F13E /* Constant.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -178,6 +224,7 @@
 				TargetAttributes = {
 					3DE98BFE1D1D0BB40071C1C7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8DS8YKQTGK;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -205,16 +252,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */,
+				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
+				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
 				3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */,
 				3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */,
+				3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */,
 				3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */,
+				3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */,
 				3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */,
+				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
 				3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */,
 				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
 				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
 				3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */,
 				3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */,
+				3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */,
 				3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */,
+				3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */,
+				3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,13 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
 				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
-				3DE98C321D1D43FA0071C1C7 /* File.swift in Sources */,
+				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
-				3DE98C371D1D565A0071C1C7 /* CategoryViewController.swift in Sources */,
+				3D3659B51E01B7A50018F13E /* Constant.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,11 +403,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,11 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

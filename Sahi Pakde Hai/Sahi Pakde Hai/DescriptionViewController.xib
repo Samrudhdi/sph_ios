@@ -9,6 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DescriptionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="dyu-N9-Dpg" id="JQk-x8-MN2"/>
+                <outlet property="desc_1" destination="0aA-8R-ZMB" id="Tmo-QZ-eQf"/>
+                <outlet property="desc_2" destination="Dlw-se-gCs" id="If7-Pi-gvY"/>
+                <outlet property="playButton" destination="cG1-TV-gcv" id="NrM-2g-qdt"/>
+                <outlet property="selectedCategoryImage" destination="Q7a-bo-S4R" id="ymh-gh-eQc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-7v-fw4"/>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-7v-fw4"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0aA-8R-ZMB">
                     <constraints>
                         <constraint firstAttribute="height" constant="112" id="0Bv-Wi-sLS"/>
@@ -43,26 +48,33 @@
                         <constraint firstAttribute="height" constant="35" id="dqt-Rd-v7j"/>
                     </constraints>
                     <state key="normal" title="BACK">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="corner" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="moveBAck:" destination="-1" eventType="touchUpInside" id="n68-tv-fpv"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG1-TV-gcv">
-                    <color key="backgroundColor" red="0.25245891079999999" green="1" blue="0.52454167929999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.3803921569" green="0.94901960780000005" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                     <state key="normal" title="PLAY">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="playGame:" destination="-1" eventType="touchUpInside" id="k3U-9r-3tg"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-bo-S4R">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7a-bo-S4R">
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Q7a-bo-S4R" secondAttribute="height" multiplier="1:1" id="FE8-Pu-8Vk"/>
                     </constraints>
@@ -95,7 +107,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Image" width="72" height="72"/>
         <image name="bg" width="375" height="667"/>
     </resources>
 </document>

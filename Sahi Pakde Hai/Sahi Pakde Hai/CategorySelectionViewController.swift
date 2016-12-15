@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CategorySelectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var shareButton: UIButton!
@@ -19,10 +20,16 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
     let numberOfCell:CGFloat = 2
     var margin:CGFloat = 20.0
     
+    var selectedCategory:Category? = nil
+    var categoryArray:Array<Category> = []
+    var categorySelectionSound:AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
+        
+        setCategoryList()
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -36,12 +43,14 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return categoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath)
+        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        cell.categoryImageView.image = UIImage.init(named: categoryArray[indexPath.row].image)
         
         return cell
     }
@@ -59,10 +68,53 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
         return UIEdgeInsetsMake(0, margin, 0, margin)
     }
     
+    
+    func setCategoryList(){
+        
+        var cinemaCat = Category()
+        cinemaCat.categoryId = 1
+        cinemaCat.backgroundColor = Constant.bg_cinema
+        cinemaCat.image = "cinema"
+        cinemaCat.desc_1 = "afsadfdsaf asdfsdaf asdfdsafds adfas sadfsdf adsfsaf"
+        cinemaCat.desc_2 = "afadfa asdfsadf dsafasdf dfsafsafadfasdf asdfsadf asadfaf a sda"
+        
+        var lightCameraActionCat = Category()
+        lightCameraActionCat.categoryId = 2
+        lightCameraActionCat.backgroundColor = Constant.bg_cinema
+        lightCameraActionCat.image = "light_camera_action"
+        lightCameraActionCat.desc_1 = "afsadfdsaf asdfsdaf asdfdsafds adfas sadfsdf adsfsaf"
+        lightCameraActionCat.desc_2 = "afadfa asdfsadf dsafasdf dfsafsafadfasdf asdfsadf asadfaf a sda"
+        
+        categoryArray.append(cinemaCat)
+        categoryArray.append(lightCameraActionCat)
+        categoryArray.append(cinemaCat)
+        categoryArray.append(lightCameraActionCat)
+        categoryArray.append(cinemaCat)
+        categoryArray.append(lightCameraActionCat)
+        
+    }
+
+    @IBAction func goToHelp(_ sender: AnyObject) {
+        performSegue(withIdentifier: "HelpViewController", sender: self)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedCategory = categoryArray[indexPath.row]
+        
+        categorySelectionSound = CommonUtil.playSound(sound: "select_category", ofType: "mp3")
+        if categorySelectionSound != nil {
+            categorySelectionSound.play()
+        }
+        
         performSegue(withIdentifier: "DescriptionViewController", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DescriptionViewController" {
+            let descriptionController = segue.destination as! DescriptionViewController
+            descriptionController.selecteCategory = self.selectedCategory!
+        }
+    }
 
     /*
     // MARK: - Navigation

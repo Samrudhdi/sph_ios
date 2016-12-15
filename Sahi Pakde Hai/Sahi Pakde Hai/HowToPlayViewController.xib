@@ -18,6 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2e0-eC-MQf"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3s6-B5-lDb">
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-uC-cCi">
@@ -52,7 +53,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="ZbQ-Q7-CFU">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_1" translatesAutoresizingMaskIntoConstraints="NO" id="ZbQ-Q7-CFU">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ZbQ-Q7-CFU" secondAttribute="height" multiplier="1:1" id="NqA-2B-iDj"/>
                                                 <constraint firstAttribute="width" constant="116" id="vPC-XP-qYo"/>
@@ -63,8 +64,8 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="zAp-1s-UOl"/>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="JTq-RF-yLU"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="zAp-1s-UOl"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="JTq-RF-yLU"/>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -90,7 +91,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgL-Tm-4cE">
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="VEA-TH-PNr">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_2" translatesAutoresizingMaskIntoConstraints="NO" id="VEA-TH-PNr">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="VEA-TH-PNr" secondAttribute="height" multiplier="1:1" id="6na-O1-Uie"/>
                                                 <constraint firstAttribute="width" constant="116" id="cNu-Pb-FdN"/>
@@ -114,8 +115,8 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="oah-O3-7vn"/>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DiD-3t-GIP"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="oah-O3-7vn"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="DiD-3t-GIP"/>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -142,7 +143,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgJ-gW-ID0">
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PLl-7y-4nT">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_3" translatesAutoresizingMaskIntoConstraints="NO" id="PLl-7y-4nT">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="PLl-7y-4nT" secondAttribute="height" multiplier="1:1" id="1a0-ey-6gR"/>
                                                 <constraint firstAttribute="width" constant="116" id="UeZ-6p-LQ9"/>
@@ -167,8 +168,8 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="O9n-cS-y9g"/>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-Ct-PjY"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="O9n-cS-y9g"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="ZPV-Ct-PjY"/>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -221,13 +222,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycv-s2-uZY">
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufx-HD-yFE">
+                            <color key="backgroundColor" red="0.38039215686274508" green="0.94901960784313721" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="88" id="N8X-TT-xu2"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="PLAY">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -240,21 +246,29 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SO9-nt-3Oq" firstAttribute="trailing" secondItem="ycv-s2-uZY" secondAttribute="trailing" id="1Lo-zZ-hwf"/>
+                <constraint firstItem="2e0-eC-MQf" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" id="2a9-ht-0jK"/>
                 <constraint firstItem="SO9-nt-3Oq" firstAttribute="top" secondItem="3s6-B5-lDb" secondAttribute="bottom" id="2bT-vA-LEg"/>
                 <constraint firstItem="3s6-B5-lDb" firstAttribute="top" secondItem="pUD-0R-Lfl" secondAttribute="top" id="NZq-pG-43P"/>
+                <constraint firstAttribute="trailing" secondItem="2e0-eC-MQf" secondAttribute="trailing" id="QeX-zb-q1m"/>
                 <constraint firstItem="3s6-B5-lDb" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" id="R5s-u6-aCt"/>
                 <constraint firstItem="SO9-nt-3Oq" firstAttribute="centerY" secondItem="pUD-0R-Lfl" secondAttribute="centerY" id="RQn-9b-qak"/>
                 <constraint firstAttribute="trailing" secondItem="3s6-B5-lDb" secondAttribute="trailing" id="Rm6-kQ-9JV"/>
                 <constraint firstItem="3s6-B5-lDb" firstAttribute="leading" secondItem="SO9-nt-3Oq" secondAttribute="leading" id="RyB-hy-lng"/>
                 <constraint firstItem="SO9-nt-3Oq" firstAttribute="leading" secondItem="ycv-s2-uZY" secondAttribute="leading" id="TU1-YL-8t7"/>
+                <constraint firstAttribute="bottom" secondItem="2e0-eC-MQf" secondAttribute="bottom" id="cte-Uu-Ywv"/>
                 <constraint firstItem="ycv-s2-uZY" firstAttribute="top" secondItem="SO9-nt-3Oq" secondAttribute="bottom" id="hMP-5G-ZTP"/>
                 <constraint firstItem="3s6-B5-lDb" firstAttribute="trailing" secondItem="SO9-nt-3Oq" secondAttribute="trailing" id="ijT-10-OWF"/>
+                <constraint firstItem="2e0-eC-MQf" firstAttribute="top" secondItem="pUD-0R-Lfl" secondAttribute="top" id="pdM-JZ-wLj"/>
                 <constraint firstAttribute="bottom" secondItem="ycv-s2-uZY" secondAttribute="bottom" id="xuz-v5-BV0"/>
             </constraints>
             <point key="canvasLocation" x="405.5" y="214.5"/>
         </view>
     </objects>
     <resources>
-        <image name="Image" width="72" height="72"/>
+        <image name="dot" width="15" height="15"/>
+        <image name="how_to_play_1" width="106" height="106"/>
+        <image name="how_to_play_2" width="106" height="106"/>
+        <image name="how_to_play_3" width="106" height="106"/>
+        <image name="overlay_bg" width="375" height="667"/>
     </resources>
 </document>
