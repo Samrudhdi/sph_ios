@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */; };
+		3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */; };
+		3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661F11D20F04A00EA2DD8 /* HTP.swift */; };
+		3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661F21D20F04A00EA2DD8 /* HTP.xib */; };
+		3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */; };
+		3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */; };
+		3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */; };
+		3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */; };
+		3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */; };
+		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
+		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
+		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
+		3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DB1E030D99006E560B /* select_category.mp3 */; };
+		3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DD1E0310A3006E560B /* correct.mp3 */; };
+		3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DE1E0310A3006E560B /* get_ready.mp3 */; };
+		3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */; };
+		3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */; };
+		3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E11E0310A3006E560B /* three_two_one.mp3 */; };
+		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
+		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
+		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
+		3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */; };
+		3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C061D1D0BB40071C1C7 /* Main.storyboard */; };
+		3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */; };
+		3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */; };
+		3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */; };
+		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
+		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
+		3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
+		3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlayViewController.xib; sourceTree = "<group>"; };
+		3D1661F11D20F04A00EA2DD8 /* HTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTP.swift; sourceTree = "<group>"; };
+		3D1661F21D20F04A00EA2DD8 /* HTP.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTP.xib; sourceTree = "<group>"; };
+		3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategorySelectionViewController.xib; sourceTree = "<group>"; };
+		3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
+		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
+		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3D6F76DB1E030D99006E560B /* select_category.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select_category.mp3; sourceTree = "<group>"; };
+		3D6F76DD1E0310A3006E560B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		3D6F76DE1E0310A3006E560B /* get_ready.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get_ready.mp3; sourceTree = "<group>"; };
+		3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = round_end_buzzer.mp3; sourceTree = "<group>"; };
+		3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = three_two_one_2.mp3; sourceTree = "<group>"; };
+		3D6F76E11E0310A3006E560B /* three_two_one.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = three_two_one.mp3; sourceTree = "<group>"; };
+		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
+		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
+		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
+		3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahi Pakde Hai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DE98C071D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DE98C0C1D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DE98C0E1D1D0BB40071C1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
+		3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
+		3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlay.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DE98BFC1D1D0BB40071C1C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D20ABC81DF720A0009DFB7E /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */,
+				3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */,
+				3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */,
+				3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */,
+			);
+			name = CategoryView;
+			sourceTree = "<group>";
+		};
+		3D20ABD51DF73A6C009DFB7E /* PlayGame */ = {
+			isa = PBXGroup;
+			children = (
+				3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */,
+				3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */,
+			);
+			name = PlayGame;
+			sourceTree = "<group>";
+		};
+		3D20ABDA1DF73E13009DFB7E /* DescriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */,
+				3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */,
+			);
+			name = DescriptionView;
+			sourceTree = "<group>";
+		};
+		3D20ABDB1DF73E30009DFB7E /* HowToPlay */ = {
+			isa = PBXGroup;
+			children = (
+				3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */,
+				3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */,
+			);
+			name = HowToPlay;
+			sourceTree = "<group>";
+		};
+		3D3659B11E01B25B0018F13E /* pojo */ = {
+			isa = PBXGroup;
+			children = (
+				3D3659B21E01B2900018F13E /* Category.swift */,
+			);
+			name = pojo;
+			sourceTree = "<group>";
+		};
+		3D6F76C81E030620006E560B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F76DD1E0310A3006E560B /* correct.mp3 */,
+				3D6F76DE1E0310A3006E560B /* get_ready.mp3 */,
+				3D6F76DF1E0310A3006E560B /* round_end_buzzer.mp3 */,
+				3D6F76E01E0310A3006E560B /* three_two_one_2.mp3 */,
+				3D6F76E11E0310A3006E560B /* three_two_one.mp3 */,
+				3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */,
+				3D6F76E31E0310A3006E560B /* final_score.mp3 */,
+				3D6F76E41E0310A3006E560B /* pass.mp3 */,
+				3D6F76DB1E030D99006E560B /* select_category.mp3 */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		3DE98BF61D1D0BB40071C1C7 = {
+			isa = PBXGroup;
+			children = (
+				3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */,
+				3DE98C001D1D0BB40071C1C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DE98C001D1D0BB40071C1C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F76C81E030620006E560B /* sounds */,
+				3D3659B11E01B25B0018F13E /* pojo */,
+				3D20ABDB1DF73E30009DFB7E /* HowToPlay */,
+				3D20ABDA1DF73E13009DFB7E /* DescriptionView */,
+				3D20ABD51DF73A6C009DFB7E /* PlayGame */,
+				3D20ABC81DF720A0009DFB7E /* CategoryView */,
+				3DE98C301D1D43E50071C1C7 /* util */,
+				3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */,
+				3DE98C061D1D0BB40071C1C7 /* Main.storyboard */,
+				3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */,
+				3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */,
+				3DE98C0E1D1D0BB40071C1C7 /* Info.plist */,
+				3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */,
+				3D1661F11D20F04A00EA2DD8 /* HTP.swift */,
+				3D1661F21D20F04A00EA2DD8 /* HTP.xib */,
+			);
+			path = "Sahi Pakde Hai";
+			sourceTree = "<group>";
+		};
+		3DE98C301D1D43E50071C1C7 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */,
+				3D3659B41E01B7A50018F13E /* Constant.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DE98BFE1D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE98C111D1D0BB40071C1C7 /* Build configuration list for PBXNativeTarget "Sahi Pakde Hai" */;
+			buildPhases = (
+				3DE98BFB1D1D0BB40071C1C7 /* Sources */,
+				3DE98BFC1D1D0BB40071C1C7 /* Frameworks */,
+				3DE98BFD1D1D0BB40071C1C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sahi Pakde Hai";
+			productName = "Sahi Pakde Hai";
+			productReference = 3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DE98BF71D1D0BB40071C1C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Patronous Inc.";
+				TargetAttributes = {
+					3DE98BFE1D1D0BB40071C1C7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8DS8YKQTGK;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 3DE98BFA1D1D0BB40071C1C7 /* Build configuration list for PBXProject "Sahi Pakde Hai" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DE98BF61D1D0BB40071C1C7;
+			productRefGroup = 3DE98C001D1D0BB40071C1C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DE98BFE1D1D0BB40071C1C7 /* Sahi Pakde Hai */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DE98BFD1D1D0BB40071C1C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */,
+				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
+				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
+				3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */,
+				3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */,
+				3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */,
+				3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */,
+				3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */,
+				3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */,
+				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
+				3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */,
+				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
+				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
+				3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */,
+				3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */,
+				3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */,
+				3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */,
+				3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */,
+				3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DE98BFB1D1D0BB40071C1C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
+				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
+				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
+				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
+				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
+				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
+				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
+				3D3659B51E01B7A50018F13E /* Constant.swift in Sources */,
+				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3DE98C061D1D0BB40071C1C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DE98C071D1D0BB40071C1C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DE98C0C1D1D0BB40071C1C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DE98C0F1D1D0BB40071C1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DE98C101D1D0BB40071C1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DE98C121D1D0BB40071C1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8DS8YKQTGK;
+				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3DE98C131D1D0BB40071C1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8DS8YKQTGK;
+				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DE98BFA1D1D0BB40071C1C7 /* Build configuration list for PBXProject "Sahi Pakde Hai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE98C0F1D1D0BB40071C1C7 /* Debug */,
+				3DE98C101D1D0BB40071C1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DE98C111D1D0BB40071C1C7 /* Build configuration list for PBXNativeTarget "Sahi Pakde Hai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE98C121D1D0BB40071C1C7 /* Debug */,
+				3DE98C131D1D0BB40071C1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3DE98BF71D1D0BB40071C1C7 /* Project object */;
+}
