@@ -22,7 +22,7 @@ class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor? = UIColor.init(ciColor: CIColor.init(string: selecteCategory.backgroundColor))
+        self.view.backgroundColor? = selecteCategory.backgroundColor
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
         self.desc_1.text = selecteCategory.desc_1
         self.desc_2.text = selecteCategory.desc_2
@@ -35,9 +35,13 @@ class DescriptionViewController: UIViewController {
     // Back button
     @IBAction func moveBAck(_ sender: AnyObject) {
        self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: {})
+        
     }
 
     @IBAction func playGame(_ sender: AnyObject) {
+//        let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
+//        present(controller, animated: false, completion: {})
         performSegue(withIdentifier: "PlayGameViewController", sender: self)
     }
     
