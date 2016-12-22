@@ -80,7 +80,7 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
         
         var lightCameraActionCat = Category()
         lightCameraActionCat.categoryId = 2
-        lightCameraActionCat.backgroundColor = Constant.bg_cinema
+        lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
         lightCameraActionCat.image = "light_camera_action"
         lightCameraActionCat.desc_1 = "afsadfdsaf asdfsdaf asdfdsafds adfas sadfsdf adsfsaf"
         lightCameraActionCat.desc_2 = "afadfa asdfsadf dsafasdf dfsafsafadfasdf asdfsadf asadfaf a sda"
@@ -105,6 +105,16 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
         if categorySelectionSound != nil {
             categorySelectionSound.play()
         }
+        
+        
+//        if self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") is DescriptionViewController {
+//            
+//            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") as! DescriptionViewController
+//            
+//            controller.selecteCategory = self.selectedCategory!
+//            
+//            present(controller, animated: true, completion: {})
+//        }
         
         performSegue(withIdentifier: "DescriptionViewController", sender: self)
     }

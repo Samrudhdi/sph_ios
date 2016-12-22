@@ -10,7 +10,7 @@ import UIKit
 import CoreMotion
 import AVFoundation
 
-class PlayGameViewController: UIViewController {
+class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
 
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamPlayLabel: UILabel!
@@ -31,13 +31,24 @@ class PlayGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupAccelerometer()
-        threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(threeTwoOneCounter), userInfo: nil, repeats: true)
-        
-        
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIDevice.current.setValue(Int(UIInterfaceOrientation.landscapeRight.rawValue), forKey: "orientation")
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.landscapeRight
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     
     func setupAccelerometer() {
         
@@ -61,42 +72,52 @@ class PlayGameViewController: UIViewController {
 //                }
                 
                 guard let data = data else { return }
-                
-                print(data.attitude)
-                let x = data.userAcceleration.x
-                let y = data.userAcceleration.y
-                let z = data.userAcceleration.z
-                
-                
-//                userAcceleration
-                
-//                let angle = atan2(y, x) + M_PI_2          // in radians
-//                let angleDegrees = angle * 180.0 / M_PI   // in degrees
-//                
-//                let ans = Float(x*x) + Float(y*y) + Float(z*z)
-//                let r = sqrtf(Float(ans))
                 print("***********************")
-                print(x)
-                print(y)
-                print(z)
-                
-//                self.isMiddle(x: x, y: y, z: z)
-                
-                if self.isMiddle(x: x, y: y, z: z){
-                    self.middle = 2
-                }
-//
-//                if self.isTiltDownward(x: x, y: y, z: z){
-////                    self.upward = 1
-////                    self.downward = 1
-////                    self.middle = 2
-//                }
 //                
-//                if self.isTiltUpward(x: x, y: y, z: z){
-////                    self.upward = 1
-////                    self.downward = 1
-////                    self.middle = 2
-//                }
+//                print("pitch \(data.attitude.pitch)")
+//                print("roll \(data.attitude.roll)")
+//                print("yaw \(data.attitude.yaw)")
+//                print(data.attitude.pitch * 180.0/M_PI)
+                let rollAngle = data.attitude.roll * 180.0/M_PI
+                print(rollAngle)
+//                print(data.attitude.yaw * 180.0/M_PI)
+                
+//                let x = data.userAcceleration.x
+//                let y = data.userAcceleration.y
+//                let z = data.userAcceleration.z
+//
+//                print("x \(x)")
+//                print("y \(y)")
+//                print("z \(z)")
+                
+                if self.isMiddle(roll: rollAngle){
+                    self.middle = 1
+                    if !self.isGameStarted {
+                    
+                        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
+                        
+                    }else {
+                        self.setBackgroundColor(color: Constant.blackColor)
+                        self.setTextOnWordLabel(word: "Word")
+                        self.downward = 2
+                        self.upward = 2
+                    }
+                }else if self.isTiltDownward(roll: rollAngle){
+                    self.setBackgroundColor(color: Constant.correctColor)
+                    self.upward = 1
+                    self.downward = 1
+                    self.middle = 2
+                    self.setTextOnWordLabel(word: "सही पकड़े है!")
+                     self.playSound(sound: "correct", ofType: "mp3")
+                    
+                }else if self.isTiltUpward(roll: rollAngle){
+                    self.setBackgroundColor(color: Constant.wrongColor)
+                    self.upward = 1
+                    self.downward = 1
+                    self.middle = 2
+                    self.setTextOnWordLabel(word: "हाय दैया!")
+                    self.playSound(sound: "pass", ofType: "mp3")
+                }
             })
         }
     }
@@ -131,9 +152,12 @@ class PlayGameViewController: UIViewController {
             threeTwoOneCount -= 1
         }else {
             print(threeTwoOneCount)
+            threeTwoOneTimer?.invalidate()
+            self.upward = 2;
+            self.downward = 2;
+            isGameStarted = true
             wordLabel.text = "Word"
             timerLabel.text = "\(count + 1)"
-            threeTwoOneTimer?.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(counter), userInfo: nil, repeats: true)
         }
     }
@@ -148,7 +172,7 @@ class PlayGameViewController: UIViewController {
             if count == 0 {
                 wordLabel.text = "TIME'S UP"
                 countText = ""
-                motionManager.stopAccelerometerUpdates()
+                motionManager.stopDeviceMotionUpdates()
                 playSound(sound: "round_end_buzzer", ofType: "mp3")
             }
             timerLabel.text = "\(countText)"
@@ -157,11 +181,18 @@ class PlayGameViewController: UIViewController {
             timer?.invalidate()
         }
     }
-
-
     
-    func isTiltUpward(x:Double, y:Double, z:Double) -> Bool {
-        if (((x <= -0.7) && (y >= -0.5 && y <= 0.5) && (z >= -0.5 && z <= 0.6)) && middle == 0){
+    override func viewWillDisappear(_ animated: Bool) {
+        threeTwoOneTimer?.invalidate()
+        timer?.invalidate()
+        motionManager.stopDeviceMotionUpdates()
+    }
+
+
+//    Wrong
+    func isTiltUpward(roll:Double) -> Bool {
+        
+        if ((roll >= -50) && upward == 2){
             print("upward")
             return true
         }else {
@@ -169,8 +200,9 @@ class PlayGameViewController: UIViewController {
         }
     }
 
-    func isTiltDownward(x:Double, y:Double, z:Double) -> Bool {
-        if (x <= 3 && (y >= 0.0 && y <= 3.0) && (z >= -11.0 && z <= -4.0) && downward == 2){
+//    Correct
+    func isTiltDownward(roll:Double) -> Bool {
+        if ((roll <= -121) && downward == 2){
             print("downward")
             return true
         }else {
@@ -178,12 +210,13 @@ class PlayGameViewController: UIViewController {
         }
     }
     
-    func isMiddle(x:Double, y:Double, z:Double) -> Bool {
+    func isMiddle(roll:Double) -> Bool {
         
-        if (((x <= -0.7) && (y >= -0.5 && y <= 0.5) && (z >= -0.5 && z <= 0.6)) && middle == 0){
+        if ((roll <= -60 && roll >= -110) && middle == 0){
             print("place on forehead")
+            
             return true
-        }else if (((x <= -0.6) && (y >= -0.5 && y <= 0.5) && (z >= -0.5 && z <= 0.6)) && middle == 0){
+        }else if ((roll <= -51 && roll >= -120) && middle == 2){
             print("middle")
             return true
         }else {
@@ -197,15 +230,13 @@ class PlayGameViewController: UIViewController {
             avPlayer?.play()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func setBackgroundColor(color:UIColor) {
+        self.view.backgroundColor = color
     }
-    */
-
+    
+    func setTextOnWordLabel(word:String) {
+        self.wordLabel.text = word
+    }
 }
+
