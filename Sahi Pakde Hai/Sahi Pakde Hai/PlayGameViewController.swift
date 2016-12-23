@@ -10,13 +10,16 @@ import UIKit
 import CoreMotion
 import AVFoundation
 
-class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
+class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureFileOutputRecordingDelegate {
 
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamPlayLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
+
     
-    var count = 58
+    @IBOutlet weak var videoView: UIView!
+    
+    var count = 20//58
     var threeTwoOneCount = 4
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
@@ -28,23 +31,40 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
     
     var motionManager: CMMotionManager!
     var avPlayer:AVAudioPlayer? = nil
+    var dataOutput:AVCaptureMovieFileOutput? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+        
+        setupCameraSession()
         setupAccelerometer()
         
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIDevice.current.setValue(Int(UIInterfaceOrientation.landscapeRight.rawValue), forKey: "orientation")
+        print("viewWillAppear")
     }
+    
+    func willEnterForeground(){
+        print("willEnterForeground")
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.landscapeRight
     }
-    
+//
+//    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -72,14 +92,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
 //                }
                 
                 guard let data = data else { return }
-                print("***********************")
-//                
+//                print("***********************")
+//
 //                print("pitch \(data.attitude.pitch)")
 //                print("roll \(data.attitude.roll)")
 //                print("yaw \(data.attitude.yaw)")
 //                print(data.attitude.pitch * 180.0/M_PI)
                 let rollAngle = data.attitude.roll * 180.0/M_PI
-                print(rollAngle)
+//                print(rollAngle)
 //                print(data.attitude.yaw * 180.0/M_PI)
                 
 //                let x = data.userAcceleration.x
@@ -141,6 +161,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
         if threeTwoOneCount > 0 {
             
             if threeTwoOneCount == 4 {
+                startVideoRecording()
                 print("threeTwoOneCount \(threeTwoOneCount)")
                 playSound(sound: "get_ready", ofType: "mp3")
                 wordLabel.text = "GET READY!"
@@ -179,6 +200,8 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
             count -= 1
         }else {
             timer?.invalidate()
+            stopVideoRecording()
+//            performSegue(withIdentifier: "ScoreCardViewController", sender: self)
         }
     }
     
@@ -237,6 +260,131 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate {
     
     func setTextOnWordLabel(word:String) {
         self.wordLabel.text = word
+    }
+    
+    
+    
+//    :camera
+    lazy var cameraSession: AVCaptureSession = {
+        let s = AVCaptureSession()
+        s.sessionPreset = AVCaptureSessionPresetLow
+        return s
+    }()
+    
+    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
+        let preview =  AVCaptureVideoPreviewLayer(session: self.cameraSession)
+//        preview?.bounds = CGRect(x: 0, y: 0, width: self.videoView.bounds.width, height: self.view.bounds.height)
+//        preview?.position = CGPoint(x: 0, y: self.view.frame.height)
+        preview?.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
+
+//        preview?.frame = self.videoView.bounds
+        preview?.connection.videoOrientation = .landscapeRight
+        preview?.videoGravity = AVLayerVideoGravityResize
+        return preview!
+    }()
+
+    func setupCameraSession() {
+        
+        var captureDevice:AVCaptureDevice
+        if #available(iOS 10.0, *) {
+            captureDevice = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front) as AVCaptureDevice
+        } else {
+            // Fallback on earlier versions
+            captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+            let devices = AVCaptureDevice.devices()
+            for device in devices! {
+                let tmp = device as! AVCaptureDevice
+                if tmp.hasMediaType(AVMediaTypeVideo){
+                    if tmp.position == AVCaptureDevicePosition.front {
+                        captureDevice = tmp
+                    }
+                    
+                }
+            }
+            
+        }
+        
+        do {
+            let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            
+            cameraSession.beginConfiguration()
+            
+            if (cameraSession.canAddInput(deviceInput) == true) {
+                cameraSession.addInput(deviceInput)
+            }
+            
+//            dataOutput = AVCaptureVideoDataOutput()
+//            dataOutput?.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange as UInt32)]
+//            dataOutput?.alwaysDiscardsLateVideoFrames = true
+//            
+//            if (cameraSession.canAddOutput(dataOutput) == true) {
+//                cameraSession.addOutput(dataOutput)
+//            }
+//
+            cameraSession.commitConfiguration()
+//
+            
+            videoView.layer.addSublayer(previewLayer)
+            cameraSession.startRunning()
+            
+        }
+        catch let error as NSError {
+            NSLog("\(error), \(error.localizedDescription)")
+        }
+    }
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        // Here you collect each frame and process it
+        print(captureOutput.description)
+    }
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        // Here you can count how many frames are dopped
+    }
+    
+    func startVideoRecording() {
+        
+//        checking camera permission
+        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
+            dataOutput = AVCaptureMovieFileOutput()
+            let fileName = "mysavefile.mp4"
+            
+            if (cameraSession.canAddOutput(dataOutput) == true) {
+                cameraSession.addOutput(dataOutput)
+            }
+            
+            let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let filePath = documentURl.appendingPathComponent(fileName)
+            
+            dataOutput?.startRecording(toOutputFileURL: filePath, recordingDelegate: self)
+        }
+    }
+    
+    func stopVideoRecording() {
+//        if cameraSession != nil {
+        if dataOutput != nil {
+            dataOutput?.stopRecording()
+            cameraSession.stopRunning()
+        }
+//        }
+    }
+    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+        print("finish \(outputFileURL)")
+        playVideo(url: outputFileURL)
+        
+    }
+    
+    func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+        print("start \(fileURL)")
+    }
+    
+    func playVideo(url:URL) {
+        let player = AVPlayer(url: url)
+        let playerPreview = AVPlayerLayer(player: player)
+        playerPreview.frame = self.view.bounds
+        
+        self.view.layer.addSublayer(playerPreview)
+        player.play()
     }
 }
 

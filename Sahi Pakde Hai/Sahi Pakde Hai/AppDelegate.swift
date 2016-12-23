@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 //    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-    
+//    
 //        if self.window?.rootViewController?.presentingViewController is PlayGameViewController {
 //            return UIInterfaceOrientationMask.landscapeLeft
 //        }else {

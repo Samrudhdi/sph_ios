@@ -43,10 +43,22 @@
         <!--Play Game View Controller-->
         <scene sceneID="Lfp-Bo-UFZ">
             <objects>
-                <viewController storyboardIdentifier="PLAY_GAME_VIEW" id="fnN-QB-6Mh" customClass="PlayGameViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="PLAY_GAME_VIEW" id="fnN-QB-6Mh" customClass="PlayGameViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Syk-XC-iob" kind="show" identifier="ScoreCardViewController" id="Zn0-x3-VZh"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyx-tQ-5cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3943.1999999999998" y="311.69415292353824"/>
+        </scene>
+        <!--Score Card View Controller-->
+        <scene sceneID="yXE-KX-XAx">
+            <objects>
+                <viewController id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aM8-Nj-AKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4774" y="317"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="82x-N4-H9N">

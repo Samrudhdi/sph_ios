@@ -19,6 +19,8 @@
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
 		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
 		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
+		3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */; };
+		3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */; };
 		3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DB1E030D99006E560B /* select_category.mp3 */; };
 		3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DD1E0310A3006E560B /* correct.mp3 */; };
 		3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DE1E0310A3006E560B /* get_ready.mp3 */; };
@@ -51,6 +53,8 @@
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
 		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
+		3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreCardViewController.xib; sourceTree = "<group>"; };
 		3D6F76DB1E030D99006E560B /* select_category.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select_category.mp3; sourceTree = "<group>"; };
 		3D6F76DD1E0310A3006E560B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		3D6F76DE1E0310A3006E560B /* get_ready.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get_ready.mp3; sourceTree = "<group>"; };
@@ -129,6 +133,15 @@
 			name = pojo;
 			sourceTree = "<group>";
 		};
+		3D37A6CE1E0C4C4800DD9F70 /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */,
+				3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */,
+			);
+			name = Score;
+			sourceTree = "<group>";
+		};
 		3D6F76C81E030620006E560B /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,7 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3D37A6CE1E0C4C4800DD9F70 /* Score */,
 				3D6F76C81E030620006E560B /* sounds */,
 				3D3659B11E01B25B0018F13E /* pojo */,
 				3D20ABDB1DF73E30009DFB7E /* HowToPlay */,
@@ -253,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */,
+				3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */,
 				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
 				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
 				3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */,
@@ -286,6 +301,7 @@
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
 				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
+				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
