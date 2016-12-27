@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		047624B2734D1C967A89A80D58858AAB /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		270ACCA60FD11DB0A986BC1D4BBDCB06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		301CB0FA6DCCEDDF1B3F7E4B51ACCF4B /* Pods-Sahi Pakde Hai-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */; };
+		4C4AA0F643CB3DE3C37895D464AEFABD /* TTGSnackbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6902F9A000404D9A36F3ADF83EB849A0 /* TTGSnackbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E0DCB196D8DEBDDFC3EE9C77C6A471B /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */; };
+		7C3E0E1DA70ADBAA2620F33EB2A35175 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D51BBD59AE8C41993FA51C34393EABC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */; };
+		B7062B08E84B77A1F069C353A9613DC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		B94FF3E914ADB657352B738C2F3018B3 /* TTGSnackbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */; };
+		BAF281FFB4667B22DCD65F006F3D540B /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */; };
+		BB9265E22E97E9CDA021F8DDD0B8B623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1045C2FE08EFEDA40DF7FF14FFE196BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E9587461DFCA77127EA7D369124A81E;
+			remoteInfo = SwiftyJSON;
+		};
+		FF4989A9E0773B949751FA407CA71F74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B983F9647DF35F9C71583BAF282964C;
+			remoteInfo = TTGSnackbar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FB95D9DBDD1B71F62AD14D40975B639 /* Pods-Sahi Pakde Hai.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Sahi Pakde Hai.modulemap"; sourceTree = "<group>"; };
+		22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-umbrella.h"; sourceTree = "<group>"; };
+		24AB0AFDCEC82469A07D7749A086679A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D7C12D8C63C7A8C6D67E3493DDE2BC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35C46D1C8468E74062AC885AEFE33C15 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		4F11A004DA963765B0749358E8C1E2FD /* TTGSnackbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-prefix.pch"; sourceTree = "<group>"; };
+		5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TTGSnackbar.swift; path = TTGSnackbar/TTGSnackbar.swift; sourceTree = "<group>"; };
+		5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TTGSnackbar-dummy.m"; sourceTree = "<group>"; };
+		715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TTGSnackbar.h; path = TTGSnackbar/TTGSnackbar.h; sourceTree = "<group>"; };
+		775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TTGSnackbar.xcconfig; sourceTree = "<group>"; };
+		7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sahi Pakde Hai.debug.xcconfig"; sourceTree = "<group>"; };
+		7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sahi Pakde Hai-umbrella.h"; sourceTree = "<group>"; };
+		8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sahi Pakde Hai.release.xcconfig"; sourceTree = "<group>"; };
+		8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95F2CC12655BCFC75C98029C8B9A171A /* Pods-Sahi Pakde Hai-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sahi Pakde Hai-acknowledgements.plist"; sourceTree = "<group>"; };
+		9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sahi Pakde Hai-dummy.m"; sourceTree = "<group>"; };
+		9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		B0D3CFB7F52DABDC63038F855C8A881E /* Pods-Sahi Pakde Hai-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sahi Pakde Hai-resources.sh"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DE02AF522CD864D5E91F1EAD2F0DAC90 /* Pods-Sahi Pakde Hai-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sahi Pakde Hai-frameworks.sh"; sourceTree = "<group>"; };
+		E344AD7C6A5AA6E5AAC7E9C97FEB15BD /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TTGSnackbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA31CA2DBC290BDA48E02720AE75ECEF /* TTGSnackbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TTGSnackbar.modulemap; sourceTree = "<group>"; };
+		F207131F03B605076706A498FC67BA51 /* Pods-Sahi Pakde Hai-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sahi Pakde Hai-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F9475147590F7BFE15838E40CE39640B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DF9AD37EAFCEFD6634742EA764C838E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7062B08E84B77A1F069C353A9613DC4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FF9D8D7F0B2252A0F113E10179D9C22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270ACCA60FD11DB0A986BC1D4BBDCB06 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC2471AA013B579870EB8FB61217D8C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB9265E22E97E9CDA021F8DDD0B8B623 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EA96375DFD97A634024057F31AD2B62 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				24AB0AFDCEC82469A07D7749A086679A /* Info.plist */,
+				35C46D1C8468E74062AC885AEFE33C15 /* SwiftyJSON.modulemap */,
+				90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */,
+				A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */,
+				E344AD7C6A5AA6E5AAC7E9C97FEB15BD /* SwiftyJSON-prefix.pch */,
+				A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */,
+				1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */,
+				E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4F214C621ED4A186E0B882CE48F46F41 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9475147590F7BFE15838E40CE39640B /* Info.plist */,
+				EA31CA2DBC290BDA48E02720AE75ECEF /* TTGSnackbar.modulemap */,
+				775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */,
+				5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */,
+				4F11A004DA963765B0749358E8C1E2FD /* TTGSnackbar-prefix.pch */,
+				22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TTGSnackbar";
+			sourceTree = "<group>";
+		};
+		6CE77EDD536B867C4E79C39D57BC0627 /* TTGSnackbar */ = {
+			isa = PBXGroup;
+			children = (
+				715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */,
+				5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */,
+				4F214C621ED4A186E0B882CE48F46F41 /* Support Files */,
+			);
+			path = TTGSnackbar;
+			sourceTree = "<group>";
+		};
+		7572CF7F38329015081885465B34DAAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACC70E07DCC5C3C5C2AEEDE85DBCB0FD /* SwiftyJSON */,
+				6CE77EDD536B867C4E79C39D57BC0627 /* TTGSnackbar */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7572CF7F38329015081885465B34DAAD /* Pods */,
+				1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */,
+				A5099628161177B6ADA539A88C0FFA0E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A253763247D3D058C68368FD3C8A9B97 /* Pods-Sahi Pakde Hai */ = {
+			isa = PBXGroup;
+			children = (
+				2D7C12D8C63C7A8C6D67E3493DDE2BC4 /* Info.plist */,
+				1FB95D9DBDD1B71F62AD14D40975B639 /* Pods-Sahi Pakde Hai.modulemap */,
+				F207131F03B605076706A498FC67BA51 /* Pods-Sahi Pakde Hai-acknowledgements.markdown */,
+				95F2CC12655BCFC75C98029C8B9A171A /* Pods-Sahi Pakde Hai-acknowledgements.plist */,
+				9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */,
+				DE02AF522CD864D5E91F1EAD2F0DAC90 /* Pods-Sahi Pakde Hai-frameworks.sh */,
+				B0D3CFB7F52DABDC63038F855C8A881E /* Pods-Sahi Pakde Hai-resources.sh */,
+				7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */,
+				7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */,
+				8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */,
+			);
+			name = "Pods-Sahi Pakde Hai";
+			path = "Target Support Files/Pods-Sahi Pakde Hai";
+			sourceTree = "<group>";
+		};
+		A5099628161177B6ADA539A88C0FFA0E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A253763247D3D058C68368FD3C8A9B97 /* Pods-Sahi Pakde Hai */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		ACC70E07DCC5C3C5C2AEEDE85DBCB0FD /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */,
+				0EA96375DFD97A634024057F31AD2B62 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		287C36BAB68888B8A241ABA8ADB18458 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047624B2734D1C967A89A80D58858AAB /* SwiftyJSON-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3D3BD3044087445447D14A73A4D8BE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C3E0E1DA70ADBAA2620F33EB2A35175 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0BF1BDBE983E2466D32E5FD345696EB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C4AA0F643CB3DE3C37895D464AEFABD /* TTGSnackbar-umbrella.h in Headers */,
+				6902F9A000404D9A36F3ADF83EB849A0 /* TTGSnackbar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 014E3E751747C794EA43B8D29EF29A81 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				07944DD7906879A44EA8D2FB972C5326 /* Sources */,
+				3DF9AD37EAFCEFD6634742EA764C838E /* Frameworks */,
+				287C36BAB68888B8A241ABA8ADB18458 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3488EEA20A3105169021745CAFC0424D /* Build configuration list for PBXNativeTarget "TTGSnackbar" */;
+			buildPhases = (
+				B8B2BE72D713D71ADFDFD96EFF7D4B7D /* Sources */,
+				6FF9D8D7F0B2252A0F113E10179D9C22 /* Frameworks */,
+				D0BF1BDBE983E2466D32E5FD345696EB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTGSnackbar;
+			productName = TTGSnackbar;
+			productReference = E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B10A88EC6388F7EEBA8291B76538234D /* Pods-Sahi Pakde Hai */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5763DDC0DC5B55597EDAD7D88A1FBAD /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */;
+			buildPhases = (
+				3AEFBC2A4F3C467520A5CAC82A763CEA /* Sources */,
+				FC2471AA013B579870EB8FB61217D8C0 /* Frameworks */,
+				AC3D3BD3044087445447D14A73A4D8BE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54795A3E0B304677DD64B31670206C50 /* PBXTargetDependency */,
+				B0370D53BFA1FD5E06D1FD1B3F1ED329 /* PBXTargetDependency */,
+			);
+			name = "Pods-Sahi Pakde Hai";
+			productName = "Pods-Sahi Pakde Hai";
+			productReference = 9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B10A88EC6388F7EEBA8291B76538234D /* Pods-Sahi Pakde Hai */,
+				7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */,
+				8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07944DD7906879A44EA8D2FB972C5326 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAF281FFB4667B22DCD65F006F3D540B /* SwiftyJSON-dummy.m in Sources */,
+				9D51BBD59AE8C41993FA51C34393EABC /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AEFBC2A4F3C467520A5CAC82A763CEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				301CB0FA6DCCEDDF1B3F7E4B51ACCF4B /* Pods-Sahi Pakde Hai-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8B2BE72D713D71ADFDFD96EFF7D4B7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B94FF3E914ADB657352B738C2F3018B3 /* TTGSnackbar-dummy.m in Sources */,
+				6E0DCB196D8DEBDDFC3EE9C77C6A471B /* TTGSnackbar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		54795A3E0B304677DD64B31670206C50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = 7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */;
+			targetProxy = 1045C2FE08EFEDA40DF7FF14FFE196BE /* PBXContainerItemProxy */;
+		};
+		B0370D53BFA1FD5E06D1FD1B3F1ED329 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TTGSnackbar;
+			target = 8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */;
+			targetProxy = FF4989A9E0773B949751FA407CA71F74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		068C497F8E39F7E282283B52F59D277A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TTGSnackbar/TTGSnackbar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TTGSnackbar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TTGSnackbar/TTGSnackbar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = TTGSnackbar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1D23544CE9C088503D0B186F7EBFB0A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2D9928987E9926B391CA891AB9E3CA85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TTGSnackbar/TTGSnackbar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TTGSnackbar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TTGSnackbar/TTGSnackbar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = TTGSnackbar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		390AB7E6F3D1F88E3476BD6C3D4AF484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4C078F1FE39158DE4739DBD6AE29266A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		91CA25BEA0328F2110242A34B86E4608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		014E3E751747C794EA43B8D29EF29A81 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D23544CE9C088503D0B186F7EBFB0A6 /* Debug */,
+				91CA25BEA0328F2110242A34B86E4608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3488EEA20A3105169021745CAFC0424D /* Build configuration list for PBXNativeTarget "TTGSnackbar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D9928987E9926B391CA891AB9E3CA85 /* Debug */,
+				068C497F8E39F7E282283B52F59D277A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5763DDC0DC5B55597EDAD7D88A1FBAD /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				390AB7E6F3D1F88E3476BD6C3D4AF484 /* Debug */,
+				4C078F1FE39158DE4739DBD6AE29266A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

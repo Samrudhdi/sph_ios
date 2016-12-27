@@ -10,6 +10,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import TTGSnackbar
 
 
 class CommonUtil{
@@ -25,8 +26,40 @@ class CommonUtil{
         }
         return categorySelectionSound!
     }
+    
+    static func showActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
+        subView.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/225.0, alpha: 0.5)
+        actInd.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        actInd.center = view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = .whiteLarge
+        actInd.color = Constant.whiteColor
+        
+        view.addSubview(subView)
+        view.addSubview(actInd)
+        view.isUserInteractionEnabled = true
+        
+        actInd.startAnimating()
+    }
+    
+    static func removeActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
+        subView.removeFromSuperview()
+        actInd.stopAnimating()
+        actInd.isHidden = true
+    }
+    
+    static func showMessageOnSnackbar(message:String){
+        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
+        snackbar.backgroundColor = Constant.whiteColor
+        snackbar.messageTextColor = Constant.blackColor
+        //        snackbar.messageTextFont = UIFont(name:"AppleSDGothicNeo-Regular", size: 17.0)!
+        snackbar.show()
+    }
+
 
 }
+
+
 
 extension UIColor {
     convenience init(hexString: String) {

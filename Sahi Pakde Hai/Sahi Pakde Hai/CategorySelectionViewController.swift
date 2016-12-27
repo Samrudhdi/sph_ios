@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CategorySelectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var shareButton: UIButton!
 
     @IBOutlet weak var teamPlayButton: UIButton!
@@ -23,6 +23,7 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
     var selectedCategory:Category? = nil
     var categoryArray:Array<Category> = []
     var categorySelectionSound:AVAudioPlayer!
+    let indicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        loadData()
         // Do any additional setup after loading the view.
     }
 
@@ -125,7 +127,29 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
             descriptionController.selecteCategory = self.selectedCategory!
         }
     }
+    
+    func loadData() {
+        CommonUtil.showActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+        let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
+        Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
+//        let data = Service().getJSON(urlToRequest: url)
+        
+    }
 
+    func successCallBack(decks:Array<Deck>) {
+//        print("success")
+        print(decks)
+        for deck in decks{
+            print(deck)
+        }
+        
+        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+    }
+    
+    func failureCallBack(error: Error?) {
+        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+        CommonUtil.showMessageOnSnackbar(message: error.debugDescription)
+    }
     /*
     // MARK: - Navigation
 

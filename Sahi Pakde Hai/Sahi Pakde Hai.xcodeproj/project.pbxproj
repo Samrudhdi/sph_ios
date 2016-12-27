@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0131131E11858D00845149 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131121E11858D00845149 /* Service.swift */; };
+		3D0131161E11865B00845149 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131151E11865B00845149 /* Deck.swift */; };
+		3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131191E118F5500845149 /* BaseUIViewController.swift */; };
 		3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */; };
 		3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */; };
 		3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661F11D20F04A00EA2DD8 /* HTP.swift */; };
@@ -38,9 +41,13 @@
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
 		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
 		3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */; };
+		F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0131121E11858D00845149 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		3D0131151E11865B00845149 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		3D0131191E118F5500845149 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
 		3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlayViewController.xib; sourceTree = "<group>"; };
 		3D1661F11D20F04A00EA2DD8 /* HTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTP.swift; sourceTree = "<group>"; };
@@ -74,6 +81,9 @@
 		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
 		3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlay.xib; sourceTree = "<group>"; };
+		94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.release.xcconfig"; sourceTree = "<group>"; };
+		BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.debug.xcconfig"; sourceTree = "<group>"; };
+		F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +91,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		268119EE04796434788096F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D0131141E11863700845149 /* pojo */ = {
+			isa = PBXGroup;
+			children = (
+				3D0131151E11865B00845149 /* Deck.swift */,
+			);
+			name = pojo;
+			sourceTree = "<group>";
+		};
 		3D20ABC81DF720A0009DFB7E /* CategoryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +190,8 @@
 			children = (
 				3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */,
 				3DE98C001D1D0BB40071C1C7 /* Products */,
+				CE812A253420AFD10E85C0D6 /* Pods */,
+				268119EE04796434788096F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +206,7 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3D0131141E11863700845149 /* pojo */,
 				3D37A6CE1E0C4C4800DD9F70 /* Score */,
 				3D6F76C81E030620006E560B /* sounds */,
 				3D3659B11E01B25B0018F13E /* pojo */,
@@ -202,8 +232,19 @@
 			children = (
 				3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */,
 				3D3659B41E01B7A50018F13E /* Constant.swift */,
+				3D0131121E11858D00845149 /* Service.swift */,
+				3D0131191E118F5500845149 /* BaseUIViewController.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		CE812A253420AFD10E85C0D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */,
+				94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DE98C111D1D0BB40071C1C7 /* Build configuration list for PBXNativeTarget "Sahi Pakde Hai" */;
 			buildPhases = (
+				0478DB0791CF6FD1B4EE2D3E /* [CP] Check Pods Manifest.lock */,
 				3DE98BFB1D1D0BB40071C1C7 /* Sources */,
 				3DE98BFC1D1D0BB40071C1C7 /* Frameworks */,
 				3DE98BFD1D1D0BB40071C1C7 /* Resources */,
+				771C2C9796E9922F788A15DF /* [CP] Embed Pods Frameworks */,
+				4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,12 +335,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0478DB0791CF6FD1B4EE2D3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		771C2C9796E9922F788A15DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DE98BFB1D1D0BB40071C1C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3D0131131E11858D00845149 /* Service.swift in Sources */,
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
@@ -304,7 +397,9 @@
 				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
+				3D0131161E11865B00845149 /* Deck.swift in Sources */,
 				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
+				3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */,
 				3D3659B51E01B7A50018F13E /* Constant.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 			);
@@ -417,6 +512,7 @@
 		};
 		3DE98C121D1D0BB40071C1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
@@ -431,6 +527,7 @@
 		};
 		3DE98C131D1D0BB40071C1C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;

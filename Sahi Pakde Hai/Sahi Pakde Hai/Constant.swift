@@ -19,9 +19,11 @@ class Constant{
     static let bg_hero_heroine = UIColor.init(hexString: "#A06592")
     static let bg_adult_only = UIColor.init(hexString: "#E09128")
     static let bg_hollywood = UIColor.init(hexString: "#3D5596")
+    static let whiteColor = UIColor.init(hexString: "#ffffff")
     
 
     static let correctColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1)
     static let wrongColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
     static let blackColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    
 }
