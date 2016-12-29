@@ -9,19 +9,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="Rrp-6O-TzZ" id="mxR-6x-RET"/>
+                <outlet property="faceImageView" destination="6Gj-mD-dgU" id="iQ5-l7-bLa"/>
+                <outlet property="playSameCategoryButton" destination="ePa-nv-wWq" id="ELQ-tT-JhN"/>
+                <outlet property="scoreLabel" destination="QBh-ka-cmA" id="8ba-2D-Qgl"/>
+                <outlet property="tableView" destination="h6a-ZB-0F3" id="tlH-7Q-EzF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_screen_bg" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-ck-PQT"/>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-ZB-0F3">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-ZB-0F3">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="MRS-ck-PQT" id="KQJ-cQ-GsR"/>
+                        <outlet property="delegate" destination="MRS-ck-PQT" id="edG-TE-Bba"/>
+                    </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBh-ka-cmA">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBh-ka-cmA">
                     <color key="backgroundColor" red="0.16862745098039217" green="0.30980392156862746" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Rga-z5-G7l"/>
@@ -30,7 +39,18 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_happy_face" translatesAutoresizingMaskIntoConstraints="NO" id="6Gj-mD-dgU">
@@ -39,20 +59,45 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePa-nv-wWq">
-                    <state key="normal" title="Button"/>
+                    <color key="backgroundColor" red="0.0" green="0.67843137254901964" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Play Same Category">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="playSameCategory:" destination="-1" eventType="touchUpInside" id="uUB-ND-p0F"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrp-6O-TzZ">
+                    <color key="backgroundColor" red="1" green="0.113240434" blue="0.081215825180000006" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="7FA-eG-Hf5"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="hrz-Bz-Orf"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="h6a-ZB-0F3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="EWk-h3-UNz"/>
                 <constraint firstItem="h6a-ZB-0F3" firstAttribute="trailing" secondItem="QBh-ka-cmA" secondAttribute="trailing" id="Flw-C9-wmJ"/>
-                <constraint firstItem="ePa-nv-wWq" firstAttribute="leading" secondItem="Rrp-6O-TzZ" secondAttribute="trailing" constant="29" id="GEr-9z-cFT"/>
+                <constraint firstItem="ePa-nv-wWq" firstAttribute="leading" secondItem="Rrp-6O-TzZ" secondAttribute="trailing" constant="20" id="GEr-9z-cFT"/>
                 <constraint firstItem="h6a-ZB-0F3" firstAttribute="top" secondItem="6Gj-mD-dgU" secondAttribute="bottom" constant="18" id="KQW-3f-fN1"/>
                 <constraint firstItem="ePa-nv-wWq" firstAttribute="top" secondItem="h6a-ZB-0F3" secondAttribute="bottom" constant="16.999999999999886" id="LHc-I2-c3C"/>
                 <constraint firstAttribute="bottom" secondItem="ePa-nv-wWq" secondAttribute="bottom" constant="20" id="ODj-QR-lyg"/>

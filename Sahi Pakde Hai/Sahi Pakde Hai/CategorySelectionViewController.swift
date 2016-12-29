@@ -137,19 +137,56 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
 
     func successCallBack(decks:Array<Deck>) {
-//        print("success")
-        print(decks)
-        for deck in decks{
-            print(deck)
-        }
-        
-        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+        storeDeckData(decks: decks)
     }
     
     func failureCallBack(error: Error?) {
         CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
         CommonUtil.showMessageOnSnackbar(message: error.debugDescription)
     }
+    
+    func storeDeckData(decks:Array<Deck>){
+        let deck = decks[0];
+        let updateFlag = deck.word
+        print(updateFlag)
+        let updateVersionCode = deck.deckType
+        print(updateVersionCode)
+        
+        // Reading data from preference
+        let preference = UserDefaults.standard
+//        if preference.object(forKey: Constant.UPDATE_VERSION_CODE) != nil {
+        let storedVersion = preference.integer(forKey: Constant.UPDATE_VERSION_CODE)
+        if updateVersionCode > storedVersion{
+            let prefere = UserDefaults.standard
+            insertDataOnDatabase(decks: decks)
+            prefere.set(updateVersionCode, forKey: Constant.UPDATE_VERSION_CODE)
+//                prefere.in
+            let didSave = prefere.synchronize()
+            if !didSave {
+                print("preference not set")
+            }else {
+                print("preference set")
+            }
+        }
+    }
+    
+    func insertDataOnDatabase(decks:Array<Deck>){
+        let sqliteDatabase:SQLiteDatabase = SQLiteDatabase()
+        let isReCreatedTable = sqliteDatabase.reCreateTable()
+        if isReCreatedTable {
+            sqliteDatabase.insertData(deckArray: decks,callBack: callBack)
+        }else {
+            print("Unable to insert data in table")
+        }
+    }
+    
+    func callBack(isInserted:Bool) {
+        print(isInserted)
+        
+    }
+
+    
+   
     /*
     // MARK: - Navigation
 

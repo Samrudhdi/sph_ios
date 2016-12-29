@@ -12,7 +12,6 @@ import SwiftyJSON
 struct Deck {
     var deckId:Int
     var word:String
-
     var deckType:Int
     
     init() {
@@ -26,5 +25,11 @@ struct Deck {
         deckId = ((columns?[0].dictionary)?["v"]?.int)!
         word = ((columns?[1].dictionary)?["v"]?.string)!
         deckType = ((columns?[2].dictionary)?["v"]?.int)!
+    }
+    
+    init(deckId:Int,deckType:Int,word:String) {
+        self.deckId = deckId
+        self.deckType = deckType
+        self.word = word
     }
 }

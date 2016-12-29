@@ -45,4 +45,11 @@ class DescriptionViewController: UIViewController {
         performSegue(withIdentifier: "PlayGameViewController", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PlayGameViewController" {
+            let controller = segue.destination as! PlayGameViewController
+            controller.selectedCategory = self.selecteCategory
+        }
+    }
+    
 }

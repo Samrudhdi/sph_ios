@@ -67,18 +67,4 @@ class Service  {
         
         task.resume()
     }
-    
-    func getJSON(urlToRequest: String) -> NSData{
-        do{
-                return try NSData(contentsOf: NSURL(string: urlToRequest) as! URL)
-        }catch {
-            print("error")
-        }
-        return NSData()
-    }
-    
-    func parseJSON(inputData: Data) -> JSON{
-        let json = JSON(data: inputData)
-        return json
-    }
 }

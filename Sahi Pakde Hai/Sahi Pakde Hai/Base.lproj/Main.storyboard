@@ -55,7 +55,11 @@
         <!--Score Card View Controller-->
         <scene sceneID="yXE-KX-XAx">
             <objects>
-                <viewController id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="oXz-FY-c9h"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aM8-Nj-AKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4774" y="317"/>
@@ -79,4 +83,7 @@
             <point key="canvasLocation" x="1224.8" y="312.59370314842579"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oXz-FY-c9h"/>
+    </inferredMetricsTieBreakers>
 </document>
