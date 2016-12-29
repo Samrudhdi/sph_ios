@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0131131E11858D00845149 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131121E11858D00845149 /* Service.swift */; };
+		3D0131161E11865B00845149 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131151E11865B00845149 /* Deck.swift */; };
+		3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131191E118F5500845149 /* BaseUIViewController.swift */; };
 		3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */; };
 		3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */; };
 		3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661F11D20F04A00EA2DD8 /* HTP.swift */; };
@@ -19,6 +22,15 @@
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
 		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
 		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
+		3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */; };
+		3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */; };
+		3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */; };
+		3D3C76341E12BC4300A67EF5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C762A1E12BC4300A67EF5 /* FMDatabase.m */; };
+		3D3C76351E12BC4300A67EF5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C762C1E12BC4300A67EF5 /* FMDatabaseAdditions.m */; };
+		3D3C76361E12BC4300A67EF5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C762E1E12BC4300A67EF5 /* FMDatabasePool.m */; };
+		3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C76301E12BC4300A67EF5 /* FMDatabaseQueue.m */; };
+		3D3C76381E12BC4300A67EF5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C76331E12BC4300A67EF5 /* FMResultSet.m */; };
+		3D3C763B1E12E0CE00A67EF5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3C763A1E12E0CE00A67EF5 /* libsqlite3.0.tbd */; };
 		3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DB1E030D99006E560B /* select_category.mp3 */; };
 		3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DD1E0310A3006E560B /* correct.mp3 */; };
 		3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76DE1E0310A3006E560B /* get_ready.mp3 */; };
@@ -28,6 +40,9 @@
 		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
 		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
 		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
+		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
+		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
+		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
 		3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */; };
 		3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C061D1D0BB40071C1C7 /* Main.storyboard */; };
 		3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */; };
@@ -36,9 +51,13 @@
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
 		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
 		3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */; };
+		F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0131121E11858D00845149 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		3D0131151E11865B00845149 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		3D0131191E118F5500845149 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
 		3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlayViewController.xib; sourceTree = "<group>"; };
 		3D1661F11D20F04A00EA2DD8 /* HTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTP.swift; sourceTree = "<group>"; };
@@ -51,6 +70,22 @@
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
 		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
+		3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreCardViewController.xib; sourceTree = "<group>"; };
+		3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		3D3C76291E12BC4300A67EF5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		3D3C762A1E12BC4300A67EF5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		3D3C762B1E12BC4300A67EF5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		3D3C762C1E12BC4300A67EF5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		3D3C762D1E12BC4300A67EF5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		3D3C762E1E12BC4300A67EF5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		3D3C762F1E12BC4300A67EF5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		3D3C76301E12BC4300A67EF5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		3D3C76311E12BC4300A67EF5 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		3D3C76321E12BC4300A67EF5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		3D3C76331E12BC4300A67EF5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		3D3C76391E12BD1A00A67EF5 /* Sahi Pakde Hai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sahi Pakde Hai-Bridging-Header.h"; sourceTree = "<group>"; };
+		3D3C763A1E12E0CE00A67EF5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3D6F76DB1E030D99006E560B /* select_category.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = select_category.mp3; sourceTree = "<group>"; };
 		3D6F76DD1E0310A3006E560B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		3D6F76DE1E0310A3006E560B /* get_ready.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get_ready.mp3; sourceTree = "<group>"; };
@@ -60,6 +95,9 @@
 		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
 		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
 		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
+		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
+		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahi Pakde Hai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DE98C071D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +108,9 @@
 		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
 		3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlay.xib; sourceTree = "<group>"; };
+		94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.release.xcconfig"; sourceTree = "<group>"; };
+		BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.debug.xcconfig"; sourceTree = "<group>"; };
+		F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +118,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3C763B1E12E0CE00A67EF5 /* libsqlite3.0.tbd in Frameworks */,
+				F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		268119EE04796434788096F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D3C763A1E12E0CE00A67EF5 /* libsqlite3.0.tbd */,
+				F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D0131141E11863700845149 /* pojo */ = {
+			isa = PBXGroup;
+			children = (
+				3D3659B21E01B2900018F13E /* Category.swift */,
+				3D0131151E11865B00845149 /* Deck.swift */,
+				3DA704301E13B964005DC85B /* DeckResult.swift */,
+			);
+			name = pojo;
+			sourceTree = "<group>";
+		};
 		3D20ABC81DF720A0009DFB7E /* CategoryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +183,34 @@
 			name = HowToPlay;
 			sourceTree = "<group>";
 		};
-		3D3659B11E01B25B0018F13E /* pojo */ = {
+		3D37A6CE1E0C4C4800DD9F70 /* Score */ = {
 			isa = PBXGroup;
 			children = (
-				3D3659B21E01B2900018F13E /* Category.swift */,
+				3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */,
+				3D37A6D01E0C4C6B00DD9F70 /* ScoreCardViewController.xib */,
+				3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */,
+				3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */,
 			);
-			name = pojo;
+			name = Score;
+			sourceTree = "<group>";
+		};
+		3D3C76271E12BBB100A67EF5 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				3D3C76291E12BC4300A67EF5 /* FMDatabase.h */,
+				3D3C762A1E12BC4300A67EF5 /* FMDatabase.m */,
+				3D3C762B1E12BC4300A67EF5 /* FMDatabaseAdditions.h */,
+				3D3C762C1E12BC4300A67EF5 /* FMDatabaseAdditions.m */,
+				3D3C762D1E12BC4300A67EF5 /* FMDatabasePool.h */,
+				3D3C762E1E12BC4300A67EF5 /* FMDatabasePool.m */,
+				3D3C762F1E12BC4300A67EF5 /* FMDatabaseQueue.h */,
+				3D3C76301E12BC4300A67EF5 /* FMDatabaseQueue.m */,
+				3D3C76311E12BC4300A67EF5 /* FMDB.h */,
+				3D3C76321E12BC4300A67EF5 /* FMResultSet.h */,
+				3D3C76331E12BC4300A67EF5 /* FMResultSet.m */,
+				3D3C76391E12BD1A00A67EF5 /* Sahi Pakde Hai-Bridging-Header.h */,
+			);
+			name = FMDB;
 			sourceTree = "<group>";
 		};
 		3D6F76C81E030620006E560B /* sounds */ = {
@@ -150,6 +234,8 @@
 			children = (
 				3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */,
 				3DE98C001D1D0BB40071C1C7 /* Products */,
+				CE812A253420AFD10E85C0D6 /* Pods */,
+				268119EE04796434788096F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,8 +250,10 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3D3C76271E12BBB100A67EF5 /* FMDB */,
+				3D0131141E11863700845149 /* pojo */,
+				3D37A6CE1E0C4C4800DD9F70 /* Score */,
 				3D6F76C81E030620006E560B /* sounds */,
-				3D3659B11E01B25B0018F13E /* pojo */,
 				3D20ABDB1DF73E30009DFB7E /* HowToPlay */,
 				3D20ABDA1DF73E13009DFB7E /* DescriptionView */,
 				3D20ABD51DF73A6C009DFB7E /* PlayGame */,
@@ -188,8 +276,20 @@
 			children = (
 				3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */,
 				3D3659B41E01B7A50018F13E /* Constant.swift */,
+				3D0131121E11858D00845149 /* Service.swift */,
+				3D0131191E118F5500845149 /* BaseUIViewController.swift */,
+				3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		CE812A253420AFD10E85C0D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */,
+				94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DE98C111D1D0BB40071C1C7 /* Build configuration list for PBXNativeTarget "Sahi Pakde Hai" */;
 			buildPhases = (
+				0478DB0791CF6FD1B4EE2D3E /* [CP] Check Pods Manifest.lock */,
 				3DE98BFB1D1D0BB40071C1C7 /* Sources */,
 				3DE98BFC1D1D0BB40071C1C7 /* Frameworks */,
 				3DE98BFD1D1D0BB40071C1C7 /* Resources */,
+				771C2C9796E9922F788A15DF /* [CP] Embed Pods Frameworks */,
+				4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */,
+				3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */,
 				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
 				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
 				3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */,
@@ -262,6 +366,7 @@
 				3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */,
 				3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */,
 				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
+				3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */,
 				3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */,
 				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
 				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
@@ -276,21 +381,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0478DB0791CF6FD1B4EE2D3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		771C2C9796E9922F788A15DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DE98BFB1D1D0BB40071C1C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */,
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3D0131131E11858D00845149 /* Service.swift in Sources */,
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
+				3D3C76351E12BC4300A67EF5 /* FMDatabaseAdditions.m in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
 				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
+				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
+				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
+				3D0131161E11865B00845149 /* Deck.swift in Sources */,
 				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
+				3DA704311E13B964005DC85B /* DeckResult.swift in Sources */,
+				3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */,
+				3D3C76381E12BC4300A67EF5 /* FMResultSet.m in Sources */,
+				3D3C76361E12BC4300A67EF5 /* FMDatabasePool.m in Sources */,
 				3D3659B51E01B7A50018F13E /* Constant.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
+				3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */,
+				3D3C76341E12BC4300A67EF5 /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,13 +566,17 @@
 		};
 		3DE98C121D1D0BB40071C1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -415,13 +584,16 @@
 		};
 		3DE98C131D1D0BB40071C1C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CategorySelectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var shareButton: UIButton!
 
     @IBOutlet weak var teamPlayButton: UIButton!
@@ -23,6 +23,7 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
     var selectedCategory:Category? = nil
     var categoryArray:Array<Category> = []
     var categorySelectionSound:AVAudioPlayer!
+    let indicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        loadData()
         // Do any additional setup after loading the view.
     }
 
@@ -125,7 +127,66 @@ class CategorySelectionViewController: UIViewController,UICollectionViewDelegate
             descriptionController.selecteCategory = self.selectedCategory!
         }
     }
+    
+    func loadData() {
+        CommonUtil.showActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+        let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
+        Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
+//        let data = Service().getJSON(urlToRequest: url)
+        
+    }
 
+    func successCallBack(decks:Array<Deck>) {
+        storeDeckData(decks: decks)
+    }
+    
+    func failureCallBack(error: Error?) {
+        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+        CommonUtil.showMessageOnSnackbar(message: error.debugDescription)
+    }
+    
+    func storeDeckData(decks:Array<Deck>){
+        let deck = decks[0];
+        let updateFlag = deck.word
+        print(updateFlag)
+        let updateVersionCode = deck.deckType
+        print(updateVersionCode)
+        
+        // Reading data from preference
+        let preference = UserDefaults.standard
+//        if preference.object(forKey: Constant.UPDATE_VERSION_CODE) != nil {
+        let storedVersion = preference.integer(forKey: Constant.UPDATE_VERSION_CODE)
+        if updateVersionCode > storedVersion{
+            let prefere = UserDefaults.standard
+            insertDataOnDatabase(decks: decks)
+            prefere.set(updateVersionCode, forKey: Constant.UPDATE_VERSION_CODE)
+//                prefere.in
+            let didSave = prefere.synchronize()
+            if !didSave {
+                print("preference not set")
+            }else {
+                print("preference set")
+            }
+        }
+    }
+    
+    func insertDataOnDatabase(decks:Array<Deck>){
+        let sqliteDatabase:SQLiteDatabase = SQLiteDatabase()
+        let isReCreatedTable = sqliteDatabase.reCreateTable()
+        if isReCreatedTable {
+            sqliteDatabase.insertData(deckArray: decks,callBack: callBack)
+        }else {
+            print("Unable to insert data in table")
+        }
+    }
+    
+    func callBack(isInserted:Bool) {
+        print(isInserted)
+        
+    }
+
+    
+   
     /*
     // MARK: - Navigation
 
