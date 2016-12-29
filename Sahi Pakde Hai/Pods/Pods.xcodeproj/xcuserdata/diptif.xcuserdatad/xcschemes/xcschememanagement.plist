@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AsyncSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Sahi Pakde Hai.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7E9587461DFCA77127EA7D369124A81E</key>
+		<key>3D59091138C69B821F7A67D848C319E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B983F9647DF35F9C71583BAF282964C</key>
+		<key>BB962FE633797E4CF79D7BBA0C687A01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B10A88EC6388F7EEBA8291B76538234D</key>
+		<key>C36B0C3102225BC661F67D0677F4235F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1DC35DB2C695031A72543555FB23729</key>
 		<dict>
 			<key>primary</key>
 			<true/>

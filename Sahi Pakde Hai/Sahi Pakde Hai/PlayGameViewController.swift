@@ -19,8 +19,8 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     @IBOutlet weak var videoView: UIView!
     
-    var count = 40//58
-    var threeTwoOneCount = 4
+    var count = 20//58
+    var threeTwoOneCount = 5
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
     
@@ -49,7 +49,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         UIDevice.current.setValue(value, forKey: "orientation")
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         
         setupCameraSession()
         setupAccelerometer()
@@ -65,7 +65,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     func willEnterForeground(){
 //        print("willEnterForeground")
-        self.navigationController?.popViewController(animated: false)
+//        self.navigationController?.popViewController(animated: false)
     }
     
     
@@ -200,12 +200,12 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     func threeTwoOneCounter() {
         if threeTwoOneCount > 0 {
             
-            if threeTwoOneCount == 4 {
+            if threeTwoOneCount == 5 {
                 startVideoRecording()
 //                print("threeTwoOneCount \(threeTwoOneCount)")
                 playSound(sound: "get_ready", ofType: "mp3")
                 wordLabel.text = "GET READY!"
-            }else {
+            }else if threeTwoOneCount <= 3{
 //                print("threeTwoOneCount \(threeTwoOneCount)")
                 playSound(sound: "three_two_one", ofType: "mp3")
                 wordLabel.text = "\(threeTwoOneCount)"
@@ -249,9 +249,24 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }else {
             timer?.invalidate()
             stopVideoRecording()
-            performSegue(withIdentifier: "ScoreCardViewController", sender: self)
+            goToScoreCardController()
+//            performSegue(withIdentifier: "ScoreCardViewController", sender: self)
+            updateIsPlayedFlag()
 //            self.navigationController?.popViewController(animated: false)
         }
+    }
+    
+    func goToScoreCardController() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "SCORE_CARD_VIEW") is ScoreCardViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "SCORE_CARD_VIEW") as! ScoreCardViewController
+            
+            controller.deckResultArray = self.deckResultArray
+            controller.selectedCategory = self.selectedCategory
+            
+            present(controller, animated: true, completion: {})
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -297,7 +312,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
 
     func playSound(sound:String,ofType:String) {
-       avPlayer = CommonUtil.playSound(sound: sound, ofType: ofType)
+       avPlayer = CommonUtil().playSound(sound: sound, ofType: ofType)
         if avPlayer != nil{
             avPlayer?.play()
         }
@@ -447,6 +462,11 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
         
 //        }
+    }
+    
+    func updateIsPlayedFlag() {
+        let sqlite:SQLiteDatabase = SQLiteDatabase()
+        sqlite.updateDeckIsPlayed(deckResultArray: deckResultArray)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

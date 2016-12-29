@@ -11,11 +11,12 @@ import Foundation
 import AVFoundation
 import UIKit
 import TTGSnackbar
+import SystemConfiguration
 
 
 class CommonUtil{
     
-    static func playSound(sound:String,ofType:String) -> AVAudioPlayer {
+    func playSound(sound:String,ofType:String) -> AVAudioPlayer {
         var categorySelectionSound:AVAudioPlayer? = nil
         let path = Bundle.main.path(forResource: sound, ofType:ofType)!
         let url = URL(fileURLWithPath: path)
@@ -55,6 +56,28 @@ class CommonUtil{
         //        snackbar.messageTextFont = UIFont(name:"AppleSDGothicNeo-Regular", size: 17.0)!
         snackbar.show()
     }
+    
+    static func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
+
 
 
 }
@@ -112,6 +135,7 @@ extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
+    
 }
 
 extension UITableView {

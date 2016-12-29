@@ -34,15 +34,20 @@ class DescriptionViewController: UIViewController {
 
     // Back button
     @IBAction func moveBAck(_ sender: AnyObject) {
-       self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: {})
+//       self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: {})
         
     }
 
     @IBAction func playGame(_ sender: AnyObject) {
-//        let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
-//        present(controller, animated: false, completion: {})
-        performSegue(withIdentifier: "PlayGameViewController", sender: self)
+        if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
+            controller.selectedCategory = self.selecteCategory
+            present(controller, animated: true, completion: {})
+        }
+
+//        performSegue(withIdentifier: "PlayGameViewController", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

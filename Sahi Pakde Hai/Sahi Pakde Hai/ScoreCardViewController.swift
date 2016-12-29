@@ -46,11 +46,24 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
-        performSegue(withIdentifier: "PlayGameViewController", sender: self)
+//        performSegue
+        if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
+            controller.selectedCategory = self.selectedCategory
+            present(controller, animated: true, completion: {})
+        }
+
     }
     
     @IBAction func back(_ sender: AnyObject) {
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
+            present(controller, animated: true, completion: {})
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

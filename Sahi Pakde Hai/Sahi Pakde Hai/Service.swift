@@ -22,10 +22,10 @@ class Service  {
         let task = URLSession.shared.dataTask(with: request) {
             data, response, error in
             
-            DispatchQueue.main.async {
-                CommonUtil.removeActivityIndicator(actInd: actInd, view: view, subView: subView)
-            }
-            
+//            DispatchQueue.main.async {
+//                CommonUtil.removeActivityIndicator(actInd: actInd, view: view, subView: subView)
+//            }
+//            
             if error != nil
             {
                 DispatchQueue.main.async {
