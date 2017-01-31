@@ -22,7 +22,8 @@ class HowToPlayViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: AnyObject) {
-//        self.dismiss(animated: true, completion: {})
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: {})
+        
+//        self.navigationController?.popViewController(animated: true)
     }
 }

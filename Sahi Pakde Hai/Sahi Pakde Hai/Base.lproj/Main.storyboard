@@ -9,7 +9,7 @@
         <!--Category Selection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CATEGORY_SCREEN" id="BYZ-38-t0r" customClass="CategorySelectionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CATEGORY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CategorySelectionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2SV-BE-kAD"/>
                     <connections>
                         <segue destination="RSQ-wx-sde" kind="show" identifier="DescriptionViewController" id="IH1-2g-CU9"/>
@@ -23,7 +23,7 @@
         <!--How To Play View Controller-->
         <scene sceneID="r13-72-dpo">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="gZm-cX-PMF" customClass="HowToPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="HOW_TO_PLAY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gZm-cX-PMF" customClass="HowToPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2g-99-KEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="1057"/>
@@ -31,7 +31,7 @@
         <!--Description View Controller-->
         <scene sceneID="YKu-uC-imN">
             <objects>
-                <viewController storyboardIdentifier="DESCRIPTION_VIEW" modalTransitionStyle="flipHorizontal" id="RSQ-wx-sde" customClass="DescriptionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DESCRIPTION_VIEW" id="RSQ-wx-sde" customClass="DescriptionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="dZl-fK-eh0"/>
                     </connections>
@@ -55,14 +55,23 @@
         <!--Score Card View Controller-->
         <scene sceneID="yXE-KX-XAx">
             <objects>
-                <viewController id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SCORE_CARD_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="oXz-FY-c9h"/>
+                        <segue destination="2f3-vL-wQX" kind="show" identifier="VideoPlayViewController" id="F1J-QY-mIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aM8-Nj-AKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4774" y="317"/>
+        </scene>
+        <!--Video Play View Controller-->
+        <scene sceneID="Nw6-Zb-u1d">
+            <objects>
+                <viewController id="2f3-vL-wQX" customClass="VideoPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnT-Q6-qux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5596" y="316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="82x-N4-H9N">

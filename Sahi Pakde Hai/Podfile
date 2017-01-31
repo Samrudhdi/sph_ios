@@ -8,5 +8,6 @@ target 'Sahi Pakde Hai' do
   # Pods for Sahi Pakde Hai
 	pod 'SwiftyJSON'
     pod 'TTGSnackbar'
+    pod "AsyncSwift"
 
 end

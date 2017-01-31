@@ -1,15 +1,18 @@
 PODS:
+  - AsyncSwift (2.0.0)
   - SwiftyJSON (3.1.1)
   - TTGSnackbar (1.2.3)
 
 DEPENDENCIES:
+  - AsyncSwift
   - SwiftyJSON
   - TTGSnackbar
 
 SPEC CHECKSUMS:
+  AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   TTGSnackbar: 3586f0411fae178fbde7ab34ae66fd697db496a9
 
-PODFILE CHECKSUM: be12868ec5206ff2dc1bc3f826321aafc876e68f
+PODFILE CHECKSUM: 52afaac20caa587aecafc5686b3582f731ecb6c5
 
 COCOAPODS: 1.1.0.rc.3

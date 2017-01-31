@@ -7,122 +7,125 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		047624B2734D1C967A89A80D58858AAB /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		270ACCA60FD11DB0A986BC1D4BBDCB06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		301CB0FA6DCCEDDF1B3F7E4B51ACCF4B /* Pods-Sahi Pakde Hai-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */; };
-		4C4AA0F643CB3DE3C37895D464AEFABD /* TTGSnackbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6902F9A000404D9A36F3ADF83EB849A0 /* TTGSnackbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6E0DCB196D8DEBDDFC3EE9C77C6A471B /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */; };
-		7C3E0E1DA70ADBAA2620F33EB2A35175 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D51BBD59AE8C41993FA51C34393EABC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */; };
-		B7062B08E84B77A1F069C353A9613DC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		B94FF3E914ADB657352B738C2F3018B3 /* TTGSnackbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */; };
-		BAF281FFB4667B22DCD65F006F3D540B /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */; };
-		BB9265E22E97E9CDA021F8DDD0B8B623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		08DD7131E66A6051656512FA2F16D026 /* TTGSnackbar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F4FA7EB9260ED0DA5A5C75BD5A3D3 /* TTGSnackbar-dummy.m */; };
+		0A206B754670BD2D8EBBFB6D77DB195E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88BBC06015064E98455924F4D1F114C /* Async.swift */; };
+		22F4A96FEC2F77417250192DA2AD640A /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB58579412E2DA89D267FABAABFF59D /* SwiftyJSON-dummy.m */; };
+		2754C4E95E265639D7CFC90BA8264476 /* AsyncSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E19602E7FE18411FBCAFB5559DA20841 /* AsyncSwift-dummy.m */; };
+		2F903EAED6109D3BF3F180DDFD24D62A /* AsyncSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E8511913A2ACBC50ACCB5F5D509179F /* AsyncSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37E433452F9AEE4A0B51CCDA404B53EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		40CE519D10F4E8EAE54C87FCBCFEED98 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41634E92A6A7D0C763EC7AED416F62BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		4B7B88054D3BBE8C9F452C8BA7901806 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A0EC3317271E949A51A0DD37EA16DD /* TTGSnackbar.swift */; };
+		51D47D7143CE64A66B98B93B8CB9D0AD /* TTGSnackbar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 912E27786145AC285D9C08639F614438 /* TTGSnackbar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88956F267953B806CE75156492E76401 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08DD88BDA2E1F4D59A9AB258E4B96B8 /* SwiftyJSON.swift */; };
+		948649CA7B87FB81DCE7164465E36C92 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A4FB09A2CBF886DFDD2194C4650B85 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA3BB84FB7B46B60C1A8A3EC370E3ACA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		AA524FDD49EA3898421F73B0234F5B1F /* Pods-Sahi Pakde Hai-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */; };
+		FB1DA760F04261F7967CD6F8005D4611 /* TTGSnackbar.h in Headers */ = {isa = PBXBuildFile; fileRef = D91324809DE0B0ABA8AEC20E3D8603F3 /* TTGSnackbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1045C2FE08EFEDA40DF7FF14FFE196BE /* PBXContainerItemProxy */ = {
+		02D8AB59CDAC837D3B0B8C6321EDE7B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7E9587461DFCA77127EA7D369124A81E;
+			remoteGlobalIDString = BB962FE633797E4CF79D7BBA0C687A01;
 			remoteInfo = SwiftyJSON;
 		};
-		FF4989A9E0773B949751FA407CA71F74 /* PBXContainerItemProxy */ = {
+		02FF0D965085EAACBF5E46B99A96F1C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8B983F9647DF35F9C71583BAF282964C;
+			remoteGlobalIDString = 3D59091138C69B821F7A67D848C319E7;
 			remoteInfo = TTGSnackbar;
+		};
+		3474CBC68FD961ED925969E3DEC38773 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1DC35DB2C695031A72543555FB23729;
+			remoteInfo = AsyncSwift;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C5F8248D6764C80651596C776016A1A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1171E767834F566F9BA53EDFC7363EFC /* TTGSnackbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TTGSnackbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16552658BB889E782E1EEFD8D6BAE951 /* AsyncSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AsyncSwift.xcconfig; sourceTree = "<group>"; };
 		1FB95D9DBDD1B71F62AD14D40975B639 /* Pods-Sahi Pakde Hai.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Sahi Pakde Hai.modulemap"; sourceTree = "<group>"; };
-		22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-umbrella.h"; sourceTree = "<group>"; };
-		24AB0AFDCEC82469A07D7749A086679A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29BD46F2A569061962DC4C5833F7DDAC /* TTGSnackbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-prefix.pch"; sourceTree = "<group>"; };
+		2C5467238E88A0DEF01F19247A2329D8 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		2D7C12D8C63C7A8C6D67E3493DDE2BC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35C46D1C8468E74062AC885AEFE33C15 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		4F11A004DA963765B0749358E8C1E2FD /* TTGSnackbar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-prefix.pch"; sourceTree = "<group>"; };
-		5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TTGSnackbar.swift; path = TTGSnackbar/TTGSnackbar.swift; sourceTree = "<group>"; };
-		5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TTGSnackbar-dummy.m"; sourceTree = "<group>"; };
-		715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TTGSnackbar.h; path = TTGSnackbar/TTGSnackbar.h; sourceTree = "<group>"; };
-		775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TTGSnackbar.xcconfig; sourceTree = "<group>"; };
+		31A0EC3317271E949A51A0DD37EA16DD /* TTGSnackbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TTGSnackbar.swift; path = TTGSnackbar/TTGSnackbar.swift; sourceTree = "<group>"; };
+		3ACABC790E44AAC2B88AFCAF031B1727 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		3F3EE7FFBCAC2F1BF127C99EAAB27C21 /* AsyncSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AsyncSwift.modulemap; sourceTree = "<group>"; };
+		4CF8E5F5779F1AB33E77DD682D83E253 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EFA826C5CC9A0642A162C181BC95F75 /* TTGSnackbar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TTGSnackbar.xcconfig; sourceTree = "<group>"; };
+		50B254B29673CB1C36803F61462A5AFC /* Async.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Async.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sahi Pakde Hai.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3154B644E349ECC0868FF89A88837F /* Pods-Sahi Pakde Hai-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sahi Pakde Hai-umbrella.h"; sourceTree = "<group>"; };
 		8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sahi Pakde Hai.release.xcconfig"; sourceTree = "<group>"; };
-		8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
-		90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		8E8511913A2ACBC50ACCB5F5D509179F /* AsyncSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncSwift-umbrella.h"; sourceTree = "<group>"; };
+		903F4FA7EB9260ED0DA5A5C75BD5A3D3 /* TTGSnackbar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TTGSnackbar-dummy.m"; sourceTree = "<group>"; };
+		912E27786145AC285D9C08639F614438 /* TTGSnackbar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TTGSnackbar-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95F2CC12655BCFC75C98029C8B9A171A /* Pods-Sahi Pakde Hai-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sahi Pakde Hai-acknowledgements.plist"; sourceTree = "<group>"; };
 		9604C5A55A5335DAED2FFFA097E0520A /* Pods-Sahi Pakde Hai-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sahi Pakde Hai-dummy.m"; sourceTree = "<group>"; };
-		9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		9A1728B4865ACF76C2BACFBD8AA85E3F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CB58579412E2DA89D267FABAABFF59D /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		9CC9DF7F20A50F50424D59C09212D148 /* TTGSnackbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TTGSnackbar.modulemap; sourceTree = "<group>"; };
+		9EC82211A6105AE3E879EC33F1A1D34B /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		B0D3CFB7F52DABDC63038F855C8A881E /* Pods-Sahi Pakde Hai-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sahi Pakde Hai-resources.sh"; sourceTree = "<group>"; };
+		B2BA130403FF3A87C079B58CCC3A3F49 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5AF6D520095081206B450682A54D431 /* AsyncSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AsyncSwift-prefix.pch"; sourceTree = "<group>"; };
+		C8A4FB09A2CBF886DFDD2194C4650B85 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D88BBC06015064E98455924F4D1F114C /* Async.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Async.swift; path = Source/Async.swift; sourceTree = "<group>"; };
+		D91324809DE0B0ABA8AEC20E3D8603F3 /* TTGSnackbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TTGSnackbar.h; path = TTGSnackbar/TTGSnackbar.h; sourceTree = "<group>"; };
 		DE02AF522CD864D5E91F1EAD2F0DAC90 /* Pods-Sahi Pakde Hai-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sahi Pakde Hai-frameworks.sh"; sourceTree = "<group>"; };
-		E344AD7C6A5AA6E5AAC7E9C97FEB15BD /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TTGSnackbar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA31CA2DBC290BDA48E02720AE75ECEF /* TTGSnackbar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TTGSnackbar.modulemap; sourceTree = "<group>"; };
+		E19602E7FE18411FBCAFB5559DA20841 /* AsyncSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AsyncSwift-dummy.m"; sourceTree = "<group>"; };
+		F08DD88BDA2E1F4D59A9AB258E4B96B8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		F207131F03B605076706A498FC67BA51 /* Pods-Sahi Pakde Hai-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sahi Pakde Hai-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F9475147590F7BFE15838E40CE39640B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC15338682420EE23BA618F9D9891EF /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3DF9AD37EAFCEFD6634742EA764C838E /* Frameworks */ = {
+		12E06C4B39704804F49B0BAF872B04AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7062B08E84B77A1F069C353A9613DC4 /* Foundation.framework in Frameworks */,
+				AA3BB84FB7B46B60C1A8A3EC370E3ACA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FF9D8D7F0B2252A0F113E10179D9C22 /* Frameworks */ = {
+		1EF4AACDF9108D278C688937BF69702B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				270ACCA60FD11DB0A986BC1D4BBDCB06 /* Foundation.framework in Frameworks */,
+				0A206B754670BD2D8EBBFB6D77DB195E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC2471AA013B579870EB8FB61217D8C0 /* Frameworks */ = {
+		E19E24B3EFD50BD525A86EB9AB522D53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9265E22E97E9CDA021F8DDD0B8B623 /* Foundation.framework in Frameworks */,
+				41634E92A6A7D0C763EC7AED416F62BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC45B49DAE58A4E80A54C3888DA457F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E433452F9AEE4A0B51CCDA404B53EC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EA96375DFD97A634024057F31AD2B62 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				24AB0AFDCEC82469A07D7749A086679A /* Info.plist */,
-				35C46D1C8468E74062AC885AEFE33C15 /* SwiftyJSON.modulemap */,
-				90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */,
-				A64239BD97F8D09ED7D31063AB2171E9 /* SwiftyJSON-dummy.m */,
-				E344AD7C6A5AA6E5AAC7E9C97FEB15BD /* SwiftyJSON-prefix.pch */,
-				A8473BB8E7981A7B40DCCFB3473F7825 /* SwiftyJSON-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftyJSON";
-			sourceTree = "<group>";
-		};
-		1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */,
-				1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */,
-				E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,37 +134,61 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		4F214C621ED4A186E0B882CE48F46F41 /* Support Files */ = {
+		45215E422E84CDEA6F00A432AA0C2523 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F9475147590F7BFE15838E40CE39640B /* Info.plist */,
-				EA31CA2DBC290BDA48E02720AE75ECEF /* TTGSnackbar.modulemap */,
-				775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */,
-				5EE7F88B312D004E2E8D06D0AE8B7CBB /* TTGSnackbar-dummy.m */,
-				4F11A004DA963765B0749358E8C1E2FD /* TTGSnackbar-prefix.pch */,
-				22AD953D435643C2F72B64BC01A54397 /* TTGSnackbar-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/TTGSnackbar";
-			sourceTree = "<group>";
-		};
-		6CE77EDD536B867C4E79C39D57BC0627 /* TTGSnackbar */ = {
-			isa = PBXGroup;
-			children = (
-				715175C4AF8B3EA66C999FE776CB8631 /* TTGSnackbar.h */,
-				5CAA393FA1FE22B3BC06C83FC7C9F966 /* TTGSnackbar.swift */,
-				4F214C621ED4A186E0B882CE48F46F41 /* Support Files */,
-			);
-			path = TTGSnackbar;
-			sourceTree = "<group>";
-		};
-		7572CF7F38329015081885465B34DAAD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ACC70E07DCC5C3C5C2AEEDE85DBCB0FD /* SwiftyJSON */,
-				6CE77EDD536B867C4E79C39D57BC0627 /* TTGSnackbar */,
+				83D507BEA43C5C4ADC83AC5EECC508D6 /* AsyncSwift */,
+				50066FFA09FEABB6708CE735EE7FCA51 /* SwiftyJSON */,
+				70107D886A445D6EA35CDE55799275E8 /* TTGSnackbar */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C53F028FD1588DAFF52CE4FF88FF5AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F3EE7FFBCAC2F1BF127C99EAAB27C21 /* AsyncSwift.modulemap */,
+				16552658BB889E782E1EEFD8D6BAE951 /* AsyncSwift.xcconfig */,
+				E19602E7FE18411FBCAFB5559DA20841 /* AsyncSwift-dummy.m */,
+				B5AF6D520095081206B450682A54D431 /* AsyncSwift-prefix.pch */,
+				8E8511913A2ACBC50ACCB5F5D509179F /* AsyncSwift-umbrella.h */,
+				4CF8E5F5779F1AB33E77DD682D83E253 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AsyncSwift";
+			sourceTree = "<group>";
+		};
+		50066FFA09FEABB6708CE735EE7FCA51 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				F08DD88BDA2E1F4D59A9AB258E4B96B8 /* SwiftyJSON.swift */,
+				5220DEE1C2D6412E703ECA8054BBF28C /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		5220DEE1C2D6412E703ECA8054BBF28C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2BA130403FF3A87C079B58CCC3A3F49 /* Info.plist */,
+				3ACABC790E44AAC2B88AFCAF031B1727 /* SwiftyJSON.modulemap */,
+				9EC82211A6105AE3E879EC33F1A1D34B /* SwiftyJSON.xcconfig */,
+				9CB58579412E2DA89D267FABAABFF59D /* SwiftyJSON-dummy.m */,
+				2C5467238E88A0DEF01F19247A2329D8 /* SwiftyJSON-prefix.pch */,
+				C8A4FB09A2CBF886DFDD2194C4650B85 /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
+			sourceTree = "<group>";
+		};
+		70107D886A445D6EA35CDE55799275E8 /* TTGSnackbar */ = {
+			isa = PBXGroup;
+			children = (
+				D91324809DE0B0ABA8AEC20E3D8603F3 /* TTGSnackbar.h */,
+				31A0EC3317271E949A51A0DD37EA16DD /* TTGSnackbar.swift */,
+				BEFB726486A2A7E4D0E8404FE5CD1496 /* Support Files */,
+			);
+			path = TTGSnackbar;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -169,10 +196,19 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				7572CF7F38329015081885465B34DAAD /* Pods */,
-				1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */,
+				45215E422E84CDEA6F00A432AA0C2523 /* Pods */,
+				C94ACF0E1A35EEB346502BACB2030299 /* Products */,
 				A5099628161177B6ADA539A88C0FFA0E /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		83D507BEA43C5C4ADC83AC5EECC508D6 /* AsyncSwift */ = {
+			isa = PBXGroup;
+			children = (
+				D88BBC06015064E98455924F4D1F114C /* Async.swift */,
+				4C53F028FD1588DAFF52CE4FF88FF5AA /* Support Files */,
+			);
+			path = AsyncSwift;
 			sourceTree = "<group>";
 		};
 		A253763247D3D058C68368FD3C8A9B97 /* Pods-Sahi Pakde Hai */ = {
@@ -201,15 +237,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		ACC70E07DCC5C3C5C2AEEDE85DBCB0FD /* SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				8F61BB9827ACC02F0FC511A661C2DBC6 /* SwiftyJSON.swift */,
-				0EA96375DFD97A634024057F31AD2B62 /* Support Files */,
-			);
-			path = SwiftyJSON;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,61 +245,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BEFB726486A2A7E4D0E8404FE5CD1496 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C5F8248D6764C80651596C776016A1A /* Info.plist */,
+				9CC9DF7F20A50F50424D59C09212D148 /* TTGSnackbar.modulemap */,
+				4EFA826C5CC9A0642A162C181BC95F75 /* TTGSnackbar.xcconfig */,
+				903F4FA7EB9260ED0DA5A5C75BD5A3D3 /* TTGSnackbar-dummy.m */,
+				29BD46F2A569061962DC4C5833F7DDAC /* TTGSnackbar-prefix.pch */,
+				912E27786145AC285D9C08639F614438 /* TTGSnackbar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TTGSnackbar";
+			sourceTree = "<group>";
+		};
+		C94ACF0E1A35EEB346502BACB2030299 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50B254B29673CB1C36803F61462A5AFC /* Async.framework */,
+				FCC15338682420EE23BA618F9D9891EF /* Pods_Sahi_Pakde_Hai.framework */,
+				9A1728B4865ACF76C2BACFBD8AA85E3F /* SwiftyJSON.framework */,
+				1171E767834F566F9BA53EDFC7363EFC /* TTGSnackbar.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		287C36BAB68888B8A241ABA8ADB18458 /* Headers */ = {
+		3A91A1781435D2F6E292FCCF5F5356C1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047624B2734D1C967A89A80D58858AAB /* SwiftyJSON-umbrella.h in Headers */,
+				2F903EAED6109D3BF3F180DDFD24D62A /* AsyncSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC3D3BD3044087445447D14A73A4D8BE /* Headers */ = {
+		569862070FEA20B336C83AC8AFB7FBCA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C3E0E1DA70ADBAA2620F33EB2A35175 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */,
+				948649CA7B87FB81DCE7164465E36C92 /* SwiftyJSON-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0BF1BDBE983E2466D32E5FD345696EB /* Headers */ = {
+		9F926A5299D51DA9C543BEE025A564C9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4AA0F643CB3DE3C37895D464AEFABD /* TTGSnackbar-umbrella.h in Headers */,
-				6902F9A000404D9A36F3ADF83EB849A0 /* TTGSnackbar.h in Headers */,
+				51D47D7143CE64A66B98B93B8CB9D0AD /* TTGSnackbar-umbrella.h in Headers */,
+				FB1DA760F04261F7967CD6F8005D4611 /* TTGSnackbar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7D86C152B2BB5D0C2406F18058BFFF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40CE519D10F4E8EAE54C87FCBCFEED98 /* Pods-Sahi Pakde Hai-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */ = {
+		3D59091138C69B821F7A67D848C319E7 /* TTGSnackbar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 014E3E751747C794EA43B8D29EF29A81 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildConfigurationList = 771B7A706FB03665CA21E8BDEE8A1A7A /* Build configuration list for PBXNativeTarget "TTGSnackbar" */;
 			buildPhases = (
-				07944DD7906879A44EA8D2FB972C5326 /* Sources */,
-				3DF9AD37EAFCEFD6634742EA764C838E /* Frameworks */,
-				287C36BAB68888B8A241ABA8ADB18458 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftyJSON;
-			productName = SwiftyJSON;
-			productReference = 1A1A6734ACB8A6D7420A146DCE99084C /* SwiftyJSON.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3488EEA20A3105169021745CAFC0424D /* Build configuration list for PBXNativeTarget "TTGSnackbar" */;
-			buildPhases = (
-				B8B2BE72D713D71ADFDFD96EFF7D4B7D /* Sources */,
-				6FF9D8D7F0B2252A0F113E10179D9C22 /* Frameworks */,
-				D0BF1BDBE983E2466D32E5FD345696EB /* Headers */,
+				182CD9DB980B1BD2CC31DA902E11B68D /* Sources */,
+				1EF4AACDF9108D278C688937BF69702B /* Frameworks */,
+				9F926A5299D51DA9C543BEE025A564C9 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -280,26 +323,61 @@
 			);
 			name = TTGSnackbar;
 			productName = TTGSnackbar;
-			productReference = E3C2D353163492D3F9537AD0CCBB5993 /* TTGSnackbar.framework */;
+			productReference = 1171E767834F566F9BA53EDFC7363EFC /* TTGSnackbar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B10A88EC6388F7EEBA8291B76538234D /* Pods-Sahi Pakde Hai */ = {
+		BB962FE633797E4CF79D7BBA0C687A01 /* SwiftyJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5763DDC0DC5B55597EDAD7D88A1FBAD /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */;
+			buildConfigurationList = 5A4A363373547F9D1270F7BCE088372C /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
 			buildPhases = (
-				3AEFBC2A4F3C467520A5CAC82A763CEA /* Sources */,
-				FC2471AA013B579870EB8FB61217D8C0 /* Frameworks */,
-				AC3D3BD3044087445447D14A73A4D8BE /* Headers */,
+				669105B28ECCB435AF4243A897E1F683 /* Sources */,
+				12E06C4B39704804F49B0BAF872B04AF /* Frameworks */,
+				569862070FEA20B336C83AC8AFB7FBCA /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				54795A3E0B304677DD64B31670206C50 /* PBXTargetDependency */,
-				B0370D53BFA1FD5E06D1FD1B3F1ED329 /* PBXTargetDependency */,
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 9A1728B4865ACF76C2BACFBD8AA85E3F /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C36B0C3102225BC661F67D0677F4235F /* Pods-Sahi Pakde Hai */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B71667E73F63FDDBF96AF78E09F5E24 /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */;
+			buildPhases = (
+				BB66F88DABD685AFB7EE33C3ECC141B1 /* Sources */,
+				E19E24B3EFD50BD525A86EB9AB522D53 /* Frameworks */,
+				FA7D86C152B2BB5D0C2406F18058BFFF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C617E49AD07E14C2DA6F1FF0B6F1DCCD /* PBXTargetDependency */,
+				17F47269CF1CE44A7AAC9F0EE68AD91C /* PBXTargetDependency */,
+				B99339E5C231CC44A0E203C4E540D239 /* PBXTargetDependency */,
 			);
 			name = "Pods-Sahi Pakde Hai";
 			productName = "Pods-Sahi Pakde Hai";
-			productReference = 9BAAEB6459181E0898C3B65A7696E8B2 /* Pods_Sahi_Pakde_Hai.framework */;
+			productReference = FCC15338682420EE23BA618F9D9891EF /* Pods_Sahi_Pakde_Hai.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C22D6720637A1B2B2F95C2B902C0C7D /* Build configuration list for PBXNativeTarget "AsyncSwift" */;
+			buildPhases = (
+				8A50EC43E2E52EC3C02907FFC4A43D50 /* Sources */,
+				EC45B49DAE58A4E80A54C3888DA457F3 /* Frameworks */,
+				3A91A1781435D2F6E292FCCF5F5356C1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AsyncSwift;
+			productName = AsyncSwift;
+			productReference = 50B254B29673CB1C36803F61462A5AFC /* Async.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -319,65 +397,81 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 1B7ED4AA5FD1958373AAAB7D1F40738D /* Products */;
+			productRefGroup = C94ACF0E1A35EEB346502BACB2030299 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B10A88EC6388F7EEBA8291B76538234D /* Pods-Sahi Pakde Hai */,
-				7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */,
-				8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */,
+				D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */,
+				C36B0C3102225BC661F67D0677F4235F /* Pods-Sahi Pakde Hai */,
+				BB962FE633797E4CF79D7BBA0C687A01 /* SwiftyJSON */,
+				3D59091138C69B821F7A67D848C319E7 /* TTGSnackbar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07944DD7906879A44EA8D2FB972C5326 /* Sources */ = {
+		182CD9DB980B1BD2CC31DA902E11B68D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAF281FFB4667B22DCD65F006F3D540B /* SwiftyJSON-dummy.m in Sources */,
-				9D51BBD59AE8C41993FA51C34393EABC /* SwiftyJSON.swift in Sources */,
+				08DD7131E66A6051656512FA2F16D026 /* TTGSnackbar-dummy.m in Sources */,
+				4B7B88054D3BBE8C9F452C8BA7901806 /* TTGSnackbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3AEFBC2A4F3C467520A5CAC82A763CEA /* Sources */ = {
+		669105B28ECCB435AF4243A897E1F683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				301CB0FA6DCCEDDF1B3F7E4B51ACCF4B /* Pods-Sahi Pakde Hai-dummy.m in Sources */,
+				22F4A96FEC2F77417250192DA2AD640A /* SwiftyJSON-dummy.m in Sources */,
+				88956F267953B806CE75156492E76401 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8B2BE72D713D71ADFDFD96EFF7D4B7D /* Sources */ = {
+		8A50EC43E2E52EC3C02907FFC4A43D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B94FF3E914ADB657352B738C2F3018B3 /* TTGSnackbar-dummy.m in Sources */,
-				6E0DCB196D8DEBDDFC3EE9C77C6A471B /* TTGSnackbar.swift in Sources */,
+				126169B8BF7430D89BB990B97C36D75F /* Async.swift in Sources */,
+				2754C4E95E265639D7CFC90BA8264476 /* AsyncSwift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB66F88DABD685AFB7EE33C3ECC141B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA524FDD49EA3898421F73B0234F5B1F /* Pods-Sahi Pakde Hai-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		54795A3E0B304677DD64B31670206C50 /* PBXTargetDependency */ = {
+		17F47269CF1CE44A7AAC9F0EE68AD91C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyJSON;
-			target = 7E9587461DFCA77127EA7D369124A81E /* SwiftyJSON */;
-			targetProxy = 1045C2FE08EFEDA40DF7FF14FFE196BE /* PBXContainerItemProxy */;
+			target = BB962FE633797E4CF79D7BBA0C687A01 /* SwiftyJSON */;
+			targetProxy = 02D8AB59CDAC837D3B0B8C6321EDE7B9 /* PBXContainerItemProxy */;
 		};
-		B0370D53BFA1FD5E06D1FD1B3F1ED329 /* PBXTargetDependency */ = {
+		B99339E5C231CC44A0E203C4E540D239 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TTGSnackbar;
-			target = 8B983F9647DF35F9C71583BAF282964C /* TTGSnackbar */;
-			targetProxy = FF4989A9E0773B949751FA407CA71F74 /* PBXContainerItemProxy */;
+			target = 3D59091138C69B821F7A67D848C319E7 /* TTGSnackbar */;
+			targetProxy = 02FF0D965085EAACBF5E46B99A96F1C4 /* PBXContainerItemProxy */;
+		};
+		C617E49AD07E14C2DA6F1FF0B6F1DCCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AsyncSwift;
+			target = D1DC35DB2C695031A72543555FB23729 /* AsyncSwift */;
+			targetProxy = 3474CBC68FD961ED925969E3DEC38773 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		068C497F8E39F7E282283B52F59D277A /* Release */ = {
+		0B5F3ED7AFFD23D99592D6C77A548B23 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */;
+			baseConfigurationReference = 16552658BB889E782E1EEFD8D6BAE951 /* AsyncSwift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -390,14 +484,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/TTGSnackbar/TTGSnackbar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TTGSnackbar/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AsyncSwift/AsyncSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AsyncSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TTGSnackbar/TTGSnackbar.modulemap";
+				MODULEMAP_FILE = "Target Support Files/AsyncSwift/AsyncSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = TTGSnackbar;
+				PRODUCT_NAME = Async;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -451,42 +545,9 @@
 			};
 			name = Debug;
 		};
-		1D23544CE9C088503D0B186F7EBFB0A6 /* Debug */ = {
+		4DC34A238821CE5261F62E8F94E8B456 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2D9928987E9926B391CA891AB9E3CA85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 775295B8D59925DCDD9DFE3FE71CCCF5 /* TTGSnackbar.xcconfig */;
+			baseConfigurationReference = 4EFA826C5CC9A0642A162C181BC95F75 /* TTGSnackbar.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -517,45 +578,9 @@
 			};
 			name = Debug;
 		};
-		390AB7E6F3D1F88E3476BD6C3D4AF484 /* Debug */ = {
+		71C0E5EAA77A4B4CC51BDFAE399986C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4C078F1FE39158DE4739DBD6AE29266A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */;
+			baseConfigurationReference = 9EC82211A6105AE3E879EC33F1A1D34B /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -568,20 +593,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -628,9 +650,9 @@
 			};
 			name = Release;
 		};
-		91CA25BEA0328F2110242A34B86E4608 /* Release */ = {
+		9DC718A6AE25662E9E0E58A3E64B3087 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D450C158A8E4E51E3D4033DEA73DD1 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 8B2B6C507FD5CCE735A96F4212531755 /* Pods-Sahi Pakde Hai.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -643,14 +665,49 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A5986DEB4BE9A151032AF65F0DE47C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EFA826C5CC9A0642A162C181BC95F75 /* TTGSnackbar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TTGSnackbar/TTGSnackbar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TTGSnackbar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MODULEMAP_FILE = "Target Support Files/TTGSnackbar/TTGSnackbar.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyJSON;
+				PRODUCT_NAME = TTGSnackbar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -660,14 +717,125 @@
 			};
 			name = Release;
 		};
+		AD1868CDFBEA46EF7F3B81D7EEEB9B04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B18ECB6403C1A9922E8BD162164885A /* Pods-Sahi Pakde Hai.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sahi_Pakde_Hai;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF7EBA71727722EA9B6A45C4B62A1126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16552658BB889E782E1EEFD8D6BAE951 /* AsyncSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AsyncSwift/AsyncSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AsyncSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AsyncSwift/AsyncSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Async;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BE3B33A0B53F7E8908273C4010C67372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EC82211A6105AE3E879EC33F1A1D34B /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftyJSON;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		014E3E751747C794EA43B8D29EF29A81 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+		0B71667E73F63FDDBF96AF78E09F5E24 /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1D23544CE9C088503D0B186F7EBFB0A6 /* Debug */,
-				91CA25BEA0328F2110242A34B86E4608 /* Release */,
+				AD1868CDFBEA46EF7F3B81D7EEEB9B04 /* Debug */,
+				9DC718A6AE25662E9E0E58A3E64B3087 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C22D6720637A1B2B2F95C2B902C0C7D /* Build configuration list for PBXNativeTarget "AsyncSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7EBA71727722EA9B6A45C4B62A1126 /* Debug */,
+				0B5F3ED7AFFD23D99592D6C77A548B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -681,20 +849,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3488EEA20A3105169021745CAFC0424D /* Build configuration list for PBXNativeTarget "TTGSnackbar" */ = {
+		5A4A363373547F9D1270F7BCE088372C /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D9928987E9926B391CA891AB9E3CA85 /* Debug */,
-				068C497F8E39F7E282283B52F59D277A /* Release */,
+				BE3B33A0B53F7E8908273C4010C67372 /* Debug */,
+				71C0E5EAA77A4B4CC51BDFAE399986C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5763DDC0DC5B55597EDAD7D88A1FBAD /* Build configuration list for PBXNativeTarget "Pods-Sahi Pakde Hai" */ = {
+		771B7A706FB03665CA21E8BDEE8A1A7A /* Build configuration list for PBXNativeTarget "TTGSnackbar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				390AB7E6F3D1F88E3476BD6C3D4AF484 /* Debug */,
-				4C078F1FE39158DE4739DBD6AE29266A /* Release */,
+				4DC34A238821CE5261F62E8F94E8B456 /* Debug */,
+				A5986DEB4BE9A151032AF65F0DE47C8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

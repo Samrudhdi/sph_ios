@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Async
 
 class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var shareButton: UIButton!
@@ -97,28 +98,39 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
 
     @IBAction func goToHelp(_ sender: AnyObject) {
-        performSegue(withIdentifier: "HelpViewController", sender: self)
+        
+        
+        if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
+            
+//            controller.selecteCategory = self.selectedCategory!
+            
+            present(controller, animated: true, completion: {})
+        }
+
+//        performSegue(withIdentifier: "HelpViewController", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedCategory = categoryArray[indexPath.row]
         
-        categorySelectionSound = CommonUtil.playSound(sound: "select_category", ofType: "mp3")
+        categorySelectionSound = CommonUtil().playSound(sound: "select_category", ofType: "mp3")
         if categorySelectionSound != nil {
             categorySelectionSound.play()
         }
         
         
-//        if self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") is DescriptionViewController {
-//            
-//            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") as! DescriptionViewController
-//            
-//            controller.selecteCategory = self.selectedCategory!
-//            
-//            present(controller, animated: true, completion: {})
-//        }
+        if self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") is DescriptionViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") as! DescriptionViewController
+            
+            controller.selecteCategory = self.selectedCategory!
+            
+            present(controller, animated: true, completion: {})
+        }
         
-        performSegue(withIdentifier: "DescriptionViewController", sender: self)
+//        performSegue(withIdentifier: "DescriptionViewController", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,15 +141,23 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
     
     func loadData() {
-        CommonUtil.showActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-        let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
-        Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
+        if CommonUtil.isInternetAvailable() {
+            CommonUtil.showActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
+            let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
+            Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
+        }else {
+            let preference = UserDefaults.standard
+            if !preference.bool(forKey: Constant.FIRST_TIME_DATA_LOAD){
+                CommonUtil.showMessageOnSnackbar(message: "No Internet Access")
+            }
+        }
 //        let data = Service().getJSON(urlToRequest: url)
         
     }
 
     func successCallBack(decks:Array<Deck>) {
         storeDeckData(decks: decks)
+        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
     }
     
     func failureCallBack(error: Error?) {
@@ -160,6 +180,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
             let prefere = UserDefaults.standard
             insertDataOnDatabase(decks: decks)
             prefere.set(updateVersionCode, forKey: Constant.UPDATE_VERSION_CODE)
+            prefere.set(true, forKey: Constant.FIRST_TIME_DATA_LOAD)
 //                prefere.in
             let didSave = prefere.synchronize()
             if !didSave {
@@ -171,20 +192,25 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
     
     func insertDataOnDatabase(decks:Array<Deck>){
-        let sqliteDatabase:SQLiteDatabase = SQLiteDatabase()
-        let isReCreatedTable = sqliteDatabase.reCreateTable()
-        if isReCreatedTable {
-            sqliteDatabase.insertData(deckArray: decks,callBack: callBack)
-        }else {
-            print("Unable to insert data in table")
-        }
-    }
-    
-    func callBack(isInserted:Bool) {
-        print(isInserted)
         
-    }
+//        let group = AsyncGroup()
+//        group.background {
+            let sqliteDatabase:SQLiteDatabase = SQLiteDatabase()
+            let isReCreatedTable = sqliteDatabase.reCreateTable()
+            if isReCreatedTable {
+                let isInserted = sqliteDatabase.insertData(deckArray: decks)
+                if isInserted {
+                    print("Data inserted successfully")
+                }else {
+                    print("Data not inserted")
+                }
+            }else {
+                print("Unable to insert data in table")
+            }
+//        }
+//        group.wait()
 
+    }
     
    
     /*

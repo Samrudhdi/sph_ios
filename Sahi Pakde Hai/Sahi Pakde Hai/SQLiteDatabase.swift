@@ -91,10 +91,11 @@ class SQLiteDatabase{
         return isTableDroped
     }
     
-    func insertData(deckArray:Array<Deck>, callBack: @escaping (Bool) -> Void){
+    func insertData(deckArray:Array<Deck>) -> Bool{
         var isInserted = false
         let database = FMDatabase(path: databasePath )
         if (database?.open())! {
+            database?.beginTransaction()
             for deck in deckArray {
 //                escaping single quote
                 let encodedString = deck.word.replacingOccurrences(of: "'", with: "\"", options: .literal, range: nil)
@@ -106,9 +107,10 @@ class SQLiteDatabase{
                 isInserted = result!
                 print(isInserted)
             }
+            database?.commit()
             database?.close()
-            callBack(isInserted)
         }
+        return isInserted
     }
     
     func getSelectedDeckData(categoryId:Int) -> Array<Deck> {
@@ -132,13 +134,13 @@ class SQLiteDatabase{
         }
     }
     
-    func updateDeckIsPlayed(deckArray:Array<Deck>) {
+    func updateDeckIsPlayed(deckResultArray:Array<DeckResult>) {
         let database = FMDatabase(path:databasePath)
         if (database?.open())!{
-            if !deckArray.isEmpty && deckArray.count > 0{
-                for deck in deckArray {
+            if !deckResultArray.isEmpty && deckResultArray.count > 0{
+                for deck in deckResultArray {
                     let query = "UPDATE \(TABLE_NAME) SET \(IS_PLAYED) = 1 WHERE \(ID) = \(deck.deckId)";
-                    let result = database?.executeQuery(query, withArgumentsIn: nil)
+                    _ = database?.executeQuery(query, withArgumentsIn: nil)
                 }
             }
             database?.close()
