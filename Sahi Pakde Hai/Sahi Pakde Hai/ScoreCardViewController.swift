@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var deckResultArray:Array<DeckResult> = []
     var animateDeckResult:Array<DeckResult> = []
     var selectedCategory = Category()
+    var videoUrl:URL?
     var score = 0
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -21,8 +23,15 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var playSameCategoryButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var videoThumbnailImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.videoThumbnailImageView.layoutIfNeeded()
+        self.videoThumbnailImageView.setNeedsDisplay()
+        
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
@@ -32,6 +41,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         
 //        tableView.reloadData()
         self.setFace()
+        self.setThumbnail()
     
         // Do any additional setup after loading the view.
     }
@@ -113,6 +123,17 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         }
     }
     
+    func setThumbnail() {
+        print(videoUrl)
+        if videoUrl != nil {
+//            playVideo(url: videoUrl!)
+            let image = CommonUtil.getThumbnail(url: videoUrl!)
+            if image != nil {
+                self.videoThumbnailImageView.image = image
+            }
+        }
+    }
+    
     func animateTable() {
         
 //        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
@@ -147,15 +168,21 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
                 cell.transform = CGAffineTransform(translationX: 0, y: 0);
                 }, completion: nil)
             
-            
-            
-            
-
-            
             index += 1
         }
     }
     
+    @IBAction func playVideo(_ sender: AnyObject) {
+        
+        if self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") is VideoPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") as! VideoPlayViewController
+            controller.videoURl = self.videoUrl
+            
+            present(controller, animated: true, completion: {})
+        }
+
+    }
     
     /*
     // MARK: - Navigation

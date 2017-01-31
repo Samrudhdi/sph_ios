@@ -19,23 +19,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpQ-SI-VGy">
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGu-mp-HNQ">
-                            <state key="normal" title="Button" image="video_back"/>
+                            <state key="normal" image="video_back"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-YM-nO5">
-                            <state key="normal" title="Button" image="video_save"/>
+                            <state key="normal" image="video_save"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbr-c4-cgQ">
-                            <state key="normal" title="Button" image="fbshare"/>
+                            <state key="normal" image="fbshare"/>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Kbr-c4-cgQ" secondAttribute="trailing" id="0dG-S8-W1g"/>
                         <constraint firstAttribute="bottom" secondItem="nlK-YM-nO5" secondAttribute="bottom" constant="20" id="AAd-kA-3mR"/>
+                        <constraint firstItem="Kbr-c4-cgQ" firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" id="CwX-yG-vu4"/>
+                        <constraint firstItem="nlK-YM-nO5" firstAttribute="trailing" secondItem="Kbr-c4-cgQ" secondAttribute="trailing" id="Kzw-EG-5Lh"/>
                         <constraint firstItem="Kbr-c4-cgQ" firstAttribute="top" secondItem="XGu-mp-HNQ" secondAttribute="bottom" constant="20" id="UR6-sO-h9F"/>
-                        <constraint firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" id="VJd-KD-CdA"/>
+                        <constraint firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" constant="20" id="VJd-KD-CdA"/>
                         <constraint firstItem="nlK-YM-nO5" firstAttribute="top" secondItem="Kbr-c4-cgQ" secondAttribute="bottom" constant="20" id="d0Z-MI-zwN"/>
-                        <constraint firstAttribute="trailing" secondItem="nlK-YM-nO5" secondAttribute="trailing" id="oWB-6a-yAI"/>
                     </constraints>
                 </view>
             </subviews>

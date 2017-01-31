@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
 class VideoPlayViewController: UIViewController {
+    
+    var videoURl:URL? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CommonUtil.setLandscapeOrientation()
+        playVideo()
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +25,16 @@ class VideoPlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playVideo() {
+        if videoURl != nil {
+            let player = AVPlayer(url: videoURl!)
+            let playerPreview = AVPlayerLayer(player: player)
+            playerPreview.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
+            self.view.layer.addSublayer(playerPreview)
+            player.play()
+        }
+    }
+
 
     /*
     // MARK: - Navigation

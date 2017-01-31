@@ -15,8 +15,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamPlayLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
-
-    
     @IBOutlet weak var videoView: UIView!
     
     var count = 20//58
@@ -39,14 +37,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     var deckResult = DeckResult()
     var deckQuestionAtPosition = 0;
     
-    var deckId:Int = 0     
+    var deckId:Int = 0
+    var outputvideofileURL:URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print("viewDidLoad")
         
-        let value = UIInterfaceOrientation.landscapeRight.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        CommonUtil.setLandscapeOrientation()
         
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
@@ -263,6 +261,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             controller.deckResultArray = self.deckResultArray
             controller.selectedCategory = self.selectedCategory
+            controller.videoUrl = self.outputvideofileURL
             
             present(controller, animated: true, completion: {})
         }
@@ -410,11 +409,36 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
 //        checking camera permission
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
+            
             dataOutput = AVCaptureMovieFileOutput()
             let fileName = "mysavefile.mp4"
             
             if (cameraSession.canAddOutput(dataOutput) == true) {
                 cameraSession.addOutput(dataOutput)
+            }
+            
+            var videoConnection:AVCaptureConnection? = nil
+            
+            for connection in (dataOutput?.connections)! {
+                let conn = connection as! AVCaptureConnection
+                print(connection)
+                for port in conn.inputPorts {
+                    let p = port as! AVCaptureInputPort
+                    if p.mediaType == AVMediaTypeVideo{
+                        videoConnection = conn
+                        break
+                    }
+                }
+            }
+            
+            if videoConnection != nil {
+                if (videoConnection?.isVideoOrientationSupported)!{
+                    videoConnection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                }
+                
+                if (videoConnection?.isVideoMirroringSupported)! {
+                    videoConnection?.isVideoMirrored = true
+                }
             }
             
             let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -434,12 +458,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print("finish \(outputFileURL)")
-        playVideo(url: outputFileURL)
+//        outputvideofileURL = outputFileURL
+//        playVideo(url: outputFileURL)
         
     }
     
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         print("start \(fileURL)")
+        outputvideofileURL = fileURL
     }
     
     func playVideo(url:URL) {

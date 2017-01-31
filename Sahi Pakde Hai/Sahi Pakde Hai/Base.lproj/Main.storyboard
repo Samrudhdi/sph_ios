@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1PX-z2-C2t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tf7-eV-jvQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -68,7 +68,7 @@
         <!--Video Play View Controller-->
         <scene sceneID="Nw6-Zb-u1d">
             <objects>
-                <viewController id="2f3-vL-wQX" customClass="VideoPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="VIDEO_PLAY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2f3-vL-wQX" customClass="VideoPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnT-Q6-qux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5596" y="316"/>
@@ -90,6 +90,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPv-Ji-A5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1224.8" y="312.59370314842579"/>
+        </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="i2y-t3-XkN">
+            <objects>
+                <viewController id="Tf7-eV-jvQ" customClass="SplashScreenViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="1PX-z2-C2t" kind="show" identifier="ShowSplashScreen" id="UTN-zC-Arf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vtW-NS-4Mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="312"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

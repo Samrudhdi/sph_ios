@@ -45,10 +45,11 @@
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
 		3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */; };
 		3DC78E3D1E405A2F009BAA60 /* VideoPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */; };
+		3DC78E411E407647009BAA60 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3F1E407647009BAA60 /* SplashScreenViewController.swift */; };
+		3DC78E421E407647009BAA60 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC78E401E407647009BAA60 /* SplashScreenViewController.xib */; };
 		3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */; };
 		3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C061D1D0BB40071C1C7 /* Main.storyboard */; };
 		3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */; };
-		3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */; };
 		3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */; };
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
 		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
@@ -102,11 +103,12 @@
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayViewController.xib; sourceTree = "<group>"; };
+		3DC78E3F1E407647009BAA60 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		3DC78E401E407647009BAA60 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahi Pakde Hai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DE98C071D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3DE98C0C1D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DE98C0E1D1D0BB40071C1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
@@ -242,6 +244,15 @@
 			name = VideoView;
 			sourceTree = "<group>";
 		};
+		3DC78E3E1E407628009BAA60 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3DC78E3F1E407647009BAA60 /* SplashScreenViewController.swift */,
+				3DC78E401E407647009BAA60 /* SplashScreenViewController.xib */,
+			);
+			name = SplashScreen;
+			sourceTree = "<group>";
+		};
 		3DE98BF61D1D0BB40071C1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +274,7 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3DC78E3E1E407628009BAA60 /* SplashScreen */,
 				3DC78E391E4059FD009BAA60 /* VideoView */,
 				3D3C76271E12BBB100A67EF5 /* FMDB */,
 				3D0131141E11863700845149 /* pojo */,
@@ -275,7 +287,6 @@
 				3DE98C301D1D43E50071C1C7 /* util */,
 				3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */,
 				3DE98C061D1D0BB40071C1C7 /* Main.storyboard */,
-				3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */,
 				3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */,
 				3DE98C0E1D1D0BB40071C1C7 /* Info.plist */,
 				3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */,
@@ -374,7 +385,6 @@
 				3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */,
 				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
 				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
-				3DE98C0D1D1D0BB40071C1C7 /* LaunchScreen.storyboard in Resources */,
 				3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */,
 				3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */,
 				3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */,
@@ -382,6 +392,7 @@
 				3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */,
 				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
 				3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */,
+				3DC78E421E407647009BAA60 /* SplashScreenViewController.xib in Resources */,
 				3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */,
 				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
 				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
@@ -451,6 +462,7 @@
 			files = (
 				3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */,
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3DC78E411E407647009BAA60 /* SplashScreenViewController.swift in Sources */,
 				3D0131131E11858D00845149 /* Service.swift in Sources */,
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
@@ -484,14 +496,6 @@
 				3DE98C071D1D0BB40071C1C7 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3DE98C0B1D1D0BB40071C1C7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DE98C0C1D1D0BB40071C1C7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
