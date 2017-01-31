@@ -58,11 +58,20 @@
                 <viewController storyboardIdentifier="SCORE_CARD_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="oXz-FY-c9h"/>
+                        <segue destination="2f3-vL-wQX" kind="show" identifier="VideoPlayViewController" id="F1J-QY-mIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aM8-Nj-AKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4774" y="317"/>
+        </scene>
+        <!--Video Play View Controller-->
+        <scene sceneID="Nw6-Zb-u1d">
+            <objects>
+                <viewController id="2f3-vL-wQX" customClass="VideoPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnT-Q6-qux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5596" y="316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="82x-N4-H9N">
@@ -84,6 +93,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dZl-fK-eh0"/>
+        <segue reference="oXz-FY-c9h"/>
     </inferredMetricsTieBreakers>
 </document>

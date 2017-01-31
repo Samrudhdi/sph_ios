@@ -95,6 +95,7 @@ class SQLiteDatabase{
         var isInserted = false
         let database = FMDatabase(path: databasePath )
         if (database?.open())! {
+            database?.beginTransaction()
             for deck in deckArray {
 //                escaping single quote
                 let encodedString = deck.word.replacingOccurrences(of: "'", with: "\"", options: .literal, range: nil)
@@ -106,6 +107,7 @@ class SQLiteDatabase{
                 isInserted = result!
                 print(isInserted)
             }
+            database?.commit()
             database?.close()
         }
         return isInserted

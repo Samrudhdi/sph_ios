@@ -43,6 +43,8 @@
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
+		3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */; };
+		3DC78E3D1E405A2F009BAA60 /* VideoPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */; };
 		3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */; };
 		3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C061D1D0BB40071C1C7 /* Main.storyboard */; };
 		3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
+		3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayViewController.xib; sourceTree = "<group>"; };
 		3DE98BFF1D1D0BB40071C1C7 /* Sahi Pakde Hai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sahi Pakde Hai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DE98C071D1D0BB40071C1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +233,15 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		3DC78E391E4059FD009BAA60 /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+				3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */,
+				3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */,
+			);
+			name = VideoView;
+			sourceTree = "<group>";
+		};
 		3DE98BF61D1D0BB40071C1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +263,7 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3DC78E391E4059FD009BAA60 /* VideoView */,
 				3D3C76271E12BBB100A67EF5 /* FMDB */,
 				3D0131141E11863700845149 /* pojo */,
 				3D37A6CE1E0C4C4800DD9F70 /* Score */,
@@ -355,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC78E3D1E405A2F009BAA60 /* VideoPlayViewController.xib in Resources */,
 				3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */,
 				3D37A6D21E0C4C6B00DD9F70 /* ScoreCardViewController.xib in Resources */,
 				3D6F76DC1E030D99006E560B /* select_category.mp3 in Resources */,
@@ -443,6 +458,7 @@
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
 				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
 				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
+				3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
 				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,

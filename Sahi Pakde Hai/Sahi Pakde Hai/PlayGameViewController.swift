@@ -433,13 +433,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 //        }
     }
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
-//        print("finish \(outputFileURL)")
-//        playVideo(url: outputFileURL)
+        print("finish \(outputFileURL)")
+        playVideo(url: outputFileURL)
         
     }
     
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
-//        print("start \(fileURL)")
+        print("start \(fileURL)")
     }
     
     func playVideo(url:URL) {
