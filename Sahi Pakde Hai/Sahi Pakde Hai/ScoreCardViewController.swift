@@ -47,7 +47,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//            animateTable()
+        CommonUtil.setPortraitOrientation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -178,6 +178,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") as! VideoPlayViewController
             controller.videoURl = self.videoUrl
+            controller.deckResultArray = self.deckResultArray
             
             present(controller, animated: true, completion: {})
         }
