@@ -8,13 +8,14 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 class VideoPlayViewController: UIViewController {
     
     var videoURl:URL? = nil
     @IBOutlet weak var videoView: UIView!
     
-    var count = 5900//580
+    var count = 6000//580
     var threeTwoOneCount = 5
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
@@ -25,11 +26,16 @@ class VideoPlayViewController: UIViewController {
     
     var deckResultArray:Array<DeckResult> = []
     
+    let subView = UIView()
+    let indicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
+
         CommonUtil.setLandscapeOrientation()
         playVideo()
-        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
+//        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
 
@@ -56,6 +62,23 @@ class VideoPlayViewController: UIViewController {
     
     @IBAction func saveVideo(_ sender: AnyObject) {
         
+//        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
+//        PHPhotoLibrary.shared().performChanges({
+//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.videoURl!)
+//        }){ saved, error in
+//            var title:String?
+//            if saved {
+//                title = "Your video was successfully saved"
+//            }else {
+//                title = error.debugDescription
+//            }
+//            let alertController = UIAlertController(title: title!, message: nil, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alertController.addAction(defaultAction)
+//            self.present(alertController, animated: true, completion: {
+//                CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
+//            })
+//        }
     }
     
     @IBAction func shareOnFacebook(_ sender: AnyObject) {

@@ -17,7 +17,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var videoView: UIView!
     
-    var count = 5900//580
+    var count = 6000//580
     var threeTwoOneCount = 5
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
@@ -417,7 +417,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
             
             dataOutput = AVCaptureMovieFileOutput()
-            let fileName = "mysavefile.mp4"
+            let fileName = "mysavefile.mov"
             
             if (cameraSession.canAddOutput(dataOutput) == true) {
                 cameraSession.addOutput(dataOutput)

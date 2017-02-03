@@ -46,6 +46,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-Th-gzQ">
                     <state key="normal" image="share"/>
+                    <connections>
+                        <action selector="shareAppLink:" destination="-1" eventType="touchUpInside" id="JEi-N0-ZM9"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
