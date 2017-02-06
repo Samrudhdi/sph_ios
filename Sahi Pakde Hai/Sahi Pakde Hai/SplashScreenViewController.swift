@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SplashScreenViewController: BaseUIViewController {
+class SplashScreenViewController: BaseUIViewController{
 
     let indicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+//        facebookLogin()
     }
     
     func goToHomeScreen() {
@@ -103,6 +104,35 @@ class SplashScreenViewController: BaseUIViewController {
         
     }
     
+    // facebook login
+//    func facebookLogin() {
+//        if FBSDKAccessToken.current() == nil {
+//            print("Not logged in")
+//        }else {
+//            print("Logged In")
+//        }
+//        
+//        let loginButton = FBSDKLoginButton()
+//        loginButton.readPermissions = ["public_profile","email","user_friends"]
+//        loginButton.center = self.view.center
+//        
+//        loginButton.delegate = self
+//        self.view.addSubview(loginButton)
+//        
+//    }
+    
+//    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+//        if error == nil {
+//            print("login complete")
+//        }else {
+//            print(error.localizedDescription)
+//        }
+//    }
+//    
+//    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+//        print("user logged out")
+//    }
+//    
 
     /*
     // MARK: - Navigation

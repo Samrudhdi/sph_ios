@@ -8,6 +8,9 @@ target 'Sahi Pakde Hai' do
   # Pods for Sahi Pakde Hai
 	pod 'SwiftyJSON'
     pod 'TTGSnackbar'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FacebookShare'
 #    pod "AsyncSwift"
 #    pod 'RippleAnimation'
 
