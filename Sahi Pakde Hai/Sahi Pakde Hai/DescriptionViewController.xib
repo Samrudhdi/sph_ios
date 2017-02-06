@@ -23,18 +23,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="fEP-7v-fw4"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0aA-8R-ZMB">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0aA-8R-ZMB">
                     <constraints>
-                        <constraint firstAttribute="height" constant="130" id="0Bv-Wi-sLS"/>
+                        <constraint firstAttribute="height" constant="100" id="0Bv-Wi-sLS"/>
                     </constraints>
-                    <string key="text">jasdlfjdfdsfjslkadf djfsd fjdskf djfdsj flkjdsf sjfd sdjfjdlfj sdfjdfs dfjdsjfsdf dsfkdsjkfldjs fljdsfjslkdf jsdlakf jalsdslf sadlfjadsjfjfdjflsadkfasfsadfdsafasdfsdfdsaff</string>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dlw-se-gCs">
-                    <string key="text">dsafdjfdjsfklds fjdsfjdlsafj sladjfldas fkdjfdfj kjfldsfkld fldsjfl sdlfdj lsfjsdlf dslfjlds lfdsa fldsfjldsj lfasjdlf dsasjfldjsafl daslfjdlsf ldsjfldsa jflsdajf la</string>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dlw-se-gCs">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="3nm-9T-bA5"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -81,7 +82,6 @@
             <constraints>
                 <constraint firstItem="0aA-8R-ZMB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="2CE-Go-bsl"/>
                 <constraint firstAttribute="bottom" secondItem="dyu-N9-Dpg" secondAttribute="bottom" constant="60" id="4aI-Lr-iy1"/>
-                <constraint firstItem="0aA-8R-ZMB" firstAttribute="height" secondItem="Dlw-se-gCs" secondAttribute="height" id="4de-XO-DqO"/>
                 <constraint firstItem="cG1-TV-gcv" firstAttribute="leading" secondItem="dyu-N9-Dpg" secondAttribute="trailing" constant="68" id="7Rf-f6-U7k"/>
                 <constraint firstItem="dyu-N9-Dpg" firstAttribute="height" secondItem="cG1-TV-gcv" secondAttribute="height" id="7aE-rA-Pt3"/>
                 <constraint firstItem="0aA-8R-ZMB" firstAttribute="top" secondItem="Q7a-bo-S4R" secondAttribute="bottom" constant="10" id="HJC-sc-1UK"/>
