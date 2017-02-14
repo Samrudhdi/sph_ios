@@ -25,15 +25,18 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     @IBOutlet weak var videoThumbnailImageView: UIImageView!
     
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var videoViewConstrain: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideVideoView(hide: false)
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
         
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        CommonUtil.setPortraitOrientation()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,6 +45,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
 //        tableView.reloadData()
         self.setFace()
         self.setThumbnail()
+//        self.setResultWordOneByOne()
     
         // Do any additional setup after loading the view.
     }
@@ -53,6 +57,10 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
@@ -134,6 +142,13 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         }
     }
     
+    func setResultWordOneByOne() {
+        for index in 0...deckResultArray.count {
+            let indexPath:IndexPath = IndexPath(row: index, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
     func animateTable() {
         
 //        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
@@ -183,6 +198,15 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             present(controller, animated: true, completion: {})
         }
 
+    }
+    
+    func hideVideoView(hide:Bool) {
+        if hide {
+            videoView.isHidden = true
+            videoViewConstrain.constant = 10
+        }else {
+            videoView.isHidden = false
+        }
     }
     
     /*

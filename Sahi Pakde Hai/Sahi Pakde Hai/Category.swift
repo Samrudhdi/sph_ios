@@ -15,6 +15,7 @@ struct Category {
     var categoryId:Int
     var desc_1:String
     var desc_2:String
+    var isPaid:Bool
     
     init() {
         self.image = ""
@@ -22,6 +23,7 @@ struct Category {
         self.backgroundColor = UIColor.black
         self.desc_1 = ""
         self.desc_2 = ""
+        self.isPaid = false
     }
     
     

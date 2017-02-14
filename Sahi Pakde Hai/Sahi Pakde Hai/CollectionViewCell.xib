@@ -19,16 +19,16 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="p9e-5g-yBK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6oq-SQ-2Xl"/>
-                <constraint firstItem="p9e-5g-yBK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LIU-zb-fLC"/>
-                <constraint firstAttribute="bottom" secondItem="p9e-5g-yBK" secondAttribute="bottom" id="nhB-HB-Aak"/>
-                <constraint firstAttribute="trailing" secondItem="p9e-5g-yBK" secondAttribute="trailing" id="yh5-VN-Ikq"/>
+                <constraint firstItem="p9e-5g-yBK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="4zv-He-JoS"/>
+                <constraint firstAttribute="bottom" secondItem="p9e-5g-yBK" secondAttribute="bottom" id="Jiq-Dy-LkT"/>
+                <constraint firstItem="p9e-5g-yBK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Siv-xn-K23"/>
+                <constraint firstAttribute="trailing" secondItem="p9e-5g-yBK" secondAttribute="trailing" id="WC8-WC-AAv"/>
             </constraints>
             <size key="customSize" width="125" height="130"/>
             <connections>
                 <outlet property="categoryImageView" destination="p9e-5g-yBK" id="43z-WT-r4m"/>
             </connections>
-            <point key="canvasLocation" x="-241.5" y="-49"/>
+            <point key="canvasLocation" x="-242" y="-49"/>
         </collectionViewCell>
     </objects>
 </document>

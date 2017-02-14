@@ -100,6 +100,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cinemaCat.image = "cinema"
         cinemaCat.desc_1 = Constant.cinema_desc_1
         cinemaCat.desc_2 = Constant.cinema_desc_2
+        cinemaCat.isPaid = false
         
         var lightCameraActionCat = Category()
         lightCameraActionCat.categoryId = 2
@@ -107,6 +108,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         lightCameraActionCat.image = "light_camera_action"
         lightCameraActionCat.desc_1 = Constant.light_camera_action_desc_1
         lightCameraActionCat.desc_2 = Constant.light_camera_action_desc_2
+        lightCameraActionCat.isPaid = false
         
         var hindi = Category()
         hindi.categoryId = 3
@@ -114,6 +116,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         hindi.image = "hindi"
         hindi.desc_1 = Constant.hindi_desc_1
         hindi.desc_2 = Constant.hindi_desc_2
+        hindi.isPaid = false
         
         var heroHeroine = Category()
         heroHeroine.categoryId = 4
@@ -121,6 +124,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         heroHeroine.image = "hero_heroine"
         heroHeroine.desc_1 = Constant.hh_desc_1
         heroHeroine.desc_2 = Constant.hh_desc_2
+        heroHeroine.isPaid = false
         
         var adultOnly = Category()
         adultOnly.categoryId = 5
@@ -128,15 +132,15 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         adultOnly.image = "icon_adults"
         adultOnly.desc_1 = Constant.ao_desc_1
         adultOnly.desc_2 = Constant.ao_desc_2
+        adultOnly.isPaid = true
 
-        
         var hollywood = Category()
         hollywood.categoryId = 6
         hollywood.backgroundColor = Constant.bg_hollywood
         hollywood.image = "hollywood"
         hollywood.desc_1 = Constant.hollywood_desc_1
         hollywood.desc_2 = Constant.hollywood_desc_2
-
+        hollywood.isPaid = false
         
         var cricket = Category()
         cricket.categoryId = 7
@@ -144,15 +148,16 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cricket.image = "cricket"
         cricket.desc_1 = Constant.cricket_desc_1
         cricket.desc_2 = Constant.cricket_desc_2
+        cricket.isPaid = true
 
-        
         var songs = Category()
         songs.categoryId = 8
         songs.backgroundColor = Constant.bg_songs
         songs.image = "songs"
         songs.desc_1 = Constant.songs_desc_1
         songs.desc_2 = Constant.songs_desc_2
-
+        songs.isPaid = true
+        
         
         var mythology = Category()
         mythology.categoryId = 9
@@ -160,6 +165,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         mythology.image = "mythology"
         mythology.desc_1 = Constant.mythology_desc_1
         mythology.desc_2 = Constant.mythology_desc_2
+        mythology.isPaid = false
 
         
         var gameOfThrones = Category()
@@ -168,7 +174,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         gameOfThrones.image = "game_of_thrones"
         gameOfThrones.desc_1 = Constant.got_desc_1
         gameOfThrones.desc_2 = Constant.got_desc_2
-
+        gameOfThrones.isPaid = true
         
         var kidsZone = Category()
         kidsZone.categoryId = 11
@@ -176,6 +182,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         kidsZone.image = "kid_zone"
         kidsZone.desc_1 = Constant.kz_desc_1
         kidsZone.desc_2 = Constant.kz_desc_2
+        kidsZone.isPaid = true
         
         var khaanPaan = Category()
         khaanPaan.categoryId = 12
@@ -183,6 +190,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         khaanPaan.image = "khaan_paan"
         khaanPaan.desc_1 = Constant.kp_desc_1
         khaanPaan.desc_2 = Constant.kp_desc_2
+        khaanPaan.isPaid = false
 
         
         categoryArray.append(cinemaCat)
@@ -219,8 +227,8 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     @IBAction func shareAppLink(_ sender: AnyObject) {
         let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
         
-        var contentArray:Array<String> = []
-        contentArray.append(shareText)
+//        var contentArray:Array<String> = []
+//        contentArray.append(shareText)
 //        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
 //        present(activityViewController, animated: true, completion: nil)
     }

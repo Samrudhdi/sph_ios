@@ -53,8 +53,8 @@ class Constant{
     static let hh_desc_1 = "All the big stars of Bollywood are here."
     static let hh_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let ao_desc_1 = "Its time to get the real party started. This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu"
-    static let ao_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
+    static let ao_desc_1 = "This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu"
+    static let ao_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!\n\nDISCLAIMER: This content is strictly for adults."
     
     static let hollywood_desc_1 = "A dive into the western world. Superstars, movies, singers, designers and much more...."
     static let hollywood_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
@@ -63,7 +63,7 @@ class Constant{
     static let cricket_desc_2 = "GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let songs_desc_1 = "All the songs you love"
-    static let songs_desc_2 = "ACT or DANCE to help your friend guess the correct song. NO TALKING!\n\nChallenge Variation: Explain/Translate the song in some other language. No Hindi allowed"
+    static let songs_desc_2 = "ACT or DANCE to help your friend guess the correct song. NO TALKING!\n\nChallenge Variation: GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let mythology_desc_1 = "From Ram to Ravana. From Yudhishthira to Duryodhana. A deck with all about mythology"
     static let mythology_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
@@ -72,7 +72,7 @@ class Constant{
     static let got_desc_2 = "GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let kz_desc_1 = "For all the kids and also people that are kids at heart"
-    static let kz_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING! \n\nChallenge Variation: Act it out without using any words"
+    static let kz_desc_2 = "GIVE CLUES or ACT for your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let kp_desc_1 = "The right place for all the foodies. This deck has all your favorite foods and drinks"
     static let kp_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"

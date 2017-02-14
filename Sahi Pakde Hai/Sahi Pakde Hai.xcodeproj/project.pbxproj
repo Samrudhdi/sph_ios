@@ -43,6 +43,8 @@
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
+		3DC1A39E1E4C88BA00330170 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */; };
+		3DC1A3A01E4C8BF200330170 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39F1E4C8BF200330170 /* MKLayer.swift */; };
 		3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */; };
 		3DC78E3D1E405A2F009BAA60 /* VideoPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */; };
 		3DC78E411E407647009BAA60 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3F1E407647009BAA60 /* SplashScreenViewController.swift */; };
@@ -101,6 +103,8 @@
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
+		3DC1A39F1E4C8BF200330170 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
 		3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
 		3DC78E3B1E405A2F009BAA60 /* VideoPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPlayViewController.xib; sourceTree = "<group>"; };
 		3DC78E3F1E407647009BAA60 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */,
 				3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */,
 				3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */,
+				3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */,
+				3DC1A39F1E4C8BF200330170 /* MKLayer.swift */,
 			);
 			name = CategoryView;
 			sourceTree = "<group>";
@@ -347,7 +353,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Patronous Inc.";
 				TargetAttributes = {
 					3DE98BFE1D1D0BB40071C1C7 = {
@@ -461,12 +467,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */,
+				3DC1A3A01E4C8BF200330170 /* MKLayer.swift in Sources */,
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
 				3DC78E411E407647009BAA60 /* SplashScreenViewController.swift in Sources */,
 				3D0131131E11858D00845149 /* Service.swift in Sources */,
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
 				3D3C76351E12BC4300A67EF5 /* FMDatabaseAdditions.m in Sources */,
+				3DC1A39E1E4C88BA00330170 /* MKCollectionViewCell.swift in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
 				3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */,
 				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
@@ -515,8 +523,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -560,8 +570,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -580,6 +592,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -588,6 +601,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
@@ -607,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;

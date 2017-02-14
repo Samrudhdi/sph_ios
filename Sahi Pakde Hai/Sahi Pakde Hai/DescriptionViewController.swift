@@ -15,6 +15,7 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var desc_2: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var previewButton: UIButton!
     
     var selecteCategory = Category()
     
@@ -26,6 +27,11 @@ class DescriptionViewController: UIViewController {
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
         self.desc_1.text = selecteCategory.desc_1
         self.desc_2.text = selecteCategory.desc_2
+        if selecteCategory.isPaid {
+            previewButton.isHidden = false
+        }else{
+            previewButton.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,4 +63,7 @@ class DescriptionViewController: UIViewController {
         }
     }
     
+    @IBAction func previewPlay(_ sender: AnyObject) {
+        
+    }
 }

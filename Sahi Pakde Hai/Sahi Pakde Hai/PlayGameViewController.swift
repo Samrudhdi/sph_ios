@@ -51,6 +51,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         
+        wordLabel.text = "Place On \nForehead"
         setupCameraSession()
         setupAccelerometer()
         deckId = selectedCategory.categoryId
@@ -62,23 +63,10 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override func viewWillAppear(_ animated: Bool) {
 //        print("viewWillAppear")
     }
-    
-    func willEnterForeground(){
-//        print("willEnterForeground")
-//        self.navigationController?.popViewController(animated: false)
-    }
-    
-    
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        return UIInterfaceOrientationMask.landscapeRight
-    }
-//
-//    
+
     override var shouldAutorotate: Bool {
         return false
     }
-    
     
     func setupAccelerometer() {
         

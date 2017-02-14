@@ -38,6 +38,10 @@ class VideoPlayViewController: UIViewController {
 //        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,7 +65,7 @@ class VideoPlayViewController: UIViewController {
     }
     
     @IBAction func saveVideo(_ sender: AnyObject) {
-        
+//        
 //        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
 //        PHPhotoLibrary.shared().performChanges({
 //            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.videoURl!)
