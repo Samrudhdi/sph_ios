@@ -27,7 +27,6 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.isNavigationBarHidden = true
         
         setCategoryList()
@@ -37,10 +36,21 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,64 +108,56 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cinemaCat.categoryId = 1
         cinemaCat.backgroundColor = Constant.bg_cinema
         cinemaCat.image = "cinema"
-        cinemaCat.desc_1 = Constant.cinema_desc_1
-        cinemaCat.desc_2 = Constant.cinema_desc_2
+        cinemaCat.desc = Constant.cinema_desc
         cinemaCat.isPaid = false
         
         var lightCameraActionCat = Category()
         lightCameraActionCat.categoryId = 2
         lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
         lightCameraActionCat.image = "light_camera_action"
-        lightCameraActionCat.desc_1 = Constant.light_camera_action_desc_1
-        lightCameraActionCat.desc_2 = Constant.light_camera_action_desc_2
+        lightCameraActionCat.desc = Constant.light_camera_action_desc
         lightCameraActionCat.isPaid = false
         
         var hindi = Category()
         hindi.categoryId = 3
         hindi.backgroundColor = Constant.bg_sirf_hindi
         hindi.image = "hindi"
-        hindi.desc_1 = Constant.hindi_desc_1
-        hindi.desc_2 = Constant.hindi_desc_2
+        hindi.desc = Constant.hindi_desc
         hindi.isPaid = false
         
         var heroHeroine = Category()
         heroHeroine.categoryId = 4
         heroHeroine.backgroundColor = Constant.bg_hero_heroine
         heroHeroine.image = "hero_heroine"
-        heroHeroine.desc_1 = Constant.hh_desc_1
-        heroHeroine.desc_2 = Constant.hh_desc_2
+        heroHeroine.desc = Constant.hh_desc
         heroHeroine.isPaid = false
         
         var adultOnly = Category()
         adultOnly.categoryId = 5
         adultOnly.backgroundColor = Constant.bg_adult_only
         adultOnly.image = "icon_adults"
-        adultOnly.desc_1 = Constant.ao_desc_1
-        adultOnly.desc_2 = Constant.ao_desc_2
+        adultOnly.desc = Constant.ao_desc
         adultOnly.isPaid = true
 
         var hollywood = Category()
         hollywood.categoryId = 6
         hollywood.backgroundColor = Constant.bg_hollywood
         hollywood.image = "hollywood"
-        hollywood.desc_1 = Constant.hollywood_desc_1
-        hollywood.desc_2 = Constant.hollywood_desc_2
+        hollywood.desc = Constant.hollywood_desc
         hollywood.isPaid = false
         
         var cricket = Category()
         cricket.categoryId = 7
         cricket.backgroundColor = Constant.bg_cricket
         cricket.image = "cricket"
-        cricket.desc_1 = Constant.cricket_desc_1
-        cricket.desc_2 = Constant.cricket_desc_2
+        cricket.desc = Constant.cricket_desc
         cricket.isPaid = true
 
         var songs = Category()
         songs.categoryId = 8
         songs.backgroundColor = Constant.bg_songs
         songs.image = "songs"
-        songs.desc_1 = Constant.songs_desc_1
-        songs.desc_2 = Constant.songs_desc_2
+        songs.desc = Constant.songs_desc
         songs.isPaid = true
         
         
@@ -163,8 +165,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         mythology.categoryId = 9
         mythology.backgroundColor = Constant.bg_mythology
         mythology.image = "mythology"
-        mythology.desc_1 = Constant.mythology_desc_1
-        mythology.desc_2 = Constant.mythology_desc_2
+        mythology.desc = Constant.mythology_desc
         mythology.isPaid = false
 
         
@@ -172,24 +173,21 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         gameOfThrones.categoryId = 10
         gameOfThrones.backgroundColor = Constant.bg_got
         gameOfThrones.image = "game_of_thrones"
-        gameOfThrones.desc_1 = Constant.got_desc_1
-        gameOfThrones.desc_2 = Constant.got_desc_2
+        gameOfThrones.desc = Constant.got_desc
         gameOfThrones.isPaid = true
         
         var kidsZone = Category()
         kidsZone.categoryId = 11
         kidsZone.backgroundColor = Constant.bg_kids_zone
         kidsZone.image = "kid_zone"
-        kidsZone.desc_1 = Constant.kz_desc_1
-        kidsZone.desc_2 = Constant.kz_desc_2
+        kidsZone.desc = Constant.kz_desc
         kidsZone.isPaid = true
         
         var khaanPaan = Category()
         khaanPaan.categoryId = 12
         khaanPaan.backgroundColor = Constant.bg_khaan_paan
         khaanPaan.image = "khaan_paan"
-        khaanPaan.desc_1 = Constant.kp_desc_1
-        khaanPaan.desc_2 = Constant.kp_desc_2
+        khaanPaan.desc = Constant.kp_desc
         khaanPaan.isPaid = false
 
         

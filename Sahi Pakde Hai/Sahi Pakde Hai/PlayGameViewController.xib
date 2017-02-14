@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,13 +51,24 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-6O-TPp">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="fGz-6O-TPp" secondAttribute="height" multiplier="1:1" id="bSq-qi-pFt"/>
+                    </constraints>
+                    <state key="normal" image="back_team_play"/>
+                    <connections>
+                        <action selector="backPlayGame:" destination="-1" eventType="touchUpInside" id="Pnp-RS-eib"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="fGz-6O-TPp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="0A0-Sa-WQg"/>
                 <constraint firstItem="7hI-wi-BHV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4T0-go-FhQ"/>
                 <constraint firstItem="Tah-l5-RDT" firstAttribute="top" secondItem="jwC-JW-rmY" secondAttribute="bottom" constant="8" id="508-QB-8dr"/>
                 <constraint firstAttribute="trailing" secondItem="7hI-wi-BHV" secondAttribute="trailing" id="5Jw-pz-g9a"/>
                 <constraint firstItem="jwC-JW-rmY" firstAttribute="leading" secondItem="fPL-TD-PiA" secondAttribute="leading" id="BU0-XB-Gtl"/>
+                <constraint firstItem="fGz-6O-TPp" firstAttribute="height" secondItem="fPL-TD-PiA" secondAttribute="height" id="FvA-wc-eCG"/>
                 <constraint firstItem="WVJ-1O-D40" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K5L-Sz-NgE"/>
                 <constraint firstAttribute="bottom" secondItem="7hI-wi-BHV" secondAttribute="bottom" id="Meh-75-RIc"/>
                 <constraint firstItem="7hI-wi-BHV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NWF-u9-32w"/>
@@ -70,6 +82,7 @@
                 <constraint firstAttribute="trailing" secondItem="WVJ-1O-D40" secondAttribute="trailing" id="iCf-1H-Rah"/>
                 <constraint firstItem="fPL-TD-PiA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="iKe-Mq-CjI"/>
                 <constraint firstAttribute="bottom" secondItem="WVJ-1O-D40" secondAttribute="bottom" id="mMN-aa-pOO"/>
+                <constraint firstItem="fGz-6O-TPp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="uya-J9-gIo"/>
                 <constraint firstAttribute="trailing" secondItem="Tah-l5-RDT" secondAttribute="trailing" constant="20" id="vpg-fT-XLh"/>
                 <constraint firstItem="WVJ-1O-D40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xyW-cM-L9P"/>
             </constraints>
@@ -77,6 +90,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back_team_play" width="60" height="60"/>
         <image name="play_game_bg_overlay_patteren" width="667" height="375"/>
     </resources>
 </document>

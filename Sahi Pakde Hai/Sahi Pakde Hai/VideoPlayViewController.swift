@@ -31,9 +31,8 @@ class VideoPlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        CommonUtil.setLandscapeOrientation()
         subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
-
-        CommonUtil.setLandscapeOrientation()
         playVideo()
 //        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
@@ -41,6 +40,14 @@ class VideoPlayViewController: UIViewController {
     
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.landscapeRight
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        CommonUtil.setLandscapeOrientation()
     }
 
     override func didReceiveMemoryWarning() {

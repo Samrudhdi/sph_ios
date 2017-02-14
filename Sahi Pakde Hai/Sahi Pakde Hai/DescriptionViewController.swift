@@ -11,8 +11,7 @@ import UIKit
 class DescriptionViewController: UIViewController {
     
     @IBOutlet weak var selectedCategoryImage: UIImageView!
-    @IBOutlet weak var desc_1: UILabel!
-    @IBOutlet weak var desc_2: UILabel!
+    @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var previewButton: UIButton!
@@ -22,18 +21,25 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor? = selecteCategory.backgroundColor
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
-        self.desc_1.text = selecteCategory.desc_1
-        self.desc_2.text = selecteCategory.desc_2
+//        self.desc_1.text = selecteCategory.desc_1
+        self.desc.text = selecteCategory.desc
         if selecteCategory.isPaid {
             previewButton.isHidden = false
         }else{
             previewButton.isHidden = true
         }
     }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

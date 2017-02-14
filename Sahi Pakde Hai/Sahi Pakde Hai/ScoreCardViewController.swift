@@ -31,12 +31,9 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         hideVideoView(hide: false)
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
-        
-        CommonUtil.setPortraitOrientation()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,8 +47,8 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        CommonUtil.setPortraitOrientation()
+    override func viewWillAppear(_ animated: Bool) {
+//        CommonUtil.setPortraitOrientation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +58,10 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {

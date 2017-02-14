@@ -18,8 +18,20 @@ class SplashScreenViewController: BaseUIViewController{
 //        facebookLogin()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        CommonUtil.setPortraitOrientation()
+    }
+    
     func goToHomeScreen() {
         perform(#selector(SplashScreenViewController.showNavController), with: nil, afterDelay: 3)
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
     }
     
     func showNavController() {

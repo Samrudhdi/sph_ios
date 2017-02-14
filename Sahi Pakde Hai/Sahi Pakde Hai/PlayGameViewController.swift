@@ -45,8 +45,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print("viewDidLoad")
-        
-        CommonUtil.setLandscapeOrientation()
+//        CommonUtil.setLandscapeOrientation()
         
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
@@ -61,11 +60,15 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        print("viewWillAppear")
+//        CommonUtil.setLandscapeOrientation()
     }
 
     override var shouldAutorotate: Bool {
         return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.landscapeRight
     }
     
     func setupAccelerometer() {
@@ -469,6 +472,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
         self.view.layer.addSublayer(playerPreview)
         player.play()
+    }
+    
+    @IBAction func backPlayGame(_ sender: AnyObject) {
+        timer?.invalidate()
+        threeTwoOneTimer?.invalidate()
+        stopVideoRecording()
+        dismiss(animated: true, completion: nil)
     }
     
     func getSelectedCategoryList(categoryId:Int)  {

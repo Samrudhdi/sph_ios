@@ -41,39 +41,29 @@ class Constant{
     static let UPDATE_VERSION_CODE = "update_version_code";
     
 //    :Description
-    static let cinema_desc_1 = "Help your teammate guess the right movie from this collection of your favorite hits."
-    static let cinema_desc_2 = "It’s the original dumb charades we all know! ACT all you can but NO TALKING!"
+    static let cinema_desc = "Help your teammate guess the right movie from this collection of your favorite hits.\n\n\nIt’s the original dumb charades we all know! ACT all you can but NO TALKING!"
     
-    static let light_camera_action_desc_1 = "Show off your acting skills!"
-    static let light_camera_action_desc_2 = "Act out the word on your card for your teammate to guess. ONLY ACTING, NO TALKING!"
+    static let light_camera_action_desc = "Show off your acting skills!\n\n\nAct out the word on your card for your teammate to guess. ONLY ACTING, NO TALKING!"
+
+    static let hindi_desc = "Ain’t easy to speak in\n\"शुद्ध हिंदी\"\n\n\nTry it out yourself. Help your friend guess the english word on the card. One rule: You can SPEAK ONLY IN HINDI"
     
-    static let hindi_desc_1 = "Ain’t easy to speak in\n\"शुद्ध हिंदी\""
-    static let hindi_desc_2 = "Try it out yourself. Help your friend guess the english word on the card. One rule: You can SPEAK ONLY IN HINDI"
+    static let hh_desc = "All the big stars of Bollywood are here.\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let hh_desc_1 = "All the big stars of Bollywood are here."
-    static let hh_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
+    static let ao_desc = "This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!\n\nDISCLAIMER: This content is strictly for adults."
+   
+    static let hollywood_desc = "A dive into the western world. Superstars, movies, singers, designers and much more....\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let ao_desc_1 = "This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu"
-    static let ao_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!\n\nDISCLAIMER: This content is strictly for adults."
+    static let cricket_desc = "This deck is for all the cricket fans!\n\n\nGIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let hollywood_desc_1 = "A dive into the western world. Superstars, movies, singers, designers and much more...."
-    static let hollywood_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
+   
+    static let songs_desc = "All the songs you love\n\n\nACT or DANCE to help your friend guess the correct song. NO TALKING!\n\nChallenge Variation: GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let cricket_desc_1 = "This deck is for all the cricket fans!"
-    static let cricket_desc_2 = "GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
+    static let mythology_desc = "From Ram to Ravana. From Yudhishthira to Duryodhana. A deck with all about mythology\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let songs_desc_1 = "All the songs you love"
-    static let songs_desc_2 = "ACT or DANCE to help your friend guess the correct song. NO TALKING!\n\nChallenge Variation: GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
+    static let got_desc = "The royal families and their desire for the Iron Throne. Deck with everything about Game of Thrones\n\n\nGIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let mythology_desc_1 = "From Ram to Ravana. From Yudhishthira to Duryodhana. A deck with all about mythology"
-    static let mythology_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
+
+    static let kz_desc = "For all the kids and also people that are kids at heart\n\n\nGIVE CLUES or ACT for your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let got_desc_1 = "The royal families and their desire for the Iron Throne. Deck with everything about Game of Thrones"
-    static let got_desc_2 = "GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
-    
-    static let kz_desc_1 = "For all the kids and also people that are kids at heart"
-    static let kz_desc_2 = "GIVE CLUES or ACT for your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
-    
-    static let kp_desc_1 = "The right place for all the foodies. This deck has all your favorite foods and drinks"
-    static let kp_desc_2 = "GIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
+    static let kp_desc = "The right place for all the foodies. This deck has all your favorite foods and drinks\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
 }
