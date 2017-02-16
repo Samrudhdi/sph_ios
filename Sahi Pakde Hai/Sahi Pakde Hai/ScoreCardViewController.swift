@@ -38,22 +38,15 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
-        
-//        tableView.reloadData()
         self.setFace()
         self.setThumbnail()
-//        self.setResultWordOneByOne()
-    
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        CommonUtil.setPortraitOrientation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var shouldAutorotate: Bool {
@@ -65,7 +58,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
-//        performSegue
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
@@ -76,7 +68,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func back(_ sender: AnyObject) {
-//        self.navigationController?.popToRootViewController(animated: true)
         if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
@@ -123,13 +114,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     func increaseScoreByOne() {
         score += 1
         scoreLabel.text = "Score \(score)"
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PlayGameViewController" {
-            let controller = segue.destination as! PlayGameViewController
-            controller.selectedCategory = self.selectedCategory
-        }
     }
     
     func setThumbnail() {

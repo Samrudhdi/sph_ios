@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Category Selection View Controller-->
@@ -11,10 +10,6 @@
             <objects>
                 <viewController storyboardIdentifier="CATEGORY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CategorySelectionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2SV-BE-kAD"/>
-                    <connections>
-                        <segue destination="RSQ-wx-sde" kind="show" identifier="DescriptionViewController" id="IH1-2g-CU9"/>
-                        <segue destination="gZm-cX-PMF" kind="show" identifier="HelpViewController" id="DA6-A6-YRG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,16 +21,12 @@
                 <viewController storyboardIdentifier="HOW_TO_PLAY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gZm-cX-PMF" customClass="HowToPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2g-99-KEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="1057"/>
+            <point key="canvasLocation" x="2164" y="1052"/>
         </scene>
         <!--Description View Controller-->
         <scene sceneID="YKu-uC-imN">
             <objects>
-                <viewController storyboardIdentifier="DESCRIPTION_VIEW" id="RSQ-wx-sde" customClass="DescriptionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="dZl-fK-eh0"/>
-                    </connections>
-                </viewController>
+                <viewController storyboardIdentifier="DESCRIPTION_VIEW" id="RSQ-wx-sde" customClass="DescriptionViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ff5-Tn-kNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3071.1999999999998" y="312.59370314842579"/>
@@ -43,11 +34,7 @@
         <!--Play Game View Controller-->
         <scene sceneID="Lfp-Bo-UFZ">
             <objects>
-                <viewController storyboardIdentifier="PLAY_GAME_VIEW" id="fnN-QB-6Mh" customClass="PlayGameViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="Syk-XC-iob" kind="show" identifier="ScoreCardViewController" id="Zn0-x3-VZh"/>
-                    </connections>
-                </viewController>
+                <viewController storyboardIdentifier="PLAY_GAME_VIEW" id="fnN-QB-6Mh" customClass="PlayGameViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyx-tQ-5cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3943.1999999999998" y="311.69415292353824"/>
@@ -55,12 +42,7 @@
         <!--Score Card View Controller-->
         <scene sceneID="yXE-KX-XAx">
             <objects>
-                <viewController storyboardIdentifier="SCORE_CARD_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="fnN-QB-6Mh" kind="show" identifier="PlayGameViewController" id="oXz-FY-c9h"/>
-                        <segue destination="2f3-vL-wQX" kind="show" identifier="VideoPlayViewController" id="F1J-QY-mIV"/>
-                    </connections>
-                </viewController>
+                <viewController storyboardIdentifier="SCORE_CARD_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Syk-XC-iob" customClass="ScoreCardViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aM8-Nj-AKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4774" y="317"/>
@@ -73,38 +55,13 @@
             </objects>
             <point key="canvasLocation" x="5596" y="316"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="82x-N4-H9N">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1PX-z2-C2t" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T9c-hP-Upq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SJJ-6R-EbG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VPv-Ji-A5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1224.8" y="312.59370314842579"/>
-        </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="i2y-t3-XkN">
             <objects>
-                <viewController id="Tf7-eV-jvQ" customClass="SplashScreenViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="1PX-z2-C2t" kind="show" identifier="ShowSplashScreen" id="UTN-zC-Arf"/>
-                    </connections>
-                </viewController>
+                <viewController id="Tf7-eV-jvQ" customClass="SplashScreenViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtW-NS-4Mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="312"/>
+            <point key="canvasLocation" x="1225" y="312"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="oXz-FY-c9h"/>
-    </inferredMetricsTieBreakers>
 </document>

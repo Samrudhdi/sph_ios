@@ -27,22 +27,18 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        
         setCategoryList()
-
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        CommonUtil.setPortraitOrientation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var shouldAutorotate: Bool {
@@ -204,6 +200,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         categoryArray.append(gameOfThrones)
         categoryArray.append(kidsZone)
         categoryArray.append(khaanPaan)
+        self.collectionView.reloadData()
         
     }
 

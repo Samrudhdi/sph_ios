@@ -12,8 +12,6 @@
 		3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0131191E118F5500845149 /* BaseUIViewController.swift */; };
 		3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */; };
 		3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */; };
-		3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1661F11D20F04A00EA2DD8 /* HTP.swift */; };
-		3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1661F21D20F04A00EA2DD8 /* HTP.xib */; };
 		3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */; };
 		3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */; };
 		3D20ABCF1DF72176009DFB7E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */; };
@@ -55,7 +53,6 @@
 		3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */; };
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
 		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
-		3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */; };
 		F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +62,6 @@
 		3D0131191E118F5500845149 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		3D1661ED1D20EF5400EA2DD8 /* HowToPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayViewController.swift; sourceTree = "<group>"; };
 		3D1661EE1D20EF5400EA2DD8 /* HowToPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlayViewController.xib; sourceTree = "<group>"; };
-		3D1661F11D20F04A00EA2DD8 /* HTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTP.swift; sourceTree = "<group>"; };
-		3D1661F21D20F04A00EA2DD8 /* HTP.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTP.xib; sourceTree = "<group>"; };
 		3D20ABC91DF7212B009DFB7E /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		3D20ABCA1DF7212B009DFB7E /* CategorySelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategorySelectionViewController.xib; sourceTree = "<group>"; };
 		3D20ABCD1DF72176009DFB7E /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -117,7 +112,6 @@
 		3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
 		3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
-		3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HowToPlay.xib; sourceTree = "<group>"; };
 		94307FD268DB747BA3742490 /* Pods-Sahi Pakde Hai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.release.xcconfig"; sourceTree = "<group>"; };
 		BC6B77BFECFED7FCB35A8D6C /* Pods-Sahi Pakde Hai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sahi Pakde Hai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sahi Pakde Hai/Pods-Sahi Pakde Hai.debug.xcconfig"; sourceTree = "<group>"; };
 		F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sahi_Pakde_Hai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,9 +289,6 @@
 				3DE98C061D1D0BB40071C1C7 /* Main.storyboard */,
 				3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */,
 				3DE98C0E1D1D0BB40071C1C7 /* Info.plist */,
-				3DF3EEDF1D2044C0006A784C /* HowToPlay.xib */,
-				3D1661F11D20F04A00EA2DD8 /* HTP.swift */,
-				3D1661F21D20F04A00EA2DD8 /* HTP.xib */,
 			);
 			path = "Sahi Pakde Hai";
 			sourceTree = "<group>";
@@ -393,9 +384,7 @@
 				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
 				3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */,
 				3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */,
-				3DF3EEE01D2044C0006A784C /* HowToPlay.xib in Resources */,
 				3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */,
-				3D1661F41D20F04A00EA2DD8 /* HTP.xib in Resources */,
 				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
 				3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */,
 				3DC78E421E407647009BAA60 /* SplashScreenViewController.xib in Resources */,
@@ -483,7 +472,6 @@
 				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D0131161E11865B00845149 /* Deck.swift in Sources */,
-				3D1661F31D20F04A00EA2DD8 /* HTP.swift in Sources */,
 				3DA704311E13B964005DC85B /* DeckResult.swift in Sources */,
 				3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */,
 				3D3C76381E12BC4300A67EF5 /* FMResultSet.m in Sources */,
@@ -606,7 +594,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -626,7 +614,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8DS8YKQTGK;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";

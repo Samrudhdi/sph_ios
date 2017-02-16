@@ -44,25 +44,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("viewDidLoad")
-//        CommonUtil.setLandscapeOrientation()
-        
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         
         wordLabel.text = "Place On \nForehead"
         setupCameraSession()
         setupAccelerometer()
         deckId = selectedCategory.categoryId
         getSelectedCategoryList(categoryId: deckId)
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        CommonUtil.setLandscapeOrientation()
-    }
-
     override var shouldAutorotate: Bool {
         return false
     }
@@ -72,8 +61,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
     
     func setupAccelerometer() {
-        
-        // trigger values - a gap so there isn't a flicker zone
         
         motionManager = CMMotionManager()
         
@@ -408,7 +395,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
             
             dataOutput = AVCaptureMovieFileOutput()
-            let fileName = "mysavefile.mov"
+            let fileName = "sahipakdehai.mov"
             
             if (cameraSession.canAddOutput(dataOutput) == true) {
                 cameraSession.addOutput(dataOutput)

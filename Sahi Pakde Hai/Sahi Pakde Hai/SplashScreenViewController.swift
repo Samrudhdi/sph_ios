@@ -19,7 +19,6 @@ class SplashScreenViewController: BaseUIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        CommonUtil.setPortraitOrientation()
     }
     
     func goToHomeScreen() {
@@ -35,12 +34,16 @@ class SplashScreenViewController: BaseUIViewController{
     }
     
     func showNavController() {
-        performSegue(withIdentifier: "ShowSplashScreen", sender: self)
+        if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
+            present(controller, animated: true, completion: {})
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func loadData() {
@@ -54,7 +57,6 @@ class SplashScreenViewController: BaseUIViewController{
                 CommonUtil.showMessageOnSnackbar(message: "No Internet Access")
             }
         }
-        //        let data = Service().getJSON(urlToRequest: url)
         
     }
     

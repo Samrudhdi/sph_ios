@@ -23,7 +23,6 @@ class DescriptionViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor? = selecteCategory.backgroundColor
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
-//        self.desc_1.text = selecteCategory.desc_1
         self.desc.text = selecteCategory.desc
         if selecteCategory.isPaid {
             previewButton.isHidden = false
@@ -46,9 +45,7 @@ class DescriptionViewController: UIViewController {
 
     // Back button
     @IBAction func moveBAck(_ sender: AnyObject) {
-//       self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: {})
-        
     }
 
     @IBAction func playGame(_ sender: AnyObject) {
@@ -58,8 +55,6 @@ class DescriptionViewController: UIViewController {
             controller.selectedCategory = self.selecteCategory
             present(controller, animated: true, completion: {})
         }
-
-//        performSegue(withIdentifier: "PlayGameViewController", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

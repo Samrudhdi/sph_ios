@@ -81,7 +81,6 @@
                                         <constraint firstItem="zAp-1s-UOl" firstAttribute="trailing" secondItem="JTq-RF-yLU" secondAttribute="trailing" id="SiX-pC-3gm"/>
                                         <constraint firstItem="zAp-1s-UOl" firstAttribute="centerY" secondItem="up1-sD-ETs" secondAttribute="centerY" constant="-11" id="VLV-u0-ykn"/>
                                         <constraint firstItem="up1-sD-ETs" firstAttribute="leading" secondItem="zAp-1s-UOl" secondAttribute="trailing" constant="9" id="Wre-2t-3aT"/>
-                                        <constraint firstItem="4fi-96-B9p" firstAttribute="bottom" secondItem="ZbQ-Q7-CFU" secondAttribute="bottom" id="afs-kq-fmT"/>
                                         <constraint firstItem="ZbQ-Q7-CFU" firstAttribute="leading" secondItem="4fi-96-B9p" secondAttribute="trailing" constant="8" symbolic="YES" id="cUp-TM-pGI"/>
                                         <constraint firstItem="ZbQ-Q7-CFU" firstAttribute="leading" secondItem="up1-sD-ETs" secondAttribute="trailing" constant="8" symbolic="YES" id="ih7-1I-wuM"/>
                                         <constraint firstItem="up1-sD-ETs" firstAttribute="leading" secondItem="4fi-96-B9p" secondAttribute="leading" id="k3h-4R-n1u"/>
@@ -94,7 +93,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_2" translatesAutoresizingMaskIntoConstraints="NO" id="VEA-TH-PNr">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="VEA-TH-PNr" secondAttribute="height" multiplier="1:1" id="6na-O1-Uie"/>
-                                                <constraint firstAttribute="width" constant="116" id="cNu-Pb-FdN"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your friends will give you clues" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OgH-Ng-J8n">
@@ -146,7 +144,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_3" translatesAutoresizingMaskIntoConstraints="NO" id="PLl-7y-4nT">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="PLl-7y-4nT" secondAttribute="height" multiplier="1:1" id="1a0-ey-6gR"/>
-                                                <constraint firstAttribute="width" constant="116" id="UeZ-6p-LQ9"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tilt the phone down for correct answer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rnw-EV-U7T">

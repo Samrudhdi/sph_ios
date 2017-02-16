@@ -33,8 +33,10 @@ class VideoPlayViewController: UIViewController {
         super.viewDidLoad()
 //        CommonUtil.setLandscapeOrientation()
         subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
+
+        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
+        
         playVideo()
-//        self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     
@@ -72,24 +74,29 @@ class VideoPlayViewController: UIViewController {
     }
     
     @IBAction func saveVideo(_ sender: AnyObject) {
-//        
-//        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
-//        PHPhotoLibrary.shared().performChanges({
-//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.videoURl!)
-//        }){ saved, error in
-//            var title:String?
-//            if saved {
-//                title = "Your video was successfully saved"
-//            }else {
-//                title = error.debugDescription
-//            }
-//            let alertController = UIAlertController(title: title!, message: nil, preferredStyle: .alert)
-//                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//                alertController.addAction(defaultAction)
-//            self.present(alertController, animated: true, completion: {
-//                CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
-//            })
-//        }
+        saveVideoToGallary()
+    }
+    
+    func saveVideoToGallary() {
+        print(PHPhotoLibrary.authorizationStatus())
+        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.videoURl!)
+        }){ saved, error in
+            var title:String?
+            if saved {
+                title = "Your video was successfully saved"
+            }else {
+                title = error.debugDescription
+            }
+            let alertController = UIAlertController(title: title!, message: nil, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: {
+                CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
+            })
+        }
+
     }
     
     @IBAction func shareOnFacebook(_ sender: AnyObject) {
