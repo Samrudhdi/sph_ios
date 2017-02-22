@@ -52,6 +52,10 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         getSelectedCategoryList(categoryId: deckId)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }

@@ -9,8 +9,10 @@
 import UIKit
 import AVFoundation
 import Photos
+import FBSDKShareKit
+import FBSDKLoginKit
 
-class VideoPlayViewController: UIViewController {
+class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     
     var videoURl:URL? = nil
     @IBOutlet weak var videoView: UIView!
@@ -28,10 +30,12 @@ class VideoPlayViewController: UIViewController {
     
     let subView = UIView()
     let indicatorView = UIActivityIndicatorView()
+    var selectedCategory = Category()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        CommonUtil.setLandscapeOrientation()
+        
         subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
 
         self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
@@ -49,7 +53,7 @@ class VideoPlayViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        CommonUtil.setLandscapeOrientation()
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_WATCH_VIDEO)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,10 +74,12 @@ class VideoPlayViewController: UIViewController {
     }
 
     @IBAction func back(_ sender: AnyObject) {
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_BACK, category: self.selectedCategory.categoryName, label: "")
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveVideo(_ sender: AnyObject) {
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
         saveVideoToGallary()
     }
     
@@ -100,7 +106,56 @@ class VideoPlayViewController: UIViewController {
     }
     
     @IBAction func shareOnFacebook(_ sender: AnyObject) {
+        print("fb share")
+//        checkFacebookPublishPermission()
+    }
+    
+    func shareFB() {
+        let videoContent = FBSDKShareVideoContent()
+        videoContent.video = FBSDKShareVideo(videoURL: videoURl)
+        let shareApi = FBSDKShareAPI()
+        shareApi.message = "Sharing..."
+        shareApi.shareContent = videoContent
+        shareApi.delegate = self
+        shareApi.share()
         
+    }
+    
+    func checkFacebookPublishPermission() {
+        let action = "publish_actions"
+        if FBSDKAccessToken.current() != nil && FBSDKAccessToken.current().hasGranted(action) {
+            shareFB()
+        }else {
+            let loginManager = FBSDKLoginManager()
+            loginManager.logIn(withPublishPermissions: ["publish_actions"], from: self, handler: { ( res:FBSDKLoginManagerLoginResult?, err:Error?) in
+                if err == nil {
+                    print(res)
+                    if (res?.isCancelled)! {
+                        print("cancelled")
+                    }else if ((res?.declinedPermissions) != nil) {
+                        print("declined")
+                    }else if ((res?.grantedPermissions) != nil) {
+                        print("granted")
+                    }
+                }else {
+                    print(err.debugDescription)
+                }
+            })
+        }
+    }
+    
+    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
+        print("fail with error")
+        print(error.localizedDescription)
+    }
+    
+    func sharerDidCancel(_ sharer: FBSDKSharing!) {
+        print("cancel")
+    }
+    
+    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
+        print("sharing is done");
+        print(results.debugDescription)
     }
     
     func threeTwoOneCounter() {

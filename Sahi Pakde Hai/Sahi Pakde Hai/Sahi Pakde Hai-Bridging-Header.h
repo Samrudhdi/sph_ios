@@ -7,6 +7,7 @@
 //
 
 #import "FMDB.h"
+#import <Google/Analytics.h>
 #ifndef Sahi_Pakde_Hai_Bridging_Header_h
 #define Sahi_Pakde_Hai_Bridging_Header_h
 

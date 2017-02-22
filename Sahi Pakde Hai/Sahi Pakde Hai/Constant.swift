@@ -12,7 +12,60 @@ import UIKit
 
 class Constant{
     
+    // Google Analytics
+    
+    // Screen name
+    static let SCREEN_CATEGORY_PAGE = "Category Page"
+    static let SCREEN_DESCRIPTION = "Description Page"
+    static let SCREEN_HELP = "Help Screen"
+    static let SCREEN_PLAY_GAME = "Play Game"
+    static let SCREEN_SCORE_CARD = "Score Card"
+    static let SCREEN_TEAM_PLAY = "Team Play"
+    static let SCREEN_WATCH_VIDEO = "Watch Video"
+    static let SCREEN_SPLASH = "Splash Screen"
+    static let SCREEN_TEAM_PLAY_FINAL_SCORE_CARD = "Final Team Play Score Card"
+    
+    //    Category
+    static let CAT_CINEMA = "Cinema"
+    static let CAT_LIGHT_CAMERA_ACTION = "Lights Camera Action"
+    static let CAT_SIRF_HINDI_ME_BOL = "Sirf Hindi me Bol"
+    static let CAT_HERO_HEROINE = "Hero Heroine"
+    static let CAT_ADULTS_ONLY = "Adults Only"
+    static let CAT_HOLLYWOOD = "Hollywood"
+    static let CAT_SOCIAL_SHARE = "Social Share"
+    static let CAT_TEAM_PLAY = "Team Play"
+    
+    static let CAT_CRICKET = "Cricket"
+    static let CAT_SONGS = "Songs"
+    static let CAT_MYTHOLOGY = "Mythology"
+    static let CAT_GAME_OF_THRONES = "Game of Thrones"
+    static let CAT_KIDS_ZONES = "Kids Zone"
+    static let CAT_KHAAN_PAAN = "Khaan Paan"
+    
+    static let CAT_HELP = "Help"
+    static let CAT_SCORE_SCREEN = "Score Screen"
+    static let CAT_TEAM_PLAY_SCORE_SCREEN = "Team Play Score Screen"
+    static let CAT_ANSWER = "Answer"
+    static let CAT_VIDEO = "Video"
+    
+    //    Action
+    static let ACT_PLAY = "Play"
+    static let ACT_BACK = "Back"
+    static let ACT_CANCEL = "Cancel"
+    static let ACT_CATEGORY_SELECTED = "Category Selected"
+    static let ACT_VIDEO_BACK = "Video Back"
+    static let ACT_VIDEO_SHARE = "Video Share"
+    static let ACT_VIDEO_SAVE = "Video Save"
+    static let ACT_VIDEO_PLAY = "Video Play"
+    static let ACT_TILT_UP = "Tilt Up"
+    static let ACT_TILT_DOWN = "Tilt Down"
+    static let ACT_PLACE_ON_FOREHEAD = "Place on Forehead"
+    static let ACT_CHOOSE_CATEGORY = "Choose Category"
+    static let ACT_NUMBER_OF_ROUNDS = "Number of Rounds -"
+    static let ACT_PREVIEW = "Preview"
 
+    
+    // color
     static let bg_cinema = UIColor.init(hexString: "#D74A3A")
     static let bg_light_camera_action = UIColor.init(hexString: "#8FC744")
     static let bg_sirf_hindi = UIColor.init(hexString: "#00C2FF")
@@ -28,17 +81,15 @@ class Constant{
     static let bg_khaan_paan = UIColor.init(hexString: "#EFB15B")
     
     static let whiteColor = UIColor.init(hexString: "#ffffff")
-    
-
     static let correctColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1)
     static let wrongColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
     static let blackColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     
 //    preference
-    static let SHARED_PREF_NAME = "shared_preference_sph";
-    static let IS_FIRST_TIME_ENTER = "is_first_time_enter";
-    static let FIRST_TIME_DATA_LOAD = "first_time_data_load";
-    static let UPDATE_VERSION_CODE = "update_version_code";
+    static let SHARED_PREF_NAME = "shared_preference_sph"
+    static let IS_FIRST_TIME_ENTER = "is_first_time_enter"
+    static let FIRST_TIME_DATA_LOAD = "first_time_data_load"
+    static let UPDATE_VERSION_CODE = "update_version_code"
     
 //    :Description
     static let cinema_desc = "Help your teammate guess the right movie from this collection of your favorite hits.\n\n\nIt’s the original dumb charades we all know! ACT all you can but NO TALKING!"

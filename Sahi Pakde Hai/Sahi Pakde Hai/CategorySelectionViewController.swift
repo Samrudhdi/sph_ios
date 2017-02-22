@@ -33,8 +33,8 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        CommonUtil.setPortraitOrientation()
+    override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +106,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cinemaCat.image = "cinema"
         cinemaCat.desc = Constant.cinema_desc
         cinemaCat.isPaid = false
+        cinemaCat.categoryName = Constant.CAT_CINEMA
         
         var lightCameraActionCat = Category()
         lightCameraActionCat.categoryId = 2
@@ -113,6 +114,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         lightCameraActionCat.image = "light_camera_action"
         lightCameraActionCat.desc = Constant.light_camera_action_desc
         lightCameraActionCat.isPaid = false
+        lightCameraActionCat.categoryName = Constant.CAT_LIGHT_CAMERA_ACTION
         
         var hindi = Category()
         hindi.categoryId = 3
@@ -120,6 +122,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         hindi.image = "hindi"
         hindi.desc = Constant.hindi_desc
         hindi.isPaid = false
+        hindi.categoryName = Constant.CAT_SIRF_HINDI_ME_BOL
         
         var heroHeroine = Category()
         heroHeroine.categoryId = 4
@@ -127,6 +130,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         heroHeroine.image = "hero_heroine"
         heroHeroine.desc = Constant.hh_desc
         heroHeroine.isPaid = false
+        heroHeroine.categoryName = Constant.CAT_HERO_HEROINE
         
         var adultOnly = Category()
         adultOnly.categoryId = 5
@@ -134,6 +138,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         adultOnly.image = "icon_adults"
         adultOnly.desc = Constant.ao_desc
         adultOnly.isPaid = true
+        adultOnly.categoryName = Constant.CAT_ADULTS_ONLY
 
         var hollywood = Category()
         hollywood.categoryId = 6
@@ -141,6 +146,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         hollywood.image = "hollywood"
         hollywood.desc = Constant.hollywood_desc
         hollywood.isPaid = false
+        hollywood.categoryName = Constant.CAT_HOLLYWOOD
         
         var cricket = Category()
         cricket.categoryId = 7
@@ -148,6 +154,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cricket.image = "cricket"
         cricket.desc = Constant.cricket_desc
         cricket.isPaid = true
+        cricket.categoryName = Constant.CAT_CRICKET
 
         var songs = Category()
         songs.categoryId = 8
@@ -155,6 +162,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         songs.image = "songs"
         songs.desc = Constant.songs_desc
         songs.isPaid = true
+        songs.categoryName = Constant.CAT_SONGS
         
         
         var mythology = Category()
@@ -163,6 +171,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         mythology.image = "mythology"
         mythology.desc = Constant.mythology_desc
         mythology.isPaid = false
+        mythology.categoryName = Constant.CAT_MYTHOLOGY
 
         
         var gameOfThrones = Category()
@@ -171,6 +180,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         gameOfThrones.image = "game_of_thrones"
         gameOfThrones.desc = Constant.got_desc
         gameOfThrones.isPaid = true
+        gameOfThrones.categoryName = Constant.CAT_GAME_OF_THRONES
         
         var kidsZone = Category()
         kidsZone.categoryId = 11
@@ -178,6 +188,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         kidsZone.image = "kid_zone"
         kidsZone.desc = Constant.kz_desc
         kidsZone.isPaid = true
+        kidsZone.categoryName = Constant.CAT_KIDS_ZONES
         
         var khaanPaan = Category()
         khaanPaan.categoryId = 12
@@ -185,6 +196,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         khaanPaan.image = "khaan_paan"
         khaanPaan.desc = Constant.kp_desc
         khaanPaan.isPaid = false
+        khaanPaan.categoryName = Constant.CAT_KHAAN_PAAN
 
         
         categoryArray.append(cinemaCat)
@@ -210,22 +222,17 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
-            
-//            controller.selecteCategory = self.selectedCategory!
-            
             present(controller, animated: true, completion: {})
         }
-
-//        performSegue(withIdentifier: "HelpViewController", sender: self)
     }
     
     @IBAction func shareAppLink(_ sender: AnyObject) {
         let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
         
-//        var contentArray:Array<String> = []
-//        contentArray.append(shareText)
-//        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
-//        present(activityViewController, animated: true, completion: nil)
+        var contentArray:Array<String> = []
+        contentArray.append(shareText)
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

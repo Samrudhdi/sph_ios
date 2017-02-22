@@ -18,6 +18,8 @@
 		3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */; };
 		3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */; };
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
+		3D2471D71E5AF518002004CB /* GoogleAnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */; };
+		3D2471D91E5AFA2F002004CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */; };
 		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
 		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
 		3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */; };
@@ -38,6 +40,7 @@
 		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
 		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
 		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
+		3D806ECE1E5D6A910004C2D8 /* PreviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */; };
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
@@ -68,6 +71,8 @@
 		3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
+		3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsUtil.swift; sourceTree = "<group>"; };
+		3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
 		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
 		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
+		3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtil.swift; sourceTree = "<group>"; };
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 				3DE98C061D1D0BB40071C1C7 /* Main.storyboard */,
 				3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */,
 				3DE98C0E1D1D0BB40071C1C7 /* Info.plist */,
+				3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */,
 			);
 			path = "Sahi Pakde Hai";
 			sourceTree = "<group>";
@@ -301,6 +308,8 @@
 				3D0131121E11858D00845149 /* Service.swift */,
 				3D0131191E118F5500845149 /* BaseUIViewController.swift */,
 				3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */,
+				3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */,
+				3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */,
 				3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */,
 				3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */,
+				3D2471D91E5AFA2F002004CB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +468,7 @@
 				3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */,
 				3DC1A3A01E4C8BF200330170 /* MKLayer.swift in Sources */,
 				3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */,
+				3D2471D71E5AF518002004CB /* GoogleAnalyticsUtil.swift in Sources */,
 				3DC78E411E407647009BAA60 /* SplashScreenViewController.swift in Sources */,
 				3D0131131E11858D00845149 /* Service.swift in Sources */,
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
@@ -472,6 +483,7 @@
 				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D0131161E11865B00845149 /* Deck.swift in Sources */,
+				3D806ECE1E5D6A910004C2D8 /* PreviewUtil.swift in Sources */,
 				3DA704311E13B964005DC85B /* DeckResult.swift in Sources */,
 				3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */,
 				3D3C76381E12BC4300A67EF5 /* FMResultSet.m in Sources */,

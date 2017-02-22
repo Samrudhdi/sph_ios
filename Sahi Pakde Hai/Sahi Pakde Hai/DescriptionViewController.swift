@@ -31,6 +31,10 @@ class DescriptionViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_DESCRIPTION)
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -45,10 +49,14 @@ class DescriptionViewController: UIViewController {
 
     // Back button
     @IBAction func moveBAck(_ sender: AnyObject) {
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_BACK, category: self.selecteCategory.categoryName, label: "")
         self.dismiss(animated: true, completion: {})
     }
 
     @IBAction func playGame(_ sender: AnyObject) {
+        
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PLAY, category: self.selecteCategory.categoryName, label: "")
+        
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
@@ -65,6 +73,6 @@ class DescriptionViewController: UIViewController {
     }
     
     @IBAction func previewPlay(_ sender: AnyObject) {
-        
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PREVIEW, category: self.selecteCategory.categoryName, label: "")
     }
 }

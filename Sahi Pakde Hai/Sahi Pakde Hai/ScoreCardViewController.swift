@@ -43,6 +43,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_SCORE_CARD)
     }
 
     override func didReceiveMemoryWarning() {
@@ -179,6 +180,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") as! VideoPlayViewController
             controller.videoURl = self.videoUrl
             controller.deckResultArray = self.deckResultArray
+            controller.selectedCategory = self.selectedCategory
             
             present(controller, animated: true, completion: {})
         }

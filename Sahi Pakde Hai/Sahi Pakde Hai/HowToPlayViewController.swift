@@ -15,6 +15,7 @@ class HowToPlayViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_HELP)
     }
     
     override var shouldAutorotate: Bool {
