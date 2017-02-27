@@ -50,6 +50,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         setupAccelerometer()
         deckId = selectedCategory.categoryId
         getSelectedCategoryList(categoryId: deckId)
+        setTeamPlay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -497,5 +498,15 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             controller.selectedCategory = self.selectedCategory
         }
     }
+    
+    func setTeamPlay() {
+        if TeamPlayUtil.isTeamPlay{
+            let text = "Round \(TeamPlayUtil.playingRound) Team \(TeamPlayUtil.playingTeam)"
+            teamPlayLabel.text = text
+        }else {
+            teamPlayLabel.text = ""
+        }
+    }
+
 }
 

@@ -84,6 +84,8 @@ class Constant{
     static let correctColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1)
     static let wrongColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
     static let blackColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    static let selected_round_bg_color = UIColor.init(hexString: "#4F4F4F")
+    static let unselected_round_bg_color = UIColor.init(hexString: "#606060")
     
 //    preference
     static let SHARED_PREF_NAME = "shared_preference_sph"
@@ -100,14 +102,14 @@ class Constant{
     
     static let hh_desc = "All the big stars of Bollywood are here.\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
-    static let ao_desc = "This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!\n\nDISCLAIMER: This content is strictly for adults."
+    static let ao_desc = "This is a collection of \"Adults Only\" words. No place for Kaccha Nimbu\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!\n\n\nDISCLAIMER: This content is strictly for adults."
    
     static let hollywood_desc = "A dive into the western world. Superstars, movies, singers, designers and much more....\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let cricket_desc = "This deck is for all the cricket fans!\n\n\nGIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
    
-    static let songs_desc = "All the songs you love\n\n\nACT or DANCE to help your friend guess the correct song. NO TALKING!\n\nChallenge Variation: GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
+    static let songs_desc = "All the songs you love\n\n\nACT or DANCE to help your friend guess the correct song. NO TALKING!\n\n\nChallenge Variation: GIVE CLUES to your friend to guess as many words as possible without saying any part of the name on the card. NO RHYMING!"
     
     static let mythology_desc = "From Ram to Ravana. From Yudhishthira to Duryodhana. A deck with all about mythology\n\n\nGIVE CLUES to your friend to guess as many names as possible without saying any part of the name on the card. NO RHYMING!"
     

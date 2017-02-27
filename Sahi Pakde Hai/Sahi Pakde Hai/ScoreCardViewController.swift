@@ -15,7 +15,14 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     var animateDeckResult:Array<DeckResult> = []
     var selectedCategory = Category()
     var videoUrl:URL?
-    var score = 0
+    var totalCorrect = 0
+    enum ButtonType{
+        case PLAY_AGAIN
+        case CONTINUE
+        case FINAL_SCORE
+        case BUY
+    }
+    var  buttonType = ButtonType.PLAY_AGAIN
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var faceImageView: UIImageView!
@@ -28,10 +35,14 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var videoViewConstrain: NSLayoutConstraint!
     
+    var playingTeam:Int?
+    var playingRound:Int?
+    var totalTeams:Int?
+    var totalRounds:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideVideoView(hide: false)
+        setupVideoView(hide: false)
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
         
@@ -39,7 +50,8 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
         self.setFace()
-        self.setThumbnail()
+        self.setupPlayButton()
+        self.setupPlayButtonClick()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,10 +67,16 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        print("support orientation");
         return UIInterfaceOrientationMask.portrait
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
+        showPlayGameController()
+    }
+    
+    
+    func showPlayGameController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
@@ -97,7 +115,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func setFace() {
-        var totalCorrect:Int = 0
         for deckResult in deckResultArray {
             if deckResult.isCorrect {
                 totalCorrect += 1
@@ -113,8 +130,8 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func increaseScoreByOne() {
-        score += 1
-        scoreLabel.text = "Score \(score)"
+        totalCorrect += 1
+        scoreLabel.text = "Score \(totalCorrect)"
     }
     
     func setThumbnail() {
@@ -137,7 +154,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     func animateTable() {
         
-//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
+//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI))
         
         tableView.reloadData()
         
@@ -150,7 +167,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//            cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI));
+//            cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
             index += 1
         }
         
@@ -159,14 +176,14 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         for a in cells {
             let cell: UITableViewCell = a as UITableViewCell
 //            UIView.animateWithDuration(1.5, delay: (0.05 * index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
-//                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+//                cell.transform = CGAffineTransformMakeTranslation(0, 0)
 //                }, completion: nil)
             
 //            let indexPath = IndexPath(row: 5, section: 0)
 //            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
 //            tableView.tableViewScrollToBottom(animated: true)
                 UIView.animate(withDuration: 0.5, delay: 1 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
                 }, completion: nil)
             
             index += 1
@@ -187,15 +204,112 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
 
     }
     
-    func hideVideoView(hide:Bool) {
+    func setupVideoView(hide:Bool) {
         if hide {
             videoView.isHidden = true
             videoViewConstrain.constant = 10
         }else {
             videoView.isHidden = false
+            self.setThumbnail()
         }
     }
     
+    func setButtonText(text:String){
+        playSameCategoryButton.setTitle(text, for: .normal)
+    }
+
+    func setupPlayButton() {
+        if PreviewUtil.isPreviewPlay {
+            setButtonText(text: "Buy@ Rs.59.00")
+            buttonType = ButtonType.BUY
+        }else {
+            if TeamPlayUtil.isTeamPlay {
+                var teamScore = TeamPlayUtil.totalTeamScore
+                var team1 = TeamPlayUtil.team1Score
+                var team2 = TeamPlayUtil.team2Score
+                
+                playingTeam = TeamPlayUtil.playingTeam
+                playingRound = TeamPlayUtil.playingRound
+                totalTeams = TeamPlayUtil.totalTeams
+                totalRounds = TeamPlayUtil.totalRounds
+                
+                let playingTeamIndex = playingTeam! - 1
+                let playingRoundIndex = playingRound! - 1
+                
+                
+                if (teamScore.count) >= totalTeams! {
+                    
+                    print(teamScore[playingTeamIndex])
+                    
+                     teamScore.insert((teamScore[playingTeamIndex]) + totalCorrect, at: playingTeamIndex)
+                    
+                    TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
+                    if (playingTeam == 1){
+                        team1.insert((team1[playingRoundIndex]) + totalCorrect, at: playingRoundIndex)
+                        TeamPlayUtil.setTeam1Score(team1Score: team1)
+                    }else {
+                        team2.insert((team2[playingRoundIndex]) + totalCorrect, at: playingRoundIndex)
+                        TeamPlayUtil.setTeam2Score(team2Score: team2)
+                    }
+                }else {
+                    teamScore.insert(totalCorrect, at: playingTeamIndex)
+                    TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
+                    if (playingTeam == 1){
+                        team1.insert(totalCorrect, at: playingRoundIndex)
+                        TeamPlayUtil.setTeam1Score(team1Score: team1)
+                    }else {
+                        team2.insert(totalCorrect, at: playingRoundIndex)
+                        TeamPlayUtil.setTeam2Score(team2Score: team2)
+                    }
+                }
+                
+                if (totalRounds == playingRound && totalTeams == playingTeam){
+                    let finalScore = TeamPlayUtil.totalTeamScore
+                    for index in finalScore{
+                        print("score","team Score \(index)")
+                        //                        Log.e("score","team "+(i+1)+"Score "+finalScore[i])
+                    }
+                    
+                    setButtonText(text: "FINAL SCORE")
+                    buttonType = ButtonType.FINAL_SCORE
+                }else {
+                    if (TeamPlayUtil.totalTeams == TeamPlayUtil.playingTeam) {
+                        TeamPlayUtil.playingRound = TeamPlayUtil.playingRound + 1
+                        TeamPlayUtil.playingTeam = 1
+                    } else {
+                        TeamPlayUtil.playingTeam = TeamPlayUtil.playingTeam + 1
+                    }
+
+                    setButtonText(text: "CONTINUE")
+                    buttonType = ButtonType.CONTINUE
+                }
+            }else {
+                setButtonText(text: "PLAY SAME CATEGORY")
+                buttonType = ButtonType.PLAY_AGAIN
+            }
+        }
+    }
+    
+    func setupPlayButtonClick() {
+        switch buttonType {
+        case .PLAY_AGAIN:
+            showPlayGameController()
+            break
+            
+        case .CONTINUE:
+            showPlayGameController()
+            break
+            
+        case .FINAL_SCORE:
+            
+            break
+            
+        case .BUY:
+            
+            break
+        }
+
+    }
     /*
     // MARK: - Navigation
 

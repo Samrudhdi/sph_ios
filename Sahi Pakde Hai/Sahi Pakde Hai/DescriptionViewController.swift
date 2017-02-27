@@ -56,20 +56,25 @@ class DescriptionViewController: UIViewController {
     @IBAction func playGame(_ sender: AnyObject) {
         
         GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PLAY, category: self.selecteCategory.categoryName, label: "")
-        
+        setTeamPlayRound()
+        goToGamePlayController()
+    }
+    
+    func setTeamPlayRound() {
+        if TeamPlayUtil.isTeamPlay {
+            TeamPlayUtil.playingRound = 1
+            TeamPlayUtil.playingTeam = 1
+        }
+    }
+    
+    func goToGamePlayController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
             controller.selectedCategory = self.selecteCategory
             present(controller, animated: true, completion: {})
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PlayGameViewController" {
-            let controller = segue.destination as! PlayGameViewController
-            controller.selectedCategory = self.selecteCategory
-        }
+
     }
     
     @IBAction func previewPlay(_ sender: AnyObject) {

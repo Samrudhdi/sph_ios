@@ -34,6 +34,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        changeBottomButtonIcons()
         GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
     }
 
@@ -217,32 +218,74 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
 
     @IBAction func goToHelp(_ sender: AnyObject) {
-        
-        
+        if TeamPlayUtil.isTeamPlay {
+            TeamPlayUtil.setIsTeamPlay(isTeamPlay: false)
+            changeBottomButtonIcons()
+        }else {
+            showHelpScreen()
+        }
+    }
+    
+    @IBAction func shareAppLink(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            dismissCategoryViewController()
+        }else {
+            shareLink()
+        }
+
+    }
+    
+    @IBAction func goToTeamPlay(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            dismissCategoryViewController()
+        }else {
+            showTeamPlay()
+        }
+    }
+    
+    func changeBottomButtonIcons() {
+        if TeamPlayUtil.isTeamPlay {
+            teamPlayButton.setImage(UIImage(named: "team_mode_on"), for: .normal)
+            shareButton.setImage(UIImage(named: "back_team_play"), for: .normal)
+            helpButton.setImage(UIImage(named: "cancel_team_play"), for: .normal)
+        }else {
+            shareButton.setImage(UIImage(named: "share"), for: .normal)
+            teamPlayButton.setImage(UIImage(named: "team"), for: .normal)
+            helpButton.setImage(UIImage(named: "que"), for: .normal)
+        }
+    }
+   
+    func showTeamPlay() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "TEAM_PLAY") is TeamPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TEAM_PLAY") as! TeamPlayViewController
+            
+            present(controller, animated: true, completion: {})
+        }
+    }
+    
+    func showHelpScreen() {
         if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
             present(controller, animated: true, completion: {})
         }
+
     }
     
-    @IBAction func shareAppLink(_ sender: AnyObject) {
+    func shareLink() {
         let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
         
         var contentArray:Array<String> = []
         contentArray.append(shareText)
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DescriptionViewController" {
-            let descriptionController = segue.destination as! DescriptionViewController
-            descriptionController.selecteCategory = self.selectedCategory!
-        }
+    func dismissCategoryViewController() {
+        dismiss(animated: true, completion: nil)
     }
-    
-   
    
     /*
     // MARK: - Navigation

@@ -15,13 +15,21 @@
             </objects>
             <point key="canvasLocation" x="2164" y="312.59370314842579"/>
         </scene>
+        <!--Team Play View Controller-->
+        <scene sceneID="AHV-pW-C07">
+            <objects>
+                <viewController storyboardIdentifier="TEAM_PLAY" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mTg-8O-7Ak" customClass="TeamPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="35y-eI-xEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="1084"/>
+        </scene>
         <!--How To Play View Controller-->
         <scene sceneID="r13-72-dpo">
             <objects>
                 <viewController storyboardIdentifier="HOW_TO_PLAY_VIEW" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gZm-cX-PMF" customClass="HowToPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2g-99-KEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="1052"/>
+            <point key="canvasLocation" x="2695" y="1084"/>
         </scene>
         <!--Description View Controller-->
         <scene sceneID="YKu-uC-imN">

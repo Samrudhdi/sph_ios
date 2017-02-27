@@ -10,5 +10,5 @@ import Foundation
 
 class PreviewUtil{
     
-    var isPreviewPlay:Bool = false
+    static var isPreviewPlay:Bool = false
 }

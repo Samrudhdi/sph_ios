@@ -42,6 +42,9 @@
                                 <constraint firstAttribute="width" secondItem="JDi-6Q-w7K" secondAttribute="height" multiplier="1:1" id="Gwu-Pc-Zr5"/>
                             </constraints>
                             <state key="normal" image="team"/>
+                            <connections>
+                                <action selector="goToTeamPlay:" destination="-1" eventType="touchUpInside" id="JZh-X5-hGi"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-XK-jao">
                             <constraints>
