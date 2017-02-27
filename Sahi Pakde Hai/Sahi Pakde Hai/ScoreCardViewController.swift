@@ -51,7 +51,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
         self.setFace()
         self.setupPlayButton()
-        self.setupPlayButtonClick()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +71,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
-        showPlayGameController()
+        self.setupPlayButtonClick()
     }
     
     
@@ -234,42 +233,32 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
                 totalRounds = TeamPlayUtil.totalRounds
                 
                 let playingTeamIndex = playingTeam! - 1
-                let playingRoundIndex = playingRound! - 1
-                
                 
                 if (teamScore.count) >= totalTeams! {
                     
-                    print(teamScore[playingTeamIndex])
-                    
-                     teamScore.insert((teamScore[playingTeamIndex]) + totalCorrect, at: playingTeamIndex)
-                    
+                    print("Team Score \(teamScore[playingTeamIndex])")
+                     teamScore[playingTeamIndex] += totalCorrect
                     TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
-                    if (playingTeam == 1){
-                        team1.insert((team1[playingRoundIndex]) + totalCorrect, at: playingRoundIndex)
-                        TeamPlayUtil.setTeam1Score(team1Score: team1)
-                    }else {
-                        team2.insert((team2[playingRoundIndex]) + totalCorrect, at: playingRoundIndex)
-                        TeamPlayUtil.setTeam2Score(team2Score: team2)
-                    }
                 }else {
                     teamScore.insert(totalCorrect, at: playingTeamIndex)
                     TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
-                    if (playingTeam == 1){
-                        team1.insert(totalCorrect, at: playingRoundIndex)
-                        TeamPlayUtil.setTeam1Score(team1Score: team1)
-                    }else {
-                        team2.insert(totalCorrect, at: playingRoundIndex)
-                        TeamPlayUtil.setTeam2Score(team2Score: team2)
-                    }
+                }
+                
+                if (playingTeam == 1){
+                    team1.append(totalCorrect)
+                    TeamPlayUtil.setTeam1Score(team1Score: team1)
+                }else {
+                    team2.append(totalCorrect)
+                    TeamPlayUtil.setTeam2Score(team2Score: team2)
                 }
                 
                 if (totalRounds == playingRound && totalTeams == playingTeam){
                     let finalScore = TeamPlayUtil.totalTeamScore
-                    for index in finalScore{
-                        print("score","team Score \(index)")
-                        //                        Log.e("score","team "+(i+1)+"Score "+finalScore[i])
-                    }
-                    
+                    let team1Score = TeamPlayUtil.team1Score
+                    let team2Score = TeamPlayUtil.team2Score
+                    print("final Score \(finalScore)")
+                    print("Team 1 Score \(team1Score)")
+                    print("Team 2 Score \(team2Score)")
                     setButtonText(text: "FINAL SCORE")
                     buttonType = ButtonType.FINAL_SCORE
                 }else {

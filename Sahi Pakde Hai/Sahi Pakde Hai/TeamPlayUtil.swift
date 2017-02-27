@@ -25,7 +25,7 @@ class TeamPlayUtil {
     static func setIsTeamPlay(isTeamPlay:Bool) {
         TeamPlayUtil.isTeamPlay = isTeamPlay
     }
-
+    
     static func setTotalRounds(round:Int) {
         TeamPlayUtil.totalRounds = round
     }
@@ -45,7 +45,7 @@ class TeamPlayUtil {
     static func setTeam1Score(team1Score:Array<Int>){
         TeamPlayUtil.team1Score = team1Score
     }
-
+    
     static func setTeam2Score(team2Score:Array<Int>){
         TeamPlayUtil.team2Score = team2Score
     }

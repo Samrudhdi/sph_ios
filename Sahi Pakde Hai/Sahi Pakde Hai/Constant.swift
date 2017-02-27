@@ -14,6 +14,10 @@ class Constant{
     
     // Google Analytics
     
+    // Timer count
+    static let count = 1000//6000
+    static let threeTwoOneCount = 5
+    
     // Screen name
     static let SCREEN_CATEGORY_PAGE = "Category Page"
     static let SCREEN_DESCRIPTION = "Description Page"

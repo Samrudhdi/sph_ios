@@ -17,8 +17,8 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var videoView: UIView!
     
-    var count = 6000//580
-    var threeTwoOneCount = 5
+    var count = Constant.count
+    var threeTwoOneCount = Constant.threeTwoOneCount
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
     
@@ -44,7 +44,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("play game view did load")
         wordLabel.text = "Place On \nForehead"
         setupCameraSession()
         setupAccelerometer()
@@ -176,9 +176,10 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         return sqrt(pow(attitude.roll, 2) + pow(attitude.yaw, 2) + pow(attitude.pitch, 2))
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+//    override func viewDidDisappear(_ animated: Bool) {
+//        print("Play Game Controller view did disappear")
 //        motionManager.stopAccelerometerUpdates()
-    }
+//    }
     
     func threeTwoOneCounter() {
         if threeTwoOneCount > 0 {
@@ -201,6 +202,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 self.upward = 2;
                 self.downward = 2;
                 isGameStarted = true
+                teamPlayLabel.text = ""
                 let firstWord = deckArray[deckQuestionAtPosition].word
                 wordLabel.text = firstWord.capitalized
                 timerLabel.text = "\(count / 100)"
@@ -260,6 +262,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         threeTwoOneTimer?.invalidate()
         timer?.invalidate()
         motionManager.stopDeviceMotionUpdates()
+        stopVideoRecording()
     }
 
 
@@ -470,6 +473,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         timer?.invalidate()
         threeTwoOneTimer?.invalidate()
         stopVideoRecording()
+        motionManager.stopDeviceMotionUpdates()
         dismiss(animated: true, completion: nil)
     }
     
@@ -491,17 +495,9 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         sqlite.updateDeckIsPlayed(deckResultArray: deckResultArray)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ScoreCardViewController" {
-            let controller = segue.destination as! ScoreCardViewController
-            controller.deckResultArray = self.deckResultArray
-            controller.selectedCategory = self.selectedCategory
-        }
-    }
-    
     func setTeamPlay() {
         if TeamPlayUtil.isTeamPlay{
-            let text = "Round \(TeamPlayUtil.playingRound) Team \(TeamPlayUtil.playingTeam)"
+            let text = "Round \(TeamPlayUtil.playingRound): Team \(TeamPlayUtil.playingTeam)"
             teamPlayLabel.text = text
         }else {
             teamPlayLabel.text = ""

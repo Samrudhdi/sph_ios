@@ -8,26 +8,33 @@
 
 import UIKit
 
-class TeamPlayViewController: UIViewController {
+class TeamPlayViewController: BaseUIViewController {
     
     var selectedRound = 3
+    
+    @IBOutlet weak var round3Button: UIButton!
+    @IBOutlet weak var round4Button: UIButton!
+    @IBOutlet weak var round5Button: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        print("support orientation");
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBOutlet weak var round3Button: UIButton!
-
-    @IBOutlet weak var round4Button: UIButton!
-    
-    @IBOutlet weak var round5Button: UIButton!
     
     @IBAction func back(_ sender: AnyObject) {
         GoogleAnalyticsUtil().trackEvent(action:Constant.ACT_CANCEL, category: Constant.CAT_TEAM_PLAY, label: "")

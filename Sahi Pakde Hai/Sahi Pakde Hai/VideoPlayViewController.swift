@@ -17,11 +17,12 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     var videoURl:URL? = nil
     @IBOutlet weak var videoView: UIView!
     
-    var count = 6000//580
-    var threeTwoOneCount = 5
+    var count = Constant.count
+    var threeTwoOneCount = Constant.threeTwoOneCount
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
     var questionAtPosition:Int = 0
+    var player:AVPlayer?
 
     @IBOutlet weak var labelTop: UILabel!
     @IBOutlet weak var labelMiddle: UILabel!
@@ -64,23 +65,28 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     func playVideo() {
         if videoURl != nil {
             videoView.layoutIfNeeded()
-            let player = AVPlayer(url: videoURl!)
+            player = AVPlayer(url: videoURl!)
             let playerPreview = AVPlayerLayer(player: player)
             playerPreview.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
             playerPreview.videoGravity = AVLayerVideoGravityResizeAspectFill
             self.videoView.layer.addSublayer(playerPreview)
-            player.play()
+            player?.play()
         }
     }
 
     @IBAction func back(_ sender: AnyObject) {
-        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_BACK, category: self.selectedCategory.categoryName, label: "")
+        player?.pause()
         dismiss(animated: true, completion: nil)
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_BACK, category: self.selectedCategory.categoryName, label: "")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        player?.pause()
     }
     
     @IBAction func saveVideo(_ sender: AnyObject) {
-        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
         saveVideoToGallary()
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
     }
     
     func saveVideoToGallary() {
