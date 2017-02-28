@@ -86,12 +86,19 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func back(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            showConfirmDialog()
+        }else {
+            showCategoryViewController()
+        }
+    }
+    
+    func showCategoryViewController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
             present(controller, animated: true, completion: {})
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -223,42 +230,23 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             buttonType = ButtonType.BUY
         }else {
             if TeamPlayUtil.isTeamPlay {
-                var teamScore = TeamPlayUtil.totalTeamScore
-                var team1 = TeamPlayUtil.team1Score
-                var team2 = TeamPlayUtil.team2Score
                 
                 playingTeam = TeamPlayUtil.playingTeam
                 playingRound = TeamPlayUtil.playingRound
                 totalTeams = TeamPlayUtil.totalTeams
                 totalRounds = TeamPlayUtil.totalRounds
                 
-                let playingTeamIndex = playingTeam! - 1
-                
-                if (teamScore.count) >= totalTeams! {
-                    
-                    print("Team Score \(teamScore[playingTeamIndex])")
-                     teamScore[playingTeamIndex] += totalCorrect
-                    TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
-                }else {
-                    teamScore.insert(totalCorrect, at: playingTeamIndex)
-                    TeamPlayUtil.setTotalTeamScore(teamScore: teamScore)
-                }
-                
                 if (playingTeam == 1){
-                    team1.append(totalCorrect)
-                    TeamPlayUtil.setTeam1Score(team1Score: team1)
+                    var teamPlayScore = TeamPlayScore()
+                    teamPlayScore.team1Score = totalCorrect
+                    TeamPlayUtil.appendTeamScore(teamPlayScore: teamPlayScore)
                 }else {
-                    team2.append(totalCorrect)
-                    TeamPlayUtil.setTeam2Score(team2Score: team2)
+                    let index = TeamPlayUtil.getTeamScore().count - 1
+                    TeamPlayUtil.addTeam2Score(score: totalCorrect, index: index)
                 }
                 
                 if (totalRounds == playingRound && totalTeams == playingTeam){
-                    let finalScore = TeamPlayUtil.totalTeamScore
-                    let team1Score = TeamPlayUtil.team1Score
-                    let team2Score = TeamPlayUtil.team2Score
-                    print("final Score \(finalScore)")
-                    print("Team 1 Score \(team1Score)")
-                    print("Team 2 Score \(team2Score)")
+                    print("final Score \(TeamPlayUtil.getTeamScore())")
                     setButtonText(text: "FINAL SCORE")
                     buttonType = ButtonType.FINAL_SCORE
                 }else {
@@ -290,7 +278,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             break
             
         case .FINAL_SCORE:
-            
+            showFinalScore()
             break
             
         case .BUY:
@@ -298,6 +286,27 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             break
         }
 
+    }
+    
+    func showFinalScore() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "TEAM_FINAL_SCORE") is TeamFinalScoreCardViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TEAM_FINAL_SCORE") as! TeamFinalScoreCardViewController
+            controller.selectedCategory = self.selectedCategory
+            present(controller, animated: true, completion: {})
+        }
+    }
+    
+    func showConfirmDialog() {
+        let alertController = UIAlertController(title: "Exit Team Play", message: "Are you sure you want to exit team play?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Exit", style: .default, handler: {
+            action in
+            TeamPlayUtil.isTeamPlay = false
+            self.showCategoryViewController()
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Continue Team Play", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

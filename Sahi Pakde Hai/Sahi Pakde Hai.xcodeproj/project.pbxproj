@@ -44,6 +44,11 @@
 		3D79F2211E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */; };
 		3D79F2221E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */; };
 		3D806ECE1E5D6A910004C2D8 /* PreviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */; };
+		3D9487411E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D94873F1E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift */; };
+		3D9487421E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9487401E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib */; };
+		3D9487451E65756400D1DEDF /* TotalScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9487431E65756400D1DEDF /* TotalScoreTableViewCell.swift */; };
+		3D9487461E65756400D1DEDF /* TotalScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9487441E65756400D1DEDF /* TotalScoreTableViewCell.xib */; };
+		3D9487481E6585B600D1DEDF /* TeamPlayScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9487471E6585B600D1DEDF /* TeamPlayScore.swift */; };
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
@@ -109,6 +114,11 @@
 		3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinalScoreCardViewController.swift; sourceTree = "<group>"; };
 		3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamFinalScoreCardViewController.xib; sourceTree = "<group>"; };
 		3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtil.swift; sourceTree = "<group>"; };
+		3D94873F1E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinalScoreTableViewCell.swift; sourceTree = "<group>"; };
+		3D9487401E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamFinalScoreTableViewCell.xib; sourceTree = "<group>"; };
+		3D9487431E65756400D1DEDF /* TotalScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalScoreTableViewCell.swift; sourceTree = "<group>"; };
+		3D9487441E65756400D1DEDF /* TotalScoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalScoreTableViewCell.xib; sourceTree = "<group>"; };
+		3D9487471E6585B600D1DEDF /* TeamPlayScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPlayScore.swift; sourceTree = "<group>"; };
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,14 +165,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D0131141E11863700845149 /* pojo */ = {
+		3D0131141E11863700845149 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3D3659B21E01B2900018F13E /* Category.swift */,
 				3D0131151E11865B00845149 /* Deck.swift */,
 				3DA704301E13B964005DC85B /* DeckResult.swift */,
+				3D9487471E6585B600D1DEDF /* TeamPlayScore.swift */,
 			);
-			name = pojo;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		3D20ABC81DF720A0009DFB7E /* CategoryView */ = {
@@ -251,6 +262,19 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		3D94873E1E65670100D1DEDF /* TeamFinalScore */ = {
+			isa = PBXGroup;
+			children = (
+				3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */,
+				3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */,
+				3D94873F1E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift */,
+				3D9487401E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib */,
+				3D9487431E65756400D1DEDF /* TotalScoreTableViewCell.swift */,
+				3D9487441E65756400D1DEDF /* TotalScoreTableViewCell.xib */,
+			);
+			name = TeamFinalScore;
+			sourceTree = "<group>";
+		};
 		3DC78E391E4059FD009BAA60 /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,9 +298,6 @@
 			children = (
 				3DD4EDB71E643B420040AA1B /* TeamPlayViewController.swift */,
 				3DD4EDB81E643B420040AA1B /* TeamPlayViewController.xib */,
-				3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */,
-				3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */,
-				3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */,
 			);
 			name = TeamPlay;
 			sourceTree = "<group>";
@@ -302,11 +323,12 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3D94873E1E65670100D1DEDF /* TeamFinalScore */,
 				3DD4EDB51E643B2D0040AA1B /* TeamPlay */,
 				3DC78E3E1E407628009BAA60 /* SplashScreen */,
 				3DC78E391E4059FD009BAA60 /* VideoView */,
 				3D3C76271E12BBB100A67EF5 /* FMDB */,
-				3D0131141E11863700845149 /* pojo */,
+				3D0131141E11863700845149 /* Model */,
 				3D37A6CE1E0C4C4800DD9F70 /* Score */,
 				3D6F76C81E030620006E560B /* sounds */,
 				3D20ABDB1DF73E30009DFB7E /* HowToPlay */,
@@ -326,6 +348,7 @@
 		3DE98C301D1D43E50071C1C7 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */,
 				3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */,
 				3D3659B41E01B7A50018F13E /* Constant.swift */,
 				3D0131121E11858D00845149 /* Service.swift */,
@@ -417,7 +440,9 @@
 				3D6F76E91E0310A3006E560B /* three_two_one.mp3 in Resources */,
 				3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */,
 				3D6F76E81E0310A3006E560B /* three_two_one_2.mp3 in Resources */,
+				3D9487421E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib in Resources */,
 				3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */,
+				3D9487461E65756400D1DEDF /* TotalScoreTableViewCell.xib in Resources */,
 				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
 				3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */,
 				3DC78E421E407647009BAA60 /* SplashScreenViewController.xib in Resources */,
@@ -511,11 +536,14 @@
 				3D0131161E11865B00845149 /* Deck.swift in Sources */,
 				3D806ECE1E5D6A910004C2D8 /* PreviewUtil.swift in Sources */,
 				3DA704311E13B964005DC85B /* DeckResult.swift in Sources */,
+				3D9487481E6585B600D1DEDF /* TeamPlayScore.swift in Sources */,
 				3D01311A1E118F5500845149 /* BaseUIViewController.swift in Sources */,
 				3D3C76381E12BC4300A67EF5 /* FMResultSet.m in Sources */,
+				3D9487411E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift in Sources */,
 				3D79F2211E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift in Sources */,
 				3D3C76361E12BC4300A67EF5 /* FMDatabasePool.m in Sources */,
 				3D3659B51E01B7A50018F13E /* Constant.swift in Sources */,
+				3D9487451E65756400D1DEDF /* TotalScoreTableViewCell.swift in Sources */,
 				3D79F21E1E643D7300BECAC8 /* TeamPlayUtil.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 				3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */,

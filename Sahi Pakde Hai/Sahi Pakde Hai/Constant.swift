@@ -15,7 +15,7 @@ class Constant{
     // Google Analytics
     
     // Timer count
-    static let count = 1000//6000
+    static let count = 500//6000
     static let threeTwoOneCount = 5
     
     // Screen name

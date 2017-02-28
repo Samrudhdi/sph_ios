@@ -17,7 +17,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="pUD-0R-Lfl">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ayu-60-m1Y"/>
@@ -88,7 +88,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="03G-CX-3Cj"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="03G-CX-3Cj"/>
                         <constraint firstItem="Kbd-vm-sAE" firstAttribute="leading" secondItem="2k2-Hy-19Y" secondAttribute="leading" constant="10" id="C8O-VH-0a6"/>
                         <constraint firstItem="qhZ-dH-hqh" firstAttribute="top" secondItem="OQU-M8-kXD" secondAttribute="top" id="FKZ-Ig-bFN"/>
                         <constraint firstItem="OQU-M8-kXD" firstAttribute="bottom" secondItem="qhZ-dH-hqh" secondAttribute="bottom" id="RzA-Co-Gb6"/>

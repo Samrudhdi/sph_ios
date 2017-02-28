@@ -21,6 +21,7 @@ class TeamPlayUtil {
     static var totalTeamScore:Array<Int> = []
     static var team1Score:Array<Int> = []
     static var team2Score:Array<Int> = []
+    static var teamScore:Array<TeamPlayScore> = []
     
     static func setIsTeamPlay(isTeamPlay:Bool) {
         TeamPlayUtil.isTeamPlay = isTeamPlay
@@ -48,6 +49,22 @@ class TeamPlayUtil {
     
     static func setTeam2Score(team2Score:Array<Int>){
         TeamPlayUtil.team2Score = team2Score
+    }
+    
+    static func appendTeamScore(teamPlayScore:TeamPlayScore){
+        TeamPlayUtil.teamScore.append(teamPlayScore)
+    }
+    
+    static func addTeam2Score(score:Int,index:Int) {
+        TeamPlayUtil.teamScore[index].team2Score = score
+    }
+    
+    static func getTeamScore() -> Array<TeamPlayScore>{
+        return TeamPlayUtil.teamScore
+    }
+    
+    static func initTeamScore() {
+        TeamPlayUtil.teamScore = Array<TeamPlayScore>()
     }
     
 }

@@ -63,7 +63,7 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePa-nv-wWq">
                     <color key="backgroundColor" red="0.0" green="0.67843137254901964" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Play Same Category">
+                    <state key="normal" title="PLAY SAME CATEGORY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -81,7 +81,7 @@
                         <constraint firstAttribute="width" constant="71" id="7FA-eG-Hf5"/>
                         <constraint firstAttribute="height" constant="40" id="WjI-Uf-2zs"/>
                     </constraints>
-                    <state key="normal" title="Back">
+                    <state key="normal" title="BACK">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>

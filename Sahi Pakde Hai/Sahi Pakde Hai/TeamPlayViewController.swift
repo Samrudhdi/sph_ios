@@ -47,9 +47,7 @@ class TeamPlayViewController: BaseUIViewController {
         GoogleAnalyticsUtil().trackEvent(action:Constant.ACT_CHOOSE_CATEGORY, category: Constant.CAT_TEAM_PLAY, label: "")
         TeamPlayUtil.setIsTeamPlay(isTeamPlay: true)
         TeamPlayUtil.setTotalRounds(round: self.selectedRound)
-//        TeamPlayUtil.setTotalTeamScore(teamScore: Array<Int>())
-//        TeamPlayUtil.setTeam1Score(team1Score: Array<Int>())
-//        TeamPlayUtil.setTeam2Score(team2Score: Array<Int>())
+        TeamPlayUtil.initTeamScore()
         showCategoryPage()
     }
     
