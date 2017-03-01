@@ -115,12 +115,12 @@ class SQLiteDatabase{
     
     func getSelectedDeckData(categoryId:Int) -> Array<Deck> {
         var deckArray:Array<Deck>
-        deckArray = getDecklist(categoryId: categoryId)
+        deckArray = getDatabaseDeckList(categoryId: categoryId)
         if deckArray.count > 25 {
             return deckArray
         }else {
             updateAllDeckIsPlayed(deckType: categoryId)
-            deckArray = getDecklist(categoryId: categoryId)
+            deckArray = getDatabaseDeckList(categoryId: categoryId)
             return deckArray
         }
     }
@@ -147,15 +147,28 @@ class SQLiteDatabase{
         }
     }
 
-    func getDecklist(categoryId:Int) -> Array<Deck> {
+    func getDecklist(categoryId:Int,isPreviewPlay:Bool) -> Array<Deck> {
+        var deckArray:Array<Deck>?
+        if !isPreviewPlay {
+            deckArray = getSelectedDeckData(categoryId: categoryId)
+        }else {
+            deckArray = getPreviewDeckList(categoryId: categoryId)
+        }
+        return deckArray!
+    }
+    
+    func getDatabaseDeckList(categoryId:Int) -> Array<Deck> {
         var deckArray = Array<Deck>()
         let database = FMDatabase(path:databasePath)
+        
         if (database?.open())!{
+            
             let query = "SELECT * FROM \(TABLE_NAME) WHERE \(DECK_TYPE) = \(categoryId) AND \(IS_PLAYED) = 0 ORDER BY RANDOM()";
             
             let result = database?.executeQuery(query, withArgumentsIn: nil)
             
             if result != nil {
+                
                 while (result?.next())! {
                     let deckId = (result?.int(forColumn: ID))!
                     let deckType = (result?.int(forColumn: DECK_TYPE))!
@@ -169,6 +182,24 @@ class SQLiteDatabase{
             }
             database?.close()
         }
+        return deckArray
+    }
+    
+    func getPreviewDeckList(categoryId:Int) -> Array<Deck> {
+        var deckArray = Array<Deck>()
+        let wordJsonArray = PreviewUtil.getCategoryJson(categoryId: "\(categoryId)")
+        
+        for catWord  in wordJsonArray {
+            
+            let deckId = 0
+            let deckType = categoryId
+            let word = catWord.string?.replacingOccurrences(of: "\"", with: "'", options: String.CompareOptions.literal, range: nil)
+                    
+            let deck = Deck(deckId: deckId, deckType: deckType, word: word!)
+        
+            deckArray.append(deck)
+        }
+
         return deckArray
     }
     

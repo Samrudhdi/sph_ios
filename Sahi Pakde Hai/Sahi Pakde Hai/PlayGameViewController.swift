@@ -38,6 +38,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     var deckQuestionAtPosition = 0;
     
     var deckId:Int = 0
+    var isPreviewPlay = false
     var outputvideofileURL:URL? = nil
     
     var isTimsUP = true
@@ -49,7 +50,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         setupCameraSession()
         setupAccelerometer()
         deckId = selectedCategory.categoryId
-        getSelectedCategoryList(categoryId: deckId)
+        setSelectedCategoryList(categoryId: deckId, isPreviewPlay: PreviewUtil.isPreviewPlay)
         setTeamPlay()
     }
     
@@ -95,7 +96,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 let yawAngle = data.attitude.roll * 180.0/M_PI
                 let pitchAngle = data.attitude.pitch * 180.0/M_PI
                 
-//                print("rollAngle \(rollAngle)")
+                print("rollAngle \(rollAngle)")
 //                print("yaw \(yawAngle)")
 //                print("pitch \(pitchAngle)")
 //                print(data.attitude.yaw * 180.0/M_PI)
@@ -116,54 +117,73 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                         
                     }else {
                         if self.deckQuestionAtPosition < self.deckArray.count {
-                            self.deckResult = DeckResult()
-                            let word = self.deckArray[self.deckQuestionAtPosition].word
-                            self.deckResult.word = word
-                            self.deckResult.questionAskedTime = self.count
-                            self.deckResult.deckId = (self.deckId);
-                            self.deckResultArray.append(self.deckResult)
-                            self.setBackgroundColor(color: Constant.blackColor)
-                            self.setTextOnWordLabel(word: word)
-                            self.downward = 2
-                            self.upward = 2
+                            self.showNewWord()
                         }else {
-                            let question = "No more words are available."
-                            self.deckResult = DeckResult()
-                            self.deckResult.word = question
-                            self.deckResult.questionAskedTime = self.count
-                            self.setTextOnWordLabel(word: question)
-                            self.downward = 1
-                            self.upward = 1
+                            if (PreviewUtil.isPreviewPlay){
+                                self.deckQuestionAtPosition = 0;
+                                self.showNewWord()
+                            }else {
+                                let question = "No more words are available."
+                                self.deckResult = DeckResult()
+                                self.deckResult.word = question
+                                self.deckResult.questionAskedTime = self.count
+                                self.setTextOnWordLabel(word: question)
+                                self.downward = 1
+                                self.upward = 1
+                            }
                         }
                     }
                 }else if self.isTiltDownward(roll: rollAngle,pitch: pitchAngle){
                     if self.isGameStarted {
-                        self.upward = 1
-                        self.downward = 1
-                        self.middle = 2
-                        self.setBackgroundColor(color: Constant.correctColor)
-                        self.setTextOnWordLabel(word: "सही पकड़े है!")
-                        self.playSound(sound: "correct", ofType: "mp3")
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = true
-                        self.deckQuestionAtPosition += 1
+                        self.correct()
                     }
                 }else if self.isTiltUpward(roll: rollAngle,pitch: pitchAngle){
                     if self.isGameStarted {
-                        self.setBackgroundColor(color: Constant.wrongColor)
-                        self.upward = 1
-                        self.downward = 1
-                        self.middle = 2
-                        self.setTextOnWordLabel(word: "हाय दैया!")
-                        self.playSound(sound: "pass", ofType: "mp3")
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = false
-                        self.deckQuestionAtPosition += 1
+                        self.pass()
                     }
                 }
             })
         }
     }
+    
+    func showNewWord() {
+        self.deckResult = DeckResult()
+        let word = self.deckArray[self.deckQuestionAtPosition].word
+        self.deckResult.word = word
+        self.deckResult.questionAskedTime = self.count
+        self.deckResult.deckId = (self.deckId);
+        self.deckResultArray.append(self.deckResult)
+        self.setBackgroundColor(color: Constant.blackColor)
+        self.setTextOnWordLabel(word: word)
+        self.downward = 2
+        self.upward = 2
+    }
+    
+    func correct() {
+        self.upward = 1
+        self.downward = 1
+        self.middle = 2
+        self.setBackgroundColor(color: Constant.correctColor)
+        self.setTextOnWordLabel(word: "सही पकड़े है!")
+        self.playSound(sound: "correct", ofType: "mp3")
+        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
+        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = true
+        self.deckQuestionAtPosition += 1
+
+    }
+    
+    func pass() {
+        self.setBackgroundColor(color: Constant.wrongColor)
+        self.upward = 1
+        self.downward = 1
+        self.middle = 2
+        self.setTextOnWordLabel(word: "हाय दैया!")
+        self.playSound(sound: "pass", ofType: "mp3")
+        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
+        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = false
+        self.deckQuestionAtPosition += 1
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -215,6 +235,8 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             }
         }
     }
+    
+    
     
     func counter60() {
         if count >= 0 {
@@ -269,7 +291,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 //    Wrong
     func isTiltUpward(roll:Double,pitch:Double) -> Bool {
         
-        if (((roll >= -50) && (pitch <= 25.0 && pitch >= -25.0)) && upward == 2){
+        if (((roll >= -30) && (pitch <= 25.0 && pitch >= -25.0)) && upward == 2){
             print("upward")
             return true
         }else {
@@ -279,7 +301,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 
 //    Correct
     func isTiltDownward(roll:Double,pitch:Double) -> Bool {
-        if (((roll <= -121) && (pitch <= 25.0 && pitch >= -25.0)) && downward == 2){
+        if (((roll <= -140) && (pitch <= 25.0 && pitch >= -25.0)) && downward == 2){
             print("downward")
             return true
         }else {
@@ -477,11 +499,12 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         dismiss(animated: true, completion: nil)
     }
     
-    func getSelectedCategoryList(categoryId:Int)  {
+    func setSelectedCategoryList(categoryId:Int,isPreviewPlay:Bool)  {
 //        if (let category == selectedCategory) {
         if categoryId >= 0 {
             let sqlite:SQLiteDatabase = SQLiteDatabase()
-            deckArray = sqlite.getDecklist(categoryId: categoryId)
+            
+            deckArray = sqlite.getDecklist(categoryId: categoryId, isPreviewPlay: isPreviewPlay)
             for deck in deckArray {
                 print(deck)
             }
