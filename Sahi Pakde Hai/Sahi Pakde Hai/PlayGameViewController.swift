@@ -15,12 +15,10 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var teamPlayLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
-
-    
     @IBOutlet weak var videoView: UIView!
     
-    var count = 20//58
-    var threeTwoOneCount = 5
+    var count = Constant.count
+    var threeTwoOneCount = Constant.threeTwoOneCount
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
     
@@ -39,50 +37,35 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     var deckResult = DeckResult()
     var deckQuestionAtPosition = 0;
     
-    var deckId:Int = 0     
+    var deckId:Int = 0
+    var outputvideofileURL:URL? = nil
+    
+    var isTimsUP = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("viewDidLoad")
-        
-        let value = UIInterfaceOrientation.landscapeRight.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-        
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
-        
+        print("play game view did load")
+        wordLabel.text = "Place On \nForehead"
         setupCameraSession()
         setupAccelerometer()
         deckId = selectedCategory.categoryId
         getSelectedCategoryList(categoryId: deckId)
-        
-        // Do any additional setup after loading the view.
+        setTeamPlay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        print("viewWillAppear")
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
     }
     
-    func willEnterForeground(){
-//        print("willEnterForeground")
-//        self.navigationController?.popViewController(animated: false)
-    }
-    
-    
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        return UIInterfaceOrientationMask.landscapeRight
-    }
-//
-//    
     override var shouldAutorotate: Bool {
         return false
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.landscapeRight
+    }
     
     func setupAccelerometer() {
-        
-        // trigger values - a gap so there isn't a flicker zone
         
         motionManager = CMMotionManager()
         
@@ -102,7 +85,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 //                }
                 
                 guard let data = data else { return }
-                print("***********************")
+//                print("***********************")
 //
 //                print("pitch \(data.attitude.pitch)")
 //                print("roll \(data.attitude.roll)")
@@ -112,9 +95,9 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 let yawAngle = data.attitude.roll * 180.0/M_PI
                 let pitchAngle = data.attitude.pitch * 180.0/M_PI
                 
-                print("rollAngle \(rollAngle)")
-                print("yaw \(yawAngle)")
-                print("pitch \(pitchAngle)")
+//                print("rollAngle \(rollAngle)")
+//                print("yaw \(yawAngle)")
+//                print("pitch \(pitchAngle)")
 //                print(data.attitude.yaw * 180.0/M_PI)
                 
 //                let x = data.userAcceleration.x
@@ -136,7 +119,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                             self.deckResult = DeckResult()
                             let word = self.deckArray[self.deckQuestionAtPosition].word
                             self.deckResult.word = word
-//                            deckResult.questionAnsweredTime = 600
+                            self.deckResult.questionAskedTime = self.count
                             self.deckResult.deckId = (self.deckId);
                             self.deckResultArray.append(self.deckResult)
                             self.setBackgroundColor(color: Constant.blackColor)
@@ -147,7 +130,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                             let question = "No more words are available."
                             self.deckResult = DeckResult()
                             self.deckResult.word = question
-//                            self.deckResult.setQuestionAskedTime timerSecond
+                            self.deckResult.questionAskedTime = self.count
                             self.setTextOnWordLabel(word: question)
                             self.downward = 1
                             self.upward = 1
@@ -161,7 +144,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                         self.setBackgroundColor(color: Constant.correctColor)
                         self.setTextOnWordLabel(word: "सही पकड़े है!")
                         self.playSound(sound: "correct", ofType: "mp3")
-//                        self.deckResultArray[deckResultArray.endIndex - 1].questionAnsweredTime = timerSecond
+                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
                         self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = true
                         self.deckQuestionAtPosition += 1
                     }
@@ -173,7 +156,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                         self.middle = 2
                         self.setTextOnWordLabel(word: "हाय दैया!")
                         self.playSound(sound: "pass", ofType: "mp3")
-                    //                        self.deckResultArray[deckResultArray.endIndex - 1].questionAnsweredTime = timerSecond
+                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
                         self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = false
                         self.deckQuestionAtPosition += 1
                     }
@@ -193,9 +176,10 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         return sqrt(pow(attitude.roll, 2) + pow(attitude.yaw, 2) + pow(attitude.pitch, 2))
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+//    override func viewDidDisappear(_ animated: Bool) {
+//        print("Play Game Controller view did disappear")
 //        motionManager.stopAccelerometerUpdates()
-    }
+//    }
     
     func threeTwoOneCounter() {
         if threeTwoOneCount > 0 {
@@ -218,40 +202,44 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 self.upward = 2;
                 self.downward = 2;
                 isGameStarted = true
+                teamPlayLabel.text = ""
                 let firstWord = deckArray[deckQuestionAtPosition].word
                 wordLabel.text = firstWord.capitalized
-                timerLabel.text = "\(count + 1)"
+                timerLabel.text = "\(count / 100)"
                 deckResult = DeckResult()
                 deckResult.word = firstWord
-                deckResult.questionAnsweredTime = 600
+                deckResult.questionAskedTime = self.count
                 deckResult.deckId = (deckId);
                 deckResultArray.append(deckResult)
-                timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(counter60), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(counter60), userInfo: nil, repeats: true)
             }
         }
     }
     
     func counter60() {
         if count >= 0 {
-            var countText = "\(count)"
-            if count < 10 {
+            if (count / 100 <= 10) && (count % 100) == 0 {
                 playSound(sound: "time_low_loop", ofType: "mp3")
             }
             
-            if count == 0 {
-                wordLabel.text = "TIME'S UP"
-                countText = ""
-                motionManager.stopDeviceMotionUpdates()
-                playSound(sound: "round_end_buzzer", ofType: "mp3")
+            if count / 100 >= 1 {
+                timerLabel.text = "\(count / 100)"
+                print(count)
             }
-            timerLabel.text = "\(countText)"
             count -= 1
+            
         }else {
             timer?.invalidate()
+            print(count)
+            print("TIME'S UP")
+            wordLabel.text = "TIME'S UP"
+            timerLabel.text = ""
+            motionManager.stopDeviceMotionUpdates()
+            playSound(sound: "round_end_buzzer", ofType: "mp3")
             stopVideoRecording()
-            goToScoreCardController()
-//            performSegue(withIdentifier: "ScoreCardViewController", sender: self)
             updateIsPlayedFlag()
+            perform(#selector(goToScoreCardController), with: nil, afterDelay: 1.0)
+//            performSegue(withIdentifier: "ScoreCardViewController", sender: self)
 //            self.navigationController?.popViewController(animated: false)
         }
     }
@@ -263,6 +251,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             controller.deckResultArray = self.deckResultArray
             controller.selectedCategory = self.selectedCategory
+            controller.videoUrl = self.outputvideofileURL
             
             present(controller, animated: true, completion: {})
         }
@@ -273,6 +262,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         threeTwoOneTimer?.invalidate()
         timer?.invalidate()
         motionManager.stopDeviceMotionUpdates()
+        stopVideoRecording()
     }
 
 
@@ -370,23 +360,24 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
         do {
             let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            
+
             cameraSession.beginConfiguration()
             
             if (cameraSession.canAddInput(deviceInput) == true) {
                 cameraSession.addInput(deviceInput)
             }
             
-//            dataOutput = AVCaptureVideoDataOutput()
-//            dataOutput?.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange as UInt32)]
-//            dataOutput?.alwaysDiscardsLateVideoFrames = true
-//            
-//            if (cameraSession.canAddOutput(dataOutput) == true) {
-//                cameraSession.addOutput(dataOutput)
-//            }
-//
+            // Add audio device to the recording
+            let audioDevice: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
+            do {
+                let audioInput: AVCaptureDeviceInput = try AVCaptureDeviceInput(device: audioDevice)
+                self.cameraSession.addInput(audioInput)
+                
+            } catch {
+                print("Unable to add audio device to the recording.")
+            }
+            
             cameraSession.commitConfiguration()
-//
             
             videoView.layer.addSublayer(previewLayer)
             cameraSession.startRunning()
@@ -410,11 +401,36 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
 //        checking camera permission
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
+            
             dataOutput = AVCaptureMovieFileOutput()
-            let fileName = "mysavefile.mp4"
+            let fileName = "sahipakdehai.mov"
             
             if (cameraSession.canAddOutput(dataOutput) == true) {
                 cameraSession.addOutput(dataOutput)
+            }
+            
+            var videoConnection:AVCaptureConnection? = nil
+            
+            for connection in (dataOutput?.connections)! {
+                let conn = connection as! AVCaptureConnection
+                print(connection)
+                for port in conn.inputPorts {
+                    let p = port as! AVCaptureInputPort
+                    if p.mediaType == AVMediaTypeVideo{
+                        videoConnection = conn
+                        break
+                    }
+                }
+            }
+            
+            if videoConnection != nil {
+                if (videoConnection?.isVideoOrientationSupported)!{
+                    videoConnection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                }
+                
+                if (videoConnection?.isVideoMirroringSupported)! {
+                    videoConnection?.isVideoMirrored = true
+                }
             }
             
             let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -434,12 +450,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print("finish \(outputFileURL)")
-        playVideo(url: outputFileURL)
+//        outputvideofileURL = outputFileURL
+//        playVideo(url: outputFileURL)
         
     }
     
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         print("start \(fileURL)")
+        outputvideofileURL = fileURL
     }
     
     func playVideo(url:URL) {
@@ -449,6 +467,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         
         self.view.layer.addSublayer(playerPreview)
         player.play()
+    }
+    
+    @IBAction func backPlayGame(_ sender: AnyObject) {
+        timer?.invalidate()
+        threeTwoOneTimer?.invalidate()
+        stopVideoRecording()
+        motionManager.stopDeviceMotionUpdates()
+        dismiss(animated: true, completion: nil)
     }
     
     func getSelectedCategoryList(categoryId:Int)  {
@@ -469,12 +495,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         sqlite.updateDeckIsPlayed(deckResultArray: deckResultArray)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ScoreCardViewController" {
-            let controller = segue.destination as! ScoreCardViewController
-            controller.deckResultArray = self.deckResultArray
-            controller.selectedCategory = self.selectedCategory
+    func setTeamPlay() {
+        if TeamPlayUtil.isTeamPlay{
+            let text = "Round \(TeamPlayUtil.playingRound): Team \(TeamPlayUtil.playingTeam)"
+            teamPlayLabel.text = text
+        }else {
+            teamPlayLabel.text = ""
         }
     }
+
 }
 

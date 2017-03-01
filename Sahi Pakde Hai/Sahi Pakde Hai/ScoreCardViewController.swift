@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var deckResultArray:Array<DeckResult> = []
     var animateDeckResult:Array<DeckResult> = []
     var selectedCategory = Category()
-    var score = 0
+    var videoUrl:URL?
+    var totalCorrect = 0
+    enum ButtonType{
+        case PLAY_AGAIN
+        case CONTINUE
+        case FINAL_SCORE
+        case BUY
+    }
+    var  buttonType = ButtonType.PLAY_AGAIN
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var faceImageView: UIImageView!
@@ -21,32 +30,52 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var playSameCategoryButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var videoThumbnailImageView: UIImageView!
+    
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var videoViewConstrain: NSLayoutConstraint!
+    
+    var playingTeam:Int?
+    var playingRound:Int?
+    var totalTeams:Int?
+    var totalRounds:Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        setupVideoView(hide: false)
+        self.videoThumbnailImageView.layoutIfNeeded()
+        self.videoThumbnailImageView.setNeedsDisplay()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
-        
-//        tableView.reloadData()
         self.setFace()
-    
-        // Do any additional setup after loading the view.
+        self.setupPlayButton()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//            animateTable()
+    override func viewWillAppear(_ animated: Bool) {
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_SCORE_CARD)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        print("support orientation");
+        return UIInterfaceOrientationMask.portrait
     }
     
     @IBAction func playSameCategory(_ sender: AnyObject) {
-//        performSegue
+        self.setupPlayButtonClick()
+    }
+    
+    
+    func showPlayGameController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") as! PlayGameViewController
@@ -57,13 +86,19 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     @IBAction func back(_ sender: AnyObject) {
-//        self.navigationController?.popToRootViewController(animated: true)
+        if TeamPlayUtil.isTeamPlay {
+            showConfirmDialog()
+        }else {
+            showCategoryViewController()
+        }
+    }
+    
+    func showCategoryViewController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
             present(controller, animated: true, completion: {})
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,7 +121,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func setFace() {
-        var totalCorrect:Int = 0
         for deckResult in deckResultArray {
             if deckResult.isCorrect {
                 totalCorrect += 1
@@ -102,20 +136,31 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func increaseScoreByOne() {
-        score += 1
-        scoreLabel.text = "Score \(score)"
+        totalCorrect += 1
+        scoreLabel.text = "Score \(totalCorrect)"
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PlayGameViewController" {
-            let controller = segue.destination as! PlayGameViewController
-            controller.selectedCategory = self.selectedCategory
+    func setThumbnail() {
+        print(videoUrl)
+        if videoUrl != nil {
+//            playVideo(url: videoUrl!)
+            let image = CommonUtil.getThumbnail(url: videoUrl!)
+            if image != nil {
+                self.videoThumbnailImageView.image = image
+            }
+        }
+    }
+    
+    func setResultWordOneByOne() {
+        for index in 0...deckResultArray.count {
+            let indexPath:IndexPath = IndexPath(row: index, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
     func animateTable() {
         
-//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI));
+//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI))
         
         tableView.reloadData()
         
@@ -128,7 +173,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//            cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI));
+//            cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
             index += 1
         }
         
@@ -137,26 +182,132 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         for a in cells {
             let cell: UITableViewCell = a as UITableViewCell
 //            UIView.animateWithDuration(1.5, delay: (0.05 * index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
-//                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+//                cell.transform = CGAffineTransformMakeTranslation(0, 0)
 //                }, completion: nil)
             
 //            let indexPath = IndexPath(row: 5, section: 0)
 //            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
 //            tableView.tableViewScrollToBottom(animated: true)
                 UIView.animate(withDuration: 0.5, delay: 1 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
                 }, completion: nil)
-            
-            
-            
-            
-
             
             index += 1
         }
     }
     
+    @IBAction func playVideo(_ sender: AnyObject) {
+        
+        if self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") is VideoPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "VIDEO_PLAY_VIEW") as! VideoPlayViewController
+            controller.videoURl = self.videoUrl
+            controller.deckResultArray = self.deckResultArray
+            controller.selectedCategory = self.selectedCategory
+            
+            present(controller, animated: true, completion: {})
+        }
+
+    }
     
+    func setupVideoView(hide:Bool) {
+        if hide {
+            videoView.isHidden = true
+            videoViewConstrain.constant = 10
+        }else {
+            videoView.isHidden = false
+            self.setThumbnail()
+        }
+    }
+    
+    func setButtonText(text:String){
+        playSameCategoryButton.setTitle(text, for: .normal)
+    }
+
+    func setupPlayButton() {
+        if PreviewUtil.isPreviewPlay {
+            setButtonText(text: "Buy@ Rs.59.00")
+            buttonType = ButtonType.BUY
+        }else {
+            if TeamPlayUtil.isTeamPlay {
+                
+                playingTeam = TeamPlayUtil.playingTeam
+                playingRound = TeamPlayUtil.playingRound
+                totalTeams = TeamPlayUtil.totalTeams
+                totalRounds = TeamPlayUtil.totalRounds
+                
+                if (playingTeam == 1){
+                    var teamPlayScore = TeamPlayScore()
+                    teamPlayScore.team1Score = totalCorrect
+                    TeamPlayUtil.appendTeamScore(teamPlayScore: teamPlayScore)
+                }else {
+                    let index = TeamPlayUtil.getTeamScore().count - 1
+                    TeamPlayUtil.addTeam2Score(score: totalCorrect, index: index)
+                }
+                
+                if (totalRounds == playingRound && totalTeams == playingTeam){
+                    print("final Score \(TeamPlayUtil.getTeamScore())")
+                    setButtonText(text: "FINAL SCORE")
+                    buttonType = ButtonType.FINAL_SCORE
+                }else {
+                    if (TeamPlayUtil.totalTeams == TeamPlayUtil.playingTeam) {
+                        TeamPlayUtil.playingRound = TeamPlayUtil.playingRound + 1
+                        TeamPlayUtil.playingTeam = 1
+                    } else {
+                        TeamPlayUtil.playingTeam = TeamPlayUtil.playingTeam + 1
+                    }
+
+                    setButtonText(text: "CONTINUE")
+                    buttonType = ButtonType.CONTINUE
+                }
+            }else {
+                setButtonText(text: "PLAY SAME CATEGORY")
+                buttonType = ButtonType.PLAY_AGAIN
+            }
+        }
+    }
+    
+    func setupPlayButtonClick() {
+        switch buttonType {
+        case .PLAY_AGAIN:
+            showPlayGameController()
+            break
+            
+        case .CONTINUE:
+            showPlayGameController()
+            break
+            
+        case .FINAL_SCORE:
+            showFinalScore()
+            break
+            
+        case .BUY:
+            
+            break
+        }
+
+    }
+    
+    func showFinalScore() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "TEAM_FINAL_SCORE") is TeamFinalScoreCardViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TEAM_FINAL_SCORE") as! TeamFinalScoreCardViewController
+            controller.selectedCategory = self.selectedCategory
+            present(controller, animated: true, completion: {})
+        }
+    }
+    
+    func showConfirmDialog() {
+        let alertController = UIAlertController(title: "Exit Team Play", message: "Are you sure you want to exit team play?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Exit", style: .default, handler: {
+            action in
+            TeamPlayUtil.isTeamPlay = false
+            self.showCategoryViewController()
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Continue Team Play", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

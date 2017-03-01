@@ -10,18 +10,21 @@ import Foundation
 import UIKit
 
 struct Category {
+    
+    var categoryId:Int
+    var categoryName:String
     var image:String
     var backgroundColor:UIColor
-    var categoryId:Int
-    var desc_1:String
-    var desc_2:String
+    var desc:String
+    var isPaid:Bool
     
     init() {
-        self.image = ""
+        self.categoryName = ""
         self.categoryId = 0
+        self.image = ""
         self.backgroundColor = UIColor.black
-        self.desc_1 = ""
-        self.desc_2 = ""
+        self.desc = ""
+        self.isPaid = false
     }
     
     

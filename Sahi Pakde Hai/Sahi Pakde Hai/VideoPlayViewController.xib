@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayViewController" customModule="Sahi_Pakde_Hai" customModuleProvider="target">
             <connections>
+                <outlet property="labelMiddle" destination="diJ-hP-EwX" id="VBb-4t-LVp"/>
+                <outlet property="labelTop" destination="mhX-rD-ezV" id="E3I-Sv-ZgC"/>
+                <outlet property="videoView" destination="22l-lY-6FI" id="vR7-cd-2Zi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,35 +19,64 @@
             <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22l-lY-6FI">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpQ-SI-VGy">
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGu-mp-HNQ">
-                            <state key="normal" title="Button" image="video_back"/>
+                            <state key="normal" image="video_back"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="fv1-q5-XZ3"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlK-YM-nO5">
-                            <state key="normal" title="Button" image="video_save"/>
+                            <state key="normal" image="video_save"/>
+                            <connections>
+                                <action selector="saveVideo:" destination="-1" eventType="touchUpInside" id="2Tv-Nt-hCa"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbr-c4-cgQ">
-                            <state key="normal" title="Button" image="fbshare"/>
+                            <state key="normal" image="fbshare"/>
+                            <connections>
+                                <action selector="shareOnFacebook:" destination="-1" eventType="touchUpInside" id="YvQ-2q-Tdb"/>
+                            </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhX-rD-ezV">
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diJ-hP-EwX">
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Kbr-c4-cgQ" secondAttribute="trailing" id="0dG-S8-W1g"/>
+                        <constraint firstItem="diJ-hP-EwX" firstAttribute="centerY" secondItem="EpQ-SI-VGy" secondAttribute="centerY" id="7e7-nn-oo9"/>
                         <constraint firstAttribute="bottom" secondItem="nlK-YM-nO5" secondAttribute="bottom" constant="20" id="AAd-kA-3mR"/>
+                        <constraint firstItem="Kbr-c4-cgQ" firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" id="CwX-yG-vu4"/>
+                        <constraint firstItem="nlK-YM-nO5" firstAttribute="trailing" secondItem="Kbr-c4-cgQ" secondAttribute="trailing" id="Kzw-EG-5Lh"/>
                         <constraint firstItem="Kbr-c4-cgQ" firstAttribute="top" secondItem="XGu-mp-HNQ" secondAttribute="bottom" constant="20" id="UR6-sO-h9F"/>
-                        <constraint firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" id="VJd-KD-CdA"/>
+                        <constraint firstAttribute="trailing" secondItem="XGu-mp-HNQ" secondAttribute="trailing" constant="20" id="VJd-KD-CdA"/>
+                        <constraint firstItem="mhX-rD-ezV" firstAttribute="top" secondItem="EpQ-SI-VGy" secondAttribute="top" constant="14" id="bOe-cu-fdZ"/>
                         <constraint firstItem="nlK-YM-nO5" firstAttribute="top" secondItem="Kbr-c4-cgQ" secondAttribute="bottom" constant="20" id="d0Z-MI-zwN"/>
-                        <constraint firstAttribute="trailing" secondItem="nlK-YM-nO5" secondAttribute="trailing" id="oWB-6a-yAI"/>
+                        <constraint firstItem="diJ-hP-EwX" firstAttribute="centerX" secondItem="EpQ-SI-VGy" secondAttribute="centerX" id="rS0-Oj-l9l"/>
+                        <constraint firstItem="mhX-rD-ezV" firstAttribute="centerX" secondItem="EpQ-SI-VGy" secondAttribute="centerX" id="tjI-lO-TU3"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="22l-lY-6FI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="08U-lV-L24"/>
                 <constraint firstAttribute="bottom" secondItem="EpQ-SI-VGy" secondAttribute="bottom" id="KL9-Db-a8r"/>
+                <constraint firstAttribute="bottom" secondItem="22l-lY-6FI" secondAttribute="bottom" id="NKp-lu-icc"/>
                 <constraint firstItem="EpQ-SI-VGy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RpP-wc-LsH"/>
                 <constraint firstItem="EpQ-SI-VGy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T3Z-Ki-5Ja"/>
                 <constraint firstAttribute="trailing" secondItem="EpQ-SI-VGy" secondAttribute="trailing" id="U4G-oE-SH5"/>
+                <constraint firstItem="22l-lY-6FI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ifC-vS-kd2"/>
+                <constraint firstAttribute="trailing" secondItem="22l-lY-6FI" secondAttribute="trailing" id="oH4-cG-nYw"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>

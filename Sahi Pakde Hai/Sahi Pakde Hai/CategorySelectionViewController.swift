@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import Async
 
 class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var shareButton: UIButton!
@@ -28,21 +27,27 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
-        
         setCategoryList()
-
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-        loadData()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        changeBottomButtonIcons()
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,47 +76,6 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         return UIEdgeInsetsMake(0, margin, 0, margin)
     }
     
-    
-    func setCategoryList(){
-        
-        var cinemaCat = Category()
-        cinemaCat.categoryId = 1
-        cinemaCat.backgroundColor = Constant.bg_cinema
-        cinemaCat.image = "cinema"
-        cinemaCat.desc_1 = "afsadfdsaf asdfsdaf asdfdsafds adfas sadfsdf adsfsaf"
-        cinemaCat.desc_2 = "afadfa asdfsadf dsafasdf dfsafsafadfasdf asdfsadf asadfaf a sda"
-        
-        var lightCameraActionCat = Category()
-        lightCameraActionCat.categoryId = 2
-        lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
-        lightCameraActionCat.image = "light_camera_action"
-        lightCameraActionCat.desc_1 = "afsadfdsaf asdfsdaf asdfdsafds adfas sadfsdf adsfsaf"
-        lightCameraActionCat.desc_2 = "afadfa asdfsadf dsafasdf dfsafsafadfasdf asdfsadf asadfaf a sda"
-        
-        categoryArray.append(cinemaCat)
-        categoryArray.append(lightCameraActionCat)
-        categoryArray.append(cinemaCat)
-        categoryArray.append(lightCameraActionCat)
-        categoryArray.append(cinemaCat)
-        categoryArray.append(lightCameraActionCat)
-        
-    }
-
-    @IBAction func goToHelp(_ sender: AnyObject) {
-        
-        
-        if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
-            
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
-            
-//            controller.selecteCategory = self.selectedCategory!
-            
-            present(controller, animated: true, completion: {})
-        }
-
-//        performSegue(withIdentifier: "HelpViewController", sender: self)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedCategory = categoryArray[indexPath.row]
         
@@ -119,8 +83,12 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         if categorySelectionSound != nil {
             categorySelectionSound.play()
         }
+        goToDescriptionScreen()
+//        perform(#selector(goToDescriptionScreen), with: nil, afterDelay: 0.5)
         
-        
+    }
+    
+    func goToDescriptionScreen() {
         if self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") is DescriptionViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "DESCRIPTION_VIEW") as! DescriptionViewController
@@ -129,89 +97,195 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
             
             present(controller, animated: true, completion: {})
         }
+    }
+
+    func setCategoryList(){
         
-//        performSegue(withIdentifier: "DescriptionViewController", sender: self)
+        var cinemaCat = Category()
+        cinemaCat.categoryId = 1
+        cinemaCat.backgroundColor = Constant.bg_cinema
+        cinemaCat.image = "cinema"
+        cinemaCat.desc = Constant.cinema_desc
+        cinemaCat.isPaid = false
+        cinemaCat.categoryName = Constant.CAT_CINEMA
+        
+        var lightCameraActionCat = Category()
+        lightCameraActionCat.categoryId = 2
+        lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
+        lightCameraActionCat.image = "light_camera_action"
+        lightCameraActionCat.desc = Constant.light_camera_action_desc
+        lightCameraActionCat.isPaid = false
+        lightCameraActionCat.categoryName = Constant.CAT_LIGHT_CAMERA_ACTION
+        
+        var hindi = Category()
+        hindi.categoryId = 3
+        hindi.backgroundColor = Constant.bg_sirf_hindi
+        hindi.image = "hindi"
+        hindi.desc = Constant.hindi_desc
+        hindi.isPaid = false
+        hindi.categoryName = Constant.CAT_SIRF_HINDI_ME_BOL
+        
+        var heroHeroine = Category()
+        heroHeroine.categoryId = 4
+        heroHeroine.backgroundColor = Constant.bg_hero_heroine
+        heroHeroine.image = "hero_heroine"
+        heroHeroine.desc = Constant.hh_desc
+        heroHeroine.isPaid = false
+        heroHeroine.categoryName = Constant.CAT_HERO_HEROINE
+        
+        var adultOnly = Category()
+        adultOnly.categoryId = 5
+        adultOnly.backgroundColor = Constant.bg_adult_only
+        adultOnly.image = "icon_adults"
+        adultOnly.desc = Constant.ao_desc
+        adultOnly.isPaid = true
+        adultOnly.categoryName = Constant.CAT_ADULTS_ONLY
+
+        var hollywood = Category()
+        hollywood.categoryId = 6
+        hollywood.backgroundColor = Constant.bg_hollywood
+        hollywood.image = "hollywood"
+        hollywood.desc = Constant.hollywood_desc
+        hollywood.isPaid = false
+        hollywood.categoryName = Constant.CAT_HOLLYWOOD
+        
+        var cricket = Category()
+        cricket.categoryId = 7
+        cricket.backgroundColor = Constant.bg_cricket
+        cricket.image = "cricket"
+        cricket.desc = Constant.cricket_desc
+        cricket.isPaid = true
+        cricket.categoryName = Constant.CAT_CRICKET
+
+        var songs = Category()
+        songs.categoryId = 8
+        songs.backgroundColor = Constant.bg_songs
+        songs.image = "songs"
+        songs.desc = Constant.songs_desc
+        songs.isPaid = true
+        songs.categoryName = Constant.CAT_SONGS
+        
+        
+        var mythology = Category()
+        mythology.categoryId = 9
+        mythology.backgroundColor = Constant.bg_mythology
+        mythology.image = "mythology"
+        mythology.desc = Constant.mythology_desc
+        mythology.isPaid = false
+        mythology.categoryName = Constant.CAT_MYTHOLOGY
+
+        
+        var gameOfThrones = Category()
+        gameOfThrones.categoryId = 10
+        gameOfThrones.backgroundColor = Constant.bg_got
+        gameOfThrones.image = "game_of_thrones"
+        gameOfThrones.desc = Constant.got_desc
+        gameOfThrones.isPaid = true
+        gameOfThrones.categoryName = Constant.CAT_GAME_OF_THRONES
+        
+        var kidsZone = Category()
+        kidsZone.categoryId = 11
+        kidsZone.backgroundColor = Constant.bg_kids_zone
+        kidsZone.image = "kid_zone"
+        kidsZone.desc = Constant.kz_desc
+        kidsZone.isPaid = true
+        kidsZone.categoryName = Constant.CAT_KIDS_ZONES
+        
+        var khaanPaan = Category()
+        khaanPaan.categoryId = 12
+        khaanPaan.backgroundColor = Constant.bg_khaan_paan
+        khaanPaan.image = "khaan_paan"
+        khaanPaan.desc = Constant.kp_desc
+        khaanPaan.isPaid = false
+        khaanPaan.categoryName = Constant.CAT_KHAAN_PAAN
+
+        
+        categoryArray.append(cinemaCat)
+        categoryArray.append(lightCameraActionCat)
+        categoryArray.append(hindi)
+        categoryArray.append(heroHeroine)
+        categoryArray.append(adultOnly)
+        categoryArray.append(hollywood)
+        
+        categoryArray.append(cricket)
+        categoryArray.append(songs)
+        categoryArray.append(mythology)
+        categoryArray.append(gameOfThrones)
+        categoryArray.append(kidsZone)
+        categoryArray.append(khaanPaan)
+        self.collectionView.reloadData()
+        
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DescriptionViewController" {
-            let descriptionController = segue.destination as! DescriptionViewController
-            descriptionController.selecteCategory = self.selectedCategory!
-        }
-    }
-    
-    func loadData() {
-        if CommonUtil.isInternetAvailable() {
-            CommonUtil.showActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-            let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
-            Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
+
+    @IBAction func goToHelp(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            TeamPlayUtil.setIsTeamPlay(isTeamPlay: false)
+            changeBottomButtonIcons()
         }else {
-            let preference = UserDefaults.standard
-            if !preference.bool(forKey: Constant.FIRST_TIME_DATA_LOAD){
-                CommonUtil.showMessageOnSnackbar(message: "No Internet Access")
-            }
-        }
-//        let data = Service().getJSON(urlToRequest: url)
-        
-    }
-
-    func successCallBack(decks:Array<Deck>) {
-        storeDeckData(decks: decks)
-        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-    }
-    
-    func failureCallBack(error: Error?) {
-        CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-        CommonUtil.showMessageOnSnackbar(message: error.debugDescription)
-    }
-    
-    func storeDeckData(decks:Array<Deck>){
-        let deck = decks[0];
-        let updateFlag = deck.word
-        print(updateFlag)
-        let updateVersionCode = deck.deckType
-        print(updateVersionCode)
-        
-        // Reading data from preference
-        let preference = UserDefaults.standard
-//        if preference.object(forKey: Constant.UPDATE_VERSION_CODE) != nil {
-        let storedVersion = preference.integer(forKey: Constant.UPDATE_VERSION_CODE)
-        if updateVersionCode > storedVersion{
-            let prefere = UserDefaults.standard
-            insertDataOnDatabase(decks: decks)
-            prefere.set(updateVersionCode, forKey: Constant.UPDATE_VERSION_CODE)
-            prefere.set(true, forKey: Constant.FIRST_TIME_DATA_LOAD)
-//                prefere.in
-            let didSave = prefere.synchronize()
-            if !didSave {
-                print("preference not set")
-            }else {
-                print("preference set")
-            }
+            showHelpScreen()
         }
     }
     
-    func insertDataOnDatabase(decks:Array<Deck>){
-        
-//        let group = AsyncGroup()
-//        group.background {
-            let sqliteDatabase:SQLiteDatabase = SQLiteDatabase()
-            let isReCreatedTable = sqliteDatabase.reCreateTable()
-            if isReCreatedTable {
-                let isInserted = sqliteDatabase.insertData(deckArray: decks)
-                if isInserted {
-                    print("Data inserted successfully")
-                }else {
-                    print("Data not inserted")
-                }
-            }else {
-                print("Unable to insert data in table")
-            }
-//        }
-//        group.wait()
+    @IBAction func shareAppLink(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            dismissCategoryViewController()
+        }else {
+//            shareLink()
+        }
 
     }
     
+    @IBAction func goToTeamPlay(_ sender: AnyObject) {
+        if TeamPlayUtil.isTeamPlay {
+            dismissCategoryViewController()
+        }else {
+            showTeamPlay()
+        }
+    }
+    
+    func changeBottomButtonIcons() {
+        if TeamPlayUtil.isTeamPlay {
+            teamPlayButton.setImage(UIImage(named: "team_mode_on"), for: .normal)
+            shareButton.setImage(UIImage(named: "back_team_play"), for: .normal)
+            helpButton.setImage(UIImage(named: "cancel_team_play"), for: .normal)
+        }else {
+            shareButton.setImage(UIImage(named: "share"), for: .normal)
+            teamPlayButton.setImage(UIImage(named: "team"), for: .normal)
+            helpButton.setImage(UIImage(named: "que"), for: .normal)
+        }
+    }
+   
+    func showTeamPlay() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "TEAM_PLAY") is TeamPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TEAM_PLAY") as! TeamPlayViewController
+            
+            present(controller, animated: true, completion: {})
+        }
+    }
+    
+    func showHelpScreen() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
+            present(controller, animated: true, completion: {})
+        }
+
+    }
+    
+    func shareLink() {
+        let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
+        
+        var contentArray:Array<String> = []
+        contentArray.append(shareText)
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+
+    }
+    
+    func dismissCategoryViewController() {
+        dismiss(animated: true, completion: nil)
+    }
    
     /*
     // MARK: - Navigation
