@@ -230,7 +230,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         if TeamPlayUtil.isTeamPlay {
             dismissCategoryViewController()
         }else {
-            shareLink()
+//            shareLink()
         }
 
     }
