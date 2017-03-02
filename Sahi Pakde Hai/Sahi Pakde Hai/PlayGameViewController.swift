@@ -30,33 +30,19 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     var motionManager: CMMotionManager!
     var avPlayer:AVAudioPlayer? = nil
     var dataOutput:AVCaptureMovieFileOutput? = nil
+    var filePath:URL? = nil
     
     var selectedCategory = Category()
     var deckArray:Array<Deck> = []
     var deckResultArray:Array<DeckResult> = []
     var deckResult = DeckResult()
-    var deckQuestionAtPosition = 0;
+    var deckQuestionAtPosition = 0
     
     var deckId:Int = 0
     var isPreviewPlay = false
     var outputvideofileURL:URL? = nil
     
     var isTimsUP = true
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("play game view did load")
-        wordLabel.text = "Place On \nForehead"
-        setupCameraSession()
-        setupAccelerometer()
-        deckId = selectedCategory.categoryId
-        setSelectedCategoryList(categoryId: deckId, isPreviewPlay: PreviewUtil.isPreviewPlay)
-        setTeamPlay()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
-    }
     
     override var shouldAutorotate: Bool {
         return false
@@ -65,7 +51,67 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.landscapeRight
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNotificationCenter()
+        setupCameraSession()
+        startGamePlay()
+    }
     
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterForground), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
+    }
+    
+    func didEnterForground() {
+        print("didEnterForground")
+        startGamePlay()
+        restartCameraPreview()
+    }
+    
+    func didEnterBackground() {
+        print("didEnterBackground")
+        stopGamePlay()
+    }
+    
+    func startGamePlay() {
+        isGameStarted = false
+        upward = 0
+        downward = 0
+        middle = 0
+        deckQuestionAtPosition = 0;
+        count = Constant.count
+        threeTwoOneCount = Constant.threeTwoOneCount
+        timer = nil
+        threeTwoOneTimer = nil
+        deckId = selectedCategory.categoryId
+        CommonUtil.disableSleep()
+        wordLabel.text = "Place On \nForehead"
+        timerLabel.text = ""
+        setTeamPlay()
+        setSelectedCategoryList(categoryId: deckId, isPreviewPlay: PreviewUtil.isPreviewPlay)
+        setupAccelerometer()
+    }
+    
+    func stopGamePlay() {
+        threeTwoOneTimer?.invalidate()
+        timer?.invalidate()
+        motionManager.stopDeviceMotionUpdates()
+        stopVideoRecording()
+        CommonUtil.enableSleep()
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopGamePlay()
+    }
+
     func setupAccelerometer() {
         
         motionManager = CMMotionManager()
@@ -279,14 +325,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
 
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        threeTwoOneTimer?.invalidate()
-        timer?.invalidate()
-        motionManager.stopDeviceMotionUpdates()
-        stopVideoRecording()
-    }
-
 
 //    Wrong
     func isTiltUpward(roll:Double,pitch:Double) -> Bool {
@@ -337,7 +375,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     func setTextOnWordLabel(word:String) {
         self.wordLabel.text = word
     }
-    
     
     
 //    :camera
@@ -404,6 +441,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             videoView.layer.addSublayer(previewLayer)
             cameraSession.startRunning()
             
+            setupVideoRecordingOutputFile()
         }
         catch let error as NSError {
             NSLog("\(error), \(error.localizedDescription)")
@@ -419,7 +457,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         // Here you can count how many frames are dopped
     }
     
-    func startVideoRecording() {
+    func setupVideoRecordingOutputFile() {
         
 //        checking camera permission
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
@@ -456,8 +494,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             }
             
             let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let filePath = documentURl.appendingPathComponent(fileName)
-            
+            filePath = documentURl.appendingPathComponent(fileName)
+    
+        }
+    }
+    
+    func startVideoRecording() {
+        if dataOutput != nil && filePath != nil {
             dataOutput?.startRecording(toOutputFileURL: filePath, recordingDelegate: self)
         }
     }
@@ -470,6 +513,11 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
 //        }
     }
+    
+    func restartCameraPreview() {
+        cameraSession.startRunning()
+    }
+    
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print("finish \(outputFileURL)")
 //        outputvideofileURL = outputFileURL
@@ -480,15 +528,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
         print("start \(fileURL)")
         outputvideofileURL = fileURL
-    }
-    
-    func playVideo(url:URL) {
-        let player = AVPlayer(url: url)
-        let playerPreview = AVPlayerLayer(player: player)
-        playerPreview.frame = self.view.bounds
-        
-        self.view.layer.addSublayer(playerPreview)
-        player.play()
     }
     
     @IBAction func backPlayGame(_ sender: AnyObject) {
