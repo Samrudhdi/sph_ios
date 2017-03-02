@@ -21,13 +21,17 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView() {
         self.view.backgroundColor? = selecteCategory.backgroundColor
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
         self.desc.text = selecteCategory.desc
-        if selecteCategory.isPaid {
-            previewButton.isHidden = false
+        if selecteCategory.isPaid && !TeamPlayUtil.isTeamPlay{
+            showOrHidePreviewButton(isHide: false)
         }else{
-            previewButton.isHidden = true
+            showOrHidePreviewButton(isHide: true)
         }
     }
     
@@ -56,8 +60,16 @@ class DescriptionViewController: UIViewController {
     @IBAction func playGame(_ sender: AnyObject) {
         
         GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PLAY, category: self.selecteCategory.categoryName, label: "")
+        PreviewUtil.isPreviewPlay = false
         setTeamPlayRound()
         goToGamePlayController()
+    }
+    
+    @IBAction func previewPlay(_ sender: AnyObject) {
+        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PREVIEW, category: self.selecteCategory.categoryName, label: "")
+        PreviewUtil.isPreviewPlay = true
+        goToGamePlayController()
+        
     }
     
     func setTeamPlayRound() {
@@ -74,10 +86,11 @@ class DescriptionViewController: UIViewController {
             controller.selectedCategory = self.selecteCategory
             present(controller, animated: true, completion: {})
         }
-
+        
     }
     
-    @IBAction func previewPlay(_ sender: AnyObject) {
-        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_PREVIEW, category: self.selecteCategory.categoryName, label: "")
+    func showOrHidePreviewButton(isHide: Bool) {
+        previewButton.isHidden = isHide
     }
+    
 }

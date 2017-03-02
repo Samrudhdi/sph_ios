@@ -30,32 +30,19 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     var motionManager: CMMotionManager!
     var avPlayer:AVAudioPlayer? = nil
     var dataOutput:AVCaptureMovieFileOutput? = nil
+    var filePath:URL? = nil
     
     var selectedCategory = Category()
     var deckArray:Array<Deck> = []
     var deckResultArray:Array<DeckResult> = []
     var deckResult = DeckResult()
-    var deckQuestionAtPosition = 0;
+    var deckQuestionAtPosition = 0
     
     var deckId:Int = 0
+    var isPreviewPlay = false
     var outputvideofileURL:URL? = nil
     
     var isTimsUP = true
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("play game view did load")
-        wordLabel.text = "Place On \nForehead"
-        setupCameraSession()
-        setupAccelerometer()
-        deckId = selectedCategory.categoryId
-        getSelectedCategoryList(categoryId: deckId)
-        setTeamPlay()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
-    }
     
     override var shouldAutorotate: Bool {
         return false
@@ -64,7 +51,67 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.landscapeRight
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNotificationCenter()
+        setupCameraSession()
+        startGamePlay()
+    }
     
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterForground), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
+    }
+    
+    func didEnterForground() {
+        print("didEnterForground")
+        startGamePlay()
+        restartCameraPreview()
+    }
+    
+    func didEnterBackground() {
+        print("didEnterBackground")
+        stopGamePlay()
+    }
+    
+    func startGamePlay() {
+        isGameStarted = false
+        upward = 0
+        downward = 0
+        middle = 0
+        deckQuestionAtPosition = 0;
+        count = Constant.count
+        threeTwoOneCount = Constant.threeTwoOneCount
+        timer = nil
+        threeTwoOneTimer = nil
+        deckId = selectedCategory.categoryId
+        CommonUtil.disableSleep()
+        wordLabel.text = "Place On \nForehead"
+        timerLabel.text = ""
+        setTeamPlay()
+        setSelectedCategoryList(categoryId: deckId, isPreviewPlay: PreviewUtil.isPreviewPlay)
+        setupAccelerometer()
+    }
+    
+    func stopGamePlay() {
+        threeTwoOneTimer?.invalidate()
+        timer?.invalidate()
+        motionManager.stopDeviceMotionUpdates()
+        stopVideoRecording()
+        CommonUtil.enableSleep()
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopGamePlay()
+    }
+
     func setupAccelerometer() {
         
         motionManager = CMMotionManager()
@@ -95,7 +142,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 let yawAngle = data.attitude.roll * 180.0/M_PI
                 let pitchAngle = data.attitude.pitch * 180.0/M_PI
                 
-//                print("rollAngle \(rollAngle)")
+                print("rollAngle \(rollAngle)")
 //                print("yaw \(yawAngle)")
 //                print("pitch \(pitchAngle)")
 //                print(data.attitude.yaw * 180.0/M_PI)
@@ -116,54 +163,73 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                         
                     }else {
                         if self.deckQuestionAtPosition < self.deckArray.count {
-                            self.deckResult = DeckResult()
-                            let word = self.deckArray[self.deckQuestionAtPosition].word
-                            self.deckResult.word = word
-                            self.deckResult.questionAskedTime = self.count
-                            self.deckResult.deckId = (self.deckId);
-                            self.deckResultArray.append(self.deckResult)
-                            self.setBackgroundColor(color: Constant.blackColor)
-                            self.setTextOnWordLabel(word: word)
-                            self.downward = 2
-                            self.upward = 2
+                            self.showNewWord()
                         }else {
-                            let question = "No more words are available."
-                            self.deckResult = DeckResult()
-                            self.deckResult.word = question
-                            self.deckResult.questionAskedTime = self.count
-                            self.setTextOnWordLabel(word: question)
-                            self.downward = 1
-                            self.upward = 1
+                            if (PreviewUtil.isPreviewPlay){
+                                self.deckQuestionAtPosition = 0;
+                                self.showNewWord()
+                            }else {
+                                let question = "No more words are available."
+                                self.deckResult = DeckResult()
+                                self.deckResult.word = question
+                                self.deckResult.questionAskedTime = self.count
+                                self.setTextOnWordLabel(word: question)
+                                self.downward = 1
+                                self.upward = 1
+                            }
                         }
                     }
                 }else if self.isTiltDownward(roll: rollAngle,pitch: pitchAngle){
                     if self.isGameStarted {
-                        self.upward = 1
-                        self.downward = 1
-                        self.middle = 2
-                        self.setBackgroundColor(color: Constant.correctColor)
-                        self.setTextOnWordLabel(word: "सही पकड़े है!")
-                        self.playSound(sound: "correct", ofType: "mp3")
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = true
-                        self.deckQuestionAtPosition += 1
+                        self.correct()
                     }
                 }else if self.isTiltUpward(roll: rollAngle,pitch: pitchAngle){
                     if self.isGameStarted {
-                        self.setBackgroundColor(color: Constant.wrongColor)
-                        self.upward = 1
-                        self.downward = 1
-                        self.middle = 2
-                        self.setTextOnWordLabel(word: "हाय दैया!")
-                        self.playSound(sound: "pass", ofType: "mp3")
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
-                        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = false
-                        self.deckQuestionAtPosition += 1
+                        self.pass()
                     }
                 }
             })
         }
     }
+    
+    func showNewWord() {
+        self.deckResult = DeckResult()
+        let word = self.deckArray[self.deckQuestionAtPosition].word
+        self.deckResult.word = word
+        self.deckResult.questionAskedTime = self.count
+        self.deckResult.deckId = (self.deckId);
+        self.deckResultArray.append(self.deckResult)
+        self.setBackgroundColor(color: Constant.blackColor)
+        self.setTextOnWordLabel(word: word)
+        self.downward = 2
+        self.upward = 2
+    }
+    
+    func correct() {
+        self.upward = 1
+        self.downward = 1
+        self.middle = 2
+        self.setBackgroundColor(color: Constant.correctColor)
+        self.setTextOnWordLabel(word: "सही पकड़े है!")
+        self.playSound(sound: "correct", ofType: "mp3")
+        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
+        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = true
+        self.deckQuestionAtPosition += 1
+
+    }
+    
+    func pass() {
+        self.setBackgroundColor(color: Constant.wrongColor)
+        self.upward = 1
+        self.downward = 1
+        self.middle = 2
+        self.setTextOnWordLabel(word: "हाय दैया!")
+        self.playSound(sound: "pass", ofType: "mp3")
+        self.deckResultArray[self.deckResultArray.endIndex - 1].questionAnsweredTime = self.count
+        self.deckResultArray[self.deckResultArray.endIndex - 1].isCorrect = false
+        self.deckQuestionAtPosition += 1
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -216,6 +282,8 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
     }
     
+    
+    
     func counter60() {
         if count >= 0 {
             if (count / 100 <= 10) && (count % 100) == 0 {
@@ -257,19 +325,11 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
 
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        threeTwoOneTimer?.invalidate()
-        timer?.invalidate()
-        motionManager.stopDeviceMotionUpdates()
-        stopVideoRecording()
-    }
-
 
 //    Wrong
     func isTiltUpward(roll:Double,pitch:Double) -> Bool {
         
-        if (((roll >= -50) && (pitch <= 25.0 && pitch >= -25.0)) && upward == 2){
+        if (((roll >= -30) && (pitch <= 25.0 && pitch >= -25.0)) && upward == 2){
             print("upward")
             return true
         }else {
@@ -279,7 +339,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 
 //    Correct
     func isTiltDownward(roll:Double,pitch:Double) -> Bool {
-        if (((roll <= -121) && (pitch <= 25.0 && pitch >= -25.0)) && downward == 2){
+        if (((roll <= -140) && (pitch <= 25.0 && pitch >= -25.0)) && downward == 2){
             print("downward")
             return true
         }else {
@@ -315,7 +375,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     func setTextOnWordLabel(word:String) {
         self.wordLabel.text = word
     }
-    
     
     
 //    :camera
@@ -382,6 +441,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             videoView.layer.addSublayer(previewLayer)
             cameraSession.startRunning()
             
+            setupVideoRecordingOutputFile()
         }
         catch let error as NSError {
             NSLog("\(error), \(error.localizedDescription)")
@@ -397,7 +457,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         // Here you can count how many frames are dopped
     }
     
-    func startVideoRecording() {
+    func setupVideoRecordingOutputFile() {
         
 //        checking camera permission
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
@@ -434,8 +494,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             }
             
             let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let filePath = documentURl.appendingPathComponent(fileName)
-            
+            filePath = documentURl.appendingPathComponent(fileName)
+    
+        }
+    }
+    
+    func startVideoRecording() {
+        if dataOutput != nil && filePath != nil {
             dataOutput?.startRecording(toOutputFileURL: filePath, recordingDelegate: self)
         }
     }
@@ -448,6 +513,11 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
 //        }
     }
+    
+    func restartCameraPreview() {
+        cameraSession.startRunning()
+    }
+    
     func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
         print("finish \(outputFileURL)")
 //        outputvideofileURL = outputFileURL
@@ -460,15 +530,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         outputvideofileURL = fileURL
     }
     
-    func playVideo(url:URL) {
-        let player = AVPlayer(url: url)
-        let playerPreview = AVPlayerLayer(player: player)
-        playerPreview.frame = self.view.bounds
-        
-        self.view.layer.addSublayer(playerPreview)
-        player.play()
-    }
-    
     @IBAction func backPlayGame(_ sender: AnyObject) {
         timer?.invalidate()
         threeTwoOneTimer?.invalidate()
@@ -477,11 +538,12 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         dismiss(animated: true, completion: nil)
     }
     
-    func getSelectedCategoryList(categoryId:Int)  {
+    func setSelectedCategoryList(categoryId:Int,isPreviewPlay:Bool)  {
 //        if (let category == selectedCategory) {
         if categoryId >= 0 {
             let sqlite:SQLiteDatabase = SQLiteDatabase()
-            deckArray = sqlite.getDecklist(categoryId: categoryId)
+            
+            deckArray = sqlite.getDecklist(categoryId: categoryId, isPreviewPlay: isPreviewPlay)
             for deck in deckArray {
                 print(deck)
             }

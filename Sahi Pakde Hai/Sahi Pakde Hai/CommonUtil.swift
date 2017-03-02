@@ -103,6 +103,15 @@ class CommonUtil{
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
+    
+    static func disableSleep() {
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    static func enableSleep() {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+
 }
 
 
@@ -128,6 +137,8 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
+
+
 
 extension UIView {
     

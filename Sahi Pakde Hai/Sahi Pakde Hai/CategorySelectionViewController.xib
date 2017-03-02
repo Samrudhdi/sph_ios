@@ -18,7 +18,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="LPB-qR-VS1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-jX-Li9">
@@ -75,8 +75,12 @@
                         <constraint firstItem="JDi-6Q-w7K" firstAttribute="centerX" secondItem="3xE-HF-reu" secondAttribute="centerX" id="FER-7E-PkR"/>
                         <constraint firstAttribute="trailing" secondItem="3lD-XK-jao" secondAttribute="trailing" constant="16" id="QhH-Nw-7kR"/>
                         <constraint firstItem="yaZ-Th-gzQ" firstAttribute="centerY" secondItem="3xE-HF-reu" secondAttribute="centerY" id="q49-Mh-Jbw"/>
-                        <constraint firstAttribute="bottom" secondItem="JDi-6Q-w7K" secondAttribute="bottom" constant="10" id="sHQ-w2-Y6e"/>
-                        <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3xE-HF-reu" secondAttribute="top" constant="10" id="vxU-4v-HeS"/>
+                        <constraint firstAttribute="bottom" secondItem="JDi-6Q-w7K" secondAttribute="bottom" constant="10" id="sHQ-w2-Y6e">
+                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                        </constraint>
+                        <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3xE-HF-reu" secondAttribute="top" constant="10" id="vxU-4v-HeS">
+                            <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                        </constraint>
                         <constraint firstItem="JDi-6Q-w7K" firstAttribute="top" secondItem="3lD-XK-jao" secondAttribute="top" id="zzu-SU-bNo"/>
                     </constraints>
                 </view>

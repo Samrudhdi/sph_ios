@@ -14,7 +14,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="pUD-0R-Lfl">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ayu-60-m1Y"/>
@@ -25,6 +25,9 @@
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="up1-sD-ETs">
                     <string key="text">Choose a category and go through the instructions
@@ -33,6 +36,9 @@ Place the phone on your forehead</string>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OgH-Ng-J8n">
                     <string key="text">Your friends will give you clues
@@ -41,6 +47,9 @@ Start guessing the word</string>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how_to_play_2" translatesAutoresizingMaskIntoConstraints="NO" id="VEA-TH-PNr">
                     <constraints>
@@ -54,12 +63,19 @@ Tilt the phone up to pass</string>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufx-HD-yFE">
                     <color key="backgroundColor" red="0.0" green="0.67843137249999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="88" id="ANA-sj-Ohh"/>
-                        <constraint firstAttribute="height" constant="40" id="E5p-vC-Yjw"/>
+                        <constraint firstAttribute="width" constant="88" id="ANA-sj-Ohh">
+                            <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="40" id="E5p-vC-Yjw">
+                            <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                        </constraint>
                     </constraints>
                     <state key="normal" title="PLAY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,6 +85,9 @@ Tilt the phone up to pass</string>
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </variation>
                     <connections>
                         <action selector="play:" destination="-1" eventType="touchUpInside" id="2mF-wL-fbw"/>
                     </connections>
@@ -86,26 +105,35 @@ Tilt the phone up to pass</string>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ufx-HD-yFE" secondAttribute="bottom" constant="40" id="BaC-io-kLZ"/>
+                <constraint firstAttribute="bottom" secondItem="ufx-HD-yFE" secondAttribute="bottom" constant="40" id="BaC-io-kLZ">
+                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                </constraint>
                 <constraint firstItem="VEA-TH-PNr" firstAttribute="leading" secondItem="OgH-Ng-J8n" secondAttribute="trailing" constant="8" id="C7e-l7-8nQ"/>
-                <constraint firstItem="ufx-HD-yFE" firstAttribute="top" secondItem="rnw-EV-U7T" secondAttribute="bottom" constant="30" id="CIo-d1-YrO"/>
+                <constraint firstItem="ufx-HD-yFE" firstAttribute="top" secondItem="rnw-EV-U7T" secondAttribute="bottom" constant="30" id="CIo-d1-YrO">
+                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                </constraint>
                 <constraint firstItem="OgH-Ng-J8n" firstAttribute="trailing" secondItem="rnw-EV-U7T" secondAttribute="trailing" id="ENc-BM-cSH"/>
+                <constraint firstItem="up1-sD-ETs" firstAttribute="leading" secondItem="OgH-Ng-J8n" secondAttribute="leading" id="GAm-hF-pbP"/>
                 <constraint firstItem="up1-sD-ETs" firstAttribute="trailing" secondItem="OgH-Ng-J8n" secondAttribute="trailing" id="Jmz-Xd-Ett"/>
                 <constraint firstItem="ZbQ-Q7-CFU" firstAttribute="leading" secondItem="up1-sD-ETs" secondAttribute="trailing" constant="8" id="Ku4-SG-wWo"/>
-                <constraint firstAttribute="trailing" secondItem="VEA-TH-PNr" secondAttribute="trailing" constant="15" id="LIH-Rw-1Ua"/>
                 <constraint firstItem="Ayu-60-m1Y" firstAttribute="top" secondItem="pUD-0R-Lfl" secondAttribute="top" id="M3X-PY-hNH"/>
                 <constraint firstItem="m3P-uC-cCi" firstAttribute="centerX" secondItem="pUD-0R-Lfl" secondAttribute="centerX" id="MFH-z6-RU1"/>
-                <constraint firstItem="rnw-EV-U7T" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" constant="15" id="NLC-7L-UYB"/>
                 <constraint firstItem="PLl-7y-4nT" firstAttribute="leading" secondItem="rnw-EV-U7T" secondAttribute="trailing" constant="6" id="U6z-lb-UIK"/>
                 <constraint firstItem="OgH-Ng-J8n" firstAttribute="height" secondItem="rnw-EV-U7T" secondAttribute="height" id="Udl-yn-9yd"/>
                 <constraint firstItem="rnw-EV-U7T" firstAttribute="top" secondItem="OgH-Ng-J8n" secondAttribute="bottom" constant="20" id="WgM-mo-HGt"/>
-                <constraint firstItem="m3P-uC-cCi" firstAttribute="top" secondItem="pUD-0R-Lfl" secondAttribute="top" constant="40" id="bpT-AF-Ptp"/>
-                <constraint firstItem="OgH-Ng-J8n" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" constant="15" id="crd-hP-p7i"/>
-                <constraint firstItem="up1-sD-ETs" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" constant="15" id="cuh-w6-AVz"/>
+                <constraint firstItem="VEA-TH-PNr" firstAttribute="trailing" secondItem="ZbQ-Q7-CFU" secondAttribute="trailing" id="ZMV-LE-BQB"/>
+                <constraint firstItem="m3P-uC-cCi" firstAttribute="top" secondItem="pUD-0R-Lfl" secondAttribute="top" constant="40" id="bpT-AF-Ptp">
+                    <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                </constraint>
+                <constraint firstItem="up1-sD-ETs" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" constant="15" id="cuh-w6-AVz">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
                 <constraint firstItem="OgH-Ng-J8n" firstAttribute="top" secondItem="up1-sD-ETs" secondAttribute="bottom" constant="20" id="dhw-DM-HiX"/>
-                <constraint firstAttribute="trailing" secondItem="PLl-7y-4nT" secondAttribute="trailing" constant="15" id="eh7-CV-hCa"/>
                 <constraint firstAttribute="trailing" secondItem="Ayu-60-m1Y" secondAttribute="trailing" id="hX6-AO-Z0C"/>
-                <constraint firstAttribute="trailing" secondItem="ZbQ-Q7-CFU" secondAttribute="trailing" constant="15" id="hj0-pV-3VH"/>
+                <constraint firstAttribute="trailing" secondItem="ZbQ-Q7-CFU" secondAttribute="trailing" constant="15" id="hj0-pV-3VH">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
+                <constraint firstItem="OgH-Ng-J8n" firstAttribute="leading" secondItem="rnw-EV-U7T" secondAttribute="leading" id="hvB-Xw-TnD"/>
                 <constraint firstAttribute="bottom" secondItem="Ayu-60-m1Y" secondAttribute="bottom" id="izA-rH-2XA"/>
                 <constraint firstItem="ufx-HD-yFE" firstAttribute="centerX" secondItem="pUD-0R-Lfl" secondAttribute="centerX" id="jgG-I9-vZ1"/>
                 <constraint firstItem="ZbQ-Q7-CFU" firstAttribute="baseline" secondItem="up1-sD-ETs" secondAttribute="baseline" constant="-5" id="n7U-VK-gaG"/>
@@ -115,7 +143,10 @@ Tilt the phone up to pass</string>
                 <constraint firstItem="m3P-uC-cCi" firstAttribute="centerX" secondItem="pUD-0R-Lfl" secondAttribute="centerX" id="qtp-h9-ALu"/>
                 <constraint firstItem="PLl-7y-4nT" firstAttribute="centerY" secondItem="rnw-EV-U7T" secondAttribute="centerY" id="vHZ-6D-X8R"/>
                 <constraint firstItem="Ayu-60-m1Y" firstAttribute="leading" secondItem="pUD-0R-Lfl" secondAttribute="leading" id="wO1-Bx-BA1"/>
-                <constraint firstItem="up1-sD-ETs" firstAttribute="top" secondItem="m3P-uC-cCi" secondAttribute="bottom" constant="30" id="zMC-w4-oXf"/>
+                <constraint firstItem="PLl-7y-4nT" firstAttribute="trailing" secondItem="VEA-TH-PNr" secondAttribute="trailing" id="wuN-LG-t3S"/>
+                <constraint firstItem="up1-sD-ETs" firstAttribute="top" secondItem="m3P-uC-cCi" secondAttribute="bottom" constant="30" id="zMC-w4-oXf">
+                    <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                </constraint>
             </constraints>
             <point key="canvasLocation" x="405" y="214"/>
         </view>

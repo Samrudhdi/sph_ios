@@ -21,6 +21,9 @@
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>

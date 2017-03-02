@@ -18,7 +18,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVJ-1O-D40">
@@ -30,32 +30,56 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPL-TD-PiA">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="cC0-QW-QPa"/>
+                        <constraint firstAttribute="height" constant="30" id="cC0-QW-QPa">
+                            <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                        </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-JW-rmY">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="55"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="65"/>
+                    </variation>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tah-l5-RDT">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="HxY-of-6qL"/>
+                        <constraint firstAttribute="height" constant="30" id="HxY-of-6qL">
+                            <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                        </constraint>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                    </variation>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_team_play" translatesAutoresizingMaskIntoConstraints="NO" id="oLs-5P-24u">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="ja2-V8-loh">
+                            <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                        </constraint>
+                        <constraint firstAttribute="width" secondItem="oLs-5P-24u" secondAttribute="height" multiplier="1:1" id="oIq-vc-E3e"/>
+                        <constraint firstAttribute="width" secondItem="oLs-5P-24u" secondAttribute="height" multiplier="1:1" id="xnp-q4-7wY"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-6O-TPp">
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="fGz-6O-TPp" secondAttribute="height" multiplier="1:1" id="bSq-qi-pFt"/>
+                        <constraint firstAttribute="width" secondItem="fGz-6O-TPp" secondAttribute="height" multiplier="1:1" id="4vT-Gq-ygn"/>
+                        <constraint firstAttribute="width" constant="60" id="yij-rF-QPS">
+                            <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                        </constraint>
                     </constraints>
-                    <state key="normal" image="back_team_play"/>
                     <connections>
                         <action selector="backPlayGame:" destination="-1" eventType="touchUpInside" id="Pnp-RS-eib"/>
                     </connections>
@@ -63,30 +87,43 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fGz-6O-TPp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="0A0-Sa-WQg"/>
                 <constraint firstItem="7hI-wi-BHV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4T0-go-FhQ"/>
                 <constraint firstItem="Tah-l5-RDT" firstAttribute="top" secondItem="jwC-JW-rmY" secondAttribute="bottom" constant="8" id="508-QB-8dr"/>
                 <constraint firstAttribute="trailing" secondItem="7hI-wi-BHV" secondAttribute="trailing" id="5Jw-pz-g9a"/>
                 <constraint firstItem="jwC-JW-rmY" firstAttribute="leading" secondItem="fPL-TD-PiA" secondAttribute="leading" id="BU0-XB-Gtl"/>
-                <constraint firstItem="fGz-6O-TPp" firstAttribute="height" secondItem="fPL-TD-PiA" secondAttribute="height" id="FvA-wc-eCG"/>
                 <constraint firstItem="WVJ-1O-D40" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K5L-Sz-NgE"/>
                 <constraint firstAttribute="bottom" secondItem="7hI-wi-BHV" secondAttribute="bottom" id="Meh-75-RIc"/>
                 <constraint firstItem="7hI-wi-BHV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NWF-u9-32w"/>
-                <constraint firstItem="fPL-TD-PiA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="QtX-6a-Em9"/>
+                <constraint firstItem="fPL-TD-PiA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="QtX-6a-Em9">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
+                <constraint firstItem="fGz-6O-TPp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Wrw-QX-pq8">
+                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="fPL-TD-PiA" secondAttribute="trailing" constant="20" id="aJw-ps-jUA"/>
                 <constraint firstItem="Tah-l5-RDT" firstAttribute="top" secondItem="jwC-JW-rmY" secondAttribute="bottom" constant="8" id="c1N-2Y-sFv"/>
                 <constraint firstItem="jwC-JW-rmY" firstAttribute="top" secondItem="fPL-TD-PiA" secondAttribute="bottom" constant="8" id="cty-zZ-JMd"/>
                 <constraint firstItem="jwC-JW-rmY" firstAttribute="trailing" secondItem="fPL-TD-PiA" secondAttribute="trailing" id="dQk-es-nkH"/>
                 <constraint firstItem="Tah-l5-RDT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="dcz-7x-eSc"/>
-                <constraint firstAttribute="bottom" secondItem="Tah-l5-RDT" secondAttribute="bottom" constant="20" id="hDe-jH-ZQN"/>
+                <constraint firstItem="oLs-5P-24u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gAD-6u-sEp">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="Tah-l5-RDT" secondAttribute="bottom" constant="20" id="hDe-jH-ZQN">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
+                <constraint firstItem="fGz-6O-TPp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hYb-e6-Hs0">
+                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="WVJ-1O-D40" secondAttribute="trailing" id="iCf-1H-Rah"/>
                 <constraint firstItem="fPL-TD-PiA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="iKe-Mq-CjI"/>
                 <constraint firstAttribute="bottom" secondItem="WVJ-1O-D40" secondAttribute="bottom" id="mMN-aa-pOO"/>
-                <constraint firstItem="fGz-6O-TPp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="uya-J9-gIo"/>
+                <constraint firstItem="oLs-5P-24u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="r8G-be-2y2">
+                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="Tah-l5-RDT" secondAttribute="trailing" constant="20" id="vpg-fT-XLh"/>
                 <constraint firstItem="WVJ-1O-D40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xyW-cM-L9P"/>
             </constraints>
-            <point key="canvasLocation" x="25.5" y="51.5"/>
+            <point key="canvasLocation" x="25" y="51"/>
         </view>
     </objects>
     <resources>
