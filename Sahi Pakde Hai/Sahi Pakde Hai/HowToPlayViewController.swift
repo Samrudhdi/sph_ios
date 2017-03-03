@@ -31,6 +31,15 @@ class HowToPlayViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {})
+        showCategoryController()
+    }
+    
+    func showCategoryController() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
+            present(controller, animated: true, completion: {})
+        }
+        
     }
 }

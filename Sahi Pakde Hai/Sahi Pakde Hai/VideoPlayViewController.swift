@@ -99,9 +99,9 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
             if saved {
                 title = "Your video was successfully saved"
             }else {
-                title = error.debugDescription
+                title = error?.localizedDescription
             }
-            let alertController = UIAlertController(title: title!, message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: title!, message: "", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(defaultAction)
             self.present(alertController, animated: true, completion: {

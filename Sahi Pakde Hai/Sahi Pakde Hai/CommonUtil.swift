@@ -10,7 +10,6 @@
 import Foundation
 import AVFoundation
 import UIKit
-import TTGSnackbar
 import SystemConfiguration
 
 
@@ -49,12 +48,16 @@ class CommonUtil{
         actInd.isHidden = true
     }
     
-    static func showMessageOnSnackbar(message:String){
-        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
-        snackbar.backgroundColor = Constant.whiteColor
-        snackbar.messageTextColor = Constant.blackColor
+    static func showMessage(controller: UIViewController, message: String){
+//        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
+//        snackbar.backgroundColor = Constant.whiteColor
+//        snackbar.messageTextColor = Constant.blackColor
         //        snackbar.messageTextFont = UIFont(name:"AppleSDGothicNeo-Regular", size: 17.0)!
-        snackbar.show()
+//        snackbar.show()
+        
+        let alertController = UIAlertController(title: Constant.APP_NAME, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        controller.present(alertController, animated: true, completion: nil)
     }
     
     static func isInternetAvailable() -> Bool

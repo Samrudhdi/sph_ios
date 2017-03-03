@@ -11,10 +11,10 @@ import UIKit
 class SplashScreenViewController: BaseUIViewController{
 
     let indicatorView = UIActivityIndicatorView()
+    let delay: Float = 2.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
 //        facebookLogin()
     }
     
@@ -22,8 +22,18 @@ class SplashScreenViewController: BaseUIViewController{
         GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_SPLASH)
     }
     
-    func goToHomeScreen() {
-        perform(#selector(SplashScreenViewController.showNavController), with: nil, afterDelay: 3)
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
+    func goToScreen() {
+        
+        if !PreferenceUtil().getBoolPref(key: Constant.FIRST_TIME_ENTER){
+            PreferenceUtil().setPreference(value: true, key: Constant.FIRST_TIME_ENTER)
+            perform(#selector(SplashScreenViewController.showHowToPlayController), with: nil, afterDelay: TimeInterval(delay))
+        }else {
+            perform(#selector(SplashScreenViewController.showCategoryController), with: nil, afterDelay: TimeInterval(delay))
+        }
     }
     
     override var shouldAutorotate: Bool {
@@ -34,13 +44,22 @@ class SplashScreenViewController: BaseUIViewController{
         return UIInterfaceOrientationMask.portrait
     }
     
-    func showNavController() {
+    func showCategoryController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
             present(controller, animated: true, completion: {})
         }
 
+    }
+    
+    func showHowToPlayController() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
+            present(controller, animated: true, completion: {})
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,23 +72,25 @@ class SplashScreenViewController: BaseUIViewController{
             let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
             Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
         }else {
-            let preference = UserDefaults.standard
-            if !preference.bool(forKey: Constant.FIRST_TIME_DATA_LOAD){
-                CommonUtil.showMessageOnSnackbar(message: "No Internet Access")
+            if !PreferenceUtil().getBoolPref(key: Constant.FIRST_TIME_DATA_LOAD){
+                showNoInternetDialog()
+            }else {
+                goToScreen()
             }
         }
+        
         
     }
     
     func successCallBack(decks:Array<Deck>) {
         storeDeckData(decks: decks)
         CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-        goToHomeScreen()
+        goToScreen()
     }
     
     func failureCallBack(error: Error?) {
         CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-        CommonUtil.showMessageOnSnackbar(message: error.debugDescription)
+        CommonUtil.showMessage(controller: self,message: (error?.localizedDescription)!)
     }
     
     func storeDeckData(decks:Array<Deck>){
@@ -79,22 +100,11 @@ class SplashScreenViewController: BaseUIViewController{
         let updateVersionCode = deck.deckType
         print(updateVersionCode)
         
-        // Reading data from preference
-        let preference = UserDefaults.standard
-        //        if preference.object(forKey: Constant.UPDATE_VERSION_CODE) != nil {
-        let storedVersion = preference.integer(forKey: Constant.UPDATE_VERSION_CODE)
+        let storedVersion = PreferenceUtil().getIntPref(key: Constant.UPDATE_VERSION_CODE)
         if updateVersionCode > storedVersion{
-            let prefere = UserDefaults.standard
             insertDataOnDatabase(decks: decks)
-            prefere.set(updateVersionCode, forKey: Constant.UPDATE_VERSION_CODE)
-            prefere.set(true, forKey: Constant.FIRST_TIME_DATA_LOAD)
-            //                prefere.in
-            let didSave = prefere.synchronize()
-            if !didSave {
-                print("preference not set")
-            }else {
-                print("preference set")
-            }
+            PreferenceUtil().setPreference(value: updateVersionCode, key: Constant.UPDATE_VERSION_CODE)
+            PreferenceUtil().setPreference(value: true, key: Constant.FIRST_TIME_DATA_LOAD)
         }
     }
     
@@ -114,40 +124,18 @@ class SplashScreenViewController: BaseUIViewController{
         }else {
             print("Unable to insert data in table")
         }
-        //        }
-        //        group.wait()
-        
     }
     
-    // facebook login
-//    func facebookLogin() {
-//        if FBSDKAccessToken.current() == nil {
-//            print("Not logged in")
-//        }else {
-//            print("Logged In")
-//        }
-//        
-//        let loginButton = FBSDKLoginButton()
-//        loginButton.readPermissions = ["public_profile","email","user_friends"]
-//        loginButton.center = self.view.center
-//        
-//        loginButton.delegate = self
-//        self.view.addSubview(loginButton)
-//        
-//    }
-    
-//    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-//        if error == nil {
-//            print("login complete")
-//        }else {
-//            print(error.localizedDescription)
-//        }
-//    }
-//    
-//    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-//        print("user logged out")
-//    }
-//    
+    func showNoInternetDialog() {
+        let alertController = UIAlertController(title: "No Internet Connection", message: "No internet connectivity detected. Please reconnect and try again", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: {
+            action in
+            self.loadData()
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

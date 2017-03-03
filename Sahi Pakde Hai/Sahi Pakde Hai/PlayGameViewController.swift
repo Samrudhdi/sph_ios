@@ -29,6 +29,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     var motionManager: CMMotionManager!
     var avPlayer:AVAudioPlayer? = nil
+    var avPlayerTimerLow:AVAudioPlayer? = nil
     var dataOutput:AVCaptureMovieFileOutput? = nil
     var filePath:URL? = nil
     
@@ -287,7 +288,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     func counter60() {
         if count >= 0 {
             if (count / 100 <= 10) && (count % 100) == 0 {
-                playSound(sound: "time_low_loop", ofType: "mp3")
+                playTimerLowSound(sound: "time_low_loop", ofType: "mp3")
             }
             
             if count / 100 >= 1 {
@@ -365,6 +366,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
        avPlayer = CommonUtil().playSound(sound: sound, ofType: ofType)
         if avPlayer != nil{
             avPlayer?.play()
+        }
+    }
+    
+    func playTimerLowSound(sound: String, ofType: String) {
+        avPlayerTimerLow = CommonUtil().playSound(sound: sound, ofType: ofType)
+        if avPlayerTimerLow != nil {
+            avPlayerTimerLow?.play()
         }
     }
     

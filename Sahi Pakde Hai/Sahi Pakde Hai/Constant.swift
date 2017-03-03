@@ -12,11 +12,15 @@ import UIKit
 
 class Constant{
     
-    // Google Analytics
+    
+    // App Name
+    static let APP_NAME = "Sahi Pakde Hai!"
     
     // Timer count
-    static let count = 6000//6000
+    static let count = 1000//6000
     static let threeTwoOneCount = 5
+    
+    // Google Analytics
     
     // Screen name
     static let SCREEN_CATEGORY_PAGE = "Category Page"
@@ -93,7 +97,7 @@ class Constant{
     
 //    preference
     static let SHARED_PREF_NAME = "shared_preference_sph"
-    static let IS_FIRST_TIME_ENTER = "is_first_time_enter"
+    static let FIRST_TIME_ENTER = "first_time_enter"
     static let FIRST_TIME_DATA_LOAD = "first_time_data_load"
     static let UPDATE_VERSION_CODE = "update_version_code"
     

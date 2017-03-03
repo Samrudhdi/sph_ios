@@ -23,6 +23,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         case BUY
     }
     var  buttonType = ButtonType.PLAY_AGAIN
+    var scoreTimer:Timer? = nil
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var faceImageView: UIImageView!
@@ -51,6 +52,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
         self.setFace()
         self.setupPlayButton()
+//        tableView.scrollToRow(at: IndexPath(item: 10, section: 1), at: .bottom, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,35 +167,16 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         tableView.reloadData()
         
         let cells = tableView.visibleCells
+        print("total cells: \(cells.count)")
         let tableHeight: CGFloat = tableView.bounds.size.height
         
         var index = 0
-        for i in cells {
-            let cell: UITableViewCell = i as UITableViewCell
-            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
-            let indexPath = IndexPath(row: index, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//            cell.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+        for cell in cells {
+            let cell: UITableViewCell = cell
+            tableView.scrollToNearestSelectedRow(at: UITableViewScrollPosition(rawValue: index)!, animated: true)
             index += 1
         }
         
-        index = 0
-        
-        for a in cells {
-            let cell: UITableViewCell = a as UITableViewCell
-//            UIView.animateWithDuration(1.5, delay: (0.05 * index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
-//                cell.transform = CGAffineTransformMakeTranslation(0, 0)
-//                }, completion: nil)
-            
-//            let indexPath = IndexPath(row: 5, section: 0)
-//            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-//            tableView.tableViewScrollToBottom(animated: true)
-                UIView.animate(withDuration: 0.5, delay: 1 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveLinear, animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-                }, completion: nil)
-            
-            index += 1
-        }
     }
     
     @IBAction func playVideo(_ sender: AnyObject) {
@@ -308,6 +291,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         alertController.addAction(UIAlertAction(title: "Continue Team Play", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 

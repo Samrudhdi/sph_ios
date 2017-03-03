@@ -54,7 +54,9 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Rounds" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-vm-sAE">
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="UyW-dg-US7"/>
+                                <constraint firstAttribute="height" constant="30" id="UyW-dg-US7">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="50"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

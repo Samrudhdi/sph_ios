@@ -20,6 +20,7 @@
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
 		3D2471D71E5AF518002004CB /* GoogleAnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */; };
 		3D2471D91E5AFA2F002004CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */; };
+		3D27D3681E69497000237801 /* PreferenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27D3671E69497000237801 /* PreferenceUtil.swift */; };
 		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
 		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
 		3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */; };
@@ -83,6 +84,7 @@
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
 		3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsUtil.swift; sourceTree = "<group>"; };
 		3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D27D3671E69497000237801 /* PreferenceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceUtil.swift; sourceTree = "<group>"; };
 		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */,
 				3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */,
 				3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */,
+				3D27D3671E69497000237801 /* PreferenceUtil.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				3D79F21E1E643D7300BECAC8 /* TeamPlayUtil.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 				3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */,
+				3D27D3681E69497000237801 /* PreferenceUtil.swift in Sources */,
 				3D3C76341E12BC4300A67EF5 /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
