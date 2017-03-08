@@ -8,14 +8,16 @@
 
 import UIKit
 import AVFoundation
+import StoreKit
 
-class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITableViewDelegate {
+class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITableViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver{
 
     var deckResultArray:Array<DeckResult> = []
     var animateDeckResult:Array<DeckResult> = []
     var selectedCategory = Category()
     var videoUrl:URL?
     var totalCorrect = 0
+    var score = 0
     enum ButtonType{
         case PLAY_AGAIN
         case CONTINUE
@@ -23,7 +25,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         case BUY
     }
     var  buttonType = ButtonType.PLAY_AGAIN
-    var scoreTimer:Timer? = nil
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var faceImageView: UIImageView!
@@ -41,22 +42,40 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     var totalTeams:Int?
     var totalRounds:Int?
     
+    var product:SKProduct? = nil
+    var isPurchaseRequest = false
+    var scoreTimer:Timer? = nil
+    var timerCount:Int = 0
+    var player: AVAudioPlayer? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVideoView(hide: false)
+        SKPaymentQueue.default().add(self)
+        showOrHideVideoView()
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
+        self.setupTableView()
         self.setFace()
         self.setupPlayButton()
-//        tableView.scrollToRow(at: IndexPath(item: 10, section: 1), at: .bottom, animated: true)
+        self.setupTimer()
+        self.playScoreSound()
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 28.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_SCORE_CARD)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_SCORE_CARD)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SKPaymentQueue.default().remove(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +94,6 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     @IBAction func playSameCategory(_ sender: AnyObject) {
         self.setupPlayButtonClick()
     }
-    
     
     func showPlayGameController() {
         if self.storyboard?.instantiateViewController(withIdentifier: "PLAY_GAME_VIEW") is PlayGameViewController {
@@ -104,7 +122,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deckResultArray.count
+        return timerCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,7 +147,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             }
         }
         
-        scoreLabel.text = "Score \(totalCorrect)"
+//        scoreLabel.text = "Score \(totalCorrect)"
         if totalCorrect >= 4 {
             self.faceImageView.image? = UIImage.init(named: "user_happy_face")!
         }else {
@@ -138,8 +156,8 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func increaseScoreByOne() {
-        totalCorrect += 1
-        scoreLabel.text = "Score \(totalCorrect)"
+        score += 1
+        scoreLabel.text = "Score \(score)"
     }
     
     func setThumbnail() {
@@ -153,31 +171,29 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         }
     }
     
-    func setResultWordOneByOne() {
-        for index in 0...deckResultArray.count {
-            let indexPath:IndexPath = IndexPath(row: index, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    func setupTimer() {
+        scoreTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(showResult), userInfo: nil, repeats: true)
+    }
+    
+    func showResult() {
+        if timerCount < deckResultArray.count {
+            timerCount += 1
+            showWord(index: timerCount)
+        }else {
+            scoreTimer?.invalidate()
         }
     }
     
-    func animateTable() {
-        
-//        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI))
-        
+    func showWord(index: Int) {
         tableView.reloadData()
-        
-        let cells = tableView.visibleCells
-        print("total cells: \(cells.count)")
-        let tableHeight: CGFloat = tableView.bounds.size.height
-        
-        var index = 0
-        for cell in cells {
-            let cell: UITableViewCell = cell
-            tableView.scrollToNearestSelectedRow(at: UITableViewScrollPosition(rawValue: index)!, animated: true)
-            index += 1
+        let deck:DeckResult = deckResultArray[index - 1]
+        if deck.isCorrect {
+            increaseScoreByOne()
         }
-        
+        let indexPath:IndexPath = IndexPath(row: index - 1, section: 0)
+        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
+    
     
     @IBAction func playVideo(_ sender: AnyObject) {
         
@@ -193,13 +209,22 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
 
     }
     
-    func setupVideoView(hide:Bool) {
-        if hide {
-            videoView.isHidden = true
-            videoViewConstrain.constant = 10
+    func showVideoView() {
+        videoView.isHidden = false
+        self.setThumbnail()
+    }
+    
+    func hideVideoView() {
+        videoView.isHidden = true
+        videoViewConstrain.constant = 10
+    }
+    
+    func showOrHideVideoView() {
+        let  status: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        if status == AVAuthorizationStatus.authorized {
+            showVideoView()
         }else {
-            videoView.isHidden = false
-            self.setThumbnail()
+            hideVideoView()
         }
     }
     
@@ -209,8 +234,10 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
 
     func setupPlayButton() {
         if PreviewUtil.isPreviewPlay {
-            setButtonText(text: "Buy@ Rs.59.00")
+            let price = PreferenceUtil().getStringPref(key: selectedCategory.productIdentifier)
+            setButtonText(text: "Buy@ \(price)")
             buttonType = ButtonType.BUY
+            requestProdcut()
         }else {
             if TeamPlayUtil.isTeamPlay {
                 
@@ -265,11 +292,32 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             break
             
         case .BUY:
-            
+            buy()
             break
         }
 
     }
+    
+    func buy() {
+        if product != nil {
+            buyProduct()
+        }else {
+            isPurchaseRequest = true
+            requestProdcut()
+        }
+    }
+    
+    func buyProduct() {
+        print("Sending the payment request to apple")
+        print("condition 1")
+        if SKPaymentQueue.canMakePayments() {
+            print("condition 2")
+            let payment = SKPayment(product: product!)
+            SKPaymentQueue.default().add(payment)
+            GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_INITIATED_SCORE_CARD_PAGE, category: selectedCategory.categoryName, label: "")
+        }
+    }
+
     
     func showFinalScore() {
         if self.storyboard?.instantiateViewController(withIdentifier: "TEAM_FINAL_SCORE") is TeamFinalScoreCardViewController {
@@ -291,6 +339,95 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         alertController.addAction(UIAlertAction(title: "Continue Team Play", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if  response.products.count > 0{
+            if response.products[0].productIdentifier == selectedCategory.productIdentifier {
+                product = response.products[0]
+                let localizedPrice:String = (product?.localizedPrice())!
+                IAPHelper.setPrice(price: localizedPrice, productIdentifier: (product?.productIdentifier)!)
+                if !isPurchaseRequest {
+                    setButtonText(text: "Buy@ \(localizedPrice)")
+                }else {
+                    buyProduct()
+                }
+            }
+            
+        }
+    }
+    
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        print("Product Request Error: "+error.localizedDescription)
+        CommonUtil.showMessage(controller: self,title: error.localizedDescription,message: "")
+    }
+    
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("condition 3")
+        for transaction in transactions {
+            switch (transaction.transactionState) {
+            case .purchased:
+                purchased(transaction: transaction)
+                GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_BUY_SCORE_CARD_PAGE, category: selectedCategory.categoryName, label: "")
+                break
+            case .failed:
+                fail(transaction: transaction)
+                break
+            case .restored:
+                purchased(transaction: transaction)
+                break
+            case .deferred:
+                print("deferred")
+                break
+            case .purchasing:
+                print("purchasing")
+                break
+            }
+        }
+    }
+    
+    private func purchased(transaction: SKPaymentTransaction) {
+        print("complete...")
+        SKPaymentQueue.default().finishTransaction(transaction)
+        IAPHelper.setProductPurchased(isPurchased: true, productIdentifier: selectedCategory.productIdentifier + "." + Constant.PURCHASED)
+        setButtonText(text: "PLAY SAME CATEGORY")
+        buttonType = ButtonType.PLAY_AGAIN
+        PreviewUtil.isPreviewPlay = false
+    }
+    
+    private func fail(transaction: SKPaymentTransaction) {
+        print("fail...")
+        if let transactionError = transaction.error as? NSError {
+            if transactionError.code != SKError.paymentCancelled.rawValue {
+                print("Transaction Error: \(transaction.error?.localizedDescription)")
+                CommonUtil.showMessage(controller: self,title: (transaction.error?.localizedDescription)!,message: "")
+            }
+        }
+        
+        SKPaymentQueue.default().finishTransaction(transaction)
+    }
+    
+    
+    func requestProdcut() {
+        if SKPaymentQueue.canMakePayments() {
+            let productId:Set<String> = [selectedCategory.productIdentifier]
+            let productRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productId)
+            productRequest.delegate = self
+            productRequest.start()
+            print("fetching products")
+        }else {
+            CommonUtil.showMessage(controller: self,title: "Can't make purchases",message: "")
+        }
+    }
+    
+    func playScoreSound() {
+        self.player = CommonUtil().playSound(sound: "final_score", ofType: "mp3")
+        if self.player != nil {
+            self.player?.play()
+        }
+    }
+    
+    
     
     /*
     // MARK: - Navigation

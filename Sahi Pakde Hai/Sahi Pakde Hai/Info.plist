@@ -43,11 +43,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>For Recording Video</string>
+	<string>For recording the player performance </string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>For Recording Voice</string>
+	<string>For Recording Voice while playing the game</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>For sharing photos with others</string>
+	<string>For storing the recorded video on phone</string>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreenViewController</string>
 	<key>UIMainStoryboardFile</key>

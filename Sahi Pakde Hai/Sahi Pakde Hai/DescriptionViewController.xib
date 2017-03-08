@@ -55,7 +55,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     </variation>
                     <connections>
-                        <action selector="moveBAck:" destination="-1" eventType="touchUpInside" id="n68-tv-fpv"/>
+                        <action selector="moveBack:" destination="-1" eventType="touchUpInside" id="hRT-kJ-LBd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG1-TV-gcv">

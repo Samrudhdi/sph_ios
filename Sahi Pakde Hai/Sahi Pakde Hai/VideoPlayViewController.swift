@@ -54,7 +54,7 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_WATCH_VIDEO)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_WATCH_VIDEO)
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,7 +77,7 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     @IBAction func back(_ sender: AnyObject) {
         player?.pause()
         dismiss(animated: true, completion: nil)
-        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_BACK, category: self.selectedCategory.categoryName, label: "")
+        GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_VIDEO_BACK, category: selectedCategory.categoryName, label: "")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     
     @IBAction func saveVideo(_ sender: AnyObject) {
         saveVideoToGallary()
-        GoogleAnalyticsUtil().trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
+        GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
     }
     
     func saveVideoToGallary() {

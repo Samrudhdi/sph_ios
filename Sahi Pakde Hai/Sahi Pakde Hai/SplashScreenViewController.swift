@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import StoreKit
 
-class SplashScreenViewController: BaseUIViewController{
+class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate{
+
+    
+    let defaults = UserDefaults.standard
 
     let indicatorView = UIActivityIndicatorView()
     let delay: Float = 2.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        facebookLogin()
+        getInAppProductPrice()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_SPLASH)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_SPLASH)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,7 +94,7 @@ class SplashScreenViewController: BaseUIViewController{
     
     func failureCallBack(error: Error?) {
         CommonUtil.removeActivityIndicator(actInd: indicatorView, view: self.view, subView: super.subView)
-        CommonUtil.showMessage(controller: self,message: (error?.localizedDescription)!)
+        CommonUtil.showMessage(controller: self,title: (error?.localizedDescription)!, message: "")
     }
     
     func storeDeckData(decks:Array<Deck>){
@@ -136,7 +140,28 @@ class SplashScreenViewController: BaseUIViewController{
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func getInAppProductPrice() {
+        
+        if IAPHelper.canMakePayments() {
+            let productsRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: Constant.productIdentifiers);
+            productsRequest.delegate = self;
+            productsRequest.start();
+            print("Fetching Products");
+        } else {
+            CommonUtil.showMessage(controller: self, title: "can't make purchases", message: "")
+        }
+    }
 
+    func productsRequest (_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        IAPHelper.storePurchasePrice(products: response.products)
+    }
+    
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        print("Product Reqeust Error: "+error.localizedDescription)
+         CommonUtil.showMessage(controller: self, title:error.localizedDescription, message: "")
+    }
+    
     /*
     // MARK: - Navigation
 

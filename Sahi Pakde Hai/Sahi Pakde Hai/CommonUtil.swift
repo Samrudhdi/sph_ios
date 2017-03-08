@@ -11,6 +11,7 @@ import Foundation
 import AVFoundation
 import UIKit
 import SystemConfiguration
+import StoreKit
 
 
 class CommonUtil{
@@ -48,14 +49,14 @@ class CommonUtil{
         actInd.isHidden = true
     }
     
-    static func showMessage(controller: UIViewController, message: String){
+    static func showMessage(controller: UIViewController, title: String, message: String){
 //        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
 //        snackbar.backgroundColor = Constant.whiteColor
 //        snackbar.messageTextColor = Constant.blackColor
         //        snackbar.messageTextFont = UIFont(name:"AppleSDGothicNeo-Regular", size: 17.0)!
 //        snackbar.show()
         
-        let alertController = UIAlertController(title: Constant.APP_NAME, message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         controller.present(alertController, animated: true, completion: nil)
     }
@@ -190,3 +191,15 @@ extension UITableView {
         }
     }
 }
+
+extension SKProduct {
+    
+    func localizedPrice() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = self.priceLocale
+        return formatter.string(from: self.price)!
+    }
+    
+}
+

@@ -10,7 +10,7 @@ import Foundation
 
 class GoogleAnalyticsUtil {
     
-    func trackScreen(screenName:String) {
+    static func trackScreen(screenName:String) {
         
         // The UA-XXXXX-Y tracker ID is loaded automatically from the
         // GoogleService-Info.plist by the `GGLContext` in the AppDelegate.
@@ -31,7 +31,7 @@ class GoogleAnalyticsUtil {
 
     }
     
-    func trackEvent(action:String, category:String, label:String) {
+    static func trackEvent(action:String, category:String, label:String) {
         guard let tracker = GAI.sharedInstance().defaultTracker
         else {
             return
@@ -44,5 +44,23 @@ class GoogleAnalyticsUtil {
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
-    
+    static func trackEcommerceView(productName: String, pid: String) {
+        guard let tracker = GAI.sharedInstance().defaultTracker else {
+            return
+        }
+        
+        let product: GAIEcommerceProduct = GAIEcommerceProduct()
+        product.setId(pid)
+        product.setName(productName)
+        product.setPrice(0.62)
+        
+        guard let builder = GAIDictionaryBuilder.createScreenView()
+            else {
+                return
+        }
+
+        builder.add(product)
+        tracker.set(kGAIScreenName, value: Constant.E_COMMERCE)
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
 }

@@ -34,6 +34,10 @@ class PreferenceUtil {
     }
     
     func getStringPref(key: String) -> String {
-        return (self.preference?.string(forKey: key))!
+        if self.preference?.string(forKey: key) != nil {
+            return (self.preference?.string(forKey: key))!
+        }else {
+            return ""
+        }
     }
 }

@@ -14,10 +14,21 @@ class Constant{
     
     
     // App Name
-    static let APP_NAME = "Sahi Pakde Hai!"
+    static let APP_NAME = "Sahi Pakde Hai"
+    
+    // SKU
+    static let SKU_ADULTS_ONLY = "com.patronous.sahipakdehai.adults_only"
+    static let SKU_CRICKET = "com.patronous.sahipakdehai.cricket"
+    static let SKU_GOT = "com.patronous.sahipakdehai.game_of_thrones"
+    static let SKU_KIDS_ZONE = "com.patronous.sahipakdehai.kids_zone"
+    static let SKU_SONGS = "com.patronous.sahipakdehai.songs"
+    static let PURCHASED = "purchased"
+    
+    static let productIdentifiers: Set<String> = [Constant.SKU_ADULTS_ONLY,Constant.SKU_CRICKET,Constant.SKU_SONGS,Constant.SKU_GOT,Constant.SKU_KIDS_ZONE]
+    
     
     // Timer count
-    static let count = 1000//6000
+    static let count = 3000//6000
     static let threeTwoOneCount = 5
     
     // Google Analytics
@@ -32,6 +43,7 @@ class Constant{
     static let SCREEN_WATCH_VIDEO = "Watch Video"
     static let SCREEN_SPLASH = "Splash Screen"
     static let SCREEN_TEAM_PLAY_FINAL_SCORE_CARD = "Final Team Play Score Card"
+    static let E_COMMERCE = "e-commerce"
     
     //    Category
     static let CAT_CINEMA = "Cinema"
@@ -71,6 +83,10 @@ class Constant{
     static let ACT_CHOOSE_CATEGORY = "Choose Category"
     static let ACT_NUMBER_OF_ROUNDS = "Number of Rounds -"
     static let ACT_PREVIEW = "Preview"
+    static let ACT_INITIATED_DESCRIPTION_PAGE = "Initiated Buy Description Page"
+    static let ACT_INITIATED_SCORE_CARD_PAGE = "Initiated Buy Score Card Page"
+    static let ACT_BUY_DESCRIPTION_PAGE = "Purchased Description Page"
+    static let ACT_BUY_SCORE_CARD_PAGE = "Purchased Score Card Page"
 
     
     // color

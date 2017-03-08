@@ -53,6 +53,8 @@
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
+		3DA965E11E6D51D100BC4973 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA965E01E6D51D100BC4973 /* IAPHelper.swift */; };
+		3DA965E61E6D8E6800BC4973 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA965E51E6D8E6800BC4973 /* StoreKit.framework */; };
 		3DC1A39E1E4C88BA00330170 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */; };
 		3DC1A3A01E4C8BF200330170 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39F1E4C8BF200330170 /* MKLayer.swift */; };
 		3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */; };
@@ -124,6 +126,8 @@
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		3DA965E01E6D51D100BC4973 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		3DA965E51E6D8E6800BC4973 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DC1A39F1E4C8BF200330170 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
 		3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA965E61E6D8E6800BC4973 /* StoreKit.framework in Frameworks */,
 				3D3C763B1E12E0CE00A67EF5 /* libsqlite3.0.tbd in Frameworks */,
 				F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */,
 			);
@@ -161,6 +166,7 @@
 		268119EE04796434788096F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DA965E51E6D8E6800BC4973 /* StoreKit.framework */,
 				3D3C763A1E12E0CE00A67EF5 /* libsqlite3.0.tbd */,
 				F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */,
 			);
@@ -277,6 +283,14 @@
 			name = TeamFinalScore;
 			sourceTree = "<group>";
 		};
+		3DA965E21E6D633D00BC4973 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				3DA965E01E6D51D100BC4973 /* IAPHelper.swift */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		3DC78E391E4059FD009BAA60 /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +339,7 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3DA965E21E6D633D00BC4973 /* InAppPurchase */,
 				3D94873E1E65670100D1DEDF /* TeamFinalScore */,
 				3DD4EDB51E643B2D0040AA1B /* TeamPlay */,
 				3DC78E3E1E407628009BAA60 /* SplashScreen */,
@@ -409,6 +424,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = V3J7536XE6;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -551,6 +571,7 @@
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 				3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */,
 				3D27D3681E69497000237801 /* PreferenceUtil.swift in Sources */,
+				3DA965E11E6D51D100BC4973 /* IAPHelper.swift in Sources */,
 				3D3C76341E12BC4300A67EF5 /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

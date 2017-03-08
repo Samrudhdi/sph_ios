@@ -12,6 +12,7 @@ target 'Sahi Pakde Hai' do
     pod 'FacebookLogin'
     pod 'FacebookShare'
     pod 'Google/Analytics'
+    pod 'GoogleIDFASupport'
 #    pod "AsyncSwift"
 #    pod 'RippleAnimation'
 

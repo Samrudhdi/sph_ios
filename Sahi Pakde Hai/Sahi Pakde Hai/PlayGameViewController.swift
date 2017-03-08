@@ -67,7 +67,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
     }
     
     func didEnterForground() {
@@ -109,10 +109,12 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
         stopGamePlay()
+        NotificationCenter.default.removeObserver(self)
     }
-
+    
     func setupAccelerometer() {
         
         motionManager = CMMotionManager()

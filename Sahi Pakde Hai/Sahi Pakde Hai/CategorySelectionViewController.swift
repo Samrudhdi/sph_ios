@@ -35,7 +35,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         changeBottomButtonIcons()
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,7 +106,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cinemaCat.backgroundColor = Constant.bg_cinema
         cinemaCat.image = "cinema"
         cinemaCat.desc = Constant.cinema_desc
-        cinemaCat.isPaid = false
+        cinemaCat.isPaidCategory = false
         cinemaCat.categoryName = Constant.CAT_CINEMA
         
         var lightCameraActionCat = Category()
@@ -114,7 +114,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
         lightCameraActionCat.image = "light_camera_action"
         lightCameraActionCat.desc = Constant.light_camera_action_desc
-        lightCameraActionCat.isPaid = false
+        lightCameraActionCat.isPaidCategory = false
         lightCameraActionCat.categoryName = Constant.CAT_LIGHT_CAMERA_ACTION
         
         var hindi = Category()
@@ -122,7 +122,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         hindi.backgroundColor = Constant.bg_sirf_hindi
         hindi.image = "hindi"
         hindi.desc = Constant.hindi_desc
-        hindi.isPaid = false
+        hindi.isPaidCategory = false
         hindi.categoryName = Constant.CAT_SIRF_HINDI_ME_BOL
         
         var heroHeroine = Category()
@@ -130,7 +130,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         heroHeroine.backgroundColor = Constant.bg_hero_heroine
         heroHeroine.image = "hero_heroine"
         heroHeroine.desc = Constant.hh_desc
-        heroHeroine.isPaid = false
+        heroHeroine.isPaidCategory = false
         heroHeroine.categoryName = Constant.CAT_HERO_HEROINE
         
         var adultOnly = Category()
@@ -138,15 +138,16 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         adultOnly.backgroundColor = Constant.bg_adult_only
         adultOnly.image = "icon_adults"
         adultOnly.desc = Constant.ao_desc
-        adultOnly.isPaid = true
+        adultOnly.isPaidCategory = true
         adultOnly.categoryName = Constant.CAT_ADULTS_ONLY
+        adultOnly.productIdentifier = Constant.SKU_ADULTS_ONLY
 
         var hollywood = Category()
         hollywood.categoryId = 6
         hollywood.backgroundColor = Constant.bg_hollywood
         hollywood.image = "hollywood"
         hollywood.desc = Constant.hollywood_desc
-        hollywood.isPaid = false
+        hollywood.isPaidCategory = false
         hollywood.categoryName = Constant.CAT_HOLLYWOOD
         
         var cricket = Category()
@@ -154,16 +155,18 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cricket.backgroundColor = Constant.bg_cricket
         cricket.image = "cricket"
         cricket.desc = Constant.cricket_desc
-        cricket.isPaid = true
+        cricket.isPaidCategory = true
         cricket.categoryName = Constant.CAT_CRICKET
+        cricket.productIdentifier = Constant.SKU_CRICKET
 
         var songs = Category()
         songs.categoryId = 8
         songs.backgroundColor = Constant.bg_songs
         songs.image = "songs"
         songs.desc = Constant.songs_desc
-        songs.isPaid = true
+        songs.isPaidCategory = true
         songs.categoryName = Constant.CAT_SONGS
+        songs.productIdentifier = Constant.SKU_SONGS
         
         
         var mythology = Category()
@@ -171,7 +174,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         mythology.backgroundColor = Constant.bg_mythology
         mythology.image = "mythology"
         mythology.desc = Constant.mythology_desc
-        mythology.isPaid = false
+        mythology.isPaidCategory = false
         mythology.categoryName = Constant.CAT_MYTHOLOGY
 
         
@@ -180,23 +183,25 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         gameOfThrones.backgroundColor = Constant.bg_got
         gameOfThrones.image = "game_of_thrones"
         gameOfThrones.desc = Constant.got_desc
-        gameOfThrones.isPaid = true
+        gameOfThrones.isPaidCategory = true
         gameOfThrones.categoryName = Constant.CAT_GAME_OF_THRONES
+        gameOfThrones.productIdentifier = Constant.SKU_GOT
         
         var kidsZone = Category()
         kidsZone.categoryId = 11
         kidsZone.backgroundColor = Constant.bg_kids_zone
         kidsZone.image = "kid_zone"
         kidsZone.desc = Constant.kz_desc
-        kidsZone.isPaid = true
+        kidsZone.isPaidCategory = true
         kidsZone.categoryName = Constant.CAT_KIDS_ZONES
+        kidsZone.productIdentifier = Constant.SKU_KIDS_ZONE
         
         var khaanPaan = Category()
         khaanPaan.categoryId = 12
         khaanPaan.backgroundColor = Constant.bg_khaan_paan
         khaanPaan.image = "khaan_paan"
         khaanPaan.desc = Constant.kp_desc
-        khaanPaan.isPaid = false
+        khaanPaan.isPaidCategory = false
         khaanPaan.categoryName = Constant.CAT_KHAAN_PAAN
 
         
@@ -268,6 +273,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
+            controller.isFromCategoryScreen = true
             present(controller, animated: true, completion: {})
         }
 
