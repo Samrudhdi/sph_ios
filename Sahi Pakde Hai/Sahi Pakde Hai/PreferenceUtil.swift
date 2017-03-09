@@ -17,12 +17,7 @@ class PreferenceUtil {
     
     func setPreference(value:Any, key:String) {
         self.preference?.set(value, forKey: key)
-        let didSave = self.preference?.synchronize()
-        if !didSave! {
-            print("preference not set")
-        }else {
-            print("preference set")
-        }
+        self.preference?.synchronize()
     }
     
     func getBoolPref(key: String) -> Bool {

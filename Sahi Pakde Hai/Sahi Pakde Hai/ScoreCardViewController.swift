@@ -48,6 +48,8 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     var timerCount:Int = 0
     var player: AVAudioPlayer? = nil
     
+    let indicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SKPaymentQueue.default().add(self)
@@ -55,9 +57,9 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
         self.setupTableView()
+        self.setupTimer()
         self.setFace()
         self.setupPlayButton()
-        self.setupTimer()
         self.playScoreSound()
     }
     
@@ -75,6 +77,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        stopTimer()
         SKPaymentQueue.default().remove(self)
     }
 
@@ -122,7 +125,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timerCount
+        return deckResultArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -172,7 +175,9 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func setupTimer() {
-        scoreTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(showResult), userInfo: nil, repeats: true)
+        if deckResultArray.count > 0 {
+            scoreTimer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(showResult), userInfo: nil, repeats: true)
+        }
     }
     
     func showResult() {
@@ -180,18 +185,17 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             timerCount += 1
             showWord(index: timerCount)
         }else {
-            scoreTimer?.invalidate()
+           stopTimer()
         }
     }
     
     func showWord(index: Int) {
-        tableView.reloadData()
+        let indexPath:IndexPath = IndexPath(row: index - 1, section: 0)
+        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         let deck:DeckResult = deckResultArray[index - 1]
         if deck.isCorrect {
             increaseScoreByOne()
         }
-        let indexPath:IndexPath = IndexPath(row: index - 1, section: 0)
-        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
     
@@ -235,7 +239,11 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     func setupPlayButton() {
         if PreviewUtil.isPreviewPlay {
             let price = PreferenceUtil().getStringPref(key: selectedCategory.productIdentifier)
-            setButtonText(text: "Buy@ \(price)")
+            if !price.isEmpty {
+                setButtonText(text: "Buy@ \(price)")
+            }else {
+                setButtonText(text: "Buy")
+            }
             buttonType = ButtonType.BUY
             requestProdcut()
         }else {
@@ -292,6 +300,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             break
             
         case .BUY:
+            showActivityIndicator()
             buy()
             break
         }
@@ -364,6 +373,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         print("condition 3")
+        removeActivityIndicator()
         for transaction in transactions {
             switch (transaction.transactionState) {
             case .purchased:
@@ -427,7 +437,22 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         }
     }
     
+    func showActivityIndicator() {
+        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+    }
     
+    func removeActivityIndicator() {
+        CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+    }
+    
+    func stopTimer() {
+        if scoreTimer != nil {
+            scoreTimer?.invalidate()
+            scoreTimer = nil
+            self.scoreLabel.text = "\(totalCorrect)"
+        }
+    }
+
     
     /*
     // MARK: - Navigation

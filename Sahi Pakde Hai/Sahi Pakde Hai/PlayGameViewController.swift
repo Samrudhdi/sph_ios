@@ -145,7 +145,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
                 let yawAngle = data.attitude.roll * 180.0/M_PI
                 let pitchAngle = data.attitude.pitch * 180.0/M_PI
                 
-                print("rollAngle \(rollAngle)")
+//                print("rollAngle \(rollAngle)")
 //                print("yaw \(yawAngle)")
 //                print("pitch \(pitchAngle)")
 //                print(data.attitude.yaw * 180.0/M_PI)
@@ -295,13 +295,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             if count / 100 >= 1 {
                 timerLabel.text = "\(count / 100)"
-                print(count)
+//                print(count)
             }
             count -= 1
             
         }else {
             timer?.invalidate()
-            print(count)
+//            print(count)
             print("TIME'S UP")
             wordLabel.text = "TIME'S UP"
             timerLabel.text = ""

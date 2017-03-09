@@ -17,7 +17,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var previewButton: UIButton!
     
-    
     var selecteCategory = Category()
     var product:SKProduct? = nil
     var isPurchaseRequest = false
@@ -25,14 +24,16 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     enum BUTTON_TYPE {
         case play
         case buy
-        case restore
     }
     
     var buttonType:BUTTON_TYPE = BUTTON_TYPE.play
     
+    let indicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SKPaymentQueue.default().add(self)
+        requestProdcut()
         setupView()
     }
     
@@ -115,12 +116,11 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         }else {
             let price = PreferenceUtil().getStringPref(key: selecteCategory.productIdentifier)
             if !price.isEmpty {
-                buttonType = BUTTON_TYPE.buy
                 setPlayButtonTitle(title: price)
             }else {
-                buttonType = BUTTON_TYPE.restore
-                setPlayButtonTitle(title: "RESTORE")
+                setPlayButtonTitle(title: "BUY")
             }
+            buttonType = BUTTON_TYPE.buy
             showPreviewButton()
         }
     }
@@ -166,12 +166,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         }
     }
     
-    func restore() {
-        if SKPaymentQueue.canMakePayments() {
-            SKPaymentQueue.default().restoreCompletedTransactions()
-        }
-    }
-    
     func onClickButton() {
         switch buttonType {
         case BUTTON_TYPE.play:
@@ -179,11 +173,8 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
             break
             
         case BUTTON_TYPE.buy:
+            showActivityIndicator()
             buy()
-            break
-            
-        case BUTTON_TYPE.restore:
-            restore()
             break
         }
     }
@@ -210,21 +201,27 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         print("condition 3")
+        removeActivityIndicator()
         for transaction in transactions {
             switch (transaction.transactionState) {
             case .purchased:
+                print("\n purchased")
                 purchased(transaction: transaction)
                 GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_BUY_DESCRIPTION_PAGE, category: selecteCategory.categoryName, label: "")
                 break
             case .failed:
+                print("\n fail")
                 fail(transaction: transaction)
                 break
             case .restored:
+                print("\n restored")
                 purchased(transaction: transaction)
                 break
             case .deferred:
+                print("\n deferred")
                 break
             case .purchasing:
+                print("\n purchasing")
                 break
             }
         }
@@ -250,7 +247,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         
         SKPaymentQueue.default().finishTransaction(transaction)
     }
-
     
     func requestProdcut() {
         if SKPaymentQueue.canMakePayments() {
@@ -262,5 +258,13 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         }else {
             CommonUtil.showMessage(controller: self,title: "Can't make purchases",message: "")
         }
+    }
+    
+    func showActivityIndicator() {
+        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+    }
+    
+    func removeActivityIndicator() {
+        CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
     }
 }
