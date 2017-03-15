@@ -32,7 +32,7 @@ class Constant{
     
     
     // Timer count
-    static let count = 6000//6000
+    static let count = 1000//6000
     static let threeTwoOneCount = 5
     
     // Google Analytics

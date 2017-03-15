@@ -403,7 +403,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         preview?.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
 
 //        preview?.frame = self.videoView.bounds
-        preview?.connection.videoOrientation = self.returnedOrientation()
+        preview?.connection.videoOrientation = .landscapeRight
         preview?.videoGravity = AVLayerVideoGravityResize
         return preview!
     }()
@@ -497,7 +497,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             if videoConnection != nil {
                 if (videoConnection?.isVideoOrientationSupported)!{
-                    videoConnection?.videoOrientation = 
+                    videoConnection?.videoOrientation = returnedOrientation()
                 }
                 
                 if (videoConnection?.isVideoMirroringSupported)! {
@@ -603,7 +603,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
 
     func setDeviceOrientation() {
-        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
 }
