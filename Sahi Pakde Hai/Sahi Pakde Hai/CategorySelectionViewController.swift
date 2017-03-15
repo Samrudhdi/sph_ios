@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import StoreKit
 
-class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, SKPaymentTransactionObserver{
     @IBOutlet weak var shareButton: UIButton!
 
     @IBOutlet weak var teamPlayButton: UIButton!
@@ -31,11 +32,17 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.register(UINib(nibName: "RestorePurchaseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RestorePurchaseCollectionViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        SKPaymentQueue.default().add(self)
         changeBottomButtonIcons()
         GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SKPaymentQueue.default().remove(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,22 +57,45 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         return UIInterfaceOrientationMask.portrait
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryArray.count
+        var count = 0
+        switch section {
+        case 0:
+            count = categoryArray.count
+            break
+        case 1:
+            count = 1
+            break
+        default:
+            count = 0
+            break
+        }
+        print("count \(count)")
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        cell.categoryImageView.image = UIImage.init(named: categoryArray[indexPath.row].image)
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+            cell.categoryImageView.image = UIImage.init(named: categoryArray[indexPath.row].image)
+            return cell
+        } else {
+            let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "RestorePurchaseCollectionViewCell", for: indexPath) as! RestorePurchaseCollectionViewCell
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let halfWidth = collectionView.frame.size.width / numberOfCell
-        return CGSize(width:  (halfWidth - (margin * 2)), height: (halfWidth - (margin * 2)))
+        if indexPath.section == 0 {
+            let halfWidth = collectionView.frame.size.width / numberOfCell
+            return CGSize(width:  (halfWidth - (margin * 2)), height: (halfWidth - (margin * 2)))
+        }else {
+            return CGSize(width: collectionView.frame.size.width - (80 * 2), height: 40)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -73,10 +103,24 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
 //        margin  = (frame.width - 90 * 2) / 5.0
         
 //        print("margin == \(margin)")
-        return UIEdgeInsetsMake(0, margin, 0, margin)
+        print("section: \(section)")
+        if section == 0 {
+            return UIEdgeInsetsMake(0, margin, 0, margin)
+        }else {
+            return UIEdgeInsetsMake(60, 80, 60, 80)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            categorySelected(indexPath: indexPath)
+        }else {
+            restorePurchase()
+        }
+    }
+    
+    func categorySelected(indexPath: IndexPath) {
         self.selectedCategory = categoryArray[indexPath.row]
         
         categorySelectionSound = CommonUtil().playSound(sound: "select_category", ofType: "mp3")
@@ -84,8 +128,12 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
             categorySelectionSound.play()
         }
         goToDescriptionScreen()
-//        perform(#selector(goToDescriptionScreen), with: nil, afterDelay: 0.5)
-        
+    }
+    
+    func restorePurchase() {
+        print("1: print restore purchase")
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
     }
     
     func goToDescriptionScreen() {
@@ -291,6 +339,40 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     
     func dismissCategoryViewController() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("1: paymentQueueRestoreCompletedTransactionsFinished")
+        CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
+         CommonUtil.showMessage(controller: self, title: "Purchases Restored", message: "Your previously purchase(s) has been restored.")
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("1: updatedTransactions")
+        for transaction in transactions {
+            switch (transaction.transactionState) {
+            case .purchased, .restored:
+                print("\n purchased/restored")
+                PreferenceUtil.setPreference(value: true, key: transaction.payment.productIdentifier + "." + Constant.PURCHASED)
+                 SKPaymentQueue.default().finishTransaction(transaction)
+                break
+            case .failed:
+                print("\n fail")
+                break
+            case .deferred:
+                print("\n deferred")
+                break
+            case .purchasing:
+                print("\n purchasing")
+                break
+            }
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        print("1: restoreCompletedTransactionsFailedWithError")
+         CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
+        CommonUtil.showMessage(controller: self, title: error.localizedDescription, message: "")
     }
    
     /*

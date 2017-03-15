@@ -28,11 +28,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>4</string>
 	<key>FacebookAppID</key>
 	<string>583688738500669</string>
 	<key>FacebookDisplayName</key>
-	<string>Sahi­P­a­k­d­e­H­a­i­Test</string>
+	<string>SahiPakdeHaiTest</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

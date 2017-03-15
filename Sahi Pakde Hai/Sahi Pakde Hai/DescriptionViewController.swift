@@ -32,9 +32,13 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SKPaymentQueue.default().add(self)
         requestProdcut()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        SKPaymentQueue.default().add(self)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_DESCRIPTION)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,10 +50,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         self.selectedCategoryImage.image = UIImage.init(named: selecteCategory.image)
         self.desc.text = selecteCategory.desc
         setupButton()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_DESCRIPTION)
     }
     
     override var shouldAutorotate: Bool {
@@ -114,7 +114,7 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
             setPlayButtonTitle(title: "PLAY")
             hidePreviewButton()
         }else {
-            let price = PreferenceUtil().getStringPref(key: selecteCategory.productIdentifier)
+            let price = PreferenceUtil.getStringPref(key: selecteCategory.productIdentifier)
             if !price.isEmpty {
                 setPlayButtonTitle(title: price)
             }else {
@@ -124,7 +124,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
             showPreviewButton()
         }
     }
-    
     
     func showPreviewButton() {
         previewButton.isHidden = false
@@ -158,7 +157,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
         print("Sending the payment request to apple")
         print("condition 1")
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_INITIATED_DESCRIPTION_PAGE, category: selecteCategory.categoryName, label: "")
-        
         if SKPaymentQueue.canMakePayments() {
             print("condition 2")
             let payment = SKPayment(product: product!)
@@ -199,9 +197,12 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
          CommonUtil.showMessage(controller: self,title: error.localizedDescription,message: "")
     }
     
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        removeActivityIndicator()
+    }
+    
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         print("condition 3")
-        removeActivityIndicator()
         for transaction in transactions {
             switch (transaction.transactionState) {
             case .purchased:
@@ -209,17 +210,21 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
                 purchased(transaction: transaction)
                 GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_BUY_DESCRIPTION_PAGE, category: selecteCategory.categoryName, label: "")
                 break
+                
             case .failed:
                 print("\n fail")
                 fail(transaction: transaction)
                 break
+                
             case .restored:
                 print("\n restored")
                 purchased(transaction: transaction)
                 break
+                
             case .deferred:
                 print("\n deferred")
                 break
+                
             case .purchasing:
                 print("\n purchasing")
                 break
@@ -229,8 +234,9 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     
     private func purchased(transaction: SKPaymentTransaction) {
         print("complete...")
+        removeActivityIndicator()
         SKPaymentQueue.default().finishTransaction(transaction)
-        IAPHelper.setProductPurchased(isPurchased: true, productIdentifier: selecteCategory.productIdentifier + "." + Constant.PURCHASED)
+        IAPHelper.setProductPurchased(isPurchased: true, productIdentifier: transaction.payment.productIdentifier + "." + Constant.PURCHASED)
         buttonType = BUTTON_TYPE.play
         setPlayButtonTitle(title: "PLAY")
         hidePreviewButton()
@@ -238,6 +244,7 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     
     private func fail(transaction: SKPaymentTransaction) {
         print("fail...")
+        removeActivityIndicator()
         if let transactionError = transaction.error as? NSError {
             if transactionError.code != SKError.paymentCancelled.rawValue {
                 print("Transaction Error: \(transaction.error?.localizedDescription)")

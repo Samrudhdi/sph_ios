@@ -52,12 +52,11 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SKPaymentQueue.default().add(self)
         showOrHideVideoView()
         self.videoThumbnailImageView.layoutIfNeeded()
         self.videoThumbnailImageView.setNeedsDisplay()
         self.setupTableView()
-        self.setupTimer()
+//        self.setupTimer()
         self.setFace()
         self.setupPlayButton()
         self.playScoreSound()
@@ -73,6 +72,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        SKPaymentQueue.default().add(self)
         GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_SCORE_CARD)
     }
     
@@ -150,7 +150,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
             }
         }
         
-//        scoreLabel.text = "Score \(totalCorrect)"
+        scoreLabel.text = "Score \(totalCorrect)"
         if totalCorrect >= 4 {
             self.faceImageView.image? = UIImage.init(named: "user_happy_face")!
         }else {
@@ -238,7 +238,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
 
     func setupPlayButton() {
         if PreviewUtil.isPreviewPlay {
-            let price = PreferenceUtil().getStringPref(key: selectedCategory.productIdentifier)
+            let price = PreferenceUtil.getStringPref(key: selectedCategory.productIdentifier)
             if !price.isEmpty {
                 setButtonText(text: "Buy@ \(price)")
             }else {
@@ -370,10 +370,12 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         CommonUtil.showMessage(controller: self,title: error.localizedDescription,message: "")
     }
     
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        removeActivityIndicator()
+    }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         print("condition 3")
-        removeActivityIndicator()
         for transaction in transactions {
             switch (transaction.transactionState) {
             case .purchased:
@@ -398,8 +400,9 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     private func purchased(transaction: SKPaymentTransaction) {
         print("complete...")
+        removeActivityIndicator()
         SKPaymentQueue.default().finishTransaction(transaction)
-        IAPHelper.setProductPurchased(isPurchased: true, productIdentifier: selectedCategory.productIdentifier + "." + Constant.PURCHASED)
+        IAPHelper.setProductPurchased(isPurchased: true, productIdentifier: transaction.payment.productIdentifier + "." + Constant.PURCHASED)
         setButtonText(text: "PLAY SAME CATEGORY")
         buttonType = ButtonType.PLAY_AGAIN
         PreviewUtil.isPreviewPlay = false
@@ -407,6 +410,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     
     private func fail(transaction: SKPaymentTransaction) {
         print("fail...")
+        removeActivityIndicator()
         if let transactionError = transaction.error as? NSError {
             if transactionError.code != SKError.paymentCancelled.rawValue {
                 print("Transaction Error: \(transaction.error?.localizedDescription)")
@@ -449,7 +453,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
         if scoreTimer != nil {
             scoreTimer?.invalidate()
             scoreTimer = nil
-            self.scoreLabel.text = "\(totalCorrect)"
+            scoreLabel.text = "Score \(totalCorrect)"
         }
     }
 

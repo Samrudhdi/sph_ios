@@ -11,7 +11,7 @@ import StoreKit
 class IAPHelper : NSObject  {
     
     static func isProductPurchased(productIdentifier: String) -> Bool {
-        return PreferenceUtil().getBoolPref(key: productIdentifier)
+        return PreferenceUtil.getBoolPref(key: productIdentifier)
     }
     
     static func canMakePayments() -> Bool {
@@ -34,15 +34,15 @@ class IAPHelper : NSObject  {
     }
 
     static func getPrice(productIdentifier: String) -> String{
-        return PreferenceUtil().getStringPref(key: productIdentifier)
+        return PreferenceUtil.getStringPref(key: productIdentifier)
     }
     
     static func setPrice(price: String, productIdentifier: String) {
-        PreferenceUtil().setPreference(value: price, key: productIdentifier)
+        PreferenceUtil.setPreference(value: price, key: productIdentifier)
     }
     
     static func setProductPurchased(isPurchased: Bool, productIdentifier: String) {
-        PreferenceUtil().setPreference(value: isPurchased, key: productIdentifier)
+        PreferenceUtil.setPreference(value: isPurchased, key: productIdentifier)
     }
     
 }

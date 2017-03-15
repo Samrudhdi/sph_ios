@@ -41,6 +41,8 @@
 		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
 		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
 		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
+		3D756FB01E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */; };
+		3D756FB11E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */; };
 		3D79F21E1E643D7300BECAC8 /* TeamPlayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */; };
 		3D79F2211E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */; };
 		3D79F2221E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */; };
@@ -114,6 +116,8 @@
 		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
 		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
 		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
+		3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestorePurchaseCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPlayUtil.swift; sourceTree = "<group>"; };
 		3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinalScoreCardViewController.swift; sourceTree = "<group>"; };
 		3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamFinalScoreCardViewController.xib; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */,
 				3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */,
 				3DC1A39F1E4C8BF200330170 /* MKLayer.swift */,
+				3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */,
+				3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */,
 			);
 			name = CategoryView;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
 				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
 				3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */,
+				3D756FB11E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib in Resources */,
 				3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */,
 				3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */,
 				3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */,
@@ -554,6 +561,7 @@
 				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
 				3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
+				3D756FB01E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift in Sources */,
 				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D0131161E11865B00845149 /* Deck.swift in Sources */,
@@ -695,7 +703,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -715,7 +723,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

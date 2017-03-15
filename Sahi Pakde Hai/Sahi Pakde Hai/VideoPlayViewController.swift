@@ -11,6 +11,7 @@ import AVFoundation
 import Photos
 import FBSDKShareKit
 import FBSDKLoginKit
+import FacebookShare
 
 class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     
@@ -36,7 +37,8 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setDeviceOrientation()
+        returnedOrientation()
         subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
 
         self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
@@ -113,17 +115,36 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     
     @IBAction func shareOnFacebook(_ sender: AnyObject) {
         print("fb share")
-//        checkFacebookPublishPermission()
+        checkFacebookPublishPermission()
     }
     
     func shareFB() {
         let videoContent = FBSDKShareVideoContent()
         videoContent.video = FBSDKShareVideo(videoURL: videoURl)
-        let shareApi = FBSDKShareAPI()
-        shareApi.message = "Sharing..."
-        shareApi.shareContent = videoContent
-        shareApi.delegate = self
-        shareApi.share()
+        let video = Video.init(url: videoURl!)
+        let videoShareContent = VideoShareContent(video: video)
+        //        let shareApi = FBSDKShareAPI()
+//        shareApi.message = "Sharing..."
+//        shareApi.shareContent = videoContent
+//        shareApi.delegate = self
+//        shareApi.share()
+            let sharer = GraphSharer(content: videoShareContent)
+        sharer.failsOnInvalidData = true
+        sharer.completion = {
+            result in
+            print(result)
+            print("facebook share result")
+            CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+        }
+        
+        do {
+            print("Started facebook share")
+             CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+            try sharer.share()
+        }catch {
+            print("Facebook Share Error"+error.localizedDescription)
+            CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+        }
         
     }
     
@@ -212,6 +233,36 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
             labelTop.text = ""
         }
     }
+    
+    func returnedOrientation() -> AVCaptureVideoOrientation {
+        var videoOrientation: AVCaptureVideoOrientation!
+        let orientation = UIDevice.current.orientation
+        
+        switch orientation {
+        case .portrait:
+            videoOrientation = .portrait
+            PreferenceUtil.setPreference(value: 0, key: "CaptureVideoOrientation")
+        case .portraitUpsideDown:
+            videoOrientation = .portraitUpsideDown
+            PreferenceUtil.setPreference(value: 1, key: "CaptureVideoOrientation")
+        case .landscapeLeft:
+            videoOrientation = .landscapeRight
+            PreferenceUtil.setPreference(value: 2, key: "CaptureVideoOrientation")
+        case .landscapeRight:
+            videoOrientation = .landscapeLeft
+            PreferenceUtil.setPreference(value: 3, key: "CaptureVideoOrientation")
+        case .faceDown, .faceUp, .unknown:
+            let digit = PreferenceUtil.getIntPref(key: "CaptureVideoOrientation")
+            videoOrientation = AVCaptureVideoOrientation.init(rawValue: digit)
+        }
+        return videoOrientation
+    }
+    
+    func setDeviceOrientation() {
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+
 
     /*
     // MARK: - Navigation

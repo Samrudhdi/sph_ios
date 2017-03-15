@@ -13,6 +13,10 @@ import UIKit
 class Constant{
     
     
+    // video file name
+    static let FILE_NAME = "sahipakdehai.mov"
+    
+    
     // App Name
     static let APP_NAME = "Sahi Pakde Hai"
     
@@ -28,7 +32,7 @@ class Constant{
     
     
     // Timer count
-    static let count = 3000//6000
+    static let count = 6000//6000
     static let threeTwoOneCount = 5
     
     // Google Analytics

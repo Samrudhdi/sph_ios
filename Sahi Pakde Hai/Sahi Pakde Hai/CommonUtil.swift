@@ -35,10 +35,9 @@ class CommonUtil{
         actInd.hidesWhenStopped = true
         actInd.activityIndicatorViewStyle = .whiteLarge
         actInd.color = Constant.whiteColor
-        
         view.addSubview(subView)
         view.addSubview(actInd)
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
         
         actInd.startAnimating()
     }
@@ -46,6 +45,7 @@ class CommonUtil{
     static func removeActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
         subView.removeFromSuperview()
         actInd.stopAnimating()
+        view.isUserInteractionEnabled = true
         actInd.isHidden = true
     }
     

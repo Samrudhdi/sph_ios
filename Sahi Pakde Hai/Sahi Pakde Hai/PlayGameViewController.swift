@@ -55,6 +55,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDeviceOrientation()
         setupNotificationCenter()
         setupCameraSession()
         startGamePlay()
@@ -95,6 +96,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         CommonUtil.disableSleep()
         wordLabel.text = "Place On \nForehead"
         timerLabel.text = ""
+        setBackgroundColor(color: Constant.blackColor)
         setTeamPlay()
         setSelectedCategoryList(categoryId: deckId, isPreviewPlay: PreviewUtil.isPreviewPlay)
         setupAccelerometer()
@@ -401,7 +403,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         preview?.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
 
 //        preview?.frame = self.videoView.bounds
-        preview?.connection.videoOrientation = .landscapeRight
+        preview?.connection.videoOrientation = self.returnedOrientation()
         preview?.videoGravity = AVLayerVideoGravityResize
         return preview!
     }()
@@ -473,7 +475,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == AVAuthorizationStatus.authorized {
             
             dataOutput = AVCaptureMovieFileOutput()
-            let fileName = "sahipakdehai.mov"
+            let fileName = Constant.FILE_NAME
             
             if (cameraSession.canAddOutput(dataOutput) == true) {
                 cameraSession.addOutput(dataOutput)
@@ -495,7 +497,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             if videoConnection != nil {
                 if (videoConnection?.isVideoOrientationSupported)!{
-                    videoConnection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                    videoConnection?.videoOrientation = 
                 }
                 
                 if (videoConnection?.isVideoMirroringSupported)! {
@@ -575,6 +577,34 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             teamPlayLabel.text = ""
         }
     }
+    
+    func returnedOrientation() -> AVCaptureVideoOrientation {
+        var videoOrientation: AVCaptureVideoOrientation!
+        let orientation = UIDevice.current.orientation
+        
+        switch orientation {
+        case .portrait:
+            videoOrientation = .portrait
+            PreferenceUtil.setPreference(value: 0, key: "CaptureVideoOrientation")
+        case .portraitUpsideDown:
+            videoOrientation = .portraitUpsideDown
+             PreferenceUtil.setPreference(value: 1, key: "CaptureVideoOrientation")
+        case .landscapeLeft:
+            videoOrientation = .landscapeRight
+             PreferenceUtil.setPreference(value: 2, key: "CaptureVideoOrientation")
+        case .landscapeRight:
+            videoOrientation = .landscapeLeft
+             PreferenceUtil.setPreference(value: 3, key: "CaptureVideoOrientation")
+        case .faceDown, .faceUp, .unknown:
+            let digit = PreferenceUtil.getIntPref(key: "CaptureVideoOrientation")
+            videoOrientation = AVCaptureVideoOrientation.init(rawValue: digit)
+        }
+        return videoOrientation
+    }
 
+    func setDeviceOrientation() {
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
 }
 

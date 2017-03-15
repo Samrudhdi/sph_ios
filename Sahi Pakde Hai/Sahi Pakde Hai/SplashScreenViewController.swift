@@ -32,8 +32,8 @@ class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate
     
     func goToScreen() {
         
-        if !PreferenceUtil().getBoolPref(key: Constant.FIRST_TIME_ENTER){
-            PreferenceUtil().setPreference(value: true, key: Constant.FIRST_TIME_ENTER)
+        if !PreferenceUtil.getBoolPref(key: Constant.FIRST_TIME_ENTER){
+            PreferenceUtil.setPreference(value: true, key: Constant.FIRST_TIME_ENTER)
             perform(#selector(SplashScreenViewController.showHowToPlayController), with: nil, afterDelay: TimeInterval(delay))
         }else {
             perform(#selector(SplashScreenViewController.showCategoryController), with: nil, afterDelay: TimeInterval(delay))
@@ -76,7 +76,7 @@ class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate
             let url = "https://spreadsheets.google.com/tq?key=1RqjjkDkY4g2HfHDINt-Xxfv-QJsuLDOEQVW-D94-Km8"
             Service().getDeckData(url: url, actInd: indicatorView, view: self.view, subView: super.subView, success: successCallBack, failure: failureCallBack)
         }else {
-            if !PreferenceUtil().getBoolPref(key: Constant.FIRST_TIME_DATA_LOAD){
+            if !PreferenceUtil.getBoolPref(key: Constant.FIRST_TIME_DATA_LOAD){
                 showNoInternetDialog()
             }else {
                 goToScreen()
@@ -104,11 +104,11 @@ class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate
         let updateVersionCode = deck.deckType
         print(updateVersionCode)
         
-        let storedVersion = PreferenceUtil().getIntPref(key: Constant.UPDATE_VERSION_CODE)
+        let storedVersion = PreferenceUtil.getIntPref(key: Constant.UPDATE_VERSION_CODE)
         if updateVersionCode > storedVersion{
             insertDataOnDatabase(decks: decks)
-            PreferenceUtil().setPreference(value: updateVersionCode, key: Constant.UPDATE_VERSION_CODE)
-            PreferenceUtil().setPreference(value: true, key: Constant.FIRST_TIME_DATA_LOAD)
+            PreferenceUtil.setPreference(value: updateVersionCode, key: Constant.UPDATE_VERSION_CODE)
+            PreferenceUtil.setPreference(value: true, key: Constant.FIRST_TIME_DATA_LOAD)
         }
     }
     

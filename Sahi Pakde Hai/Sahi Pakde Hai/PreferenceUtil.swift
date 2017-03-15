@@ -9,28 +9,27 @@
 import Foundation
 
 class PreferenceUtil {
-    var preference:UserDefaults? = nil
     
-    init() {
-        preference = UserDefaults.standard
+    static func setPreference(value:Any, key:String) {
+        let preference = UserDefaults.standard
+        preference.set(value, forKey: key)
+        preference.synchronize()
     }
     
-    func setPreference(value:Any, key:String) {
-        self.preference?.set(value, forKey: key)
-        self.preference?.synchronize()
+    static func getBoolPref(key: String) -> Bool {
+        let preference = UserDefaults.standard
+        return (preference.bool(forKey: key))
     }
     
-    func getBoolPref(key: String) -> Bool {
-        return (self.preference?.bool(forKey: key))!
+    static func getIntPref(key:String) -> Int {
+        let preference = UserDefaults.standard
+        return (preference.integer(forKey: key))
     }
     
-    func getIntPref(key:String) -> Int {
-        return (self.preference?.integer(forKey: key))!
-    }
-    
-    func getStringPref(key: String) -> String {
-        if self.preference?.string(forKey: key) != nil {
-            return (self.preference?.string(forKey: key))!
+    static func getStringPref(key: String) -> String {
+        let preference = UserDefaults.standard
+        if preference.string(forKey: key) != nil {
+            return (preference.string(forKey: key))!
         }else {
             return ""
         }
