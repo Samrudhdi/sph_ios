@@ -77,7 +77,7 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        stopTimer()
+//        stopTimer()
         SKPaymentQueue.default().remove(self)
     }
 

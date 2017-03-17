@@ -9,17 +9,17 @@
 import UIKit
 import AVFoundation
 import Photos
-import FBSDKShareKit
-import FBSDKLoginKit
 import FacebookShare
+import FacebookLogin
+import FacebookCore
 
-class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
+class VideoPlayViewController: UIViewController{
     
     var videoURl:URL? = nil
     @IBOutlet weak var videoView: UIView!
     
-    var count = Constant.count
-    var threeTwoOneCount = Constant.threeTwoOneCount
+    var count = 0
+    var threeTwoOneCount = 0
     var timer:Timer? = nil
     var threeTwoOneTimer:Timer? = nil
     var questionAtPosition:Int = 0
@@ -34,17 +34,33 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     let indicatorView = UIActivityIndicatorView()
     var selectedCategory = Category()
     
+    let loginManger = LoginManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDeviceOrientation()
-        returnedOrientation()
         subView.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
-
+        setupPerviewLayer()
+        setupNotificationCenter()
+        // Do any additional setup after loading the view.
+    }
+    
+    func setupPlayVideo()  {
+        count = Constant.count
+        threeTwoOneCount = Constant.threeTwoOneCount
+        questionAtPosition = 0
+        labelTop.text = ""
+        labelMiddle.text = ""
+        
         self.threeTwoOneTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.threeTwoOneCounter), userInfo: nil, repeats: true)
         
-        playVideo()
-        // Do any additional setup after loading the view.
+        player?.seek(to: kCMTimeZero)
+        player?.play()
+    }
+    
+    func stopVideoPlay() {
+        player?.pause()
+        threeTwoOneTimer?.invalidate()
+        timer?.invalidate()
     }
     
     override var shouldAutorotate: Bool {
@@ -56,23 +72,47 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("TAG:  viewWillAppear")
+        setupPlayVideo()
         GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_WATCH_VIDEO)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopVideoPlay()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterForground), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func didEnterForground() {
+        print("didEnterForground")
+        setupPlayVideo()
+    }
+    
+    func didEnterBackground() {
+        print("didEnterBackground")
+        stopVideoPlay()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func playVideo() {
+    func setupPerviewLayer() {
         if videoURl != nil {
             videoView.layoutIfNeeded()
             player = AVPlayer(url: videoURl!)
             let playerPreview = AVPlayerLayer(player: player)
             playerPreview.frame = CGRect(x: 0, y: 0, width: self.videoView.frame.height, height: self.videoView.frame.width)
-            playerPreview.videoGravity = AVLayerVideoGravityResizeAspectFill
+            playerPreview.videoGravity = AVLayerVideoGravityResize
             self.videoView.layer.addSublayer(playerPreview)
-            player?.play()
         }
     }
 
@@ -82,16 +122,39 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_VIDEO_BACK, category: selectedCategory.categoryName, label: "")
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        player?.pause()
-    }
     
     @IBAction func saveVideo(_ sender: AnyObject) {
-        saveVideoToGallary()
+        checkVideoSavePermission()
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_VIDEO_SAVE, category: self.selectedCategory.categoryName, label: "")
     }
     
+    func checkVideoSavePermission() {
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            print("video: authorized")
+            saveVideoToGallary()
+            break
+        case .notDetermined:
+            print("video: notDetermined")
+            PHPhotoLibrary.requestAuthorization({ granted in
+                print("cam: request access")
+                if granted == PHAuthorizationStatus.authorized {
+                    self.saveVideoToGallary()
+                    print("cam: permission authorized")
+                }
+            })
+        case .denied:
+            print("video: denied")
+            showPermissionAlertMessage()
+            break
+        case .restricted:
+            print("video: restricted")
+            break
+        }
+    }
+    
     func saveVideoToGallary() {
+        
         print(PHPhotoLibrary.authorizationStatus())
         CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.videoView, subView: self.subView)
         PHPhotoLibrary.shared().performChanges({
@@ -119,22 +182,28 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     }
     
     func shareFB() {
-        let videoContent = FBSDKShareVideoContent()
-        videoContent.video = FBSDKShareVideo(videoURL: videoURl)
         let video = Video.init(url: videoURl!)
         let videoShareContent = VideoShareContent(video: video)
-        //        let shareApi = FBSDKShareAPI()
-//        shareApi.message = "Sharing..."
-//        shareApi.shareContent = videoContent
-//        shareApi.delegate = self
-//        shareApi.share()
             let sharer = GraphSharer(content: videoShareContent)
         sharer.failsOnInvalidData = true
+        sharer.message = "Had a great time playing \"Sahi Pakde Hai\"!\n#sahipakdehai #charades #partygame #bollywood\n\nGet this super fun charades app here\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
         sharer.completion = {
             result in
-            print(result)
-            print("facebook share result")
             CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: self.subView)
+            switch result {
+            case .cancelled:
+                
+                break
+                
+            case .failed(let error):
+                print(error.localizedDescription)
+                CommonUtil.showMessage(controller: self, title: error.localizedDescription, message: "")
+                break
+
+            case .success( _):
+                CommonUtil.showMessage(controller: self, title: "Successfully video uploaded on Facebook", message: "")
+                break
+            }
         }
         
         do {
@@ -149,40 +218,30 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
     }
     
     func checkFacebookPublishPermission() {
-        let action = "publish_actions"
-        if FBSDKAccessToken.current() != nil && FBSDKAccessToken.current().hasGranted(action) {
+        if AccessToken.current != nil {
+            print("fb: access token not nil")
             shareFB()
         }else {
-            let loginManager = FBSDKLoginManager()
-            loginManager.logIn(withPublishPermissions: ["publish_actions"], from: self, handler: { ( res:FBSDKLoginManagerLoginResult?, err:Error?) in
-                if err == nil {
-                    print(res)
-                    if (res?.isCancelled)! {
-                        print("cancelled")
-                    }else if ((res?.declinedPermissions) != nil) {
-                        print("declined")
-                    }else if ((res?.grantedPermissions) != nil) {
-                        print("granted")
-                    }
-                }else {
-                    print(err.debugDescription)
+            print("fb: facebook login")
+            loginManger.logIn([.publishActions], viewController: self, completion: {
+                loginResult in
+                switch loginResult {
+                case .failed(let error):
+                    print("fb: failed")
+                    print(error)
+                    
+                case .cancelled:
+                    print("fb: cancelled")
+                    print("User cancelled login.")
+                    
+                case .success( _, _, _):
+                    print("fb: success")
+                    print("Logged in!")
+                    self.shareFB()
                 }
+            
             })
         }
-    }
-    
-    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
-        print("fail with error")
-        print(error.localizedDescription)
-    }
-    
-    func sharerDidCancel(_ sharer: FBSDKSharing!) {
-        print("cancel")
-    }
-    
-    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
-        print("sharing is done");
-        print(results.debugDescription)
     }
     
     func threeTwoOneCounter() {
@@ -234,36 +293,29 @@ class VideoPlayViewController: UIViewController,FBSDKSharingDelegate{
         }
     }
     
-    func returnedOrientation() -> AVCaptureVideoOrientation {
-        var videoOrientation: AVCaptureVideoOrientation!
-        let orientation = UIDevice.current.orientation
-        
-        switch orientation {
-        case .portrait:
-            videoOrientation = .portrait
-            PreferenceUtil.setPreference(value: 0, key: "CaptureVideoOrientation")
-        case .portraitUpsideDown:
-            videoOrientation = .portraitUpsideDown
-            PreferenceUtil.setPreference(value: 1, key: "CaptureVideoOrientation")
-        case .landscapeLeft:
-            videoOrientation = .landscapeRight
-            PreferenceUtil.setPreference(value: 2, key: "CaptureVideoOrientation")
-        case .landscapeRight:
-            videoOrientation = .landscapeLeft
-            PreferenceUtil.setPreference(value: 3, key: "CaptureVideoOrientation")
-        case .faceDown, .faceUp, .unknown:
-            let digit = PreferenceUtil.getIntPref(key: "CaptureVideoOrientation")
-            videoOrientation = AVCaptureVideoOrientation.init(rawValue: digit)
-        }
-        return videoOrientation
-    }
-    
     func setDeviceOrientation() {
         let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
     }
+    
+    func showPermissionAlertMessage() {
+        
+        let message = NSLocalizedString(Constant.APP_NAME+" doesn't have permission to use the camera, please change privacy settings", comment: "Alert message when the user has denied access to the camera")
+        let alertController = UIAlertController(title: Constant.APP_NAME, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .`default`, handler: { action in
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
+            }
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 
-
+    
     /*
     // MARK: - Navigation
 

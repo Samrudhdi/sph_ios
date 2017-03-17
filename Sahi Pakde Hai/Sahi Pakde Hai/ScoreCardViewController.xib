@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,11 +25,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_screen_bg" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-ck-PQT"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_screen_bg" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-ck-PQT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-ZB-0F3">
+                    <rect key="frame" x="35" y="151" width="250" height="239"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="MRS-ck-PQT" id="KQJ-cQ-GsR"/>
@@ -34,6 +40,7 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBh-ka-cmA">
+                    <rect key="frame" x="114" y="66" width="171" height="45"/>
                     <color key="backgroundColor" red="0.16862745098039217" green="0.30980392156862746" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Rga-z5-G7l">
@@ -59,11 +66,13 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_happy_face" translatesAutoresizingMaskIntoConstraints="NO" id="6Gj-mD-dgU">
+                    <rect key="frame" x="35" y="44" width="89" height="89"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="6Gj-mD-dgU" secondAttribute="height" multiplier="1:1" id="kFm-0w-nEQ"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePa-nv-wWq">
+                    <rect key="frame" x="121" y="508" width="164" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.67843137254901964" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="PLAY SAME CATEGORY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,6 +87,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrp-6O-TzZ">
+                    <rect key="frame" x="35" y="508" width="71" height="40"/>
                     <color key="backgroundColor" red="1" green="0.113240434" blue="0.081215825180000006" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="7FA-eG-Hf5"/>
@@ -99,8 +109,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqD-l8-8of">
+                    <rect key="frame" x="35" y="398" width="250" height="100"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nqH-E8-5rd">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="WMg-1B-GBm"/>
                             </constraints>
@@ -117,6 +129,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-5y-ZUS">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="100"/>
                             <state key="normal" image="play"/>
                             <connections>
                                 <action selector="playVideo:" destination="-1" eventType="touchUpInside" id="mS4-KT-Iss"/>
@@ -140,7 +153,7 @@
             <constraints>
                 <constraint firstItem="Rrp-6O-TzZ" firstAttribute="height" secondItem="ePa-nv-wWq" secondAttribute="height" id="0c4-G3-ShV"/>
                 <constraint firstItem="ePa-nv-wWq" firstAttribute="top" secondItem="h6a-ZB-0F3" secondAttribute="bottom" constant="118" id="0hk-sU-uBL"/>
-                <constraint firstItem="h6a-ZB-0F3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="EWk-h3-UNz">
+                <constraint firstItem="h6a-ZB-0F3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="EWk-h3-UNz">
                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                 </constraint>
                 <constraint firstItem="h6a-ZB-0F3" firstAttribute="trailing" secondItem="QBh-ka-cmA" secondAttribute="trailing" id="Flw-C9-wmJ"/>
@@ -156,7 +169,7 @@
                     <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                 </constraint>
                 <constraint firstItem="ePa-nv-wWq" firstAttribute="top" secondItem="OqD-l8-8of" secondAttribute="bottom" constant="10" id="WyG-qO-0i7"/>
-                <constraint firstAttribute="trailing" secondItem="h6a-ZB-0F3" secondAttribute="trailing" constant="30" id="X35-tP-QTW">
+                <constraint firstAttribute="trailing" secondItem="h6a-ZB-0F3" secondAttribute="trailing" constant="35" id="X35-tP-QTW">
                     <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                 </constraint>
                 <constraint firstItem="h6a-ZB-0F3" firstAttribute="leading" secondItem="Rrp-6O-TzZ" secondAttribute="leading" id="X5G-AO-vbN"/>

@@ -45,6 +45,35 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     var isTimsUP = true
     
+    private enum SessionSetupResult {
+        case success
+        case notAuthorized
+        case configurationFailed
+    }
+    
+    private var setupResult: SessionSetupResult = .success
+    
+    //    :camera
+    lazy var cameraSession: AVCaptureSession = {
+        let s = AVCaptureSession()
+        s.sessionPreset = AVCaptureSessionPresetLow
+        return s
+    }()
+    
+    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
+        let preview =  AVCaptureVideoPreviewLayer(session: self.cameraSession)
+        //        preview?.bounds = CGRect(x: 0, y: 0, width: self.videoView.bounds.width, height: self.view.bounds.height)
+        //        preview?.position = CGPoint(x: 0, y: self.view.frame.height)
+        preview?.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
+        
+        //        preview?.frame = self.videoView.bounds
+        preview?.connection.videoOrientation = .landscapeRight
+        preview?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        return preview!
+    }()
+    
+    private let sessionQueue = DispatchQueue(label: "session queue", attributes: [], target: nil) // Communicate with the session and other session objects on this queue.
+    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -52,12 +81,13 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.landscapeRight
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDeviceOrientation()
+//        UIDevbiceOrientation()
+        checkCameraPermission()
         setupNotificationCenter()
-        setupCameraSession()
+//        setupCameraSession()
         startGamePlay()
     }
     
@@ -67,14 +97,16 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         print("viewWillAppear")
         GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_PLAY_GAME)
+        startSession()
     }
     
     func didEnterForground() {
         print("didEnterForground")
         startGamePlay()
-        restartCameraPreview()
+        startSession()
     }
     
     func didEnterBackground() {
@@ -115,6 +147,7 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         print("viewWillDisappear")
         stopGamePlay()
         NotificationCenter.default.removeObserver(self)
+        super.viewWillDisappear(animated)
     }
     
     func setupAccelerometer() {
@@ -388,27 +421,11 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         self.wordLabel.text = word
     }
     
-    
-//    :camera
-    lazy var cameraSession: AVCaptureSession = {
-        let s = AVCaptureSession()
-        s.sessionPreset = AVCaptureSessionPresetLow
-        return s
-    }()
-    
-    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let preview =  AVCaptureVideoPreviewLayer(session: self.cameraSession)
-//        preview?.bounds = CGRect(x: 0, y: 0, width: self.videoView.bounds.width, height: self.view.bounds.height)
-//        preview?.position = CGPoint(x: 0, y: self.view.frame.height)
-        preview?.frame = CGRect(x: 0, y: 0, width: self.view.frame.height, height: self.view.frame.width)
-
-//        preview?.frame = self.videoView.bounds
-        preview?.connection.videoOrientation = .landscapeRight
-        preview?.videoGravity = AVLayerVideoGravityResize
-        return preview!
-    }()
-
     func setupCameraSession() {
+        
+        if setupResult != .success {
+            return
+        }
         
         var captureDevice:AVCaptureDevice
         if #available(iOS 10.0, *) {
@@ -451,8 +468,6 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             cameraSession.commitConfiguration()
             
             videoView.layer.addSublayer(previewLayer)
-            cameraSession.startRunning()
-            
             setupVideoRecordingOutputFile()
         }
         catch let error as NSError {
@@ -497,12 +512,14 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
             
             if videoConnection != nil {
                 if (videoConnection?.isVideoOrientationSupported)!{
-                    videoConnection?.videoOrientation = returnedOrientation()
+                    let videoPreviewLayerOrientation = previewLayer.connection.videoOrientation
+                    
+                    videoConnection?.videoOrientation = videoPreviewLayerOrientation
                 }
-                
-                if (videoConnection?.isVideoMirroringSupported)! {
-                    videoConnection?.isVideoMirrored = true
-                }
+//
+//                if (videoConnection?.isVideoMirroringSupported)! {
+//                    videoConnection?.isVideoMirrored = true
+//                }
             }
             
             let documentURl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -519,10 +536,15 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     
     func stopVideoRecording() {
 //        if cameraSession != nil {
-        if dataOutput != nil {
-            dataOutput?.stopRecording()
-            cameraSession.stopRunning()
+        sessionQueue.async { [unowned self] in
+            if self.setupResult == .success {
+                self.cameraSession.stopRunning()
+            }
         }
+//        if dataOutput != nil {
+//            dataOutput?.stopRecording()
+//            cameraSession.stopRunning()
+//        }
 //        }
     }
     
@@ -578,33 +600,112 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
         }
     }
     
-    func returnedOrientation() -> AVCaptureVideoOrientation {
-        var videoOrientation: AVCaptureVideoOrientation!
-        let orientation = UIDevice.current.orientation
+    func checkCameraPermission() {
         
-        switch orientation {
-        case .portrait:
-            videoOrientation = .portrait
-            PreferenceUtil.setPreference(value: 0, key: "CaptureVideoOrientation")
-        case .portraitUpsideDown:
-            videoOrientation = .portraitUpsideDown
-             PreferenceUtil.setPreference(value: 1, key: "CaptureVideoOrientation")
-        case .landscapeLeft:
-            videoOrientation = .landscapeRight
-             PreferenceUtil.setPreference(value: 2, key: "CaptureVideoOrientation")
-        case .landscapeRight:
-            videoOrientation = .landscapeLeft
-             PreferenceUtil.setPreference(value: 3, key: "CaptureVideoOrientation")
-        case .faceDown, .faceUp, .unknown:
-            let digit = PreferenceUtil.getIntPref(key: "CaptureVideoOrientation")
-            videoOrientation = AVCaptureVideoOrientation.init(rawValue: digit)
+        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        case .authorized:
+            // The user has previously granted access to the camera.
+            print("cam: authorized")
+            break
+            
+        case .notDetermined:
+            print("cam: notDetermined")
+            /*
+             The user has not yet been presented with the option to grant
+             video access. We suspend the session queue to delay session
+             setup until the access request has completed.
+             
+             Note that audio access will be implicitly requested when we
+             create an AVCaptureDeviceInput for audio during session setup.
+             */
+            
+            sessionQueue.suspend()
+            print("cam: sessionQueue.suspend")
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [unowned self] granted in
+                print("cam: request access")
+                if !granted {
+                    self.setupResult = .notAuthorized
+                    print("cam: permission authorized")
+                }
+                self.sessionQueue.resume()
+                print("cam: sessionQueue.resume")
+            })
+            
+        default:
+            // The user has previously denied access.
+            setupResult = .notAuthorized
+            print("cam: default not authorized")
         }
-        return videoOrientation
-    }
 
-    func setDeviceOrientation() {
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        sessionQueue.async { [unowned self] in
+            print("cam: setupCameraSession")
+            self.setupCameraSession()
+        }
+    }
+    
+    func startSession() {
+        
+        sessionQueue.async {
+            switch self.setupResult {
+            case .success:
+                // Only setup observers and start the session running if setup succeeded.
+                self.cameraSession.startRunning()
+                
+            case .notAuthorized: break
+//                DispatchQueue.main.async { [unowned self] in
+//                    let message = NSLocalizedString("AVCam doesn't have permission to use the camera, please change privacy settings", comment: "Alert message when the user has denied access to the camera")
+//                    let alertController = UIAlertController(title: Constant.APP_NAME, message: message, preferredStyle: .alert)
+//                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
+//                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .`default`, handler: { action in
+//                        if #available(iOS 10.0, *) {
+//                            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+//                        } else {
+//                            // Fallback on earlier versions
+//                        }
+//                    }))
+                
+//                    self.present(alertController, animated: true, completion: nil)
+//                }
+                
+            case .configurationFailed: break
+//                DispatchQueue.main.async { [unowned self] in
+//                    let message = NSLocalizedString("Unable to capture media", comment: "Alert message when something goes wrong during capture session configuration")
+//                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+//                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
+                
+//                    self.present(alertController, animated: true, completion: nil)
+//                }
+            }
+        }
+
+    }
+    
+}
+
+
+
+extension UIDeviceOrientation {
+    var videoOrientation: AVCaptureVideoOrientation? {
+        switch self {
+        case .portrait: return .portrait
+        case .portraitUpsideDown: return .portraitUpsideDown
+        case .landscapeLeft: return .landscapeRight
+        case .landscapeRight: return .landscapeLeft
+        default: return nil
+        }
     }
 }
+
+extension UIInterfaceOrientation {
+    var videoOrientation: AVCaptureVideoOrientation? {
+        switch self {
+        case .portrait: return .portrait
+        case .portraitUpsideDown: return .portraitUpsideDown
+        case .landscapeLeft: return .landscapeLeft
+        case .landscapeRight: return .landscapeRight
+        default: return nil
+        }
+    }
+}
+
 
