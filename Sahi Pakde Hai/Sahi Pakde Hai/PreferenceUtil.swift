@@ -34,4 +34,13 @@ class PreferenceUtil {
             return ""
         }
     }
+    
+    static func getSettingPref(key: String) -> Bool{
+        let pref = UserDefaults.standard
+        if pref.object(forKey: key) == nil {
+            return true
+        }else {
+            return getBoolPref(key: key)
+        }
+    }
 }

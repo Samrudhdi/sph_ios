@@ -8,6 +8,9 @@
 
 import UIKit
 import FacebookCore
+import Fabric
+import Crashlytics
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Fabric initialization
+        Fabric.with([Crashlytics.self])
+        
+        setupMixpanel()
         
         // Google analytics
         var configureError: NSError?
@@ -71,6 +79,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let mixpanel = Mixpanel.mainInstance()
+        print("device token: \(deviceToken)")
+        mixpanel.people.addPushDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        debugPrint(error)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        debugPrint("did receive remote notification")
+        if let message = (userInfo["aps"] as? [String: Any])?["alert"] as? String {
+            let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        Mixpanel.mainInstance().trackPushNotification(userInfo)
+     }
+    
+    
 //    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 //    
 //        if self.window?.rootViewController?.presentingViewController is PlayGameViewController {
@@ -80,6 +111,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //    }
 
+    func setupMixpanel() {
+        
+        // Mixpanel Initializer
+        Mixpanel.initialize(token: Constant.MIXPANEL_TOKEN)
+        Mixpanel.mainInstance().loggingEnabled = true
+        Mixpanel.mainInstance().flushInterval = 5
+        
+        let setting = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(setting)
+        UIApplication.shared.registerForRemoteNotifications()
+        
+        Mixpanel.mainInstance().identify(distinctId: Mixpanel.mainInstance().distinctId)
+        
+
+    }
 
 }
+
 

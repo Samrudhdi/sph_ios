@@ -13,6 +13,9 @@ target 'Sahi Pakde Hai' do
     pod 'FacebookShare'
     pod 'Google/Analytics'
     pod 'GoogleIDFASupport'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'Mixpanel-swift'
 #    pod "AsyncSwift"
 #    pod 'RippleAnimation'
 

@@ -85,7 +85,9 @@ class PlayGameViewController: UIViewController,UINavigationControllerDelegate,AV
     override func viewDidLoad() {
         super.viewDidLoad()
 //        UIDevbiceOrientation()
-        checkCameraPermission()
+        if PreferenceUtil.getSettingPref(key: Constant.VIDEO_SETTING) {
+            checkCameraPermission()
+        }
         setupNotificationCenter()
 //        setupCameraSession()
         startGamePlay()

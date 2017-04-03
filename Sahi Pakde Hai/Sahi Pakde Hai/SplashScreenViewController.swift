@@ -34,6 +34,7 @@ class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate
         
         if !PreferenceUtil.getBoolPref(key: Constant.FIRST_TIME_ENTER){
             PreferenceUtil.setPreference(value: true, key: Constant.FIRST_TIME_ENTER)
+        
             perform(#selector(SplashScreenViewController.showHowToPlayController), with: nil, afterDelay: TimeInterval(delay))
         }else {
             perform(#selector(SplashScreenViewController.showCategoryController), with: nil, afterDelay: TimeInterval(delay))
@@ -160,6 +161,11 @@ class SplashScreenViewController: BaseUIViewController,SKProductsRequestDelegate
     func request(_ request: SKRequest, didFailWithError error: Error) {
         print("Product Reqeust Error: "+error.localizedDescription)
          CommonUtil.showMessage(controller: self, title:error.localizedDescription, message: "")
+    }
+    
+    func setSettingPref() {
+        PreferenceUtil.setPreference(value: true, key: Constant.SOUND_SETTING)
+        PreferenceUtil.setPreference(value: true, key: Constant.VIDEO_SETTING)
     }
     
     /*

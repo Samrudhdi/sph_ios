@@ -11,13 +11,21 @@ import AVFoundation
 import StoreKit
 
 class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, SKPaymentTransactionObserver{
-    @IBOutlet weak var shareButton: UIButton!
+    
+    @IBOutlet weak var settingButton: UIButton!
 
     @IBOutlet weak var teamPlayButton: UIButton!
     
     @IBOutlet weak var helpButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var settingView: UIView!
+    
+    @IBOutlet weak var switchSound: UISwitch!
+    
+    @IBOutlet weak var switchVideo: UISwitch!
+    
     let numberOfCell:CGFloat = 2
     var margin:CGFloat = 20.0
     
@@ -36,6 +44,8 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        hideSettingView()
+        checkSettingPref()
         SKPaymentQueue.default().add(self)
         changeBottomButtonIcons()
         GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
@@ -252,20 +262,21 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         khaanPaan.isPaidCategory = false
         khaanPaan.categoryName = Constant.CAT_KHAAN_PAAN
 
-        
+//        free category
         categoryArray.append(cinemaCat)
         categoryArray.append(lightCameraActionCat)
         categoryArray.append(hindi)
         categoryArray.append(heroHeroine)
-        categoryArray.append(adultOnly)
         categoryArray.append(hollywood)
-        
-        categoryArray.append(cricket)
-        categoryArray.append(songs)
         categoryArray.append(mythology)
+        categoryArray.append(khaanPaan)
+        
+//        paid category
+        categoryArray.append(songs)
+        categoryArray.append(cricket)
         categoryArray.append(gameOfThrones)
         categoryArray.append(kidsZone)
-        categoryArray.append(khaanPaan)
+        categoryArray.append(adultOnly)
         self.collectionView.reloadData()
         
     }
@@ -279,11 +290,11 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         }
     }
     
-    @IBAction func shareAppLink(_ sender: AnyObject) {
+    @IBAction func setting(_ sender: AnyObject) {
         if TeamPlayUtil.isTeamPlay {
             dismissCategoryViewController()
         }else {
-            shareLink()
+            showSettingView()
         }
 
     }
@@ -299,10 +310,10 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     func changeBottomButtonIcons() {
         if TeamPlayUtil.isTeamPlay {
             teamPlayButton.setImage(UIImage(named: "team_mode_on"), for: .normal)
-            shareButton.setImage(UIImage(named: "back_team_play"), for: .normal)
+            settingButton.setImage(UIImage(named: "back_team_play"), for: .normal)
             helpButton.setImage(UIImage(named: "cancel_team_play"), for: .normal)
         }else {
-            shareButton.setImage(UIImage(named: "share"), for: .normal)
+            settingButton.setImage(UIImage(named: "setting"), for: .normal)
             teamPlayButton.setImage(UIImage(named: "team"), for: .normal)
             helpButton.setImage(UIImage(named: "que"), for: .normal)
         }
@@ -327,12 +338,13 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
 
     }
     
-    func shareLink() {
-        let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
+    func shareAppLink() {
+        let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://itunes.apple.com/us/app/sahi-pakde-hai-dumb-charades/id1210599169?ls=1&mt=8"
         
         var contentArray:Array<String> = []
         contentArray.append(shareText)
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
+        
         present(activityViewController, animated: true, completion: nil)
 
     }
@@ -374,6 +386,58 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
          CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
         CommonUtil.showMessage(controller: self, title: error.localizedDescription, message: "")
     }
+    
+    @IBAction func share(_ sender: Any) {
+        shareAppLink()
+    }
+    
+    @IBAction func cancelSettingView(_ sender: Any) {
+        hideSettingViewWithAnimation()
+    }
+    
+    func showSettingView() {
+//        self.settingView.alpha = 0.0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settingView.alpha = 1.0
+        })
+    }
+    
+    func hideSettingView() {
+        self.settingView.alpha = 0.0
+    }
+    
+    func hideSettingViewWithAnimation() {
+//        self.settingView.alpha = 1.0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settingView.alpha = 0.0
+        })
+    }
+    
+    @IBAction func changeSoundSetting(_ sender: Any) {
+        print(sender)
+        let soundSwitch:UISwitch = sender as! UISwitch
+        print(soundSwitch.isOn)
+        setSoundPreference(flag: soundSwitch.isOn)
+    }
+    
+    @IBAction func changeVideoSetting(_ sender: Any) {
+        let videoSwitch:UISwitch = sender as! UISwitch
+        setVideoPreference(flag: videoSwitch.isOn)
+    }
+    
+    func setSoundPreference(flag:Bool) {
+        PreferenceUtil.setPreference(value: flag, key: Constant.SOUND_SETTING)
+    }
+    
+    func setVideoPreference(flag:Bool) {
+        PreferenceUtil.setPreference(value: flag, key: Constant.VIDEO_SETTING)
+    }
+    
+    func checkSettingPref() {
+        self.switchSound.isOn = PreferenceUtil.getSettingPref(key: Constant.SOUND_SETTING)
+        self.switchVideo.isOn = PreferenceUtil.getSettingPref(key: Constant.VIDEO_SETTING)
+    }
+    
    
     /*
     // MARK: - Navigation

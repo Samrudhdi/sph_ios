@@ -224,9 +224,14 @@ class ScoreCardViewController: BaseUIViewController,UITableViewDataSource,UITabl
     }
     
     func showOrHideVideoView() {
-        let  status: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
-        if status == AVAuthorizationStatus.authorized {
-            showVideoView()
+        
+        if PreferenceUtil.getSettingPref(key: Constant.VIDEO_SETTING) {
+            let  status: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+            if status == AVAuthorizationStatus.authorized {
+                showVideoView()
+            }else {
+                hideVideoView()
+            }
         }else {
             hideVideoView()
         }

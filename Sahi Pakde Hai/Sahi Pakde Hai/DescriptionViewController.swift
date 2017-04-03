@@ -171,6 +171,7 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
             break
             
         case BUTTON_TYPE.buy:
+            
             showActivityIndicator()
             buy()
             break

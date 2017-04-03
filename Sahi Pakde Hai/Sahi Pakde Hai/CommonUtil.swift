@@ -16,7 +16,7 @@ import StoreKit
 
 class CommonUtil{
     
-    func playSound(sound:String,ofType:String) -> AVAudioPlayer {
+    func playSound(sound:String,ofType:String) -> AVAudioPlayer? {
         var categorySelectionSound:AVAudioPlayer? = nil
         let path = Bundle.main.path(forResource: sound, ofType:ofType)!
         let url = URL(fileURLWithPath: path)
@@ -25,7 +25,12 @@ class CommonUtil{
         }catch {
             print("couldn't load file")
         }
-        return categorySelectionSound!
+        
+        if !PreferenceUtil.getSettingPref(key: Constant.SOUND_SETTING) {
+            return nil
+        }else {
+            return categorySelectionSound!
+        }
     }
     
     static func showActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
