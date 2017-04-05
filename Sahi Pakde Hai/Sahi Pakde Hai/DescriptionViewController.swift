@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import Mixpanel
 
 class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
@@ -76,6 +77,9 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     
     @IBAction func previewPlay(_ sender: AnyObject) {
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_PREVIEW, category: self.selecteCategory.categoryName, label: "")
+        
+        Mixpanel.mainInstance().track(event: Constant.ACT_PREVIEW, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
+        
         PreviewUtil.isPreviewPlay = true
         goToGamePlayController()
         
@@ -138,6 +142,7 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     }
     
     func startGame() {
+        Mixpanel.mainInstance().track(event: Constant.ACT_PLAY, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_PLAY, category: self.selecteCategory.categoryName, label: "")
         PreviewUtil.isPreviewPlay = false
         setTeamPlayRound()
@@ -171,7 +176,6 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
             break
             
         case BUTTON_TYPE.buy:
-            
             showActivityIndicator()
             buy()
             break

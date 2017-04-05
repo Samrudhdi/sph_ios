@@ -57,6 +57,7 @@ class Constant{
     static let E_COMMERCE = "e-commerce"
     
     //    Category
+    static let CATEGORY = "Category"
     static let CAT_CINEMA = "Cinema"
     static let CAT_LIGHT_CAMERA_ACTION = "Lights Camera Action"
     static let CAT_SIRF_HINDI_ME_BOL = "Sirf Hindi me Bol"

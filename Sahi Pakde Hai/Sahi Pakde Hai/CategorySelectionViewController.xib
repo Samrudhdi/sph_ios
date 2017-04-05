@@ -121,7 +121,7 @@
                                 </switch>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jiS-Ji-kAK">
                                     <rect key="frame" x="55" y="166" width="140" height="35"/>
-                                    <color key="backgroundColor" red="0.0" green="0.46748408567901228" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.46666666666666667" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="LTf-RY-zdC">
                                             <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -162,7 +162,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.16671943085925922" green="0.16858816156913578" blue="0.17013137144567897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="URh-PT-Hc9" firstAttribute="centerY" secondItem="yyw-Xb-br1" secondAttribute="centerY" id="2En-YR-XD6"/>
                                 <constraint firstItem="jiS-Ji-kAK" firstAttribute="top" secondItem="ueH-8P-ljn" secondAttribute="bottom" constant="45" id="E2Q-kL-JjN"/>
