@@ -10,7 +10,8 @@ import UIKit
 import FacebookCore
 import Fabric
 import Crashlytics
-import Mixpanel
+import Firebase
+//import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Fabric initialization
         Fabric.with([Crashlytics.self])
         
-        setupMixpanel()
+//        setupOneSignal(application: application, launchOptions: launchOptions)
+        setupNotification()
         
         // Google analytics
         var configureError: NSError?
@@ -80,9 +82,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let mixpanel = Mixpanel.mainInstance()
-        print("device token: \(deviceToken)")
-        mixpanel.people.addPushDeviceToken(deviceToken)
+//        let mixpanel = Mixpanel.mainInstance()
+//        print("device token: \(deviceToken)")
+//        mixpanel.people.addPushDeviceToken(deviceToken)
+        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -97,8 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController?.present(alert, animated: true, completion: nil)
             
         }
-        
-        Mixpanel.mainInstance().trackPushNotification(userInfo)
      }
     
     
@@ -111,19 +112,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //    }
 
-    func setupMixpanel() {
-        
-        // Mixpanel Initializer
-        Mixpanel.initialize(token: Constant.MIXPANEL_TOKEN)
-        Mixpanel.mainInstance().loggingEnabled = true
-        Mixpanel.mainInstance().flushInterval = 5
-        
+//    func setupOneSignal(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+//        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+//        
+//        // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
+//        OneSignal.initWithLaunchOptions(launchOptions,
+//                                        appId: Constant.OneSignal_KEY,
+//                                        handleNotificationAction: nil,
+//                                        settings: onesignalInitSettings)
+//    }
+    
+    func setupNotification() {
         let setting = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
         UIApplication.shared.registerUserNotificationSettings(setting)
         UIApplication.shared.registerForRemoteNotifications()
-        
-        Mixpanel.mainInstance().identify(distinctId: Mixpanel.mainInstance().distinctId)
-        
 
     }
 

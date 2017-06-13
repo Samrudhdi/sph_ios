@@ -2,25 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TRACKING_ID</key>
-	<string>UA-74086079-1</string>
+    <key>TRACKING_ID</key>
+    <string>UA-74086079-1</string>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>436930398920-8rl5qegi7ah9ablq2h8e84gtq8hlmdqe.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.436930398920-8rl5qegi7ah9ablq2h8e84gtq8hlmdqe</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzGRjyC0oe7JtHYWS2lrAZ6qqqRlI0_yc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>436930398920</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.patronous.sahipakdehai</string>
 	<key>PROJECT_ID</key>
 	<string>firebase-sahi-pakde-hai</string>
+	<key>STORAGE_BUCKET</key>
+	<string>firebase-sahi-pakde-hai.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<true/>
 	<key>IS_APPINVITE_ENABLED</key>
 	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<false/>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:436930398920:ios:d141e39a53c17db0</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-sahi-pakde-hai.firebaseio.com</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

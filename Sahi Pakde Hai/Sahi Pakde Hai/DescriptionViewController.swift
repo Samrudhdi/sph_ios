@@ -8,7 +8,8 @@
 
 import UIKit
 import StoreKit
-import Mixpanel
+import FacebookCore
+//import Mixpanel
 
 class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
@@ -78,7 +79,10 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     @IBAction func previewPlay(_ sender: AnyObject) {
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_PREVIEW, category: self.selecteCategory.categoryName, label: "")
         
-        Mixpanel.mainInstance().track(event: Constant.ACT_PREVIEW, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
+//        Mixpanel.mainInstance().track(event: Constant.ACT_PREVIEW, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
+        
+            
+        MyNotification.trackEvent(category: self.selecteCategory.categoryName, action: Constant.ACT_PREVIEW)
         
         PreviewUtil.isPreviewPlay = true
         goToGamePlayController()
@@ -142,7 +146,13 @@ class DescriptionViewController: BaseUIViewController, SKProductsRequestDelegate
     }
     
     func startGame() {
-        Mixpanel.mainInstance().track(event: Constant.ACT_PLAY, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
+//  use for sending event to facebook analytics
+    
+        
+//        Mixpanel.mainInstance().track(event: Constant.ACT_PLAY, properties: [Constant.CATEGORY:self.selecteCategory.categoryName])
+        
+        MyNotification.trackEvent(category: self.selecteCategory.categoryName, action: Constant.ACT_PLAY)
+        
         GoogleAnalyticsUtil.trackEvent(action: Constant.ACT_PLAY, category: self.selecteCategory.categoryName, label: "")
         PreviewUtil.isPreviewPlay = false
         setTeamPlayRound()

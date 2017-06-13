@@ -15,9 +15,12 @@ class Constant{
     
     
     // :mixpanel
-    static let MIXPANEL_TOKEN = "1f2c9bed7dcc2da97538e51b5d7e0c7d"
-    static let MIXPANEL_API_KEY = "fd2bf720e7e996f24f083bb617a15d8f"
-    static let MIXPANEL_API_SECRET = "737845a7f49ead75635cf608f21eaf1a"
+//    static let MIXPANEL_TOKEN = "1f2c9bed7dcc2da97538e51b5d7e0c7d"
+//    static let MIXPANEL_API_KEY = "fd2bf720e7e996f24f083bb617a15d8f"
+//    static let MIXPANEL_API_SECRET = "737845a7f49ead75635cf608f21eaf1a"
+    
+//    Onsignal
+    static let OneSignal_KEY = "172ffe3f-4da1-4eea-9857-6110fbb7fbd2"
     
     
     // video file name
@@ -57,7 +60,7 @@ class Constant{
     static let E_COMMERCE = "e-commerce"
     
     //    Category
-    static let CATEGORY = "Category"
+    static let CATEGORY = "category"
     static let CAT_CINEMA = "Cinema"
     static let CAT_LIGHT_CAMERA_ACTION = "Lights Camera Action"
     static let CAT_SIRF_HINDI_ME_BOL = "Sirf Hindi me Bol"
