@@ -12,11 +12,40 @@ import UIKit
 
 class Constant{
     
-    // Google Analytics
+    
+    
+    // :mixpanel
+//    static let MIXPANEL_TOKEN = "1f2c9bed7dcc2da97538e51b5d7e0c7d"
+//    static let MIXPANEL_API_KEY = "fd2bf720e7e996f24f083bb617a15d8f"
+//    static let MIXPANEL_API_SECRET = "737845a7f49ead75635cf608f21eaf1a"
+    
+//    Onsignal
+    static let OneSignal_KEY = "172ffe3f-4da1-4eea-9857-6110fbb7fbd2"
+    
+    
+    // video file name
+    static let FILE_NAME = "sahipakdehai.mov"
+    
+    
+    // App Name
+    static let APP_NAME = "Sahi Pakde Hai"
+    
+    // SKU
+    static let SKU_ADULTS_ONLY = "com.patronous.sahipakdehai.adults_only"
+    static let SKU_CRICKET = "com.patronous.sahipakdehai.cricket"
+    static let SKU_GOT = "com.patronous.sahipakdehai.game_of_thrones"
+    static let SKU_KIDS_ZONE = "com.patronous.sahipakdehai.kids_zone"
+    static let SKU_SONGS = "com.patronous.sahipakdehai.songs"
+    static let PURCHASED = "purchased"
+    
+    static let productIdentifiers: Set<String> = [Constant.SKU_ADULTS_ONLY,Constant.SKU_CRICKET,Constant.SKU_SONGS,Constant.SKU_GOT,Constant.SKU_KIDS_ZONE]
+    
     
     // Timer count
     static let count = 6000//6000
     static let threeTwoOneCount = 5
+    
+    // Google Analytics
     
     // Screen name
     static let SCREEN_CATEGORY_PAGE = "Category Page"
@@ -28,8 +57,10 @@ class Constant{
     static let SCREEN_WATCH_VIDEO = "Watch Video"
     static let SCREEN_SPLASH = "Splash Screen"
     static let SCREEN_TEAM_PLAY_FINAL_SCORE_CARD = "Final Team Play Score Card"
+    static let E_COMMERCE = "e-commerce"
     
     //    Category
+    static let CATEGORY = "category"
     static let CAT_CINEMA = "Cinema"
     static let CAT_LIGHT_CAMERA_ACTION = "Lights Camera Action"
     static let CAT_SIRF_HINDI_ME_BOL = "Sirf Hindi me Bol"
@@ -67,6 +98,10 @@ class Constant{
     static let ACT_CHOOSE_CATEGORY = "Choose Category"
     static let ACT_NUMBER_OF_ROUNDS = "Number of Rounds -"
     static let ACT_PREVIEW = "Preview"
+    static let ACT_INITIATED_DESCRIPTION_PAGE = "Initiated Buy Description Page"
+    static let ACT_INITIATED_SCORE_CARD_PAGE = "Initiated Buy Score Card Page"
+    static let ACT_BUY_DESCRIPTION_PAGE = "Purchased Description Page"
+    static let ACT_BUY_SCORE_CARD_PAGE = "Purchased Score Card Page"
 
     
     // color
@@ -93,9 +128,11 @@ class Constant{
     
 //    preference
     static let SHARED_PREF_NAME = "shared_preference_sph"
-    static let IS_FIRST_TIME_ENTER = "is_first_time_enter"
+    static let FIRST_TIME_ENTER = "first_time_enter"
     static let FIRST_TIME_DATA_LOAD = "first_time_data_load"
     static let UPDATE_VERSION_CODE = "update_version_code"
+    static let SOUND_SETTING = "sound_setting"
+    static let VIDEO_SETTING = "video_setting"
     
 //    :Description
     static let cinema_desc = "Help your teammate guess the right movie from this collection of your favorite hits.\n\n\nIt’s the original dumb charades we all know! ACT all you can but NO TALKING!"

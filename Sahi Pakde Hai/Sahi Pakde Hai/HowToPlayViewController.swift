@@ -9,13 +9,15 @@
 import UIKit
 
 class HowToPlayViewController: UIViewController {
+    
+    var isFromCategoryScreen = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_HELP)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_HELP)
     }
     
     override var shouldAutorotate: Bool {
@@ -31,6 +33,19 @@ class HowToPlayViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {})
+        if !isFromCategoryScreen {
+            showCategoryController()
+        }else {
+            dismiss(animated: true, completion: {})
+        }
+    }
+    
+    func showCategoryController() {
+        if self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") is CategorySelectionViewController {
+            
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "CATEGORY_VIEW") as! CategorySelectionViewController
+            present(controller, animated: true, completion: {})
+        }
+        
     }
 }

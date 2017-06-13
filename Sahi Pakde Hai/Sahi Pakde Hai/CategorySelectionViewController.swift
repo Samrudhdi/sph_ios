@@ -8,15 +8,24 @@
 
 import UIKit
 import AVFoundation
+import StoreKit
 
-class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    @IBOutlet weak var shareButton: UIButton!
+class CategorySelectionViewController: BaseUIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, SKPaymentTransactionObserver{
+    
+    @IBOutlet weak var settingButton: UIButton!
 
     @IBOutlet weak var teamPlayButton: UIButton!
     
     @IBOutlet weak var helpButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var settingView: UIView!
+    
+    @IBOutlet weak var switchSound: UISwitch!
+    
+    @IBOutlet weak var switchVideo: UISwitch!
+    
     let numberOfCell:CGFloat = 2
     var margin:CGFloat = 20.0
     
@@ -31,11 +40,19 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.register(UINib(nibName: "RestorePurchaseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RestorePurchaseCollectionViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        hideSettingView()
+        checkSettingPref()
+        SKPaymentQueue.default().add(self)
         changeBottomButtonIcons()
-        GoogleAnalyticsUtil().trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
+        GoogleAnalyticsUtil.trackScreen(screenName: Constant.SCREEN_CATEGORY_PAGE)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SKPaymentQueue.default().remove(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,22 +67,45 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         return UIInterfaceOrientationMask.portrait
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryArray.count
+        var count = 0
+        switch section {
+        case 0:
+            count = categoryArray.count
+            break
+        case 1:
+            count = 1
+            break
+        default:
+            count = 0
+            break
+        }
+        print("count \(count)")
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        cell.categoryImageView.image = UIImage.init(named: categoryArray[indexPath.row].image)
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+            cell.categoryImageView.image = UIImage.init(named: categoryArray[indexPath.row].image)
+            return cell
+        } else {
+            let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "RestorePurchaseCollectionViewCell", for: indexPath) as! RestorePurchaseCollectionViewCell
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let halfWidth = collectionView.frame.size.width / numberOfCell
-        return CGSize(width:  (halfWidth - (margin * 2)), height: (halfWidth - (margin * 2)))
+        if indexPath.section == 0 {
+            let halfWidth = collectionView.frame.size.width / numberOfCell
+            return CGSize(width:  (halfWidth - (margin * 2)), height: (halfWidth - (margin * 2)))
+        }else {
+            return CGSize(width: collectionView.frame.size.width - (80 * 2), height: 40)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -73,10 +113,24 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
 //        margin  = (frame.width - 90 * 2) / 5.0
         
 //        print("margin == \(margin)")
-        return UIEdgeInsetsMake(0, margin, 0, margin)
+        print("section: \(section)")
+        if section == 0 {
+            return UIEdgeInsetsMake(0, margin, 0, margin)
+        }else {
+            return UIEdgeInsetsMake(60, 80, 60, 80)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            categorySelected(indexPath: indexPath)
+        }else {
+            restorePurchase()
+        }
+    }
+    
+    func categorySelected(indexPath: IndexPath) {
         self.selectedCategory = categoryArray[indexPath.row]
         
         categorySelectionSound = CommonUtil().playSound(sound: "select_category", ofType: "mp3")
@@ -84,8 +138,12 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
             categorySelectionSound.play()
         }
         goToDescriptionScreen()
-//        perform(#selector(goToDescriptionScreen), with: nil, afterDelay: 0.5)
-        
+    }
+    
+    func restorePurchase() {
+        print("1: print restore purchase")
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        CommonUtil.showActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
     }
     
     func goToDescriptionScreen() {
@@ -106,7 +164,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cinemaCat.backgroundColor = Constant.bg_cinema
         cinemaCat.image = "cinema"
         cinemaCat.desc = Constant.cinema_desc
-        cinemaCat.isPaid = false
+        cinemaCat.isPaidCategory = false
         cinemaCat.categoryName = Constant.CAT_CINEMA
         
         var lightCameraActionCat = Category()
@@ -114,7 +172,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         lightCameraActionCat.backgroundColor = Constant.bg_light_camera_action
         lightCameraActionCat.image = "light_camera_action"
         lightCameraActionCat.desc = Constant.light_camera_action_desc
-        lightCameraActionCat.isPaid = false
+        lightCameraActionCat.isPaidCategory = false
         lightCameraActionCat.categoryName = Constant.CAT_LIGHT_CAMERA_ACTION
         
         var hindi = Category()
@@ -122,7 +180,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         hindi.backgroundColor = Constant.bg_sirf_hindi
         hindi.image = "hindi"
         hindi.desc = Constant.hindi_desc
-        hindi.isPaid = false
+        hindi.isPaidCategory = false
         hindi.categoryName = Constant.CAT_SIRF_HINDI_ME_BOL
         
         var heroHeroine = Category()
@@ -130,7 +188,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         heroHeroine.backgroundColor = Constant.bg_hero_heroine
         heroHeroine.image = "hero_heroine"
         heroHeroine.desc = Constant.hh_desc
-        heroHeroine.isPaid = false
+        heroHeroine.isPaidCategory = false
         heroHeroine.categoryName = Constant.CAT_HERO_HEROINE
         
         var adultOnly = Category()
@@ -138,15 +196,16 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         adultOnly.backgroundColor = Constant.bg_adult_only
         adultOnly.image = "icon_adults"
         adultOnly.desc = Constant.ao_desc
-        adultOnly.isPaid = true
+        adultOnly.isPaidCategory = true
         adultOnly.categoryName = Constant.CAT_ADULTS_ONLY
+        adultOnly.productIdentifier = Constant.SKU_ADULTS_ONLY
 
         var hollywood = Category()
         hollywood.categoryId = 6
         hollywood.backgroundColor = Constant.bg_hollywood
         hollywood.image = "hollywood"
         hollywood.desc = Constant.hollywood_desc
-        hollywood.isPaid = false
+        hollywood.isPaidCategory = false
         hollywood.categoryName = Constant.CAT_HOLLYWOOD
         
         var cricket = Category()
@@ -154,16 +213,18 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         cricket.backgroundColor = Constant.bg_cricket
         cricket.image = "cricket"
         cricket.desc = Constant.cricket_desc
-        cricket.isPaid = true
+        cricket.isPaidCategory = true
         cricket.categoryName = Constant.CAT_CRICKET
+        cricket.productIdentifier = Constant.SKU_CRICKET
 
         var songs = Category()
         songs.categoryId = 8
         songs.backgroundColor = Constant.bg_songs
         songs.image = "songs"
         songs.desc = Constant.songs_desc
-        songs.isPaid = true
+        songs.isPaidCategory = true
         songs.categoryName = Constant.CAT_SONGS
+        songs.productIdentifier = Constant.SKU_SONGS
         
         
         var mythology = Category()
@@ -171,7 +232,7 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         mythology.backgroundColor = Constant.bg_mythology
         mythology.image = "mythology"
         mythology.desc = Constant.mythology_desc
-        mythology.isPaid = false
+        mythology.isPaidCategory = false
         mythology.categoryName = Constant.CAT_MYTHOLOGY
 
         
@@ -180,39 +241,42 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         gameOfThrones.backgroundColor = Constant.bg_got
         gameOfThrones.image = "game_of_thrones"
         gameOfThrones.desc = Constant.got_desc
-        gameOfThrones.isPaid = true
+        gameOfThrones.isPaidCategory = true
         gameOfThrones.categoryName = Constant.CAT_GAME_OF_THRONES
+        gameOfThrones.productIdentifier = Constant.SKU_GOT
         
         var kidsZone = Category()
         kidsZone.categoryId = 11
         kidsZone.backgroundColor = Constant.bg_kids_zone
         kidsZone.image = "kid_zone"
         kidsZone.desc = Constant.kz_desc
-        kidsZone.isPaid = true
+        kidsZone.isPaidCategory = true
         kidsZone.categoryName = Constant.CAT_KIDS_ZONES
+        kidsZone.productIdentifier = Constant.SKU_KIDS_ZONE
         
         var khaanPaan = Category()
         khaanPaan.categoryId = 12
         khaanPaan.backgroundColor = Constant.bg_khaan_paan
         khaanPaan.image = "khaan_paan"
         khaanPaan.desc = Constant.kp_desc
-        khaanPaan.isPaid = false
+        khaanPaan.isPaidCategory = false
         khaanPaan.categoryName = Constant.CAT_KHAAN_PAAN
 
-        
+//        free category
         categoryArray.append(cinemaCat)
         categoryArray.append(lightCameraActionCat)
         categoryArray.append(hindi)
         categoryArray.append(heroHeroine)
-        categoryArray.append(adultOnly)
         categoryArray.append(hollywood)
-        
-        categoryArray.append(cricket)
-        categoryArray.append(songs)
         categoryArray.append(mythology)
+        categoryArray.append(khaanPaan)
+        
+//        paid category
+        categoryArray.append(songs)
+        categoryArray.append(cricket)
         categoryArray.append(gameOfThrones)
         categoryArray.append(kidsZone)
-        categoryArray.append(khaanPaan)
+        categoryArray.append(adultOnly)
         self.collectionView.reloadData()
         
     }
@@ -226,11 +290,11 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         }
     }
     
-    @IBAction func shareAppLink(_ sender: AnyObject) {
+    @IBAction func setting(_ sender: AnyObject) {
         if TeamPlayUtil.isTeamPlay {
             dismissCategoryViewController()
         }else {
-//            shareLink()
+            showSettingView()
         }
 
     }
@@ -246,10 +310,10 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     func changeBottomButtonIcons() {
         if TeamPlayUtil.isTeamPlay {
             teamPlayButton.setImage(UIImage(named: "team_mode_on"), for: .normal)
-            shareButton.setImage(UIImage(named: "back_team_play"), for: .normal)
+            settingButton.setImage(UIImage(named: "back_team_play"), for: .normal)
             helpButton.setImage(UIImage(named: "cancel_team_play"), for: .normal)
         }else {
-            shareButton.setImage(UIImage(named: "share"), for: .normal)
+            settingButton.setImage(UIImage(named: "setting"), for: .normal)
             teamPlayButton.setImage(UIImage(named: "team"), for: .normal)
             helpButton.setImage(UIImage(named: "que"), for: .normal)
         }
@@ -268,17 +332,19 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
         if self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") is HowToPlayViewController {
             
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "HOW_TO_PLAY_VIEW") as! HowToPlayViewController
+            controller.isFromCategoryScreen = true
             present(controller, animated: true, completion: {})
         }
 
     }
     
-    func shareLink() {
-        let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://play.google.com/store/apps/details?id=com.sahipakdehai"
+    func shareAppLink() {
+        let shareText = "Sahi Pakde Hai!\nGet this super fun charades app right now! Full of masti and entertainment with a special desi touch.\nhttps://itunes.apple.com/us/app/sahi-pakde-hai-dumb-charades/id1210599169?ls=1&mt=8"
         
         var contentArray:Array<String> = []
         contentArray.append(shareText)
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: contentArray, applicationActivities: nil)
+        
         present(activityViewController, animated: true, completion: nil)
 
     }
@@ -286,6 +352,92 @@ class CategorySelectionViewController: BaseUIViewController,UICollectionViewDele
     func dismissCategoryViewController() {
         dismiss(animated: true, completion: nil)
     }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("1: paymentQueueRestoreCompletedTransactionsFinished")
+        CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
+         CommonUtil.showMessage(controller: self, title: "Purchases Restored", message: "Your previously purchase(s) has been restored.")
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("1: updatedTransactions")
+        for transaction in transactions {
+            switch (transaction.transactionState) {
+            case .purchased, .restored:
+                print("\n purchased/restored")
+                PreferenceUtil.setPreference(value: true, key: transaction.payment.productIdentifier + "." + Constant.PURCHASED)
+                 SKPaymentQueue.default().finishTransaction(transaction)
+                break
+            case .failed:
+                print("\n fail")
+                break
+            case .deferred:
+                print("\n deferred")
+                break
+            case .purchasing:
+                print("\n purchasing")
+                break
+            }
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        print("1: restoreCompletedTransactionsFailedWithError")
+         CommonUtil.removeActivityIndicator(actInd: self.indicatorView, view: self.view, subView: super.subView)
+        CommonUtil.showMessage(controller: self, title: error.localizedDescription, message: "")
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        shareAppLink()
+    }
+    
+    @IBAction func cancelSettingView(_ sender: Any) {
+        hideSettingViewWithAnimation()
+    }
+    
+    func showSettingView() {
+//        self.settingView.alpha = 0.0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settingView.alpha = 1.0
+        })
+    }
+    
+    func hideSettingView() {
+        self.settingView.alpha = 0.0
+    }
+    
+    func hideSettingViewWithAnimation() {
+//        self.settingView.alpha = 1.0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settingView.alpha = 0.0
+        })
+    }
+    
+    @IBAction func changeSoundSetting(_ sender: Any) {
+        print(sender)
+        let soundSwitch:UISwitch = sender as! UISwitch
+        print(soundSwitch.isOn)
+        setSoundPreference(flag: soundSwitch.isOn)
+    }
+    
+    @IBAction func changeVideoSetting(_ sender: Any) {
+        let videoSwitch:UISwitch = sender as! UISwitch
+        setVideoPreference(flag: videoSwitch.isOn)
+    }
+    
+    func setSoundPreference(flag:Bool) {
+        PreferenceUtil.setPreference(value: flag, key: Constant.SOUND_SETTING)
+    }
+    
+    func setVideoPreference(flag:Bool) {
+        PreferenceUtil.setPreference(value: flag, key: Constant.VIDEO_SETTING)
+    }
+    
+    func checkSettingPref() {
+        self.switchSound.isOn = PreferenceUtil.getSettingPref(key: Constant.SOUND_SETTING)
+        self.switchVideo.isOn = PreferenceUtil.getSettingPref(key: Constant.VIDEO_SETTING)
+    }
+    
    
     /*
     // MARK: - Navigation

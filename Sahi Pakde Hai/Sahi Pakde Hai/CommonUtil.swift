@@ -10,13 +10,13 @@
 import Foundation
 import AVFoundation
 import UIKit
-import TTGSnackbar
 import SystemConfiguration
+import StoreKit
 
 
 class CommonUtil{
     
-    func playSound(sound:String,ofType:String) -> AVAudioPlayer {
+    func playSound(sound:String,ofType:String) -> AVAudioPlayer? {
         var categorySelectionSound:AVAudioPlayer? = nil
         let path = Bundle.main.path(forResource: sound, ofType:ofType)!
         let url = URL(fileURLWithPath: path)
@@ -25,7 +25,12 @@ class CommonUtil{
         }catch {
             print("couldn't load file")
         }
-        return categorySelectionSound!
+        
+        if !PreferenceUtil.getSettingPref(key: Constant.SOUND_SETTING) {
+            return nil
+        }else {
+            return categorySelectionSound!
+        }
     }
     
     static func showActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
@@ -35,10 +40,9 @@ class CommonUtil{
         actInd.hidesWhenStopped = true
         actInd.activityIndicatorViewStyle = .whiteLarge
         actInd.color = Constant.whiteColor
-        
         view.addSubview(subView)
         view.addSubview(actInd)
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
         
         actInd.startAnimating()
     }
@@ -46,15 +50,20 @@ class CommonUtil{
     static func removeActivityIndicator(actInd:UIActivityIndicatorView,view:UIView,subView:UIView){
         subView.removeFromSuperview()
         actInd.stopAnimating()
+        view.isUserInteractionEnabled = true
         actInd.isHidden = true
     }
     
-    static func showMessageOnSnackbar(message:String){
-        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
-        snackbar.backgroundColor = Constant.whiteColor
-        snackbar.messageTextColor = Constant.blackColor
+    static func showMessage(controller: UIViewController, title: String, message: String){
+//        let snackbar = TTGSnackbar.init(message: message, duration: .middle)
+//        snackbar.backgroundColor = Constant.whiteColor
+//        snackbar.messageTextColor = Constant.blackColor
         //        snackbar.messageTextFont = UIFont(name:"AppleSDGothicNeo-Regular", size: 17.0)!
-        snackbar.show()
+//        snackbar.show()
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        controller.present(alertController, animated: true, completion: nil)
     }
     
     static func isInternetAvailable() -> Bool
@@ -187,3 +196,15 @@ extension UITableView {
         }
     }
 }
+
+extension SKProduct {
+    
+    func localizedPrice() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = self.priceLocale
+        return formatter.string(from: self.price)!
+    }
+    
+}
+

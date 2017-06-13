@@ -7,7 +7,11 @@
 //
 
 import UIKit
-import FBSDKCoreKit
+import FacebookCore
+import Fabric
+import Crashlytics
+import Firebase
+//import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,25 +22,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Fabric initialization
+        Fabric.with([Crashlytics.self])
+        
+//        setupOneSignal(application: application, launchOptions: launchOptions)
+        setupNotification()
+        
         // Google analytics
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         // Optional: configure GAI options.
+        
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         guard let gai = GAI.sharedInstance() else {
             assert(false, "Google Analytics not configured correctly")
-            return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+            return true
         }
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
         gai.logger.logLevel = GAILogLevel.verbose  // remove before app release
-        
-        
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        return SDKApplicationDelegate.shared.application(application,
+                                                         open: url,
+                                                         sourceApplication: sourceApplication,
+                                                         annotation: annotation)
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        return SDKApplicationDelegate.shared.application(application, open: url, options: options)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -61,6 +81,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        let mixpanel = Mixpanel.mainInstance()
+//        print("device token: \(deviceToken)")
+//        mixpanel.people.addPushDeviceToken(deviceToken)
+        
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        debugPrint(error)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        debugPrint("did receive remote notification")
+        if let message = (userInfo["aps"] as? [String: Any])?["alert"] as? String {
+            let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
+            
+        }
+     }
+    
+    
 //    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 //    
 //        if self.window?.rootViewController?.presentingViewController is PlayGameViewController {
@@ -70,6 +112,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //    }
 
+//    func setupOneSignal(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+//        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+//        
+//        // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
+//        OneSignal.initWithLaunchOptions(launchOptions,
+//                                        appId: Constant.OneSignal_KEY,
+//                                        handleNotificationAction: nil,
+//                                        settings: onesignalInitSettings)
+//    }
+    
+    func setupNotification() {
+        let setting = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(setting)
+        UIApplication.shared.registerForRemoteNotifications()
+
+    }
 
 }
+
 

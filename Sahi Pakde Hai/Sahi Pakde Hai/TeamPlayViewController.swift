@@ -37,14 +37,14 @@ class TeamPlayViewController: BaseUIViewController {
     }
     
     @IBAction func back(_ sender: AnyObject) {
-        GoogleAnalyticsUtil().trackEvent(action:Constant.ACT_CANCEL, category: Constant.CAT_TEAM_PLAY, label: "")
+        GoogleAnalyticsUtil.trackEvent(action:Constant.ACT_CANCEL, category: Constant.CAT_TEAM_PLAY, label: "")
         TeamPlayUtil.setIsTeamPlay(isTeamPlay: false)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func chooseCategory(_ sender: AnyObject) {
-        GoogleAnalyticsUtil().trackEvent(action: "\(Constant.ACT_NUMBER_OF_ROUNDS) \(selectedRound)", category: Constant.CAT_TEAM_PLAY, label: "")
-        GoogleAnalyticsUtil().trackEvent(action:Constant.ACT_CHOOSE_CATEGORY, category: Constant.CAT_TEAM_PLAY, label: "")
+        GoogleAnalyticsUtil.trackEvent(action: "\(Constant.ACT_NUMBER_OF_ROUNDS) \(selectedRound)", category: Constant.CAT_TEAM_PLAY, label: "")
+        GoogleAnalyticsUtil.trackEvent(action:Constant.ACT_CHOOSE_CATEGORY, category: Constant.CAT_TEAM_PLAY, label: "")
         TeamPlayUtil.setIsTeamPlay(isTeamPlay: true)
         TeamPlayUtil.setTotalRounds(round: self.selectedRound)
         TeamPlayUtil.initTeamScore()

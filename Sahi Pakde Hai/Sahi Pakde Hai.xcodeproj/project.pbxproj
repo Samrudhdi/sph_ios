@@ -19,7 +19,9 @@
 		3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */; };
 		3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */; };
 		3D2471D71E5AF518002004CB /* GoogleAnalyticsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */; };
-		3D2471D91E5AFA2F002004CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */; };
+		3D26442D1E94FFFD000A04BC /* Pods_Sahi_Pakde_Hai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */; };
+		3D27B0781ECAE62B0095965B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D27B0771ECAE62B0095965B /* GoogleService-Info.plist */; };
+		3D27D3681E69497000237801 /* PreferenceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27D3671E69497000237801 /* PreferenceUtil.swift */; };
 		3D3659B31E01B2900018F13E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B21E01B2900018F13E /* Category.swift */; };
 		3D3659B51E01B7A50018F13E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3659B41E01B7A50018F13E /* Constant.swift */; };
 		3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */; };
@@ -40,9 +42,12 @@
 		3D6F76EA1E0310A3006E560B /* time_low_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */; };
 		3D6F76EB1E0310A3006E560B /* final_score.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E31E0310A3006E560B /* final_score.mp3 */; };
 		3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F76E41E0310A3006E560B /* pass.mp3 */; };
+		3D756FB01E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */; };
+		3D756FB11E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */; };
 		3D79F21E1E643D7300BECAC8 /* TeamPlayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */; };
 		3D79F2211E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */; };
 		3D79F2221E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */; };
+		3D7FA1951EC0499D00538C71 /* MyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FA1941EC0499C00538C71 /* MyNotification.swift */; };
 		3D806ECE1E5D6A910004C2D8 /* PreviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */; };
 		3D9487411E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D94873F1E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift */; };
 		3D9487421E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9487401E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib */; };
@@ -52,6 +57,8 @@
 		3DA704311E13B964005DC85B /* DeckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704301E13B964005DC85B /* DeckResult.swift */; };
 		3DA704381E13CAC2005DC85B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */; };
 		3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */; };
+		3DA965E11E6D51D100BC4973 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA965E01E6D51D100BC4973 /* IAPHelper.swift */; };
+		3DA965E61E6D8E6800BC4973 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA965E51E6D8E6800BC4973 /* StoreKit.framework */; };
 		3DC1A39E1E4C88BA00330170 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */; };
 		3DC1A3A01E4C8BF200330170 /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1A39F1E4C8BF200330170 /* MKLayer.swift */; };
 		3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */; };
@@ -66,7 +73,6 @@
 		3DE98C1A1D1D0D8A0071C1C7 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C181D1D0D8A0071C1C7 /* DescriptionViewController.swift */; };
 		3DE98C1B1D1D0D8A0071C1C7 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DE98C191D1D0D8A0071C1C7 /* DescriptionViewController.xib */; };
 		3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE98C311D1D43FA0071C1C7 /* CommonUtil.swift */; };
-		F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +88,8 @@
 		3D20ABD61DF73A8C009DFB7E /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		3D20ABD71DF73A8C009DFB7E /* PlayGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
 		3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsUtil.swift; sourceTree = "<group>"; };
-		3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D27B0771ECAE62B0095965B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D27D3671E69497000237801 /* PreferenceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceUtil.swift; sourceTree = "<group>"; };
 		3D3659B21E01B2900018F13E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D3659B41E01B7A50018F13E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3D37A6CF1E0C4C6B00DD9F70 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
@@ -110,9 +117,12 @@
 		3D6F76E21E0310A3006E560B /* time_low_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_low_loop.mp3; sourceTree = "<group>"; };
 		3D6F76E31E0310A3006E560B /* final_score.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = final_score.mp3; sourceTree = "<group>"; };
 		3D6F76E41E0310A3006E560B /* pass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pass.mp3; sourceTree = "<group>"; };
+		3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestorePurchaseCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D79F21D1E643D7300BECAC8 /* TeamPlayUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamPlayUtil.swift; sourceTree = "<group>"; };
 		3D79F21F1E645B2C00BECAC8 /* TeamFinalScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinalScoreCardViewController.swift; sourceTree = "<group>"; };
 		3D79F2201E645B2C00BECAC8 /* TeamFinalScoreCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamFinalScoreCardViewController.xib; sourceTree = "<group>"; };
+		3D7FA1941EC0499C00538C71 /* MyNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotification.swift; sourceTree = "<group>"; };
 		3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewUtil.swift; sourceTree = "<group>"; };
 		3D94873F1E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamFinalScoreTableViewCell.swift; sourceTree = "<group>"; };
 		3D9487401E656A3D00D1DEDF /* TeamFinalScoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamFinalScoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +132,9 @@
 		3DA704301E13B964005DC85B /* DeckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckResult.swift; sourceTree = "<group>"; };
 		3DA704361E13CAC2005DC85B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		3DA704371E13CAC2005DC85B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		3DA965E01E6D51D100BC4973 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		3DA965E51E6D8E6800BC4973 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3DB24AA71E89036A00CE0D34 /* Sahi Pakde Hai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sahi Pakde Hai.entitlements"; sourceTree = "<group>"; };
 		3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DC1A39F1E4C8BF200330170 /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
 		3DC78E3A1E405A2F009BAA60 /* VideoPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayViewController.swift; sourceTree = "<group>"; };
@@ -148,8 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D26442D1E94FFFD000A04BC /* Pods_Sahi_Pakde_Hai.framework in Frameworks */,
+				3DA965E61E6D8E6800BC4973 /* StoreKit.framework in Frameworks */,
 				3D3C763B1E12E0CE00A67EF5 /* libsqlite3.0.tbd in Frameworks */,
-				F478B38F1FBD2DB4C9A7ED3D /* Pods_Sahi_Pakde_Hai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +173,7 @@
 		268119EE04796434788096F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DA965E51E6D8E6800BC4973 /* StoreKit.framework */,
 				3D3C763A1E12E0CE00A67EF5 /* libsqlite3.0.tbd */,
 				F86CAC73893D6FB6A2F55C61 /* Pods_Sahi_Pakde_Hai.framework */,
 			);
@@ -185,6 +200,8 @@
 				3D20ABCE1DF72176009DFB7E /* CollectionViewCell.xib */,
 				3DC1A39D1E4C88BA00330170 /* MKCollectionViewCell.swift */,
 				3DC1A39F1E4C8BF200330170 /* MKLayer.swift */,
+				3D756FAE1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift */,
+				3D756FAF1E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib */,
 			);
 			name = CategoryView;
 			sourceTree = "<group>";
@@ -275,6 +292,14 @@
 			name = TeamFinalScore;
 			sourceTree = "<group>";
 		};
+		3DA965E21E6D633D00BC4973 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				3DA965E01E6D51D100BC4973 /* IAPHelper.swift */,
+			);
+			name = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		3DC78E391E4059FD009BAA60 /* VideoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +348,8 @@
 		3DE98C011D1D0BB40071C1C7 /* Sahi Pakde Hai */ = {
 			isa = PBXGroup;
 			children = (
+				3DB24AA71E89036A00CE0D34 /* Sahi Pakde Hai.entitlements */,
+				3DA965E21E6D633D00BC4973 /* InAppPurchase */,
 				3D94873E1E65670100D1DEDF /* TeamFinalScore */,
 				3DD4EDB51E643B2D0040AA1B /* TeamPlay */,
 				3DC78E3E1E407628009BAA60 /* SplashScreen */,
@@ -339,8 +366,8 @@
 				3DE98C021D1D0BB40071C1C7 /* AppDelegate.swift */,
 				3DE98C061D1D0BB40071C1C7 /* Main.storyboard */,
 				3DE98C091D1D0BB40071C1C7 /* Assets.xcassets */,
+				3D27B0771ECAE62B0095965B /* GoogleService-Info.plist */,
 				3DE98C0E1D1D0BB40071C1C7 /* Info.plist */,
-				3D2471D81E5AFA2F002004CB /* GoogleService-Info.plist */,
 			);
 			path = "Sahi Pakde Hai";
 			sourceTree = "<group>";
@@ -356,6 +383,8 @@
 				3D3C76251E12BB8100A67EF5 /* SQLiteDatabase.swift */,
 				3D2471D61E5AF518002004CB /* GoogleAnalyticsUtil.swift */,
 				3D806ECD1E5D6A910004C2D8 /* PreviewUtil.swift */,
+				3D27D3671E69497000237801 /* PreferenceUtil.swift */,
+				3D7FA1941EC0499C00538C71 /* MyNotification.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -382,6 +411,7 @@
 				3DE98BFD1D1D0BB40071C1C7 /* Resources */,
 				771C2C9796E9922F788A15DF /* [CP] Embed Pods Frameworks */,
 				4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */,
+				3D28286F1E82451400A5AEB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -406,6 +436,14 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = V3J7536XE6;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -445,18 +483,19 @@
 				3D9487461E65756400D1DEDF /* TotalScoreTableViewCell.xib in Resources */,
 				3D6F76E61E0310A3006E560B /* get_ready.mp3 in Resources */,
 				3DA704391E13CAC2005DC85B /* ResultTableViewCell.xib in Resources */,
+				3D27B0781ECAE62B0095965B /* GoogleService-Info.plist in Resources */,
 				3DC78E421E407647009BAA60 /* SplashScreenViewController.xib in Resources */,
 				3DE98C0A1D1D0BB40071C1C7 /* Assets.xcassets in Resources */,
 				3D1661F01D20EF5400EA2DD8 /* HowToPlayViewController.xib in Resources */,
 				3D20ABD91DF73A8C009DFB7E /* PlayGameViewController.xib in Resources */,
 				3DE98C081D1D0BB40071C1C7 /* Main.storyboard in Resources */,
+				3D756FB11E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.xib in Resources */,
 				3D20ABCC1DF7212B009DFB7E /* CategorySelectionViewController.xib in Resources */,
 				3D6F76E71E0310A3006E560B /* round_end_buzzer.mp3 in Resources */,
 				3D20ABD01DF72176009DFB7E /* CollectionViewCell.xib in Resources */,
 				3D6F76EC1E0310A3006E560B /* pass.mp3 in Resources */,
 				3DD4EDBB1E643B420040AA1B /* TeamPlayViewController.xib in Resources */,
 				3D6F76E51E0310A3006E560B /* correct.mp3 in Resources */,
-				3D2471D91E5AFA2F002004CB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +516,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		3D28286F1E82451400A5AEB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fcf61b40e40c4b4d5e83dfc1f367d7a53fa721a2 ae78bed5e727b72c8d61f3d610b42ea2ae8656880afc59024db4e7a65c9c29e8";
 		};
 		4AC42D0404A8012D2A16C019 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -524,6 +576,7 @@
 				3D3659B31E01B2900018F13E /* Category.swift in Sources */,
 				3D1661EF1D20EF5400EA2DD8 /* HowToPlayViewController.swift in Sources */,
 				3DD4EDBA1E643B420040AA1B /* TeamPlayViewController.swift in Sources */,
+				3D7FA1951EC0499D00538C71 /* MyNotification.swift in Sources */,
 				3D3C76351E12BC4300A67EF5 /* FMDatabaseAdditions.m in Sources */,
 				3DC1A39E1E4C88BA00330170 /* MKCollectionViewCell.swift in Sources */,
 				3D20ABD81DF73A8C009DFB7E /* PlayGameViewController.swift in Sources */,
@@ -531,6 +584,7 @@
 				3D37A6D11E0C4C6B00DD9F70 /* ScoreCardViewController.swift in Sources */,
 				3DC78E3C1E405A2F009BAA60 /* VideoPlayViewController.swift in Sources */,
 				3D20ABCB1DF7212B009DFB7E /* CategorySelectionViewController.swift in Sources */,
+				3D756FB01E7277BD00230BA8 /* RestorePurchaseCollectionViewCell.swift in Sources */,
 				3D3C76371E12BC4300A67EF5 /* FMDatabaseQueue.m in Sources */,
 				3DE98C321D1D43FA0071C1C7 /* CommonUtil.swift in Sources */,
 				3D0131161E11865B00845149 /* Deck.swift in Sources */,
@@ -547,6 +601,8 @@
 				3D79F21E1E643D7300BECAC8 /* TeamPlayUtil.swift in Sources */,
 				3DE98C031D1D0BB40071C1C7 /* AppDelegate.swift in Sources */,
 				3D3C76261E12BB8100A67EF5 /* SQLiteDatabase.swift in Sources */,
+				3D27D3681E69497000237801 /* PreferenceUtil.swift in Sources */,
+				3DA965E11E6D51D100BC4973 /* IAPHelper.swift in Sources */,
 				3D3C76341E12BC4300A67EF5 /* FMDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sahi Pakde Hai/Sahi Pakde Hai.entitlements";
 				DEVELOPMENT_TEAM = V3J7536XE6;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -670,7 +727,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -682,6 +739,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sahi Pakde Hai/Sahi Pakde Hai.entitlements";
 				DEVELOPMENT_TEAM = V3J7536XE6;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -690,7 +748,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -50,13 +50,21 @@ class TeamFinalScoreCardViewController: UIViewController,UITableViewDelegate, UI
         showPlayGameController()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teamScoreArray!.count + 1
+        if section == 0 {
+            return (teamScoreArray?.count)!
+        }else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
-        if indexPath.row < (teamScoreArray?.count)! {
+        if indexPath.section == 0 {
             let teamPlayScore = teamScoreArray?[indexPath.row]
             let team1 = teamPlayScore?.team1Score
             let team2 = teamPlayScore?.team2Score
