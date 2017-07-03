@@ -10,8 +10,7 @@ import UIKit
 import FacebookCore
 import Fabric
 import Crashlytics
-import Firebase
-//import OneSignal
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Fabric initialization
         Fabric.with([Crashlytics.self])
         
-//        setupOneSignal(application: application, launchOptions: launchOptions)
+        setupOneSignal(application: application, launchOptions: launchOptions)
         setupNotification()
         
         // Google analytics
@@ -112,15 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //    }
 
-//    func setupOneSignal(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
-//        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
-//        
-//        // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
-//        OneSignal.initWithLaunchOptions(launchOptions,
-//                                        appId: Constant.OneSignal_KEY,
-//                                        handleNotificationAction: nil,
-//                                        settings: onesignalInitSettings)
-//    }
+    func setupOneSignal(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        // Replace '11111111-2222-3333-4444-0123456789ab' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: Constant.OneSignal_KEY,
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+    }
     
     func setupNotification() {
         let setting = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)

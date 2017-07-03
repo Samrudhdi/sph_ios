@@ -7,13 +7,11 @@
 //
 
 import Foundation
-import Firebase
-//import OneSignal
+import OneSignal
 
 class MyNotification {
     
     static func trackEvent(category: String, action: String){
-//        OneSignal.sendTag(category, value: action)
-        FIRMessaging.messaging().subscribe(toTopic: action+"_"+category.replacingOccurrences(of: " ", with: "_"))
+        OneSignal.sendTag(category, value: action)
     }
 }

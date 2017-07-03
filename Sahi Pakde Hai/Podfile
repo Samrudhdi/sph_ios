@@ -15,11 +15,11 @@ target 'Sahi Pakde Hai' do
     pod 'GoogleIDFASupport'
     pod 'Fabric'
     pod 'Crashlytics'
-#    pod 'OneSignal', '>= 2.5.2', '< 3.0'
+    pod 'OneSignal', '>= 2.5.2', '< 3.0'
     pod 'Google/SignIn'
 #    pod 'FBNotifications'
-    pod 'Firebase/Core'
-    pod 'Firebase/Messaging'
+#    pod 'Firebase/Core'
+#    pod 'Firebase/Messaging'
 #    pod "AsyncSwift"
 #    pod 'RippleAnimation'
 

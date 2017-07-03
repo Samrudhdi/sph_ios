@@ -436,6 +436,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = V3J7536XE6;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -718,12 +719,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Sahi Pakde Hai/Sahi Pakde Hai.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = V3J7536XE6;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a17358f3-b5fe-403e-a997-48d73f448e9a";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.patronous.sahipakdehai";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -740,12 +744,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Sahi Pakde Hai/Sahi Pakde Hai.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = V3J7536XE6;
 				INFOPLIST_FILE = "Sahi Pakde Hai/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.patronous.sahipakdehai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a17358f3-b5fe-403e-a997-48d73f448e9a";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.patronous.sahipakdehai";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sahi Pakde Hai/Sahi Pakde Hai-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
