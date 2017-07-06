@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1897159060540145</string>
+				<string>fb866131513498704</string>
 			</array>
 		</dict>
 	</array>
@@ -44,9 +44,9 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>1897159060540145</string>
+	<string>866131513498704</string>
 	<key>FacebookDisplayName</key>
-	<string>SahiPakdeHaiTest</string>
+	<string>Sahi Pakde Hai!</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
